@@ -1,0 +1,36 @@
+# Secrets: every .env stays on your own PC. The .env.example files show what to put in them.
+.env
+.env*.local
+expo.txt
+
+# Dependencies (reinstalled with npm install / pip install -r requirements.txt)
+node_modules/
+.venv/
+__pycache__/
+
+# Expo build output
+.expo/
+dist/
+web-build/
+
+# Source workbooks downloaded by hand from the ICRISAT portal (20 MB; training/read_icrisat.py
+# turns them into data/raw/icrisat_season_area.csv, which is in the repository)
+ml-service/data/raw/icrisat/
+icrisat/
+
+# The trained model (121 MB, over GitHub's 100 MB limit). training/train_location_model.py
+# rebuilds the same model (fixed random_state); the results it produced are in artifacts/.
+ml-service/artifacts/crop_model.joblib
+
+# Farmer feedback export (contains farm locations)
+ml-service/data/raw/farmer_feedback.csv
+
+# Run logs (training/run_all.ps1 writes one; the results themselves are in artifacts/)
+*.log
+
+# Local editor and tool files
+.dist/
+.postman/
+postman/
+.vscode/
+.DS_Store

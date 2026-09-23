@@ -1,0 +1,15 @@
+dataset,model,accuracy,macro_f1
+Kaggle benchmark,Naive Bayes,0.9955,0.9954
+Kaggle benchmark,Logistic Regression,0.9727,0.9725
+Kaggle benchmark,KNN,0.9705,0.9702
+Kaggle benchmark,Decision Tree,0.9795,0.9794
+Kaggle benchmark,MLP,0.9909,0.9909
+Kaggle benchmark,Random Forest,0.9955,0.9955
+Kaggle benchmark,Stacking (RF+ET+HGB+KNN -> LR),0.9909,0.9909
+Consolidated,Naive Bayes,0.169,0.03
+Consolidated,Logistic Regression,0.1688,0.0229
+Consolidated,KNN,0.1752,0.0626
+Consolidated,Decision Tree,0.1662,0.087
+Consolidated,MLP,0.2051,0.0741
+Consolidated,Random Forest,0.2462,0.0875
+Consolidated,Stacking (RF+ET+HGB+KNN -> LR),0.2677,0.0701

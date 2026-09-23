@@ -1,0 +1,27 @@
+# Tested with Python 3.13. Install inside the ml-service virtual environment:
+#   python -m venv .venv
+#   .venv\Scripts\activate          (Windows)   |   source .venv/bin/activate   (Mac/Linux)
+#   pip install -r requirements.txt
+#
+# Versions are pinned: the saved model (artifacts/crop_model.joblib) must be loaded with the same
+# scikit-learn version it was trained with.
+
+# API
+fastapi==0.141.1
+uvicorn==0.53.0
+python-dotenv==1.2.3       # lets uvicorn read .env (--env-file)
+
+# Data and model
+pandas==3.0.6
+numpy==2.5.3
+scikit-learn==1.9.1
+joblib==1.6.0
+scipy==1.18.1
+pillow==12.3.0             # reads the SoilGrids map tiles
+
+# Explanations
+shap==0.52.0
+lime==0.2.0.1
+
+# Training only: reads the ICRISAT .xlsx workbook (training/read_icrisat.py). The app never uses it.
+openpyxl==3.1.5

@@ -1,0 +1,31 @@
+district,model_top3,really_grown_most,main_crop_in_top3,all_top3_grown_here
+BAGALKOT,"chickpea, maize, green gram",chickpea,True,True
+BANGALORE RURAL,"ragi, maize, mango",ragi,True,True
+BELGAUM,"maize, chickpea, soybean",maize,True,True
+BELLARY,"maize, rice, cotton",maize,True,True
+BENGALURU URBAN,"ragi, pigeonpea (tur), coconut",ragi,True,True
+BIDAR,"soybean, pigeonpea (tur), chickpea",soybean,True,True
+BIJAPUR,"pigeonpea (tur), chickpea, jowar",pigeonpea (tur),True,True
+CHAMARAJANAGAR,"maize, horse gram, jowar",maize,True,True
+CHIKBALLAPUR,"maize, ragi, groundnut",maize,True,True
+CHIKMAGALUR,"coffee, coconut, rice",coffee,True,True
+CHITRADURGA,"groundnut, maize, chickpea",groundnut,True,True
+DAKSHIN KANNAD,"coconut, rice, arecanut",coconut,True,True
+DAVANGERE,"maize, rice, coconut",maize,True,True
+DHARWAD,"chickpea, cotton, green gram",chickpea,True,True
+GADAG,"chickpea, green gram, groundnut",chickpea,True,True
+GULBARGA,"pigeonpea (tur), chickpea, cotton",pigeonpea (tur),True,True
+HASSAN,"maize, ragi, coconut",maize,True,True
+HAVERI,"maize, cotton, rice",maize,True,True
+KODAGU,"coffee, black pepper, rice",coffee,True,True
+KOLAR,"ragi, mango, tomato",ragi,True,True
+KOPPAL,"chickpea, bajra, rice",bajra,True,True
+MANDYA,"rice, ragi, coconut",ragi,True,True
+MYSORE,"rice, ragi, cotton",rice,True,True
+RAICHUR,"rice, chickpea, cotton",chickpea,True,True
+RAMANAGARA,"ragi, coconut, mango",ragi,True,True
+SHIMOGA,"rice, maize, arecanut",rice,True,True
+TUMKUR,"coconut, ragi, groundnut",coconut,True,True
+UDUPI,"rice, coconut, chilli",rice,True,True
+UTTAR KANNAD,"rice, coconut, maize",rice,True,True
+YADGIR,"cotton, pigeonpea (tur), rice",cotton,True,True

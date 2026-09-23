@@ -1,0 +1,16 @@
+{
+  "name": "greenroot-backend",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --env-file=.env src/server.js",
+    "dev": "node --env-file=.env --watch src/server.js",
+    "export-feedback": "node --env-file=.env scripts/export-feedback.js",
+    "create-admin": "node --env-file=.env scripts/create-admin.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "pg": "^8.23.0"
+  }
+}

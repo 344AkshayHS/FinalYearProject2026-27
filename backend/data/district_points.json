@@ -1,0 +1,122 @@
+{
+  "BAGALKOT": {
+    "lat": 16.236,
+    "lng": 75.3799
+  },
+  "BANGALORE RURAL": {
+    "lat": 13.2858,
+    "lng": 77.5632
+  },
+  "BELGAUM": {
+    "lat": 16.3105,
+    "lng": 74.5364
+  },
+  "BELLARY": {
+    "lat": 14.9652,
+    "lng": 76.3088
+  },
+  "BENGALURU URBAN": {
+    "lat": 12.9042,
+    "lng": 77.5108
+  },
+  "BIDAR": {
+    "lat": 18.0476,
+    "lng": 77.2186
+  },
+  "BIJAPUR": {
+    "lat": 16.8577,
+    "lng": 76.0303
+  },
+  "CHAMARAJANAGAR": {
+    "lat": 11.9648,
+    "lng": 77.0783
+  },
+  "CHIKBALLAPUR": {
+    "lat": 13.6418,
+    "lng": 77.6966
+  },
+  "CHIKMAGALUR": {
+    "lat": 13.5484,
+    "lng": 75.4836
+  },
+  "CHITRADURGA": {
+    "lat": 14.1545,
+    "lng": 76.4579
+  },
+  "DAKSHIN KANNAD": {
+    "lat": 12.8765,
+    "lng": 75.1045
+  },
+  "DAVANGERE": {
+    "lat": 14.4418,
+    "lng": 75.8347
+  },
+  "DHARWAD": {
+    "lat": 15.5808,
+    "lng": 75.138
+  },
+  "GADAG": {
+    "lat": 15.4526,
+    "lng": 75.5497
+  },
+  "GULBARGA": {
+    "lat": 16.9957,
+    "lng": 76.7776
+  },
+  "HASSAN": {
+    "lat": 12.9179,
+    "lng": 76.1683
+  },
+  "HAVERI": {
+    "lat": 14.7643,
+    "lng": 75.3534
+  },
+  "KODAGU": {
+    "lat": 12.3968,
+    "lng": 75.7483
+  },
+  "KOLAR": {
+    "lat": 13.1616,
+    "lng": 78.2546
+  },
+  "KOPPAL": {
+    "lat": 15.8213,
+    "lng": 76.234
+  },
+  "MANDYA": {
+    "lat": 12.5059,
+    "lng": 76.7861
+  },
+  "MYSORE": {
+    "lat": 12.2577,
+    "lng": 76.4347
+  },
+  "RAICHUR": {
+    "lat": 16.1402,
+    "lng": 76.6704
+  },
+  "RAMANAGARA": {
+    "lat": 12.4835,
+    "lng": 77.4073
+  },
+  "SHIMOGA": {
+    "lat": 13.9875,
+    "lng": 75.1017
+  },
+  "TUMKUR": {
+    "lat": 13.4182,
+    "lng": 77.0704
+  },
+  "UDUPI": {
+    "lat": 13.4223,
+    "lng": 74.8904
+  },
+  "UTTAR KANNAD": {
+    "lat": 15.0629,
+    "lng": 74.6487
+  },
+  "YADGIR": {
+    "lat": 16.6398,
+    "lng": 76.8825
+  }
+}

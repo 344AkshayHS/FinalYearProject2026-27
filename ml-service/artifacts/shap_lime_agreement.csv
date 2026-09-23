@@ -1,0 +1,49 @@
+crop,grown_in_karnataka,points_explained,shap_top3,lime_top3,jaccard_top3,spearman
+arecanut,True,10,"Elevation, Humidity, Rainfall","Humidity, Max_Temperature, Rainfall",0.5,0.466
+bajra,True,10,"Humidity, Rainfall, Solar_Radiation","Humidity, Rainfall, Solar_Radiation",1.0,0.475
+banana,False,10,"Humidity, Rainfall, Winter_Temperature","Elevation, Temperature, Winter_Temperature",0.2,0.181
+barley,False,10,"Humidity, Rainfall, Winter_Temperature","Elevation, Temperature, Winter_Temperature",0.2,0.218
+black gram,True,10,"Humidity, Monsoon_Rain_Share, Winter_Temperature","Humidity, Monsoon_Rain_Share, Solar_Radiation",0.5,0.561
+black pepper,True,10,"Humidity, Rainfall, Winter_Temperature","Humidity, Rainfall, pH",0.5,0.779
+cardamom,False,10,"Humidity, Post_Monsoon_Rain_Share, Rainfall","Humidity, Organic_Carbon, Rainfall",0.5,0.4
+cashewnut,False,10,"Humidity, Rainfall, Winter_Temperature","Humidity, Rainfall, Winter_Temperature",1.0,0.495
+castor,False,10,"Humidity, Solar_Radiation, Winter_Temperature","Monsoon_Rain_Share, Rainfall, Solar_Radiation",0.2,0.836
+chickpea,True,10,"Humidity, Rainfall, Winter_Temperature","Humidity, Rainfall, Solar_Radiation",0.5,0.588
+chilli,True,10,"Humidity, Post_Monsoon_Rain_Share, Rainfall","Post_Monsoon_Rain_Share, Rainfall, Winter_Temperature",0.5,0.794
+coconut,True,10,"Humidity, Post_Monsoon_Rain_Share, Winter_Temperature","Humidity, Rainfall, Winter_Temperature",0.5,0.877
+coffee,True,10,"Elevation, Humidity, Winter_Temperature","Elevation, Humidity, Rainfall",0.5,0.725
+cotton,True,10,"Monsoon_Rain_Share, Solar_Radiation, Winter_Temperature","Rainfall, Solar_Radiation, Winter_Temperature",0.5,0.816
+cowpea,True,10,"Post_Monsoon_Rain_Share, Solar_Radiation, Winter_Temperature","Humidity, Post_Monsoon_Rain_Share, Solar_Radiation",0.5,0.819
+ginger,False,10,"Rainfall, Solar_Radiation, Winter_Temperature","Slope, Temperature, Winter_Temperature",0.2,0.194
+grapes,True,10,"Post_Monsoon_Rain_Share, Rainfall, Winter_Temperature","Post_Monsoon_Rain_Share, Sand, Solar_Radiation",0.2,0.294
+green gram,True,10,"Humidity, Solar_Radiation, Winter_Temperature","Elevation, Humidity, Winter_Temperature",0.5,0.657
+groundnut,True,10,"Rainfall, Solar_Radiation, Winter_Temperature","Rainfall, Solar_Radiation, Winter_Temperature",1.0,0.868
+guar,False,10,"Humidity, Solar_Radiation, Winter_Temperature","Monsoon_Rain_Share, Rainfall, Solar_Radiation",0.2,0.608
+horse gram,True,10,"Humidity, Post_Monsoon_Rain_Share, Winter_Temperature","Humidity, Post_Monsoon_Rain_Share, Solar_Radiation",0.5,0.733
+jowar,True,10,"Humidity, Post_Monsoon_Rain_Share, Winter_Temperature","Post_Monsoon_Rain_Share, Solar_Radiation, Winter_Temperature",0.5,0.615
+jute,False,10,"Humidity, Rainfall, Solar_Radiation","Humidity, Rainfall, Solar_Radiation",1.0,0.625
+khesari,False,10,"Humidity, Rainfall, Winter_Temperature","Elevation, Max_Temperature, Solar_Radiation",0.0,0.132
+lentil,False,10,"Humidity, Rainfall, Winter_Temperature","Humidity, Solar_Radiation, Winter_Temperature",0.5,0.62
+linseed,False,10,"Humidity, Rainfall, Winter_Temperature","Clay, Post_Monsoon_Rain_Share, Sand",0.0,0.284
+maize,True,10,"Rainfall, Solar_Radiation, Winter_Temperature","Elevation, Temperature, Winter_Temperature",0.2,0.434
+mango,True,10,"Humidity, Post_Monsoon_Rain_Share, Winter_Temperature","Humidity, Post_Monsoon_Rain_Share, Winter_Temperature",1.0,0.708
+mesta,False,10,"Humidity, Rainfall, Winter_Temperature","Clay, Elevation, Solar_Radiation",0.0,0.027
+moth bean,False,10,"Humidity, Rainfall, Solar_Radiation","Dry_Months, Humidity, Sand",0.2,0.429
+mustard,False,10,"Rainfall, Solar_Radiation, Winter_Temperature","Humidity, Solar_Radiation, Winter_Temperature",0.5,0.676
+niger seed,False,10,"Rainfall, Solar_Radiation, Winter_Temperature","CEC, Clay, Rainfall",0.2,0.238
+onion,True,10,"Post_Monsoon_Rain_Share, Solar_Radiation, Winter_Temperature","Rainfall, Solar_Radiation, Winter_Temperature",0.5,0.637
+pigeonpea (tur),True,10,"Humidity, Post_Monsoon_Rain_Share, Winter_Temperature","Humidity, Temperature, Winter_Temperature",0.5,0.615
+pomegranate,False,10,"Humidity, Monsoon_Rain_Share, Winter_Temperature","CEC, Clay, Monsoon_Rain_Share",0.2,0.449
+potato,True,10,"Humidity, Rainfall, Winter_Temperature","Elevation, Temperature, Winter_Temperature",0.2,0.608
+ragi,True,10,"Humidity, Post_Monsoon_Rain_Share, Rainfall","Elevation, Sand, Solar_Radiation",0.0,0.613
+rice,True,10,"Humidity, Rainfall, Solar_Radiation","Humidity, Rainfall, Solar_Radiation",1.0,0.561
+sesame,False,10,"Humidity, Rainfall, Winter_Temperature","Elevation, Max_Temperature, Sand",0.0,0.125
+soybean,True,10,"Humidity, Solar_Radiation, Winter_Temperature","Humidity, Monsoon_Rain_Share, Solar_Radiation",0.5,0.713
+sugarcane,True,10,"Post_Monsoon_Rain_Share, Temperature, Winter_Temperature","CEC, Humidity, Post_Monsoon_Rain_Share",0.2,0.11
+sunflower,True,10,"Humidity, Post_Monsoon_Rain_Share, Solar_Radiation","Post_Monsoon_Rain_Share, Rainfall, Winter_Temperature",0.2,0.426
+sweet potato,False,10,"Humidity, Rainfall, Solar_Radiation","Nitrogen, Rainfall, pH",0.2,0.328
+tapioca,False,10,"Rainfall, Solar_Radiation, Winter_Temperature","Rainfall, Solar_Radiation, pH",0.5,0.451
+tobacco,False,10,"Post_Monsoon_Rain_Share, Solar_Radiation, Winter_Temperature","Elevation, Temperature, Winter_Temperature",0.2,0.745
+tomato,True,10,"Rainfall, Solar_Radiation, Winter_Temperature","Humidity, Post_Monsoon_Rain_Share, Rainfall",0.2,0.723
+turmeric,True,10,"Humidity, Rainfall, Winter_Temperature","Rainfall, Temperature, pH",0.2,0.311
+wheat,True,10,"Humidity, Rainfall, Winter_Temperature","Humidity, Post_Monsoon_Rain_Share, Winter_Temperature",0.5,0.667

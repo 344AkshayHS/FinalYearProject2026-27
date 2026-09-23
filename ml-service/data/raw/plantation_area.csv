@@ -1,0 +1,10 @@
+State,District,Crop,Area_ha,Year,Source
+Karnataka,CHIKMAGALUR,coffee,88853,2011-12,"Coffee Board of India, Database on Coffee (March 2013), table 1.3: Arabica 57000 + Robusta 31853"
+Karnataka,KODAGU,coffee,104780,2011-12,"Coffee Board of India, Database on Coffee (March 2013), table 1.3: Arabica 28053 + Robusta 76727"
+Karnataka,HASSAN,coffee,36025,2011-12,"Coffee Board of India, Database on Coffee (March 2013), table 1.3: Arabica 24075 + Robusta 11950"
+Kerala,WAYANAD,coffee,67303,2011-12,"Coffee Board of India, Database on Coffee (March 2013), table 1.3, zone Wyanad: Robusta 67303"
+Kerala,PALAKKAD,coffee,4650,2011-12,"Coffee Board of India, Database on Coffee (March 2013), table 1.3, zone Nelliampathies (Nelliampathy hills, Palakkad district): Arabica 1800 + Robusta 2850"
+Tamil Nadu,DINDIGUL,coffee,15642,2011-12,"Coffee Board of India, Database on Coffee (March 2013), table 1.3, zone Pulneys (Palani hills, Dindigul district): Arabica 14650 + Robusta 992"
+Tamil Nadu,THE NILGIRIS,coffee,7785,2011-12,"Coffee Board of India, Database on Coffee (March 2013), table 1.3, zone Nilgiris: Arabica 3610 + Robusta 4175"
+Tamil Nadu,SALEM,coffee,5100,2011-12,"Coffee Board of India, Database on Coffee (March 2013), table 1.3, zone Shevroys (Shevaroy hills, Salem district): Arabica 5000 + Robusta 100"
+Tamil Nadu,COIMBATORE,coffee,2817,2011-12,"Coffee Board of India, Database on Coffee (March 2013), table 1.3, zone Anamalais (Coimbatore district): Arabica 2448 + Robusta 369"
