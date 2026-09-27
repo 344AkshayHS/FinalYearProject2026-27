@@ -1,0 +1,3 @@
+labels,gps_first_is_taluk_main_crop,gps_top3_has_taluk_main_crop,gps_top3_in_census_taluks,census_taluk_points,district_first_is_main_crop,district_top3_has_main_crop,karnataka_point_seasons,district_seasons
+A. district labels,0.4146,0.7466,0.7466,5265,0.5778,0.8333,5280,90
+B. taluk labels,0.5239,0.8398,0.8401,5265,0.5333,0.9111,5280,90

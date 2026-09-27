@@ -1,0 +1,41 @@
+{
+  "taluk_weight": 0.75,
+  "rule": "picked taluk = weight x taluk average + (1 - weight) x district average; taluks without census figures use the district only",
+  "measured": [
+    {
+      "labels": "B. taluk labels",
+      "taluk_weight": 0.0,
+      "first_is_taluk_main_crop": 0.4743,
+      "top3_has_taluk_main_crop": 0.8762,
+      "taluk_seasons": 525
+    },
+    {
+      "labels": "B. taluk labels",
+      "taluk_weight": 0.25,
+      "first_is_taluk_main_crop": 0.5238,
+      "top3_has_taluk_main_crop": 0.8762,
+      "taluk_seasons": 525
+    },
+    {
+      "labels": "B. taluk labels",
+      "taluk_weight": 0.5,
+      "first_is_taluk_main_crop": 0.56,
+      "top3_has_taluk_main_crop": 0.88,
+      "taluk_seasons": 525
+    },
+    {
+      "labels": "B. taluk labels",
+      "taluk_weight": 0.75,
+      "first_is_taluk_main_crop": 0.5543,
+      "top3_has_taluk_main_crop": 0.8819,
+      "taluk_seasons": 525
+    },
+    {
+      "labels": "B. taluk labels",
+      "taluk_weight": 1.0,
+      "first_is_taluk_main_crop": 0.5695,
+      "top3_has_taluk_main_crop": 0.8724,
+      "taluk_seasons": 525
+    }
+  ]
+}

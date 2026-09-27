@@ -54,7 +54,11 @@ async function serviceStatus() {
     status.ml_service = { ok: false, detail: 'Not reachable at ' + process.env.ML_SERVICE_URL };
   }
 
-  // Only checks the key is set; calling Gemini here would use up the free daily limit
+  // Only checks the keys are set; calling the AIs here would use up their free daily limits.
+  // The chat asks Groq first and Gemini if Groq fails.
+  status.groq = process.env.GROQ_API_KEY
+    ? { ok: true, detail: `Key set, model ${process.env.GROQ_MODEL || 'openai/gpt-oss-120b'} (asked first)` }
+    : { ok: false, detail: 'No GROQ_API_KEY: the chat asks Gemini only' };
   status.gemini = process.env.GEMINI_API_KEY
     ? { ok: true, detail: `Key set, model ${process.env.GEMINI_MODEL || 'gemini-flash-lite-latest'}` }
     : { ok: false, detail: 'No GEMINI_API_KEY: the chat uses rule-based answers only' };
@@ -71,7 +75,7 @@ async function activity() {
   );
   const feedback = await pool.query('SELECT outcome, count(*)::int AS times FROM crop_feedback GROUP BY outcome');
   const recent = await pool.query(
-    `SELECT r.id, r.created_at, r.model_version, l.state, l.district, i.crop, i.probability,
+    `SELECT r.id, r.created_at, r.model_version, r.season, l.state, l.district, i.crop, i.probability,
             r.farmer_soil IS NOT NULL AS used_soil_test
      FROM recommendations r
      JOIN locations l ON l.id = r.location_id

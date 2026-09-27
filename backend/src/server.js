@@ -24,8 +24,11 @@ app.use('/chat', chatRoute);
 app.use('/feedback', feedbackRoute);
 app.use('/weather', weatherRoute);
 
-// Any error that a route didn't handle
+// Any error that a route didn't handle. A request whose body is not valid JSON is the sender's mistake (400).
 app.use((err, req, res, next) => {
+  if (err.type === 'entity.parse.failed') {
+    return res.status(400).json({ error: 'invalid_json' });
+  }
   console.error(err);
   res.status(500).json({ error: 'server_error' });
 });

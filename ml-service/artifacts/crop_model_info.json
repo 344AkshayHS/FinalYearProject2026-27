@@ -1,5 +1,5 @@
 {
-  "model_version": "rf-india-1.2",
+  "model_version": "rf-india-2.1",
   "model": "Random Forest",
   "selection_rule": "best india_top3_main_crop among models with exact tree SHAP (Decision Tree, Random Forest)",
   "features": [
@@ -19,8 +19,14 @@
     "Max_Temperature",
     "Solar_Radiation",
     "Elevation",
-    "Slope"
+    "Slope",
+    "Season"
   ],
+  "seasons": {
+    "Kharif": 1,
+    "Rabi": 2,
+    "Summer": 3
+  },
   "crops": [
     "arecanut",
     "bajra",
@@ -35,8 +41,11 @@
     "chilli",
     "coconut",
     "coffee",
+    "coriander",
     "cotton",
     "cowpea",
+    "field bean (avare)",
+    "garlic",
     "ginger",
     "grapes",
     "green gram",
@@ -55,11 +64,17 @@
     "mustard",
     "niger seed",
     "onion",
+    "orange",
+    "papaya",
     "pigeonpea (tur)",
+    "pineapple",
     "pomegranate",
     "potato",
     "ragi",
+    "rajma",
     "rice",
+    "safflower",
+    "sapota",
     "sesame",
     "soybean",
     "sugarcane",
@@ -71,88 +86,104 @@
     "turmeric",
     "wheat"
   ],
-  "rows": 123762,
+  "rows": 423012,
   "districts": 568,
   "validation": "5-fold GroupKFold by district",
-  "labels": "district crop-area shares: ICRISAT district database 2015-2019 where available, data.gov.in 2010-2014 elsewhere, plus Coffee Board planted area and Horticultural Statistics at a Glance 2018 for fruit and vegetables",
+  "labels": "Crop-area shares per season (Kharif, Rabi, Summer). Karnataka: taluk crop-area shares, the average of the Agriculture Census 2010-11 and 2015-16 and Karnataka DES 2019-22 (Karnataka At A Glance). Elsewhere: district crop-area shares from the ICRISAT district database 2015-2019 where available, data.gov.in 2010-2014 elsewhere, plus Coffee Board planted area and Horticultural Statistics at a Glance 2018 for fruit and vegetables. Seasons: each crop's Kharif/Rabi/Summer split in its district (ICRISAT 2015-2019 and data.gov.in 2010-2014); plantation crops, fruit trees and sugarcane count in every season",
   "accuracy_ceiling": {
-    "india": 0.5077,
-    "karnataka": 0.4091
+    "india": 0.6567,
+    "karnataka": 0.5585
   },
   "results": [
     {
       "model": "Naive Bayes",
-      "india_accuracy": 0.1185,
-      "india_macro_f1": 0.0821,
-      "india_top3_main_crop": 0.3725,
-      "karnataka_accuracy": 0.1055,
-      "karnataka_macro_f1": 0.049,
-      "karnataka_top3_main_crop": 0.3097
+      "india_accuracy": 0.1629,
+      "india_macro_f1": 0.1019,
+      "india_top3_main_crop": 0.446,
+      "karnataka_accuracy": 0.1466,
+      "karnataka_macro_f1": 0.0567,
+      "karnataka_top3_main_crop": 0.4409
     },
     {
       "model": "Logistic Regression",
-      "india_accuracy": 0.4133,
-      "india_macro_f1": 0.0876,
-      "india_top3_main_crop": 0.8457,
-      "karnataka_accuracy": 0.244,
-      "karnataka_macro_f1": 0.0716,
-      "karnataka_top3_main_crop": 0.6319
+      "india_accuracy": 0.4009,
+      "india_macro_f1": 0.1224,
+      "india_top3_main_crop": 0.7435,
+      "karnataka_accuracy": 0.2929,
+      "karnataka_macro_f1": 0.0922,
+      "karnataka_top3_main_crop": 0.6826
     },
     {
       "model": "KNN",
-      "india_accuracy": 0.392,
-      "india_macro_f1": 0.1086,
-      "india_top3_main_crop": 0.8262,
-      "karnataka_accuracy": 0.2298,
-      "karnataka_macro_f1": 0.0908,
-      "karnataka_top3_main_crop": 0.5514
+      "india_accuracy": 0.4548,
+      "india_macro_f1": 0.1776,
+      "india_top3_main_crop": 0.802,
+      "karnataka_accuracy": 0.3451,
+      "karnataka_macro_f1": 0.1269,
+      "karnataka_top3_main_crop": 0.7358
     },
     {
       "model": "Decision Tree",
-      "india_accuracy": 0.396,
-      "india_macro_f1": 0.1073,
-      "india_top3_main_crop": 0.8243,
-      "karnataka_accuracy": 0.235,
-      "karnataka_macro_f1": 0.0817,
-      "karnataka_top3_main_crop": 0.5806
+      "india_accuracy": 0.453,
+      "india_macro_f1": 0.1772,
+      "india_top3_main_crop": 0.7837,
+      "karnataka_accuracy": 0.3353,
+      "karnataka_macro_f1": 0.1264,
+      "karnataka_top3_main_crop": 0.7197
     },
     {
       "model": "MLP",
-      "india_accuracy": 0.4235,
-      "india_macro_f1": 0.1146,
-      "india_top3_main_crop": 0.8816,
-      "karnataka_accuracy": 0.2978,
-      "karnataka_macro_f1": 0.1084,
-      "karnataka_top3_main_crop": 0.6875
+      "india_accuracy": 0.4875,
+      "india_macro_f1": 0.1987,
+      "india_top3_main_crop": 0.8576,
+      "karnataka_accuracy": 0.3864,
+      "karnataka_macro_f1": 0.1448,
+      "karnataka_top3_main_crop": 0.8095
     },
     {
       "model": "Random Forest",
-      "india_accuracy": 0.4385,
-      "india_macro_f1": 0.1048,
-      "india_top3_main_crop": 0.8893,
-      "karnataka_accuracy": 0.2838,
-      "karnataka_macro_f1": 0.0914,
-      "karnataka_top3_main_crop": 0.6708
+      "india_accuracy": 0.5034,
+      "india_macro_f1": 0.1679,
+      "india_top3_main_crop": 0.8835,
+      "karnataka_accuracy": 0.395,
+      "karnataka_macro_f1": 0.1365,
+      "karnataka_top3_main_crop": 0.8292
     },
     {
       "model": "Stacking (RF+ET+HGB -> LR)",
-      "india_accuracy": 0.4333,
-      "india_macro_f1": 0.1048,
-      "india_top3_main_crop": 0.8767,
-      "karnataka_accuracy": 0.2822,
-      "karnataka_macro_f1": 0.0967,
-      "karnataka_top3_main_crop": 0.6056
+      "india_accuracy": 0.4993,
+      "india_macro_f1": 0.183,
+      "india_top3_main_crop": 0.8572,
+      "karnataka_accuracy": 0.3941,
+      "karnataka_macro_f1": 0.1429,
+      "karnataka_top3_main_crop": 0.7801
     }
   ],
   "karnataka_only_random_forest": {
-    "accuracy": 0.2914610745614035,
-    "macro_f1": 0.07490416263539039,
-    "top3_main_crop": 0.6444444444444445
+    "accuracy": 0.39172248624780154,
+    "macro_f1": 0.12527850885232045,
+    "top3_main_crop": 0.8268939393939394
   },
   "conformal": {
     "level": 0.9,
-    "threshold": 0.9870730416958158,
-    "measured_coverage_karnataka": 0.900799963924964,
-    "average_set_size_karnataka": 9.667096861471862
-  }
+    "threshold": 0.9723032104946995,
+    "measured_coverage_karnataka": 0.9005219335960114,
+    "average_set_size_karnataka": 6.8587904250389204
+  },
+  "year_round": [
+    "sugarcane",
+    "coconut",
+    "arecanut",
+    "cashewnut",
+    "black pepper",
+    "cardamom",
+    "coffee",
+    "banana",
+    "mango",
+    "grapes",
+    "pomegranate",
+    "papaya",
+    "sapota",
+    "tapioca"
+  ]
 }

@@ -82,7 +82,7 @@ router.patch('/me/language', requireUser, async (req, res) => {
 // GET /users/me/recommendations  -> the user's last 20 results, newest first
 router.get('/me/recommendations', requireUser, async (req, res) => {
   const result = await pool.query(
-    `SELECT r.id, r.created_at, l.latitude, l.longitude,
+    `SELECT r.id, r.created_at, r.season, l.latitude, l.longitude,
             (SELECT json_agg(json_build_object('crop', i.crop, 'score', i.score) ORDER BY i.rank)
              FROM recommendation_items i WHERE i.recommendation_id = r.id) AS crops
      FROM recommendations r JOIN locations l ON l.id = r.location_id

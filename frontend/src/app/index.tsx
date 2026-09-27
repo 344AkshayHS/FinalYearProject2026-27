@@ -4,12 +4,16 @@ import { ActivityIndicator, AppState, Linking, Pressable, ScrollView, Text, View
 import { Button } from '@/components/button';
 import { ChatButton } from '@/components/chat-button';
 import { DistrictPicker } from '@/components/district-picker';
-import { Results, type RecommendResponse } from '@/components/results';
+import { Chip } from '@/components/chip';
+import { Results, type RecommendResponse, type WaterSource } from '@/components/results';
 import { EMPTY_SOIL_TEST, SoilTestForm, soilTestBody } from '@/components/soil-test-form';
+import { TalukPicker, type Taluk } from '@/components/taluk-picker';
 import { api, ApiError } from '@/lib/api';
 import { useApp } from '@/lib/app-context';
-import { detectLocation, type DetectedLocation } from '@/lib/detect-location';
-import { districtName } from '@/lib/translations';
+import { farmSummary } from '@/lib/chatbot';
+import { detectLocation, ROUGH_ACCURACY_M, type DetectedLocation } from '@/lib/detect-location';
+import { SEASONS, seasonNow, type Season } from '@/lib/season';
+import { districtName, talukName } from '@/lib/translations';
 import { cardShadow, colors, radius } from '@/theme';
 
 function errorCode(err: unknown) {
@@ -28,7 +32,7 @@ const LOCATION_FIXES: Record<string, LocationFix> = {
 };
 
 export default function HomeScreen() {
-  const { t, user, token, language } = useApp();
+  const { t, user, token, language, setFarm } = useApp();
 
   // Location: detected by GPS (asked for as soon as the screen opens), or picked by hand from the list.
   // Errors are kept as codes and translated when shown, so they follow the language switch.
@@ -37,34 +41,46 @@ export default function HomeScreen() {
   const [locationError, setLocationError] = useState<string | null>(null);
   const [district, setDistrict] = useState<string | null>(null);
   const [pickerOpen, setPickerOpen] = useState(false);
+  // True once the farmer picks a district by hand - even the same one GPS found - until GPS is used again
+  const [manual, setManual] = useState(false);
+  // Optional taluk of a hand-picked Karnataka district (null = the whole district)
+  const [taluk, setTaluk] = useState<Taluk | null>(null);
+  const [talukPickerOpen, setTalukPickerOpen] = useState(false);
 
   // The farmer's own soil test values (optional)
   const [soilTest, setSoilTest] = useState(EMPTY_SOIL_TEST);
+  // Rain only or irrigated: on rain-fed land, crops the rain can't support this year are marked
+  const [waterSource, setWaterSource] = useState<WaterSource>('rain');
+  // The season to sow in: crops change with it. Starts at the season of today's date.
+  const [season, setSeason] = useState<Season>(seasonNow);
 
   // Recommendation
   const [analysing, setAnalysing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<RecommendResponse | null>(null);
 
-  const usingGps = detected !== null && district === detected.district;
+  const usingGps = detected !== null && !manual;
+  const roughGps = usingGps && (detected.accuracy ?? 0) > ROUGH_ACCURACY_M;
   const firstName = user?.full_name.split(' ')[0] ?? '';
 
-  // "You are in Beltangadi taluk, Dakshina Kannada district" / "You are in Ludhiana, Punjab" /
-  // "Mysuru district (chosen by you)". The taluk is left out when OpenStreetMap did not know it.
+  // "You are in Beltangady taluk, Dakshina Kannada district" / "You are in Ludhiana, Punjab" /
+  // "Mysuru district (chosen by you)" / "Hunsur taluk, Mysuru district (chosen by you)".
+  // Taluks are Karnataka only; one is left out when the taluk map cannot place the point.
   function locationLabel() {
     if (!usingGps) {
-      return t.chosenDistrict.replace('{district}', districtName(district ?? '', language));
+      const text = taluk ? t.chosenTaluk.replace('{taluk}', talukName(taluk.name)) : t.chosenDistrict;
+      return text.replace('{district}', districtName(district ?? '', language));
     }
     if (detected.state === 'Karnataka') {
-      const text = detected.place && detected.taluk
-        ? t.detectedPlace.replace('{place}', detected.place).replace('{taluk}', detected.taluk)
-        : detected.taluk
-          ? t.detectedTaluk.replace('{taluk}', detected.taluk)
+      const gpsTaluk = detected.taluk ? talukName(detected.taluk) : null;
+      const text = detected.place && gpsTaluk
+        ? t.detectedPlace.replace('{place}', detected.place).replace('{taluk}', gpsTaluk)
+        : gpsTaluk
+          ? t.detectedTaluk.replace('{taluk}', gpsTaluk)
           : t.detectedDistrict;
       return text.replace('{district}', districtName(detected.district, language));
     }
-    const place = detected.taluk ? `${detected.taluk}, ${detected.district}` : detected.district;
-    return t.detectedDistrictState.replace('{district}', place).replace('{state}', detected.state);
+    return t.detectedDistrictState.replace('{district}', detected.district).replace('{state}', detected.state);
   }
 
   // Ask for location as soon as the screen opens, so the district is ready before anything is tapped.
@@ -86,6 +102,8 @@ export default function HomeScreen() {
       const location = await detectLocation();
       setDetected(location);
       setDistrict(location.district);
+      setManual(false);
+      setTaluk(null);
     } catch (err) {
       // Explain why. If it is not something a tap can fix, open the district list straight away.
       const code = errorCode(err);
@@ -128,21 +146,36 @@ export default function HomeScreen() {
 
   function chooseDistrict(picked: string) {
     setDistrict(picked);
+    setManual(true);
+    setTaluk(null); // a taluk belongs to one district
     setLocationError(null);
     setPickerOpen(false);
+    // Next, the district's taluks ("Whole district" first, so skipping is one tap). The district list
+    // must finish closing first: iPhones cannot open one full-screen sheet while another is closing.
+    setTimeout(() => setTalukPickerOpen(true), 450);
   }
 
-  async function findCrops() {
+  function chooseTaluk(picked: Taluk | null) {
+    setTaluk(picked);
+    setTalukPickerOpen(false);
+  }
+
+  // forSeason: a season chip tapped after a result is shown asks again at once, before the state updates
+  async function findCrops(forSeason: Season = season) {
     if (!district) {
       return;
     }
     setAnalysing(true);
     setError(null);
     try {
-      // With GPS we check the exact spot; with a hand-picked district, a sample farm point there
-      const place = usingGps ? { lat: detected.lat, lng: detected.lng, state: detected.state, district } : { district };
-      const body = { ...place, soil_test: soilTestBody(soilTest) };
-      setResult(await api<RecommendResponse>('/recommend', { method: 'POST', body, token }));
+      // With GPS we check the exact spot; with a hand-picked district (or taluk), sample farms across all of it
+      const place = usingGps
+        ? { lat: detected.lat, lng: detected.lng, state: detected.state, district }
+        : { district, taluk: taluk?.key };
+      const body = { ...place, season: forSeason, soil_test: soilTestBody(soilTest) };
+      const data = await api<RecommendResponse>('/recommend', { method: 'POST', body, token });
+      setResult(data);
+      setFarm(farmSummary(data, waterSource)); // so the crop helper chat can answer "can I grow rice here?"
     } catch (err) {
       setError(errorCode(err));
     }
@@ -183,22 +216,48 @@ export default function HomeScreen() {
           <Text style={{ fontSize: 20, fontWeight: '800', color: colors.text }}>{t.yourLocation}</Text>
 
           {detecting && (
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 8 }}>
-              <ActivityIndicator color={colors.primary} />
-              <Text style={{ fontSize: 16, color: colors.muted }}>{t.detecting}</Text>
+            <View style={{ gap: 6, paddingVertical: 8 }}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                <ActivityIndicator color={colors.primary} />
+                <Text style={{ fontSize: 16, fontWeight: '600', color: colors.text }}>{t.detecting}</Text>
+              </View>
+              <Text style={{ fontSize: 14, lineHeight: 20, color: colors.muted }}>{t.detectingHelp}</Text>
             </View>
           )}
 
           {!detecting && district && (
-            <View style={{ gap: 6, padding: 14, borderRadius: radius.medium, backgroundColor: colors.primarySoft }}>
+            <View
+              style={{
+                gap: 6,
+                padding: 14,
+                borderRadius: radius.medium,
+                backgroundColor: roughGps ? colors.accentSoft : colors.primarySoft,
+              }}>
               <Text selectable style={{ fontSize: 18, fontWeight: '700', color: colors.primaryDark }}>
                 📍{' '}
                 {locationLabel()}
               </Text>
+              {/* How exact the phone's position is: a rough one (Wi-Fi, mobile towers) can name the wrong place */}
+              {usingGps && detected.accuracy !== null && (
+                <Text style={{ fontSize: 14, lineHeight: 20, color: roughGps ? '#8A6100' : colors.muted, fontWeight: roughGps ? '600' : '400' }}>
+                  {roughGps
+                    ? '⚠️ ' + t.locationRough.replace('{n}', String(Math.round(detected.accuracy / 1000)))
+                    : t.locationAccurate.replace('{n}', String(Math.max(Math.round(detected.accuracy), 5)))}
+                </Text>
+              )}
               <Text style={{ fontSize: 14, lineHeight: 20, color: colors.muted }}>
-                {usingGps ? t.isThisRight : t.manualNote}
+                {usingGps ? t.isThisRight : taluk ? t.manualNoteTaluk : t.manualNote}
               </Text>
             </View>
+          )}
+
+          {/* A hand-picked district can be narrowed to one of its taluks (Karnataka only, optional) */}
+          {!detecting && district && !usingGps && (
+            <Button
+              title={`${t.talukOptional}: ${taluk ? talukName(taluk.name) : t.wholeDistrict}`}
+              onPress={() => setTalukPickerOpen(true)}
+              variant="outline"
+            />
           )}
 
           {!detecting && locationError && LOCATION_FIXES[locationError] && (
@@ -228,11 +287,72 @@ export default function HomeScreen() {
           )}
         </View>
 
+        {/* Season to sow in: the model answers for this season */}
+        <View
+          style={{
+            padding: 20,
+            gap: 12,
+            borderRadius: radius.large,
+            borderCurve: 'continuous',
+            backgroundColor: colors.card,
+            boxShadow: cardShadow,
+          }}>
+          <Text style={{ fontSize: 18, fontWeight: '800', color: colors.text }}>{t.seasonTitle}</Text>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
+            {SEASONS.map((option) => (
+              <Chip
+                key={option}
+                label={t.seasons[option]}
+                selected={season === option}
+                onPress={() => {
+                  if (analysing) {
+                    return; // one question at a time: a second tap would save the same result twice
+                  }
+                  setSeason(option);
+                  if (result && option !== season) {
+                    findCrops(option);
+                  }
+                }}
+              />
+            ))}
+          </View>
+          <Text style={{ fontSize: 14, lineHeight: 20, color: colors.muted }}>{t.seasonHelp}</Text>
+        </View>
+
+        {/* Water for this land: decides whether crops the rain can't support are marked */}
+        <View
+          style={{
+            padding: 20,
+            gap: 12,
+            borderRadius: radius.large,
+            borderCurve: 'continuous',
+            backgroundColor: colors.card,
+            boxShadow: cardShadow,
+          }}>
+          <Text style={{ fontSize: 18, fontWeight: '800', color: colors.text }}>{t.waterSourceTitle}</Text>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
+            {(['rain', 'irrigated'] as const).map((source) => (
+              <Chip
+                key={source}
+                label={source === 'rain' ? t.rainOnly : t.irrigated}
+                selected={waterSource === source}
+                onPress={() => {
+                  setWaterSource(source);
+                  if (result) {
+                    setFarm(farmSummary(result, source)); // keep the chat's summary in step
+                  }
+                }}
+              />
+            ))}
+          </View>
+          <Text style={{ fontSize: 14, lineHeight: 20, color: colors.muted }}>{t.waterSourceHelp}</Text>
+        </View>
+
         <SoilTestForm values={soilTest} onChange={setSoilTest} />
 
         {/* Find crops */}
         {district && !detecting && (
-          <Button title={result ? t.checkAgain : t.findCrops} onPress={findCrops} loading={analysing} />
+          <Button title={result ? t.checkAgain : t.findCrops} onPress={() => findCrops()} loading={analysing} />
         )}
 
         {analysing && (
@@ -244,13 +364,13 @@ export default function HomeScreen() {
             <Text selectable style={{ fontSize: 16, lineHeight: 22, color: colors.danger }}>
               {t.errors[error] ?? t.errors.server_error}
             </Text>
-            <Pressable onPress={findCrops} accessibilityRole="button">
+            <Pressable onPress={() => findCrops()} accessibilityRole="button">
               <Text style={{ fontSize: 16, fontWeight: '700', color: colors.danger }}>{t.tryAgain}</Text>
             </Pressable>
           </View>
         )}
 
-        {result && !analysing && <Results data={result} />}
+        {result && !analysing && <Results data={result} waterSource={waterSource} />}
 
         <DistrictPicker
           visible={pickerOpen}
@@ -258,6 +378,15 @@ export default function HomeScreen() {
           onSelect={chooseDistrict}
           onClose={() => setPickerOpen(false)}
         />
+        {district && !usingGps && (
+          <TalukPicker
+            visible={talukPickerOpen}
+            district={district}
+            selected={taluk}
+            onSelect={chooseTaluk}
+            onClose={() => setTalukPickerOpen(false)}
+          />
+        )}
       </ScrollView>
 
       {/* Crop helper chat (draggable), about the best crop if we have a result */}

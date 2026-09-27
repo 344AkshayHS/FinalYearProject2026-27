@@ -155,4 +155,4 @@ async function findDistrict(lat, lon) {
   return { district: osm.district, state: osm.state, taluk: osm.taluk, source: 'nominatim' };
 }
 
-module.exports = { findDistrict };
+module.exports = { findDistrict, insidePolygon };

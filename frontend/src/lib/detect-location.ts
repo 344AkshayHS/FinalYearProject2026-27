@@ -6,16 +6,20 @@ import * as Location from 'expo-location';
 
 import { api, ApiError } from '@/lib/api';
 
-const TIMEOUT_MS = 30_000;
+const TIMEOUT_MS = 45_000; // real GPS can need this long outdoors after location was switched on
 const GOOD_ACCURACY_M = 100; // stop listening once a reading is this accurate
 const RECENT_MS = 2 * 60 * 1000;
+// Worse than this, the position probably comes from Wi-Fi or mobile towers (or an emulator's internet
+// location) and can be 10-20 km off - enough to name the wrong taluk or district - so the app warns
+export const ROUGH_ACCURACY_M = 1000;
 
 export type DetectedLocation = {
   lat: number;
   lng: number;
+  accuracy: number | null; // metres, as the phone reports it (null when the phone does not say)
   district: string;
   state: string;
-  taluk: string | null;
+  taluk: string | null; // Karnataka only, as the Agriculture Census spells it, e.g. "BELTANGADY"
   place: string | null; // the village or town the phone reports, e.g. "Badaga Mijar"
 };
 
@@ -60,7 +64,8 @@ function watchForPosition(): Promise<Location.LocationObject> {
       }
     }
 
-    // When time runs out, a less accurate reading is still good enough to find the district
+    // When time runs out, the best reading so far is used; its accuracy goes with it, so the screen
+    // can warn when it is rough
     const timer = setTimeout(() => finish(best), TIMEOUT_MS);
 
     Location.watchPositionAsync(
@@ -112,8 +117,9 @@ export async function detectLocation(): Promise<DetectedLocation> {
   const lat = position.coords.latitude;
   const lng = position.coords.longitude;
 
-  // The district must come from our server: it has to match the names in the crop data.
-  // The phone's own address lookup adds the village or town, and the taluk if our server had none.
+  // The district and taluk must come from our server: they have to match the names in the crop data.
+  // Taluks are Karnataka only (the server has no taluk data elsewhere, so it sends null there).
+  // The phone's own address lookup adds the village or town.
   const [result, address] = await Promise.all([
     api<{ district: string; state: string; taluk: string | null }>(`/location/district?lat=${lat}&lon=${lng}`),
     fromPhone(lat, lng),
@@ -121,9 +127,10 @@ export async function detectLocation(): Promise<DetectedLocation> {
   return {
     lat,
     lng,
+    accuracy: position.coords.accuracy ?? null,
     district: result.district,
     state: result.state,
-    taluk: result.taluk ?? address?.taluk ?? null,
+    taluk: result.taluk,
     place: address?.place ?? null,
   };
 }
@@ -135,8 +142,5 @@ async function fromPhone(lat: number, lng: number) {
   if (!address) {
     return null;
   }
-  return {
-    place: address.city ?? address.district ?? address.name ?? null,
-    taluk: address.subregion ?? null,
-  };
+  return { place: address.city ?? address.district ?? address.name ?? null };
 }

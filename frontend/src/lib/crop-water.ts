@@ -151,3 +151,25 @@ export function pastHarvest(crop: string, daysSinceSowing: number) {
   const duration = localDuration(crop);
   return crop !== 'banana' && duration !== null && daysSinceSowing > duration;
 }
+
+// This monsoon's rain so far against the 2001-2020 normal for the same days (backend season_rain,
+// NASA POWER), with the India Meteorological Department's category
+export type SeasonRain = {
+  from: string;
+  to: string;
+  rain_mm: number;
+  normal_mm: number;
+  percent_from_normal: number;
+  imd_category: 'excess' | 'normal' | 'deficient' | 'large_deficient';
+};
+
+// "Needs irrigation" on rain-fed land: in every recent Agriculture Census, at least half of this crop's
+// land in the taluk (or district) was irrigated - most farmers there water it. `irrigated` is the lowest
+// irrigated share per crop over the census years (backend crop_facts). Karnataka only; elsewhere there
+// are no such figures and nothing is marked.
+const MOSTLY_IRRIGATED = 0.5;
+
+export function mostlyIrrigatedShare(irrigated: Record<string, number> | undefined, crop: string) {
+  const share = irrigated?.[crop];
+  return share !== undefined && share >= MOSTLY_IRRIGATED ? share : null;
+}

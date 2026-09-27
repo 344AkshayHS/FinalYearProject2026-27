@@ -23,7 +23,7 @@ FEATURES = list(model.feature_names_in_)
 crops = list(model.classes_)
 
 data = pd.read_csv("data/processed/india_dataset.csv")
-points = data.drop_duplicates(["Latitude", "Longitude"])
+points = data.drop_duplicates(["Latitude", "Longitude", "Season"])
 shares = pd.read_csv("data/processed/district_crop_share.csv")
 
 # LIME needs example rows to learn what "normal" values look like. The app uses the same file.
@@ -45,9 +45,9 @@ in_data = shares.merge(points[["State", "Stats_District"]].drop_duplicates(), on
 
 rows = []
 for crop_index, crop in enumerate(crops):
-    # The 3 districts where this crop has the biggest share
+    # The 3 districts (and seasons) where this crop has the biggest share
     best = in_data[in_data["Crop"] == crop].sort_values("Share", ascending=False).head(3)
-    sample = points.merge(best[["State", "Stats_District"]], on=["State", "Stats_District"])[FEATURES]
+    sample = points.merge(best[["State", "Stats_District", "Season"]], on=["State", "Stats_District", "Season"])[FEATURES]
     sample = sample.head(POINTS_PER_CROP)
     if sample.empty:
         print(f"{crop:18s} skipped - no sample points")

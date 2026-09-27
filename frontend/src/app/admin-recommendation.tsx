@@ -109,13 +109,14 @@ export default function AdminRecommendationScreen() {
     <ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={{ padding: 20, gap: 20, paddingBottom: 48 }}>
       <Text style={{ fontSize: 14, color: colors.muted }}>
         Recommendation #{id} · {new Date(String(r.created_at)).toLocaleString('en-IN')} · model {r.model_version}
+        {r.season ? ' · ' + String(r.season) : ''}
       </Text>
 
       <Step number={1} title="Location">
         <Row label="Latitude, longitude" value={`${Number(r.latitude).toFixed(4)}, ${Number(r.longitude).toFixed(4)}`} />
         <Row label="District" value={r.district ?? '—'} />
         <Row label="State" value={r.state ?? '—'} />
-        <Note>From the phone’s GPS (or the sample farm point of a district picked by hand), matched to district boundary maps.</Note>
+        <Note>From the phone’s GPS, matched to district boundary maps. For a district picked by hand this is the district’s reference point; the model itself was averaged over all the district’s sample farms.</Note>
       </Step>
 
       <Step number={2} title="Soil (top 30 cm)">

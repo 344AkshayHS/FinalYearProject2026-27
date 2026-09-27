@@ -1,31 +1,91 @@
-district,model_top3,really_grown_most,main_crop_in_top3,all_top3_grown_here
-BAGALKOT,"chickpea, maize, green gram",chickpea,True,True
-BANGALORE RURAL,"ragi, maize, mango",ragi,True,True
-BELGAUM,"maize, chickpea, soybean",maize,True,True
-BELLARY,"maize, rice, cotton",maize,True,True
-BENGALURU URBAN,"ragi, pigeonpea (tur), coconut",ragi,True,True
-BIDAR,"soybean, pigeonpea (tur), chickpea",soybean,True,True
-BIJAPUR,"pigeonpea (tur), chickpea, jowar",pigeonpea (tur),True,True
-CHAMARAJANAGAR,"maize, horse gram, jowar",maize,True,True
-CHIKBALLAPUR,"maize, ragi, groundnut",maize,True,True
-CHIKMAGALUR,"coffee, coconut, rice",coffee,True,True
-CHITRADURGA,"groundnut, maize, chickpea",groundnut,True,True
-DAKSHIN KANNAD,"coconut, rice, arecanut",coconut,True,True
-DAVANGERE,"maize, rice, coconut",maize,True,True
-DHARWAD,"chickpea, cotton, green gram",chickpea,True,True
-GADAG,"chickpea, green gram, groundnut",chickpea,True,True
-GULBARGA,"pigeonpea (tur), chickpea, cotton",pigeonpea (tur),True,True
-HASSAN,"maize, ragi, coconut",maize,True,True
-HAVERI,"maize, cotton, rice",maize,True,True
-KODAGU,"coffee, black pepper, rice",coffee,True,True
-KOLAR,"ragi, mango, tomato",ragi,True,True
-KOPPAL,"chickpea, bajra, rice",bajra,True,True
-MANDYA,"rice, ragi, coconut",ragi,True,True
-MYSORE,"rice, ragi, cotton",rice,True,True
-RAICHUR,"rice, chickpea, cotton",chickpea,True,True
-RAMANAGARA,"ragi, coconut, mango",ragi,True,True
-SHIMOGA,"rice, maize, arecanut",rice,True,True
-TUMKUR,"coconut, ragi, groundnut",coconut,True,True
-UDUPI,"rice, coconut, chilli",rice,True,True
-UTTAR KANNAD,"rice, coconut, maize",rice,True,True
-YADGIR,"cotton, pigeonpea (tur), rice",cotton,True,True
+season,district,sample_points,model_top3,really_grown_most,main_crop_in_top3,all_top3_grown_here,sow_list,biggest_sown_crop,biggest_sown_crop_in_sow_list,des_top3,des_biggest_in_sow_list,des_top3_shared
+Kharif,BAGALKOT,61,"sugarcane, maize, pigeonpea (tur)",sugarcane,True,True,"maize, pigeonpea (tur), green gram",green gram,True,"maize, pigeonpea (tur), sunflower",True,2
+Kharif,BANGALORE RURAL,39,"ragi, mango, maize",ragi,True,True,"ragi, maize, jowar",ragi,True,"ragi, maize, jowar",True,3
+Kharif,BELGAUM,99,"sugarcane, maize, rice",sugarcane,True,True,"maize, soybean, rice",maize,True,"maize, soybean, rice",True,3
+Kharif,BELLARY,70,"maize, rice, groundnut",maize,True,True,"maize, rice, cotton",maize,True,"maize, rice, chilli",True,2
+Kharif,BENGALURU URBAN,42,"ragi, mango, coconut",ragi,True,False,"ragi, maize, jowar",ragi,True,"ragi, jowar, maize",True,3
+Kharif,BIDAR,50,"soybean, pigeonpea (tur), sugarcane",soybean,True,True,"soybean, pigeonpea (tur), green gram",soybean,True,"soybean, pigeonpea (tur), green gram",True,3
+Kharif,BIJAPUR,49,"pigeonpea (tur), sugarcane, bajra",pigeonpea (tur),True,True,"pigeonpea (tur), maize, cotton",pigeonpea (tur),True,"pigeonpea (tur), maize, cotton",True,3
+Kharif,CHAMARAJANAGAR,42,"rice, maize, jowar",maize,True,True,"maize, jowar, rice",maize,True,"maize, sunflower, jowar",True,2
+Kharif,CHIKBALLAPUR,61,"ragi, maize, groundnut",maize,True,True,"ragi, maize, groundnut",maize,True,"maize, ragi, groundnut",True,3
+Kharif,CHIKMAGALUR,70,"coffee, arecanut, rice",coffee,True,True,"ragi, rice, maize",ragi,True,"ragi, onion, rice",True,2
+Kharif,CHITRADURGA,63,"groundnut, maize, coconut",groundnut,True,True,"groundnut, maize, ragi",groundnut,True,"groundnut, maize, ragi",True,3
+Kharif,DAKSHIN KANNAD,48,"arecanut, coconut, rice",coconut,True,True,rice,rice,True,"rice, cowpea",True,1
+Kharif,DAVANGERE,58,"maize, rice, arecanut",maize,True,True,"maize, rice, ragi",maize,True,"maize, rice, ragi",True,3
+Kharif,DHARWAD,51,"maize, cotton, green gram",cotton,True,True,"green gram, maize, cotton",cotton,True,"green gram, maize, cotton",True,3
+Kharif,GADAG,50,"green gram, maize, cotton",green gram,True,True,"green gram, maize, onion",green gram,True,"green gram, maize, onion",True,3
+Kharif,GULBARGA,60,"pigeonpea (tur), cotton, green gram",pigeonpea (tur),True,True,"pigeonpea (tur), cotton, green gram",pigeonpea (tur),True,"pigeonpea (tur), cotton, soybean",True,2
+Kharif,HASSAN,81,"coconut, coffee, ragi",maize,False,True,"maize, ragi, rice",maize,True,"maize, ragi, rice",True,3
+Kharif,HAVERI,70,"maize, rice, cotton",maize,True,True,"maize, cotton, rice",maize,True,"maize, cotton, rice",True,3
+Kharif,KODAGU,30,"coffee, rice, arecanut",coffee,True,False,"rice, maize, jowar",rice,True,"rice, maize, jowar",True,3
+Kharif,KOLAR,51,"ragi, mango, groundnut",ragi,True,True,"ragi, tomato, groundnut",ragi,True,"ragi, tomato, groundnut",True,3
+Kharif,KOPPAL,40,"rice, maize, bajra",bajra,True,True,"maize, rice, bajra",bajra,True,"maize, rice, green gram",True,2
+Kharif,MANDYA,69,"rice, ragi, coconut",ragi,True,True,"rice, ragi, horse gram",ragi,True,"rice, ragi, cowpea",True,2
+Kharif,MYSORE,70,"rice, ragi, coconut",tobacco,False,True,"rice, ragi, tobacco",tobacco,True,"rice, tobacco, ragi",True,3
+Kharif,RAICHUR,50,"rice, cotton, pigeonpea (tur)",rice,True,True,"cotton, rice, pigeonpea (tur)",rice,True,"cotton, rice, pigeonpea (tur)",True,3
+Kharif,RAMANAGARA,42,"ragi, coconut, mango",ragi,True,True,"ragi, rice, horse gram",ragi,True,"ragi, horse gram, rice",True,3
+Kharif,SHIMOGA,71,"arecanut, rice, maize",rice,True,True,"rice, maize",rice,True,"rice, maize, cotton",True,2
+Kharif,TUMKUR,100,"ragi, coconut, groundnut",coconut,True,True,"ragi, groundnut, maize",ragi,True,"ragi, groundnut, green gram",True,2
+Kharif,UDUPI,35,"rice, arecanut, coconut",rice,True,True,rice,rice,True,"rice, sesame, cowpea",True,1
+Kharif,UTTAR KANNAD,108,"rice, arecanut, coconut",rice,True,True,"rice, maize",rice,True,"rice, maize, cotton",True,2
+Kharif,YADGIR,30,"cotton, pigeonpea (tur), rice",cotton,True,True,"cotton, rice, pigeonpea (tur)",cotton,True,"cotton, rice, pigeonpea (tur)",True,3
+Rabi,BAGALKOT,61,"sugarcane, jowar, chickpea",chickpea,True,True,"chickpea, jowar, wheat",chickpea,True,"chickpea, jowar, groundnut",True,2
+Rabi,BANGALORE RURAL,39,"mango, coconut, grapes",mango,True,True,"jowar, ragi, potato",potato,True,"ragi, potato, jowar",True,3
+Rabi,BELGAUM,99,"sugarcane, jowar, chickpea",sugarcane,True,True,"jowar, chickpea, maize",chickpea,True,"chickpea, jowar, maize",True,3
+Rabi,BELLARY,70,"jowar, chickpea, sugarcane",chickpea,True,True,"jowar, chickpea, groundnut",chickpea,True,"ragi, jowar, groundnut",False,2
+Rabi,BENGALURU URBAN,42,"mango, coconut, grapes",coconut,True,False,"ragi, jowar, tomato",horse gram,False,"ragi, maize, jowar",True,2
+Rabi,BIDAR,50,"chickpea, sugarcane, jowar",chickpea,True,True,"chickpea, jowar, wheat",chickpea,True,"chickpea, jowar, safflower",True,2
+Rabi,BIJAPUR,49,"jowar, chickpea, sugarcane",chickpea,True,True,"chickpea, jowar, wheat",chickpea,True,"chickpea, jowar, wheat",True,3
+Rabi,CHAMARAJANAGAR,42,"sugarcane, banana, coconut",horse gram,False,True,"horse gram, maize, chickpea",horse gram,True,"horse gram, maize, chickpea",True,3
+Rabi,CHIKBALLAPUR,61,"mango, grapes, tomato",mango,True,True,"potato, tomato, maize",tomato,True,"maize, potato, groundnut",True,2
+Rabi,CHIKMAGALUR,70,"coffee, arecanut, coconut",coffee,True,True,"chickpea, jowar, ragi",chickpea,True,"chickpea, jowar, ragi",True,3
+Rabi,CHITRADURGA,63,"arecanut, coconut, chickpea",coconut,True,True,"chickpea, maize, groundnut",chickpea,True,"chickpea, maize, groundnut",True,3
+Rabi,DAKSHIN KANNAD,48,"arecanut, coconut, cashewnut",coconut,True,False,rice,rice,True,"rice, cowpea",True,1
+Rabi,DAVANGERE,58,"arecanut, coconut, jowar",coconut,True,True,"chickpea, maize, jowar",chickpea,True,"ragi, maize, chickpea",False,2
+Rabi,DHARWAD,51,"chickpea, jowar, sugarcane",chickpea,True,True,"chickpea, jowar, wheat",chickpea,True,"chickpea, jowar, wheat",True,3
+Rabi,GADAG,50,"chickpea, jowar, wheat",chickpea,True,True,"chickpea, jowar, wheat",chickpea,True,"chickpea, jowar, sunflower",True,2
+Rabi,GULBARGA,60,"jowar, chickpea, sugarcane",chickpea,True,True,"jowar, chickpea, wheat",chickpea,True,"jowar, chickpea, safflower",True,2
+Rabi,HASSAN,81,"coconut, coffee, arecanut",coconut,True,False,"ragi, maize, horse gram",ragi,True,"ragi, maize, cowpea",True,2
+Rabi,HAVERI,70,"jowar, arecanut, sugarcane",jowar,True,False,"jowar, maize, sunflower",jowar,True,"maize, jowar, sunflower",True,3
+Rabi,KODAGU,30,"coffee, arecanut, black pepper",coffee,True,False,rice,,,rice,True,1
+Rabi,KOLAR,51,"mango, tomato, potato",mango,True,False,"potato, tomato, horse gram",tomato,True,"horse gram, potato, tomato",True,3
+Rabi,KOPPAL,40,"chickpea, jowar, sunflower",chickpea,True,True,"chickpea, jowar, groundnut",chickpea,True,"chickpea, groundnut, maize",True,2
+Rabi,MANDYA,69,"coconut, sugarcane, horse gram",coconut,True,True,"horse gram, ragi, maize",horse gram,True,"ragi, horse gram, maize",True,3
+Rabi,MYSORE,70,"coconut, sugarcane, horse gram",coconut,True,True,"horse gram, ragi, field bean (avare)",horse gram,True,"ragi, horse gram, field bean (avare)",True,3
+Rabi,RAICHUR,50,"jowar, chickpea, rice",chickpea,True,False,"jowar, chickpea, rice",chickpea,True,"rice, jowar, chickpea",True,3
+Rabi,RAMANAGARA,42,"coconut, mango, arecanut",coconut,True,False,"horse gram, ragi, maize",horse gram,True,"ragi, maize, horse gram",True,3
+Rabi,SHIMOGA,71,"arecanut, banana, coconut",arecanut,True,True,"maize, rice, sunflower",,,"maize, sunflower, rice",True,3
+Rabi,TUMKUR,100,"coconut, arecanut, mango",coconut,True,True,"groundnut, jowar, maize",,,"groundnut, maize, linseed",True,2
+Rabi,UDUPI,35,"coconut, arecanut, cashewnut",coconut,True,False,"rice, black gram, groundnut",rice,True,"rice, black gram, groundnut",True,3
+Rabi,UTTAR KANNAD,108,"arecanut, coconut, sugarcane",coconut,True,True,"rice, maize, green gram",rice,True,"maize, green gram, horse gram",True,2
+Rabi,YADGIR,30,"jowar, chickpea, rice",chickpea,True,True,"jowar, groundnut, chickpea",chickpea,True,"groundnut, jowar, bajra",True,2
+Summer,BAGALKOT,61,"sugarcane, groundnut, sunflower",sugarcane,True,False,"maize, sunflower, onion",groundnut,False,"maize, sunflower, onion",True,3
+Summer,BANGALORE RURAL,39,"mango, coconut, grapes",mango,True,True,"tomato, jowar, maize",,,"tomato, maize, ragi",True,2
+Summer,BELGAUM,99,"sugarcane, mango, groundnut",sugarcane,True,False,"maize, jowar, sunflower",,,"maize, jowar, tomato",True,2
+Summer,BELLARY,70,"rice, groundnut, sugarcane",rice,True,True,"rice, maize, ragi",rice,True,"rice, ragi, maize",True,3
+Summer,BENGALURU URBAN,42,"mango, coconut, grapes",coconut,True,False,"jowar, tomato, maize",rice,False,"jowar, maize, tomato",True,3
+Summer,BIDAR,50,"sugarcane, mango, banana",sugarcane,True,False,"jowar, maize, onion",,,"onion, jowar, tomato",True,2
+Summer,BIJAPUR,49,"sugarcane, grapes, groundnut",sugarcane,True,True,"maize, onion, sunflower",groundnut,False,"maize, onion, sunflower",True,3
+Summer,CHAMARAJANAGAR,42,"sugarcane, banana, coconut",coconut,True,True,"maize, rice, tomato",maize,True,"maize, rice, sunflower",True,2
+Summer,CHIKBALLAPUR,61,"mango, grapes, coconut",mango,True,True,"tomato, maize, rice",,,"maize, tomato, rice",True,3
+Summer,CHIKMAGALUR,70,"coffee, arecanut, coconut",coffee,True,True,"rice, maize, ragi",,,"rice, tomato, maize",True,2
+Summer,CHITRADURGA,63,"arecanut, coconut, rice",coconut,True,False,"maize, jowar, rice",,,"maize, ragi, tomato",True,1
+Summer,DAKSHIN KANNAD,48,"arecanut, coconut, cashewnut",coconut,True,False,"rice, cowpea",,,"rice, cowpea",True,2
+Summer,DAVANGERE,58,"arecanut, rice, coconut",rice,True,True,"rice, maize",rice,True,"rice, maize, ragi",True,2
+Summer,DHARWAD,51,"sugarcane, mango, groundnut",mango,True,False,"maize, rice, tomato",,,"maize, rice, tomato",True,3
+Summer,GADAG,50,"groundnut, sugarcane, rice",groundnut,True,True,"rice, sunflower, cowpea",groundnut,False,"rice, cowpea, maize",True,2
+Summer,GULBARGA,60,"sugarcane, groundnut, rice",sugarcane,True,False,"rice, jowar, maize",,,"rice, jowar, onion",True,2
+Summer,HASSAN,81,"coconut, coffee, arecanut",coconut,True,False,"maize, ragi, rice",,,"maize, ragi, rice",True,3
+Summer,HAVERI,70,"sugarcane, arecanut, rice",sugarcane,True,True,"rice, maize, jowar",rice,True,"maize, rice, tomato",True,2
+Summer,KODAGU,30,"coffee, arecanut, black pepper",coffee,True,False,rice,,,rice,True,1
+Summer,KOLAR,51,"mango, potato, coconut",mango,True,False,"tomato, potato, ragi",,,"tomato, maize, ragi",True,2
+Summer,KOPPAL,40,"rice, groundnut, sugarcane",rice,True,True,"rice, maize",rice,True,"rice, maize, tomato",True,2
+Summer,MANDYA,69,"coconut, sugarcane, rice",coconut,True,True,"rice, ragi, maize",rice,True,"rice, ragi, maize",True,3
+Summer,MYSORE,70,"coconut, sugarcane, banana",coconut,True,False,"rice, ragi, maize",rice,True,"rice, maize, tomato",True,2
+Summer,RAICHUR,50,"rice, groundnut, mango",rice,True,False,"rice, bajra",rice,True,"rice, bajra, jowar",True,2
+Summer,RAMANAGARA,42,"coconut, mango, banana",coconut,True,False,"ragi, tomato, rice",,,"ragi, tomato, maize",True,2
+Summer,SHIMOGA,71,"arecanut, rice, banana",arecanut,True,True,"rice, maize",rice,True,"rice, maize, jowar",True,2
+Summer,TUMKUR,100,"coconut, arecanut, mango",coconut,True,True,"ragi, rice, maize",,,"maize, ragi, rice",True,3
+Summer,UDUPI,35,"coconut, arecanut, cashewnut",coconut,True,False,"rice, cowpea",,,"cowpea, rice",True,2
+Summer,UTTAR KANNAD,108,"arecanut, coconut, sugarcane",coconut,True,True,"rice, maize, jowar",rice,True,"maize, rice, jowar",True,3
+Summer,YADGIR,30,"rice, groundnut, sugarcane",rice,True,True,"rice, bajra",rice,True,"rice, bajra, jowar",True,2

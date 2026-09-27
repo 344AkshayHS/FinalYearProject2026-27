@@ -9,8 +9,12 @@
 # Models compared (as in the paper): single learners vs ensembles. The comparison also decides
 # which model the app ships - see the selection rules below. Random Forest wins today.
 #
-# Note: all points in a district share one crop mix, so no model can reach 100%.
-# The "ceiling" is the best possible accuracy (always answering the district's top crop).
+# Season: every point is in the data once per season (Kharif, Rabi, Summer) with that season's crop mix,
+# and the season is one of the model's inputs, so the answer changes with the season the farmer sows in.
+#
+# Note: all points in a district (in Karnataka: a taluk, see build_dataset.py) share one crop mix per
+# season, so no model can reach 100%. The "ceiling" is the best possible accuracy (always answering that place's
+# top crop). Folds are still whole districts: a Karnataka district's taluks are held out together.
 #
 # Run from the ml-service folder:  python training/train_location_model.py
 
@@ -21,7 +25,6 @@ import pandas as pd
 from sklearn.ensemble import (
     ExtraTreesClassifier,
     HistGradientBoostingClassifier,
-    RandomForestClassifier,
     StackingClassifier,
 )
 from sklearn.linear_model import LogisticRegression
@@ -34,13 +37,9 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier
 
-FEATURES = [
-    "pH", "Nitrogen", "Organic_Carbon", "Clay", "Sand", "CEC",
-    "Temperature", "Winter_Temperature", "Humidity", "Rainfall", "Monsoon_Rain_Share",
-    "Post_Monsoon_Rain_Share", "Dry_Months", "Max_Temperature", "Solar_Radiation",
-    "Elevation", "Slope",
-]
-MODEL_VERSION = "rf-india-1.2"
+from forest import FEATURES, MIN_LEAF, SEASONS, YEAR_ROUND, random_forest
+
+MODEL_VERSION = "rf-india-2.1"
 CONFORMAL_LEVEL = 0.90
 
 # The app does not use a fixed model: the winner of the comparison below is saved and shipped.
@@ -54,10 +53,6 @@ CAN_EXPLAIN_WITH_TREE_SHAP = ["Decision Tree", "Random Forest"]
 SELECTION_SCORE = "india_top3_main_crop"
 
 
-def random_forest():
-    return RandomForestClassifier(n_estimators=400, min_samples_leaf=3, random_state=42, n_jobs=-1)
-
-
 def stacking(X, y, groups):
     # Meta-model (Logistic Regression) learns from base-model predictions on districts they
     # did not train on (inner GroupKFold), so it doesn't over-trust them.
@@ -65,13 +60,13 @@ def stacking(X, y, groups):
     return StackingClassifier(
         estimators=[
             ("random_forest", random_forest()),
-            ("extra_trees", ExtraTreesClassifier(n_estimators=300, min_samples_leaf=3, random_state=42, n_jobs=-1)),
+            ("extra_trees", ExtraTreesClassifier(n_estimators=300, min_samples_leaf=MIN_LEAF, random_state=42, n_jobs=-1)),
             ("gradient_boosting", HistGradientBoostingClassifier(max_iter=100, random_state=42)),
         ],
         final_estimator=LogisticRegression(max_iter=2000),
         stack_method="predict_proba",
         cv=inner_folds,
-        n_jobs=-1,
+        n_jobs=None,   # one base model at a time (each already uses every core); several forests at once run out of memory
     )
 
 
@@ -96,18 +91,19 @@ def full_probabilities(model, X, all_crops):
 
 
 def scores(rows, predicted, probabilities, all_crops):
-    # Accuracy and macro-F1 over all rows, plus: is the district's main crop in the top 3? (per point)
+    # Accuracy and macro-F1 over all rows, plus: is the main crop of the point's place (its taluk in
+    # Karnataka, its district elsewhere) in that season in the top 3? (per point and season)
     acc = accuracy_score(rows["Crop"], predicted)
     f1 = f1_score(rows["Crop"], predicted, average="macro")
-    main_crop = rows.groupby("Group")["Crop"].agg(lambda c: c.value_counts().index[0])
-    first = ~rows.duplicated(["Latitude", "Longitude"])
+    main_crop = rows.groupby(["Place", "Season"])["Crop"].agg(lambda c: c.value_counts().index[0])
+    first = ~rows.duplicated(["Latitude", "Longitude", "Season"])
     top3 = np.array(all_crops)[np.argsort(probabilities[first.values], axis=1)[:, ::-1][:, :3]]
-    hits = [main_crop[g] in row for g, row in zip(rows.loc[first, "Group"], top3)]
+    hits = [main_crop[(p, s)] in row for p, s, row in zip(rows.loc[first, "Place"], rows.loc[first, "Season"], top3)]
     return acc, f1, float(np.mean(hits))
 
 
 def ceiling(rows):
-    return rows.groupby(["Latitude", "Longitude"])["Crop"].agg(lambda c: c.value_counts(normalize=True).iloc[0]).mean()
+    return rows.groupby(["Latitude", "Longitude", "Season"])["Crop"].agg(lambda c: c.value_counts(normalize=True).iloc[0]).mean()
 
 
 def conformal_threshold(true_crop_probabilities, level):
@@ -138,10 +134,12 @@ probabilities = {name: np.zeros((len(data), len(all_crops))) for name in names}
 
 for fold, (train_idx, test_idx) in enumerate(folds, start=1):
     X_train, y_train = X.iloc[train_idx], y.iloc[train_idx]
-    for name, model in all_models(X_train, y_train, groups.iloc[train_idx]).items():
-        model.fit(X_train, y_train)
+    models = all_models(X_train, y_train, groups.iloc[train_idx])
+    for name in names:
+        model = models.pop(name).fit(X_train, y_train)   # one fitted model in memory at a time
         predicted[name][test_idx] = model.predict(X.iloc[test_idx])
         probabilities[name][test_idx] = full_probabilities(model, X.iloc[test_idx], all_crops)
+        del model
     print(f"  fold {fold}/5 done")
 
 results = []
@@ -204,13 +202,19 @@ with open("artifacts/crop_model_info.json", "w") as f:
         "selection_rule": f"best {SELECTION_SCORE} among models with exact tree SHAP "
                           f"({', '.join(CAN_EXPLAIN_WITH_TREE_SHAP)})",
         "features": FEATURES,
+        "seasons": SEASONS,
+        "year_round": YEAR_ROUND,
         "crops": list(final_model.classes_),
         "rows": len(data),
         "districts": int(groups.nunique()),
         "validation": "5-fold GroupKFold by district",
-        "labels": "district crop-area shares: ICRISAT district database 2015-2019 where available, "
-                  "data.gov.in 2010-2014 elsewhere, plus Coffee Board planted area and "
-                  "Horticultural Statistics at a Glance 2018 for fruit and vegetables",
+        "labels": "Crop-area shares per season (Kharif, Rabi, Summer). Karnataka: taluk crop-area shares, the average of the Agriculture Census 2010-11 and 2015-16 "
+                  "and Karnataka DES 2019-22 (Karnataka At A Glance). "
+                  "Elsewhere: district crop-area shares from the ICRISAT district database 2015-2019 where "
+                  "available, data.gov.in 2010-2014 elsewhere, plus Coffee Board planted area and "
+                  "Horticultural Statistics at a Glance 2018 for fruit and vegetables. Seasons: each crop's "
+                  "Kharif/Rabi/Summer split in its district (ICRISAT 2015-2019 and data.gov.in 2010-2014); "
+                  "plantation crops, fruit trees and sugarcane count in every season",
         "accuracy_ceiling": {"india": round(ceiling(data), 4), "karnataka": round(ceiling(data[karnataka]), 4)},
         "results": results,
         "karnataka_only_random_forest": dict(zip(["accuracy", "macro_f1", "top3_main_crop"], map(float, kar_only))),

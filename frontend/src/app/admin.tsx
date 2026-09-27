@@ -37,6 +37,7 @@ type Overview = {
       id: string;
       created_at: string;
       model_version: string;
+      season: string | null;
       state: string | null;
       district: string | null;
       crop: string | null;
@@ -398,6 +399,7 @@ export default function AdminScreen() {
             style={{ paddingVertical: 10, gap: 2, borderTopWidth: 1, borderTopColor: colors.border }}>
             <Text style={{ fontSize: 13, color: colors.muted }}>
               #{row.id} · {new Date(row.created_at).toLocaleString('en-IN')} · {row.model_version}
+              {row.season ? ' · ' + row.season : ''}
               {row.used_soil_test ? ' · soil test' : ''}
             </Text>
             <Text style={{ fontSize: 16, fontWeight: '700', color: colors.text }}>

@@ -6,12 +6,14 @@ import { Button } from '@/components/button';
 import { LanguageSwitch } from '@/components/language-switch';
 import { api } from '@/lib/api';
 import { useApp } from '@/lib/app-context';
+import type { Season } from '@/lib/season';
 import { cropName } from '@/lib/translations';
 import { cardShadow, colors, radius } from '@/theme';
 
 type PastResult = {
   id: string;
   created_at: string;
+  season: Season | null; // null for results made before the season model
   latitude: string;
   longitude: string;
   crops: { crop: string; score: string }[] | null;
@@ -80,6 +82,7 @@ export default function ProfileScreen() {
           <View key={item.id} style={{ gap: 4, paddingVertical: 10, borderTopWidth: 1, borderTopColor: colors.border }}>
             <Text style={{ fontSize: 13, color: colors.muted }}>
               {new Date(item.created_at).toLocaleDateString(language === 'kn' ? 'kn-IN' : 'en-IN')} ·{' '}
+              {item.season ? t.seasonNames[item.season] + ' · ' : ''}
               {Number(item.latitude).toFixed(3)}, {Number(item.longitude).toFixed(3)}
             </Text>
             <Text style={{ fontSize: 16, fontWeight: '600', color: colors.text }}>

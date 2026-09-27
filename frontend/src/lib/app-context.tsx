@@ -1,10 +1,12 @@
-// Shared app state: the logged-in user, their login token, and the chosen language.
+// Shared app state: the logged-in user, their login token, the chosen language, and a summary of the
+// farmer's last result (so the crop helper chat can answer "can I grow rice here?").
 // The token and language are saved on the phone with SecureStore, so the user stays logged in.
 
 import * as SecureStore from 'expo-secure-store';
 import { createContext, use, useEffect, useState, type ReactNode } from 'react';
 
 import { api } from '@/lib/api';
+import type { FarmSummary } from '@/lib/chatbot';
 import { translations, type Language } from '@/lib/translations';
 
 export type User = { id: string; full_name: string; phone: string; preferred_language: Language };
@@ -23,6 +25,9 @@ type AppState = {
   adminToken: string | null;
   adminLogin: (username: string, password: string) => Promise<void>;
   adminLogout: () => void;
+  // The last "Find crops" result, in memory only
+  farm: FarmSummary | null;
+  setFarm: (farm: FarmSummary | null) => void;
 };
 
 const AppContext = createContext<AppState | null>(null);
@@ -33,6 +38,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [token, setToken] = useState<string | null>(null);
   const [language, setLanguageState] = useState<Language>('en');
   const [adminToken, setAdminToken] = useState<string | null>(null);
+  const [farm, setFarm] = useState<FarmSummary | null>(null);
 
   // On app start: load the saved language and token, and check the token is still valid
   useEffect(() => {
@@ -97,6 +103,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     await SecureStore.deleteItemAsync('token');
     setToken(null);
     setUser(null);
+    setFarm(null);
   }
 
   async function setLanguage(newLanguage: Language) {
@@ -122,6 +129,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
         adminToken,
         adminLogin,
         adminLogout,
+        farm,
+        setFarm,
       }}>
       {children}
     </AppContext>

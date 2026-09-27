@@ -16,9 +16,13 @@ web-build/
 # Source workbooks downloaded by hand from the ICRISAT portal (20 MB; training/read_icrisat.py
 # turns them into data/raw/icrisat_season_area.csv, which is in the repository)
 ml-service/data/raw/icrisat/
+# The Karnataka DES report (PDF, downloaded again by training/read_des_estimates.py; its CSV is in the repository)
+ml-service/data/raw/des/
+# The FAO EcoCrop database (downloaded again by training/read_ecocrop.py; the table made from it is in artifacts/)
+ml-service/data/raw/ecocrop/
 icrisat/
 
-# The trained model (121 MB, over GitHub's 100 MB limit). training/train_location_model.py
+# The trained model (about 30 MB), built on each PC. training/train_location_model.py
 # rebuilds the same model (fixed random_state); the results it produced are in artifacts/.
 ml-service/artifacts/crop_model.joblib
 

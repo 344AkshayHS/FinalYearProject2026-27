@@ -1,0 +1,94 @@
+Crop,Scientific_name,In_model,Group,pH_opt_min,pH_opt_max,pH_min,pH_max,Temp_opt_min,Temp_opt_max,Temp_min,Temp_max,Rain_opt_min,Rain_opt_max,Rain_min,Rain_max,Texture_opt,Texture,Fertility,Life_span,Category
+rice,Oryza sativa,True,,5.5,7.0,4.5,9.0,20.0,30.0,10.0,36.0,1500.0,2000.0,1000.0,4000.0,wide,wide,high,annual,cereals & pseudocereals
+wheat,Triticum aestivum,True,,6.0,7.0,5.5,8.5,15.0,23.0,5.0,27.0,750.0,900.0,300.0,1600.0,"medium, organic","heavy, medium",high,annual,"cereals & pseudocereals, forage/pasture, medicinals & aromatic"
+maize,Zea mays,True,,5.0,7.0,4.5,8.5,18.0,33.0,10.0,47.0,600.0,1200.0,400.0,1800.0,,,high,,
+jowar,Sorghum bicolor,True,,5.5,7.5,5.0,8.0,22.0,35.0,8.0,40.0,400.0,600.0,300.0,700.0,"heavy, medium",wide,high,annual,"cereals & pseudocereals, forage/pasture, medicinals & aromatic"
+bajra,Pennisetum glaucum,True,,5.0,6.5,4.5,8.3,25.0,35.0,12.0,40.0,400.0,900.0,200.0,1700.0,"medium, light","medium, light",moderate,annual,cereals & pseudocereals
+ragi,Eleusine coracana ssp. coracana,True,,6.0,7.0,5.5,8.2,18.0,30.0,8.0,35.0,500.0,1100.0,300.0,4300.0,medium,"heavy, medium, light",moderate,annual,"cereals & pseudocereals, forage/pasture, environmental"
+barley,Hordeum vulgare,True,,6.5,7.5,6.0,8.0,15.0,20.0,2.0,40.0,500.0,1000.0,200.0,2000.0,medium,"heavy, medium, light",moderate,annual,"cereals & pseudocereals, medicinals & aromatic"
+chickpea,Cicer arietinum,True,,6.0,8.5,4.7,9.5,15.0,29.0,7.0,35.0,600.0,1000.0,300.0,1800.0,"heavy, medium","heavy, medium, light",moderate,annual,pulses (grain legumes)
+pigeonpea (tur),Cajanus cajan,True,,5.0,7.0,4.5,8.4,18.0,38.0,10.0,45.0,600.0,1500.0,400.0,4000.0,"medium, light","heavy, medium, light",moderate,perennial,vegetables
+green gram,Vigna radiata,True,,5.5,6.2,4.3,8.3,21.0,36.0,8.0,40.0,650.0,900.0,500.0,1250.0,"medium, organic","heavy, medium, light",moderate,perennial,"pulses (grain legumes), forage/pasture, cover crop, environmental"
+black gram,Vigna mungo,True,,5.5,6.5,4.5,7.5,22.0,35.0,8.0,40.0,650.0,900.0,530.0,2430.0,"heavy, medium","heavy, medium",high,annual,"pulses (grain legumes), forage/pasture, medicinals & aromatic, cover crop, environmental"
+horse gram,Macrotyloma uniflorum,True,,5.5,7.0,5.0,8.0,20.0,28.0,17.0,35.0,500.0,1200.0,300.0,4300.0,"medium, light","heavy, medium, light",moderate,annual,"pulses (grain legumes), forage/pasture, medicinals & aromatic, environmental"
+lentil,Lens culinaris,True,,5.5,7.5,4.5,8.2,15.0,29.0,5.0,32.0,600.0,1000.0,250.0,2500.0,"heavy, medium","heavy, medium, light",moderate,annual,"pulses (grain legumes), medicinals & aromatic"
+cowpea,Vigna unguiculata,True,,5.5,7.5,4.0,8.8,25.0,35.0,15.0,40.0,500.0,1500.0,300.0,4100.0,"medium, light","heavy, medium, light, wide",moderate,annual,"pulses (grain legumes), forage/pasture, vegetables, environmental"
+field bean (avare),Lablab purpureus,True,,5.0,7.5,4.5,8.0,18.0,32.0,3.0,38.0,600.0,1000.0,200.0,2500.0,"heavy, medium, light, organic","heavy, medium, light",moderate,"annual, perennial","forage/pasture, vegetables, ornamentals/turf, cover crop, environmental"
+moth bean,Vigna aconitifolia,True,,6.5,7.5,5.0,8.0,24.0,32.0,13.0,45.0,500.0,900.0,400.0,2500.0,light,"heavy, medium, light",low,"annual, perennial","pulses (grain legumes), forage/pasture, vegetables, environmental"
+khesari,Lathyrus sativus,True,,6.0,7.5,4.5,8.3,10.0,28.0,4.0,32.0,500.0,1300.0,320.0,3000.0,"heavy, medium, light","heavy, medium, light",moderate,annual,"pulses (grain legumes), forage/pasture, environmental"
+rajma,Phaseolus vulgaris,True,,5.5,7.5,4.0,9.0,16.0,25.0,7.0,32.0,500.0,2000.0,300.0,4300.0,"medium, organic","heavy, medium, light",moderate,annual,"pulses (grain legumes), forage/pasture, vegetables, medicinals & aromatic"
+groundnut,Arachis hypogaea,True,,5.5,6.5,4.5,8.5,22.0,32.0,10.0,45.0,600.0,1500.0,400.0,4000.0,medium,"heavy, medium, light, organic",high,annual,"pulses (grain legumes), vegetables, materials, medicinals & aromatic"
+sunflower,Helianthus annuus,True,,6.0,7.5,5.5,8.0,17.0,34.0,5.0,45.0,600.0,1000.0,300.0,1600.0,"medium, light","heavy, medium, light",high,annual,"materials, ornamentals/turf"
+soybean,Glycine max,True,,5.5,6.5,4.5,8.4,20.0,33.0,10.0,38.0,600.0,1500.0,450.0,1800.0,"medium, organic","heavy, medium, light",high,annual,pulses (grain legumes)
+mustard,Brassica juncea,True,,5.5,6.5,5.0,8.0,15.0,28.0,7.0,40.0,700.0,2400.0,500.0,4200.0,"medium, organic","heavy, medium, light",high,annual,"vegetables, materials"
+sesame,Sesamum indicum,True,,5.5,7.5,4.5,8.0,20.0,30.0,10.0,40.0,500.0,1000.0,300.0,1500.0,medium,"heavy, medium, light",moderate,annual,"forage/pasture, materials"
+castor,Ricinus communis,True,,5.0,6.5,4.5,8.0,20.0,30.0,15.0,39.0,600.0,1000.0,400.0,2000.0,medium,"heavy, medium, light",high,perennial,medicinals & aromatic
+linseed,Linum usitatissimum,True,,6.0,6.5,5.5,7.0,16.0,24.0,5.0,30.0,500.0,800.0,250.0,1300.0,"heavy, medium","heavy, medium",high,"annual, biennial, perennial","materials, medicinals & aromatic"
+niger seed,Guizotia abyssinica,True,,5.5,6.5,5.0,7.5,18.0,26.0,11.0,34.0,1000.0,1300.0,500.0,3000.0,medium,"heavy, medium, light",moderate,annual,"forage/pasture, materials, medicinals & aromatic"
+safflower,Carthamus tinctorius,True,,6.5,7.5,5.0,8.0,20.0,32.0,5.0,45.0,600.0,1000.0,300.0,1400.0,"medium, light","heavy, medium, light",moderate,annual,"materials, medicinals & aromatic"
+cotton,Gossypium hirsutum,True,,6.0,7.5,5.0,9.5,22.0,36.0,15.0,42.0,750.0,1200.0,450.0,1500.0,"heavy, medium","heavy, medium, light, organic",moderate,"annual, perennial","forage/pasture, materials"
+sugarcane,Saccharum officinarum,True,,5.0,8.0,4.5,9.0,24.0,37.0,15.0,41.0,1500.0,2000.0,1000.0,5000.0,,,high,,
+tobacco,Nicotiana tabacum,True,,5.0,6.5,4.5,7.5,15.0,30.0,7.0,35.0,500.0,750.0,350.0,3000.0,"medium, light","heavy, medium, light",moderate,"annual, biennial",materials
+jute,Corchorus capsularis,True,,6.5,7.0,5.0,8.6,20.0,37.0,13.0,45.0,1500.0,3000.0,900.0,3600.0,"heavy, medium","heavy, medium, light",high,annual,materials
+mesta,Hibiscus cannabinus,True,,6.0,7.5,4.3,8.2,15.0,28.0,10.0,35.0,600.0,2000.0,450.0,3000.0,"medium, organic","heavy, medium, light",high,annual,materials
+guar,Cyamopsis tetragonoloba,True,,7.5,8.0,5.5,8.5,25.0,35.0,10.0,45.0,500.0,800.0,400.0,2700.0,"medium, light","heavy, medium, light",moderate,annual,"forage/pasture, fruits & nuts, vegetables, materials, medicinals & aromatic"
+coconut,Cocos nucifera,True,,5.0,8.0,4.3,8.7,22.0,34.0,14.0,38.0,1200.0,2400.0,650.0,4000.0,"medium, light","heavy, medium, light",moderate,perennial,"fruits & nuts, materials, forest/wood"
+arecanut,Areca catechu,True,,5.5,6.0,4.5,6.8,16.0,33.0,7.0,39.0,1500.0,3000.0,750.0,5000.0,"heavy, medium","heavy, medium, light",high,perennial,"fruits & nuts, ornamentals/turf, medicinals & aromatic"
+coffee,Coffea arabica,True,,5.5,7.0,4.3,8.4,14.0,28.0,10.0,34.0,1400.0,2300.0,750.0,4200.0,"medium, organic","medium, light",high,perennial,"materials, medicinals & aromatic"
+black pepper,Piper nigrum,True,,6.0,7.0,5.0,7.5,22.0,35.0,10.0,40.0,2500.0,4000.0,2000.0,5500.0,"heavy, medium","heavy, medium, light",high,perennial,medicinals & aromatic
+cardamom,Elettaria cardamomum,True,,5.5,6.0,4.8,7.0,22.0,30.0,10.0,35.0,3000.0,6000.0,1500.0,7000.0,"medium, organic","heavy, medium, light",moderate,perennial,"materials, medicinals & aromatic"
+cashewnut,Anacardium occidentale,True,,4.5,6.5,3.8,8.7,15.0,35.0,5.0,46.0,750.0,1600.0,400.0,4000.0,"medium, light","heavy, medium, light",moderate,perennial,"fruits & nuts, medicinals & aromatic"
+banana,Musa acuminata,True,,5.5,7.5,4.0,8.4,23.0,33.0,12.0,42.0,1200.0,3600.0,650.0,5000.0,"medium, organic","heavy, medium, light",high,perennial,"forage/pasture, fruits & nuts"
+mango,Mangifera indica,True,,5.5,7.5,4.3,8.5,24.0,30.0,8.0,48.0,600.0,1500.0,300.0,2600.0,"medium, light","heavy, medium, light",moderate,perennial,"fruits & nuts, medicinals & aromatic, forest/wood"
+grapes,Vitis vinifera,True,,5.5,7.5,4.5,8.5,18.0,30.0,10.0,38.0,700.0,850.0,400.0,1200.0,"medium, organic","heavy, medium, light",moderate,perennial,"fruits & nuts, medicinals & aromatic"
+pomegranate,Punica granatum,True,,6.5,7.5,5.8,8.5,23.0,32.0,8.0,40.0,900.0,1200.0,400.0,4200.0,"heavy, medium","heavy, medium, light",high,perennial,"fruits & nuts, medicinals & aromatic"
+papaya,Carica papaya,True,,5.5,7.0,4.5,8.0,21.0,30.0,12.0,44.0,1500.0,2500.0,1000.0,3000.0,"medium, organic","heavy, medium, light",high,perennial,"fruits & nuts, medicinals & aromatic"
+sapota,Manilkara zapota,True,,6.0,7.0,5.5,8.5,20.0,34.0,11.0,42.0,1000.0,1500.0,400.0,2000.0,medium,wide,high,perennial,"fruits & nuts, medicinals & aromatic, forest/wood"
+tapioca,Manihot esculenta,True,,5.5,8.0,4.0,9.0,20.0,29.0,10.0,35.0,1000.0,1500.0,500.0,5000.0,"medium, light","heavy, medium, light, organic",moderate,perennial,roots/tubers
+sweet potato,Ipomoea batatas,True,,5.0,7.0,4.0,8.7,18.0,28.0,10.0,38.0,750.0,2000.0,350.0,5000.0,,,high,,
+potato,Solanum tuberosum,True,,5.0,6.2,4.2,8.5,15.0,25.0,7.0,30.0,500.0,800.0,250.0,2000.0,"medium, organic","heavy, medium, light",moderate,annual,"roots/tubers, medicinals & aromatic"
+onion,Allium cepa,True,,6.0,7.0,4.3,8.3,12.0,25.0,4.0,30.0,350.0,600.0,300.0,2800.0,"medium, organic","wide, organic",moderate,biennial,"vegetables, medicinals & aromatic"
+garlic,Allium sativum,True,,6.0,6.6,5.0,8.5,18.0,30.0,7.0,35.0,750.0,1600.0,500.0,2700.0,"medium, light","heavy, medium, light",high,biennial,"vegetables, medicinals & aromatic"
+tomato,Lycopersicon esculentum,True,,5.5,6.8,5.0,7.5,20.0,27.0,7.0,35.0,600.0,1300.0,400.0,1800.0,"medium, organic","heavy, medium, light",high,annual,"forage/pasture, vegetables, medicinals & aromatic"
+chilli,Capsicum annuum,True,,5.5,6.8,4.5,7.0,17.0,30.0,8.0,35.0,600.0,1250.0,500.0,1700.0,"medium, organic","medium, light",moderate,annual,"vegetables, medicinals & aromatic"
+turmeric,Curcuma longa,True,,6.0,7.0,5.5,7.5,20.0,28.0,18.0,32.0,1000.0,2000.0,800.0,3000.0,"medium, organic","medium, light",high,perennial,"roots/tubers, medicinals & aromatic"
+ginger,Zingiber officinale,True,,6.0,7.0,4.3,7.5,19.0,29.0,13.0,35.0,1400.0,3000.0,700.0,4000.0,"medium, organic","heavy, medium, light",high,"annual, perennial",medicinals & aromatic
+coriander,Coriandrum sativum,True,,5.5,7.5,4.0,8.0,15.0,25.0,4.0,32.0,500.0,1400.0,300.0,2600.0,medium,"heavy, medium, light",high,annual,"vegetables, materials, medicinals & aromatic"
+orange,Citrus sinensis,True,,5.0,6.0,4.0,8.3,20.0,30.0,13.0,38.0,1200.0,2000.0,450.0,2700.0,"medium, light","heavy, medium, light",moderate,perennial,fruits & nuts
+pineapple,Ananas comosus,True,,4.5,8.0,3.5,9.0,21.0,30.0,10.0,36.0,800.0,2500.0,550.0,3500.0,"medium, light","heavy, medium, light",moderate,perennial,fruits & nuts
+tulsi,Ocimum tenuiflorum,False,herb,6.0,7.5,5.0,9.0,20.0,28.0,15.0,35.0,1000.0,3000.0,700.0,7600.0,"medium, organic","heavy, medium, light, wide, organic",high,annual,medicinals & aromatic
+ashwagandha,Withania somnifera,False,herb,7.5,8.0,6.5,8.5,18.0,32.0,12.0,40.0,650.0,750.0,300.0,800.0,medium,"medium, light",moderate,perennial,medicinals & aromatic
+aloe vera,Aloe barbadensis,False,herb,6.5,7.5,6.0,8.0,19.0,27.0,10.0,35.0,1900.0,3000.0,700.0,4000.0,medium,"heavy, medium, light",moderate,perennial,"ornamentals/turf, medicinals & aromatic"
+stevia,Stevia rebaudiana,False,herb,5.0,6.5,4.0,7.5,18.0,30.0,15.0,43.0,1000.0,1400.0,500.0,1800.0,light,"medium, light",moderate,perennial,"materials, medicinals & aromatic"
+kalmegh,Andrographis paniculata,False,herb,,,,,20.0,30.0,14.0,38.0,2000.0,3000.0,1500.0,4000.0,"medium, light","medium, light",,annual,"ornamentals/turf, medicinals & aromatic"
+centella,Centella asiatica,False,herb,,,,,,,,,,,,,,,high,perennial,"vegetables, medicinals & aromatic"
+curry leaf,Murraya koenigii,False,herb,5.5,6.5,5.0,7.0,27.0,41.0,8.0,47.0,1400.0,1800.0,500.0,2500.0,"medium, light","heavy, medium, light",low,perennial,"materials, medicinals & aromatic"
+mint,Mentha arvensis var. piperascens,False,herb,5.5,6.4,4.5,8.3,10.0,25.0,3.0,30.0,800.0,1100.0,500.0,4300.0,medium,"heavy, medium, light",high,perennial,materials
+fenugreek,Trigonella foenum-graecum,False,herb,7.0,7.5,5.3,8.2,13.0,27.0,5.0,32.0,600.0,800.0,380.0,1550.0,"medium, light","medium, light",moderate,annual,medicinals & aromatic
+lemongrass,Cymbopogon flexuosus,False,herb,5.0,5.5,4.5,6.0,22.0,30.0,13.0,34.0,1500.0,3000.0,700.0,4100.0,light,"medium, light",moderate,perennial,materials
+citronella,Cymbopogon nardus var. lenabatu,False,herb,4.5,6.0,4.0,8.0,20.0,30.0,16.0,36.0,1300.0,2000.0,750.0,4100.0,"medium, light","heavy, medium, light",moderate,perennial,materials
+vetiver,Vetiveria zizanioides,False,herb,4.5,8.0,3.0,9.9,22.0,35.0,12.0,45.0,500.0,2500.0,200.0,5000.0,"medium, light","heavy, medium, light, organic",moderate,perennial,"medicinals & aromatic, cover crop"
+patchouli,Pogostemon cablin,False,herb,6.0,6.5,5.5,7.0,23.0,28.0,16.0,32.0,2200.0,2600.0,2000.0,2800.0,"medium, organic","heavy, medium",high,perennial,"materials, medicinals & aromatic, environmental"
+clove,Eugenia aromatica,False,spice,5.0,6.0,4.5,7.0,24.0,34.0,20.0,38.0,1500.0,3600.0,1200.0,4000.0,"medium, organic","heavy, medium, light, wide, organic",moderate,perennial,"materials, medicinals & aromatic"
+nutmeg,Myristica fragrans,False,spice,6.0,7.0,5.5,7.5,22.0,34.0,12.0,38.0,1500.0,3500.0,1200.0,4000.0,"medium, organic","heavy, medium",high,perennial,"fruits & nuts, materials, medicinals & aromatic, environmental"
+cinnamon,Cinnamomum verum,False,spice,5.5,6.5,5.0,7.0,24.0,30.0,18.0,36.0,2000.0,2600.0,1200.0,3000.0,light,"medium, light",low,perennial,"materials, medicinals & aromatic"
+vanilla,Vanilla planifolia,False,spice,5.5,7.0,4.3,8.0,21.0,30.0,10.0,33.0,2000.0,2500.0,1500.0,3000.0,"medium, organic","medium, light",high,perennial,"materials, medicinals & aromatic"
+rubber,Hevea brasiliensis,False,plantation,4.5,6.0,3.5,8.0,24.0,33.0,10.0,45.0,2000.0,4000.0,1200.0,6000.0,"medium, light","heavy, medium, light",moderate,perennial,"forage/pasture, fruits & nuts, materials, forest/wood, environmental"
+tea,Camellia sinensis,False,plantation,4.5,5.5,4.0,6.0,20.0,30.0,8.0,35.0,1400.0,2000.0,1000.0,5000.0,"heavy, medium, light","heavy, medium, light",high,perennial,"materials, medicinals & aromatic"
+cocoa,Theobroma cacao,False,plantation,5.0,6.5,4.0,8.0,21.0,32.0,10.0,38.0,1200.0,3000.0,900.0,7600.0,"heavy, organic","heavy, medium, light",moderate,perennial,"fruits & nuts, medicinals & aromatic"
+betel vine,Piper betle,False,plantation,5.0,5.6,4.3,6.8,22.0,27.0,17.0,31.0,3000.0,3700.0,2500.0,4200.0,"heavy, organic","heavy, medium",high,perennial,medicinals & aromatic
+drumstick,Moringa oleifera,False,plantation,5.5,7.0,5.0,8.5,20.0,35.0,7.0,48.0,700.0,2200.0,400.0,2600.0,"medium, light","heavy, medium, light",moderate,perennial,"forage/pasture, fruits & nuts, vegetables, materials, ornamentals/turf, medicinals & aromatic, forest/wood, environmental"
+brinjal,Solanum melongena,False,vegetable,5.5,6.8,4.3,8.5,20.0,35.0,9.0,40.0,1200.0,1600.0,800.0,4000.0,"medium, organic","heavy, medium, light",high,annual,"vegetables, medicinals & aromatic"
+okra,Abelmoschus esculentus,False,vegetable,5.5,7.0,4.5,8.7,20.0,30.0,12.0,35.0,600.0,1200.0,300.0,2500.0,"heavy, medium, light, organic","heavy, medium, light",high,annual,vegetables
+cucumber,Cucumis sativus,False,vegetable,6.0,7.5,4.5,8.7,18.0,32.0,6.0,38.0,1000.0,1200.0,400.0,4300.0,"medium, organic","heavy, medium, light",high,annual,"fruits & nuts, vegetables, materials, medicinals & aromatic"
+bitter gourd,Momordica charantia,False,vegetable,6.0,6.5,4.5,8.0,22.0,30.0,15.0,38.0,2000.0,2500.0,1000.0,4000.0,"medium, organic","heavy, medium",moderate,annual,"fruits & nuts, vegetables, ornamentals/turf, environmental"
+bottle gourd,Lagenaria siceraria,False,vegetable,5.5,7.0,4.5,7.5,19.0,27.0,12.0,38.0,1200.0,1800.0,700.0,2800.0,"medium, light","heavy, medium, light, organic",high,annual,"fruits & nuts, vegetables, materials, medicinals & aromatic"
+ridge gourd,Luffa acutangula,False,vegetable,5.5,7.0,4.5,7.5,20.0,32.0,15.0,38.0,1200.0,2000.0,700.0,3000.0,"medium, organic","heavy, medium, light",high,annual,"vegetables, materials, medicinals & aromatic"
+pumpkin,Cucurbita moschata,False,vegetable,5.5,7.5,4.5,8.3,20.0,30.0,10.0,40.0,600.0,1600.0,300.0,2800.0,"medium, organic","heavy, medium, light",high,annual,"forage/pasture, fruits & nuts, vegetables"
+cabbage,Brassica oleracea var. capitata,False,vegetable,6.0,7.5,5.0,8.3,15.0,24.0,7.0,32.0,500.0,1000.0,300.0,2500.0,"medium, organic","heavy, medium, light",high,biennial,vegetables
+cauliflower,Brassica oleracea var. botrytis,False,vegetable,6.0,7.0,5.5,8.5,10.0,25.0,5.0,30.0,600.0,1100.0,450.0,1900.0,medium,"heavy, medium, light",high,biennial,vegetables
+carrot,Daucus carota,False,vegetable,5.8,6.8,4.2,8.7,15.0,24.0,3.0,30.0,600.0,1200.0,400.0,4000.0,"medium, organic","heavy, medium, light",moderate,biennial,"roots/tubers, forage/pasture, vegetables, materials, medicinals & aromatic"
+radish,Raphanus sativus,False,vegetable,6.0,7.0,4.3,8.3,12.0,26.0,10.0,37.0,1000.0,1500.0,800.0,2800.0,"medium, light","heavy, medium, light",high,annual,"roots/tubers, vegetables"
+amaranthus,Amaranthus tricolor,False,vegetable,5.5,7.5,4.3,8.0,22.0,30.0,8.0,45.0,1200.0,1500.0,300.0,2700.0,"heavy, medium, light, organic","heavy, medium, light",high,annual,"vegetables, ornamentals/turf"
+spinach,Spinacia oleracea,False,vegetable,6.0,7.5,5.3,8.3,13.0,20.0,2.0,27.0,800.0,1200.0,300.0,1700.0,"medium, light","heavy, medium, light, organic",high,annual,vegetables
+vegetable cowpea,Vigna unguiculata ssp. sesquipedalis,False,vegetable,5.5,7.0,4.3,7.5,20.0,35.0,14.0,38.0,1500.0,2000.0,650.0,4100.0,"heavy, medium","heavy, medium, light, organic",moderate,annual,"pulses (grain legumes), forage/pasture, environmental"

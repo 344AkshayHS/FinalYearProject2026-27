@@ -519,13 +519,11 @@ export const CROP_INFO: Record<string, CropInfo> = {
     scientific: 'Solanum lycopersicum',
     otherNames: ['tamatar'],
     kannadaNames: ['ಟೋಮೆಟೋ'],
+    days: [135, 180],
+    waterMm: [400, 800],
     seedRate: '300 g per hectare',
-    spacing: '60 x 45 cm (60 x 30 cm for CO 3)',
+    spacing: '60 x 45 cm (60 x 30 cm for CO 3), planted out after 25 to 30 days in the nursery',
     fertiliser: '200 : 250 : 250 kg N : P2O5 : K2O per hectare for hybrids',
-    waterNote: {
-      en: 'Seedlings stay 25 to 30 days in the nursery before they are planted out.',
-      kn: 'ಸಸಿಗಳು ನಾಟುವ ಮೊದಲು 25 ರಿಂದ 30 ದಿನ ಸಸಿಮಡಿಯಲ್ಲಿ ಇರಬೇಕು.',
-    },
-    source: 'TNAU',
+    source: 'TNAU, FAO (duration, water)',
   },
 };

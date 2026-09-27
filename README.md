@@ -1,11 +1,44 @@
 # GreenRoot
 
-Location-based crop recommendation for Karnataka farmers. The farmer shares their GPS location (or picks a
-district), and GreenRoot reads the soil and long-term climate of that exact spot and recommends crops, with an
-explanation, in English or Kannada (one tap in the header switches the whole app).
+Location-based crop recommendation for Karnataka farmers. The farmer shares their GPS location, and GreenRoot
+reads the soil and long-term climate of that exact spot and recommends crops, with an explanation, in English or
+Kannada (one tap in the header switches the whole app). A farmer who picks a Karnataka district instead (and,
+optionally, one of its taluks) gets an answer for that whole area: the model averaged over its sample farms. Beside
+the recommendation the app shows what farmers really grow most in that taluk (Agriculture Census) or district
+(crop statistics). Taluks are Karnataka only: we have taluk data nowhere else.
+Answers change with the season: the farmer picks Kharif, Rabi or Summer (it starts at the season of today's date),
+and the model, which has the season as one of its inputs, names the crops sown in that season. Plantation crops and
+fruit trees are marked "Stands all year", and where the district sows little in that season (summer almost
+everywhere) the app says so. When a year-round crop is in the top 3, the app also lists the season's top field crops
+("To sow this Rabi"): on the coast in rabi that is rice and black gram, under the arecanut and coconut.
+That list only names crops the district's own statistics sow in that season (1% or more of its field crops,
+`artifacts/season_field_crops.csv`; in Karnataka from the 2022-23 crop survey), ordered by the model's probability
+times the crop's share of the sowing then: in a Karnataka taluk (GPS or picked) the taluk's own field crops
+(Agriculture Census, split into seasons by the crop survey, `training/taluk_season_crops.py`), else the district's.
+Checked on districts the model never saw, scoring each census year with the other year's shares, the taluk's main
+crop came first 68% of the time (top 3: 91%), against 58% with the district's shares and 49% for the model alone;
+Hunsur and Periyapatna now start their kharif list with tobacco, as the census says. Chikkamagaluru's rabi list is
+chickpea, jowar and ragi, as the crop survey says. Every crop also carries short notes from its FAO EcoCrop needs: whether it suits the farmer's own tested soil pH,
+whether normal rain (IMD) is enough on rain-fed land, whether the season is too hot or cold, and whether it needs a
+fertile soil where the test shows low nitrogen. A crop that cannot grow at the tested pH or in the season's temperature
+moves below the others. When the "to sow" list starts with another crop than the model's top one - the top crop
+stands all year (arecanut, coconut, coffee), or the taluk's own crops put another first - the headline
+becomes the season's best crop to sow - the first of the "to sow" list, explained with its own SHAP and LIME - and
+a year-round top crop gets its own card, "year-round crop that suits this land best": what grows best on the land and
+what to sow this season are two different questions. "See top 10 crops" lists the next most likely crops (up to 10 in all), and a card lists the vegetables, herbs, spices and
+plantation crops (which the crop statistics do not count) that suit the land by their needs, a few of each. A seasonal
+crop's rainfall need is checked against that season's normal rain (IMD monthly normals: kharif June-September, rabi
+October-January, summer February-May), a plantation crop's against the year's; a seasonal crop short of rain is kept
+but marked "needs irrigation" (hidden on rain-fed land), while too much rain, or too little for a plantation crop,
+leaves it out. The year-round card lists the land's four best year-round crops. Beside it, the app shows what the district sowed most in that
+season (hectares, from the same survey), so the model's answer and the official figures can be compared.
 A built-in crop helper chat answers what a crop is called, how much water it needs and how long it takes to grow.
 
 Farmers can also:
+- say whether the land is rain-fed or irrigated. The app shows this season's rain against normal (NASA POWER, IMD
+  categories) and, on rain-fed land in Karnataka, marks as "Needs irrigation" the crops that most farmers of the taluk
+  or district irrigate - at least half of the crop's land irrigated in every recent Agriculture Census - naming the
+  crops they mostly grow on rain
 - enter their own soil test values (Soil Health Card): pH and organic carbon replace the soil map in the prediction,
   and N, P and K get a Low / Medium / High rating
 - see how much water to give a crop **today** (FAO method with today's forecast and the days since sowing)
@@ -28,7 +61,7 @@ Phone app (Expo)  ──►  Backend (Node + Express + PostgreSQL)  ──►  M
 | Folder | What is inside |
 |---|---|
 | `frontend/` | Expo app: `src/app` (screens), `src/components`, `src/lib` (API, English/Kannada text, location, crop facts and the crop helper chat) |
-| `backend/` | Express API: `src/routes` (users, location, recommend, chat, weather, feedback), `scripts/` (feedback export), `src/services`, `db/schema.sql`, `data/` (district boundaries and names) |
+| `backend/` | Express API: `src/routes` (users, location, recommend, chat, weather, feedback), `scripts/` (feedback export), `src/services`, `db/schema.sql`, `data/` (district and taluk boundaries, district names, crops grown per taluk and district) |
 | `ml-service/` | `app/` (the running service), `training/` (scripts that build the data and train the model), `artifacts/` (trained model and results), `data/` |
 
 ## Running it on a new PC
@@ -37,8 +70,8 @@ Phone app (Expo)  ──►  Backend (Node + Express + PostgreSQL)  ──►  M
 [PostgreSQL](https://www.postgresql.org/download/) (remember the password you set for the `postgres` user),
 and Git. On the phone: the **Expo Go** app (Play Store / App Store).
 
-All data is in the repository, so nothing needs to be downloaded again. The trained model file is not
-(it is 121 MB, over GitHub's 100 MB limit), so it is built once on your PC in step 4.
+All data is in the repository, so nothing needs to be downloaded again. The trained model file
+(`ml-service/artifacts/crop_model.joblib`, about 30 MB) is not, so it is built once on your PC in step 4.
 All commands below are for Windows PowerShell, starting in the project folder.
 
 **1. Get the code**
@@ -54,13 +87,13 @@ psql -U postgres -p 5432 -d greenroot -f backend/db/schema.sql
 ```
 (`psql` is in `C:\Program Files\PostgreSQL\<version>\bin` if it is not found.)
 An older GreenRoot database only needs the later files: `backend/db/002_soil_test_and_feedback.sql`,
-`003_admin.sql` and `004_terrain_and_climate.sql`.
+`003_admin.sql`, `004_terrain_and_climate.sql` and `005_season.sql`.
 
 **3. Settings.** `.env` files are never on GitHub (they hold passwords and keys). Copy each example and fill it in:
 
 | File | What to put in |
 |---|---|
-| `backend/.env` (from `backend/.env.example`) | your PostgreSQL password and port in `DATABASE_URL`; optional `GEMINI_API_KEY` for the chat |
+| `backend/.env` (from `backend/.env.example`) | your PostgreSQL password and port in `DATABASE_URL`; optional `GROQ_API_KEY` and `GEMINI_API_KEY` for the chat |
 | `ml-service/.env` (from `ml-service/.env.example`) | nothing needed to run the app (the data.gov.in key is only for re-training) |
 | `frontend/.env` (from `frontend/.env.example`) | nothing: leave `EXPO_PUBLIC_API_URL` empty. The app finds the backend on the PC running `npx expo start`, so it survives a changed Wi-Fi address. Fill it in only for a built APK, or when the backend runs on another PC |
 
@@ -69,7 +102,7 @@ An older GreenRoot database only needs the later files: `backend/db/002_soil_tes
 cd ml-service
 python -m venv .venv
 .venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python training/train_location_model.py     # builds artifacts/crop_model.joblib (~35 min, no internet)
+.venv\Scripts\python training/train_location_model.py     # builds artifacts/crop_model.joblib (~1 h 40 min, no internet)
 cd ..\backend
 npm install
 npm run create-admin -- <username> <password>     # optional: login for the ML dashboard
@@ -121,17 +154,51 @@ Run from `ml-service/` with the virtual environment active, in this order:
 |---|---|---|
 | 1 | `training/fetch_crop_stats.py` | Downloads district crop statistics for India from data.gov.in (needs `DATA_GOV_API_KEY`), 1997-2015 |
 | 2 | `training/read_icrisat.py` | Reads the ICRISAT workbook downloaded by hand (see below) into `data/raw/icrisat_season_area.csv`: newer district crop areas, 2010-2019, split by season |
-| 3 | `training/fetch_location_features.py` | Picks sample points inside every district and reads their soil, climate and terrain (slow, resumable; run with `PYTHONPATH=.`) |
-| 4 | `training/build_dataset.py` | Joins crop shares (labels) with the points (features). Where ICRISAT has 2015-2019 figures for a district they replace the older ones; coffee comes from `data/raw/plantation_area.csv` and the fruit and vegetable crops from `data/raw/horticulture_area.csv`, because the agriculture series counts neither |
-| 5 | `training/train_location_model.py` | Compares 7 models on held-out districts and saves the winner (must support exact tree SHAP; Random Forest wins today) |
-| 6 | `training/explain.py` | SHAP vs LIME agreement per crop |
-| 7 | `training/make_district_points.py` | One reference point per Karnataka district (for manual district choice) |
-| 8 | `training/calibration.py` | Checks that a crop's probability matches the real share of similar land growing it, and how often the top crop is the area's main crop (used for "Strong / Good / Possible choice" in the app) |
-| 9 | `training/check_districts.py` | Answers "pick a district and see if it is right" for all 30 Karnataka districts at once: is the crop really grown most there inside the model's top 3? Needs no server |
+| 2b | `training/read_des_estimates.py` | Reads Karnataka's crop-survey areas by district and season from the DES "Fully Revised Estimates" report (2022-23, downloaded if missing; needs `pdftotext`, which comes with Git for Windows) into `data/raw/karnataka_des_season_area.csv`. Every table is checked against its own totals. Used for which crops each Karnataka district sows in a season, the order of the "to sow" list, and the app's "sown most in this district this season" card; not for the training labels (those are per taluk) |
+| 2c | `training/read_ecocrop.py` | What every crop needs (optimal and absolute soil pH, temperature, rainfall, soil texture, fertility) from FAO EcoCrop, for the 57 model crops and 22 herbs, spices and plantation crops the crop statistics do not count (tulsi, ashwagandha, aloe vera, lemongrass, curry leaf, rubber, tea, cocoa, clove...), into `artifacts/crop_requirements.csv` |
+| 2d | `training/read_imd_rainfall.py` | IMD's normal yearly rainfall per district (1951-2000, data.gov.in) into `artifacts/district_rainfall.csv`, for checking crops' rainfall needs in real millimetres (NASA POWER's coarse grid reads about twice the rain in Mysuru, Davanagere and Haveri) |
+| 2e | `training/check_requirements.py` | How often the EcoCrop ranges wrongly call a crop "unsuited" where our statistics say it is really grown: 0% (Karnataka) / 2% (India) for temperature, 3% for pH, 15% for rainfall, 31-42% for the optimal pH range - so only temperature and the farmer's own tested pH may move a crop down the list |
+| 3 | `training/fetch_taluk_crops.py` | Downloads the crop area of every Karnataka taluk from the Agriculture Census 2010-11 and 2015-16 (table 6B, plus each taluk's total cropped area) into `data/raw/karnataka_taluk_crop_area.csv`. Slow (several hours) and resumable |
+| 4 | `training/make_taluk_map.py` | Builds `backend/data/karnataka_taluks.geojson`: the Census 2011 taluk shapes, labelled with the Agriculture Census taluk codes |
+| 4b | `training/fetch_kag_crops.py` | Crop area per taluk from Karnataka At A Glance (Karnataka DES, 2019-22) for 32 crops, including cowpea and field bean (avare), which the census does not count. Today's taluks are placed in the Census 2011 taluks with the KGIS taluk map. Output `data/raw/karnataka_kag_crops.csv`. Takes a minute |
+| 5 | `training/fetch_location_features.py` | Picks sample points (10 per Karnataka taluk, 10 per district elsewhere) and reads their soil, climate and terrain (slow, resumable; run with `PYTHONPATH=.`) |
+| 6 | `training/build_dataset.py` | Joins crop shares (labels) with the points (features), once per season (Kharif, Rabi, Summer; see "Seasons" below). Karnataka points get their taluk's crop mix (step 3); elsewhere the district's: where ICRISAT has 2015-2019 figures they replace the older ones (a crop ICRISAT does not report in a state, such as Karnataka's sugarcane, keeps its 2010-2014 area); coffee comes from `data/raw/plantation_area.csv` and the fruit and vegetable crops from `data/raw/horticulture_area.csv`, because the agriculture series counts neither. Also writes `backend/data/karnataka_crop_facts.json` (what is really grown most in each taluk and district, shown in the app) and `artifacts/season_sown_share.csv` (how each district's field crops divide between the seasons) |
+| 7 | `training/compare_taluk_labels.py` | Checks that taluk labels beat district labels on held-out Karnataka districts, for GPS answers and for district answers. With `--truth <file>` two label versions are scored against the same yardstick (both scored against the 5-year census + DES taluk mix: `artifacts/taluk_label_comparison.csv` for the chosen labels vs `taluk_label_comparison_census_only.csv`). It also measures how much a taluk picked by hand should count against its district, and saves that weight to `artifacts/taluk_weight.json` for the ML service (a taluk without census figures is answered for its district) |
+| 8 | `training/train_location_model.py` | Compares 7 models on held-out districts and saves the winner (must support exact tree SHAP; Random Forest wins today) |
+| 9 | `training/explain.py` | SHAP vs LIME agreement per crop |
+| 10 | `training/make_district_points.py` | Every Karnataka sample point with its district and taluk, for the ML service: a district (or taluk) picked by hand is answered by averaging the model over all its points |
+| 11 | `training/calibration.py` | Checks that a crop's probability matches the real share of similar land growing it, and how often the top crop is the area's main crop (used for "Strong / Good / Possible choice" in the app) |
+| 12 | `training/check_districts.py` | Answers "pick a district and see if it is right" for all 30 Karnataka districts in every season, the way the app answers it: is the crop really grown most there in that season inside the model's top 3? Needs no server |
+| 13 | `training/check_states.py` | Held-out accuracy per state and per season (`artifacts/state_accuracy.csv`), and the districts that have no crop statistics to test against |
+| 14 | `training/taluk_season_crops.py` | Each Karnataka taluk's field crops per season (census crop shares, split into seasons by the 2022-23 crop survey), `artifacts/taluk_season_crops.csv`: the ML service orders a taluk's "to sow this season" list by them |
+| 15 | `training/export_recommendations.py` | The app's answer for every Karnataka district and taluk in every season, for reading in Excel: `artifacts/karnataka_recommendations.csv` (top 5, "to sow this season", what is really grown there) and `artifacts/karnataka_all_crops.csv` (every crop's percent) |
 
-Steps 5, 8 and 9 take a while together, so `training/run_all.ps1` runs the training, calibration and
-explanation steps one after another and writes everything to `artifacts/retrain.log`:
+Steps 7 to 13 take a while together, so `training/run_all.ps1` runs them one after another (step 8 first) and
+writes everything to `artifacts/retrain.log`. The model's settings are in `training/forest.py`, shared by every script:
 `powershell -ExecutionPolicy Bypass -File training/run_all.ps1`
+
+**Seasons.** Every sample point is in the data three times, once per season, with the crop mix of that season,
+and `Season` (1 Kharif, 2 Rabi, 3 Summer) is one of the model's inputs. A crop's land is split between the seasons
+the way its district sows it (ICRISAT 2015-2019 and data.gov.in 2010-2014, which record every crop by season;
+autumn and winter rice count as kharif); a district without figures for a crop uses its state's split, then
+India's. Plantation crops, fruit trees, sugarcane and tapioca stand in the field all year, so they count in every
+season. Karnataka's tobacco is recorded only as "Whole Year" and is planted from April to July, so it is kharif.
+Avare has no season figures of its own; the statistics count it among the "other pulses", so it takes the
+district's split of Other Kharif pulses and Other Rabi pulses (checked on cowpea, which has its own figures).
+The season of every result is saved with it (`recommendations.season`), and feedback retraining uses it.
+The Agriculture Census and DES count whole years, so a Karnataka taluk's crops are split like its district's.
+The app sends the season the farmer picks; without one the ML service uses the season of today's date
+(June-September Kharif, October-January Rabi, February-May Summer).
+
+**Karnataka boundaries.** The data uses the Census 2011 boundaries: 30 districts (Vijayanagara, made in 2021, is
+part of Ballari) and 175 taluk shapes (the 176 Census 2011 taluks; Aland and Afzalpur share one). Together they
+cover all of Karnataka; today's 31 districts and about 240 taluks are later splits of the same land.
+
+**Karnataka taluk labels.** Each taluk's crop mix averages every year that reports a crop: the Agriculture
+Census 2010-11 and 2015-16 and Karnataka DES 2019-22 (coffee and the spices census only; cowpea and avare DES
+only). For 16 taluks - all of Uttara Kannada, Udupi and Kundapura, and the three Yadgir taluks - the census
+portal failed during the 2010-11 download, so they have 2015-16 only; running step 3 again
+(`python training/fetch_taluk_crops.py 2010`) fetches just those, then rebuild and retrain.
 
 Step 2 needs a file the portal only gives to a signed-in visitor, so it is downloaded by hand once:
 on [ICRISAT's District Level Database](http://data.icrisat.org/dld/) choose the unapportioned, season-wise
@@ -161,14 +228,22 @@ district hold-out with macro-F1, measured SHAP–LIME agreement, and a 90% confo
 
 | Data | Source | Licence |
 |---|---|---|
-| Crop area by district, 2015–2019 (the labels the model learns) | ICRISAT District Level Database, ICRISAT and Tata-Cornell Institute | Free for research, with attribution |
+| Crop area by Karnataka taluk, 2010-11 and 2015-16 (the Karnataka labels, and the taluk card in the app) | Agriculture Census, table 6B, Department of Agriculture & Farmers Welfare, agcensus.da.gov.in | Government of India |
+| Crop area and total sown area by Karnataka taluk, 2019-22 (32 crops, with cowpea and avare) | Karnataka At A Glance, Directorate of Economics and Statistics, Government of Karnataka (kgis.ksrsac.in/kag); taluk map from KGIS | Government of Karnataka |
+| This season's rain against normal (the app's rain check) | NASA POWER daily rain (June to date vs 2001-2020 for the same days); categories as used by the India Meteorological Department | Free, public |
+| Crop area by Karnataka district and season, 2022-23, from the crop survey ("to sow" list, "sown most here this season" card) | Fully Revised Estimates of Area, Production and Yield of Principal Crops, Directorate of Economics and Statistics, Government of Karnataka (des.karnataka.gov.in) | Government of Karnataka |
+| Crop area by district, 2015–2019 (the labels the model learns outside Karnataka) | ICRISAT District Level Database, ICRISAT and Tata-Cornell Institute | Free for research, with attribution |
 | Crop area by district, 2010–2014 (districts ICRISAT does not cover) | data.gov.in, Ministry of Agriculture & Farmers Welfare (DES) | Government Open Data Licence – India |
+| How each crop's land divides between Kharif, Rabi and Summer (the season labels) | The same two series, which record every crop by season: ICRISAT 2015–2019 and data.gov.in 2010–2014 | As above |
 | Coffee planted area by district, 2011–12 | Coffee Board of India, *Database on Coffee* (March 2013), table 1.3 | Government of India |
 | Fruit and vegetable area by district, 2016–17 (mango, grapes, pomegranate, tomato, sapota, papaya) | *Horticultural Statistics at a Glance 2018*, Ministry of Agriculture & Farmers Welfare, table 7.5 | Government of India |
+| Crop needs: soil pH, temperature, rainfall, soil texture, fertility (57 model crops and 22 herbs, spices and plantation crops) | FAO EcoCrop database (copy used by github.com/OpenCLIM/ecocrop) | FAO |
+| Normal yearly rainfall per district, 1951-2000 (crop rainfall checks) | India Meteorological Department, "District wise rainfall normal", data.gov.in | Government Open Data Licence – India |
 | Soil (pH, nitrogen, organic carbon, clay, sand, CEC) | ISRIC SoilGrids v2.0 | CC BY 4.0 |
 | Climate (20-year averages: temperature, winter and hottest month, humidity, rain, monsoon and post-monsoon share, dry months, sunlight) | NASA POWER | Free, public |
 | Height above sea level and steepness | Open-Meteo elevation API (Copernicus DEM 90 m) | CC BY 4.0 |
 | Karnataka district boundaries (Census 2011) | civictech-India/INDIA-GEO-JSON-Datasets | No licence stated |
+| Karnataka taluk boundaries (Census 2011 sub-districts) | datta07/INDIAN-SHAPEFILES | MIT |
 | India district boundaries | geohacker/india | MIT |
 | Taluk name, and district lookup fallback | OpenStreetMap Nominatim | ODbL |
 | Today's evaporation, rain and humidity (daily water) | Open-Meteo forecast API | CC BY 4.0 |
@@ -183,7 +258,17 @@ TNAU/eagri lecture notes on crop water requirement, FAO Irrigation Water Managem
 (Tables 6 and 14), ICRISAT pigeonpea maturity groups. Water figures are for the whole crop; the daily figure is
 that total divided by the crop's duration, so real daily need is lower early and higher at flowering.
 
-**Optional LLM (Gemini).** With `GEMINI_API_KEY` set in `backend/.env`, the backend's `/chat` route asks Gemini to
-phrase the answer. Gemini receives only the facts for the crop being asked about, and any reply containing a number
-that is not in those facts is thrown away. The app always adds the source line itself. Without a key, or if Gemini
-fails or hits its limit, the app quietly uses the rule-based answer.
+**Optional AI (Groq, then Gemini).** The app's own rule-based answer comes first. Only when the checked
+facts do not cover a question, or the question could not be read, does the backend's `/chat` route ask an AI:
+Groq first (`GROQ_API_KEY`, model `openai/gpt-oss-120b`), and Gemini (`GEMINI_API_KEY`) only if Groq fails
+(no key, limit reached, error, timeout, or a reply the checks throw away). The AI answers farming questions only
+(any crop, soil, water, fertiliser, pests and diseases, harvest, storage); anything else is politely declined.
+To stay small (about 1,600 tokens a question, inside Groq's free 8,000 tokens a minute), it gets short rules,
+the list of crops, the full checked facts only of the crops in the question, the farm result, help contacts and
+the app's own plain-English reading of the question ("ragi ge gobbara yavaga" becomes "ragi fertilizer when").
+It marks each reply `facts` or `general`, and the backend checks every reply: a `facts` reply with a number
+that is not in the facts is thrown away, a `general` reply with an amount (litres, mm, kg) that is not in the
+facts is thrown away, any reply with a spray dose is thrown away, and a `general` reply is shown with a note
+that it is general advice. Pests and diseases get the likely cause and safe first steps, never a brand or
+dose; prices are never given (no AI knows today's price), the farmer is sent to the APMC market or the Kisan
+Call Centre. If neither AI answers, the app quietly uses its rule-based answer.

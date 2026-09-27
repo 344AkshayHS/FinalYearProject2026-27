@@ -1,6 +1,8 @@
 // Every piece of text in the app, in English and Kannada.
 // To add a new sentence: add the same key to both `en` and `kn`.
 
+import type { Season } from '@/lib/season';
+
 export type Language = 'en' | 'kn';
 
 const en = {
@@ -36,6 +38,87 @@ const en = {
   whyNote: 'Compared with an average farm in our data. This shows where crops are usually grown, not what harms the crop.',
   soilSource: 'Soil: ISRIC SoilGrids soil map for this exact spot (top 30 cm), unless you gave your own soil test.',
   soilNearby: 'The soil map has no values right where you stand (a road, a building or water), so they were read from farmland about {m} m away.',
+  districtTypical:
+    'For the whole {district} district: the model was run on {n} sample farms spread across its taluks and the results averaged. The values below are the typical (middle) values of those farms.',
+  talukTypical:
+    'For {taluk} taluk: the model was run on {n} sample farms spread across the taluk and the results averaged. The values below are the typical (middle) values of those farms.',
+  seasonTitle: 'Season to sow',
+  seasons: {
+    Kharif: 'Kharif (June–September)',
+    Rabi: 'Rabi (October–January)',
+    Summer: 'Summer (February–May)',
+  } as Record<Season, string>,
+  seasonNames: { Kharif: 'Kharif', Rabi: 'Rabi', Summer: 'Summer' } as Record<Season, string>,
+  seasonHelp: 'Crops change with the season. It starts at the season of today’s date; pick another to plan ahead.',
+  bestCropFor: 'Best match for {season}',
+  yearRound: 'Stands all year',
+  sowTitle: 'To sow this {season}',
+  sowShare: '{n}% of the sowing here',
+  seeAllCrops: 'See top {n} crops',
+  moreDetails: 'More details: why this crop, soil and climate',
+  hideDetails: 'Hide details',
+  bestToSow: 'Best crop to sow this {season}',
+  yearRoundBest: 'Year-round crop that suits this land best',
+  yearRoundBestNote:
+    'It stands in the field all year (a plantation crop or fruit tree), so it is not sown each season. Of all crops, it scores highest on land like yours.',
+  hideAllCrops: 'Show fewer crops',
+  allCropsNote:
+    'The next most likely crops for land like yours. A crop that cannot grow at your tested soil pH or in this season’s temperature (FAO crop needs) is left out.',
+  otherCropsTitle: 'Vegetables, herbs, spices and plantation crops for your land',
+  otherCropsNote:
+    'Chosen by each crop’s needs (FAO EcoCrop) against the soil pH, this season’s temperature and the normal rain here (IMD: {rain} mm a year; for vegetables and other seasonal crops, this season’s rain). Our farm statistics do not count these crops, so the model cannot rank them: ask your Raitha Samparka Kendra or horticulture office before planting.',
+  cropGroups: { vegetable: 'Vegetables', herb: 'Medicinal and aromatic herbs', spice: 'Spices', plantation: 'Plantation crops' } as Record<string, string>,
+  yearRoundMore: 'Other year-round crops for this land',
+  suit: {
+    phGood: '✓ Suits your soil pH {ph}',
+    phPossible: '~ Grows at your soil pH {ph}; best at {range}',
+    phBad: '✗ Cannot grow at your soil pH {ph} (best {range})',
+    phMapBad: '✗ The soil map’s pH here ({ph}) is outside its range (best {range}); a soil test would tell for sure',
+    tempBad: '✗ Too hot or too cold here in this season (best {range} °C)',
+    rainLow: '💧 Needs about {range} mm of rain a year; normal here is {rain} mm, so it needs irrigation',
+    rainLowSeason: '💧 Needs about {range} mm of rain while it grows; this season’s normal rain here is {rain} mm, so it needs irrigation',
+    fertile: '🌱 Needs a fertile soil, and your soil test shows low nitrogen',
+    texture: 'The soil type here (clay or sand) does not suit it well',
+  },
+  seasonSowingTitle: 'Sown most in {district} this {season}',
+  seasonSowingNote:
+    'Karnataka’s crop survey (Directorate of Economics and Statistics, 2022-23): hectares sown in the whole district in this season, and their share of its field crops. The model’s crops above are for land like yours.',
+  sowNote: 'The crops above include plantation crops and fruit trees, which stand in the field all year. These are the field crops sown in this season on land like yours.',
+  littleSown:
+    'Little is sown here in {season}: {n}% of this district’s field crops are sown in this season (government crop statistics). Grow a {season} crop only where you can irrigate it.',
+  waterSourceTitle: 'Water for this land',
+  rainOnly: '🌧️ Rain only',
+  irrigated: '💧 Irrigated',
+  waterSourceHelp: 'Irrigated means a borewell, canal or tank that can water the crop when rain fails.',
+  seasonRainTitle: 'This season’s rain',
+  seasonRainAmount: '{rain} mm since 1 June (to {to}). Normal for these days: {normal} mm.',
+  rainAbove: '{n}% more than normal',
+  rainBelow: '{n}% less than normal',
+  rainNormal: 'about normal',
+  rainCategory: {
+    excess: 'Excess rain (IMD category)',
+    normal: 'Normal rain (IMD category)',
+    deficient: 'Deficient rain (IMD category)',
+    large_deficient: 'Large deficient rain (IMD category)',
+  } as Record<string, string>,
+  seasonRainSource: 'Source: NASA POWER daily rain at this place; categories as used by the India Meteorological Department.',
+  needsIrrigation: 'Needs irrigation',
+  needsIrrigationTaluk:
+    'In {place} taluk, at least {n}% of the land growing {crop} was irrigated in every recent Agriculture Census - most farmers here water it. On rain-fed land it is risky.',
+  needsIrrigationDistrict:
+    'In {place} district, at least {n}% of the land growing {crop} was irrigated in every recent Agriculture Census - most farmers here water it. On rain-fed land it is risky.',
+  rainfedChoices: 'On rain-fed land, crops farmers here mostly grow on rain: {crops}.',
+  rainfedNoChoices: 'Farmers here mostly irrigate all of these crops. Please talk to your agriculture officer about rain-fed options.',
+  irrigatedNote: 'You said this land is irrigated, so no crop is marked for needing more water than the rain gives.',
+  talukUsesDistrict:
+    'We have no census crop figures for this taluk yet, so the crops below are the answer for the whole {district} district.',
+  talukPartlyDistrict:
+    'This answer is {n}% from this taluk’s farms and the rest from the whole {district} district, because that mix was the most accurate in our tests.',
+  factsTaluk: 'What farmers grow in {name} taluk',
+  factsDistrict: 'What farmers grow in {name} district',
+  factsNote: 'Share of all the cropped land. Source: {source}.',
+  factsSourceTaluk: 'average of Agriculture Census 2010-11 and 2015-16 (Government of India) and Karnataka DES 2019-22',
+  factsSourceDistrict: 'district crop statistics up to 2019 (ICRISAT, Coffee Board, Horticulture Statistics)',
   yourLand: 'Your land',
   soil: 'Soil',
   climate: 'Climate (20-year average)',
@@ -49,7 +132,11 @@ const en = {
   noHistory: 'No results yet. Check your land from the home screen.',
   yourLocation: 'Your location',
   useMyLocation: 'Use my location',
-  detecting: 'Detecting your district…',
+  detecting: 'Finding your location…',
+  detectingHelp: 'Outdoors this takes a few seconds. Indoors GPS is weaker and it can take up to 45 seconds.',
+  locationAccurate: 'Location accurate to about {n} m.',
+  locationRough:
+    'Your phone knows this location only roughly (within about {n} km), so the place above may be wrong. Go outside, wait a moment for GPS and tap “Use my location” again, or choose your district.',
   detectedDistrict: 'You are in {district} district',
   detectedTaluk: 'You are in {taluk} taluk, {district} district',
   detectedPlace: 'You are in {place}, {taluk} taluk, {district} district',
@@ -67,7 +154,13 @@ const en = {
   searchDistrict: 'Search district',
   noDistrictMatch: 'No district matches your search',
   chosenDistrict: '{district} district (chosen by you)',
-  manualNote: 'We will check a sample farm point in this district.',
+  chosenTaluk: '{taluk} taluk, {district} district (chosen by you)',
+  talukOptional: 'Taluk (optional)',
+  chooseTaluk: 'Choose taluk',
+  wholeDistrict: 'Whole district',
+  talukListError: 'Could not load the taluks. You can still check the whole district.',
+  manualNoteTaluk: 'We will check sample farms across this taluk and combine them.',
+  manualNote: 'We will check sample farms across the whole district and combine them.',
   close: 'Close',
   admin: {
     open: 'Admin login',
@@ -84,7 +177,13 @@ const en = {
     short: 'Ask me',
     title: 'Crop helper',
     intro:
-      'Ask me about any of our {count} crops: its name, how much water it needs, or how long it takes to grow.\n\nAll answers come from checked sources: TNAU, FAO, PAU, ICRISAT and ICAR.',
+      'Ask me about any of our {count} crops: its name, how much water it needs, how long it takes to grow, or when and how to sow it. After you check your land on the home screen, you can also ask “Can I grow rice here?”.\n\nAll answers come from checked sources: TNAU, FAO, PAU, ICRISAT and ICAR.',
+    greeting:
+      'Namaskara! I am the GreenRoot crop helper. Ask me about a crop’s water need, growing time or sowing - for example “How much water does ragi need?” - or, after checking your land, “Can I grow rice here?”.',
+    outsideTopics:
+      'The app has no checked information about pests, diseases, market prices or loans, so I cannot advise on that. Please call the Kisan Call Centre (free: 1800-180-1551, answers in Kannada) or visit your hobli’s Raitha Samparka Kendra.',
+    adviceFromResult:
+      'For your land in {place}, these crops suit best: {crops}. Open your result on the home screen to see more.',
     thinking: 'Looking it up…',
     placeholder: 'Type your question…',
     send: 'Send',
@@ -92,13 +191,14 @@ const en = {
     askWater: 'How much water?',
     askTime: 'How long to grow?',
     whichCrop: 'Which crop do you mean? Tap a crop below or type its name.',
-    notUnderstood: 'I can answer about a crop’s name, water need and growing time. Try: “How much water does ragi need?”',
+    notUnderstood:
+      'Sorry, I did not understand. Ask me about one crop, for example: “ragi water”, “when to sow rice”, “how many days for groundnut”.',
     nameAnswer: '{crop} (Kannada: {kn}). Scientific name: {scientific}.',
     otherNames: 'Also called: {names}.',
     seasonTime: '{crop} takes about {months} months ({days} days) from sowing to harvest.',
     treeTime: '{crop} is a long-term crop. It starts giving a harvest about {years} years after planting.',
     seasonWater:
-      '{crop} needs about {mm} mm of water for the whole crop. That is about {daily} mm a day on average, or about {litres} litres per acre per day. Rain counts towards this. Young plants need less; flowering needs the most.',
+      '{crop} needs about {litres} litres of water per acre every day. Rain counts too. Young plants need less; at flowering it needs the most. (For the whole crop: about {mm} mm, or {daily} mm a day.)',
     treeWater: '{crop} needs about {litres} litres of water per plant per day with drip irrigation.',
     noWater: 'We do not have a checked water figure for {crop}. Please ask your local agriculture officer.',
     noTime: 'We do not have a checked growing time for {crop}. Please ask your local agriculture officer.',
@@ -109,6 +209,7 @@ const en = {
     noGrow: 'We do not have checked sowing details for {crop}. Please ask your local agriculture officer.',
     noData: 'We do not have checked information about this for {crop}. Please ask your local agriculture officer.',
     noDataGeneral: 'We do not have checked information about this. Please ask your local agriculture officer.',
+    generalNote: 'ℹ️ General information from AI, not from our checked sources. Please confirm with your Raitha Samparka Kendra.',
     growAdvice: 'To know which crop suits your land, go to the home screen and tap “Find crops for my land”. It uses your soil and climate. Here I can tell you about any crop: its name, water need and growing time.',
     cropList: 'I have checked information about these crops. Type any name or tap it below: {crops}.',
     source: 'Source',
@@ -212,6 +313,7 @@ const en = {
     Solar_Radiation: 'Sunlight',
     Elevation: 'Height above sea level',
     Slope: 'Steepness of the land',
+    Season: 'Season',
   } as Record<string, string>,
 };
 
@@ -248,6 +350,87 @@ const kn: typeof en = {
   whyNote: 'ನಮ್ಮ ಮಾಹಿತಿಯಲ್ಲಿರುವ ಸರಾಸರಿ ಜಮೀನಿಗೆ ಹೋಲಿಸಿದರೆ. ಇದು ಬೆಳೆಗಳು ಸಾಮಾನ್ಯವಾಗಿ ಎಲ್ಲಿ ಬೆಳೆಯುತ್ತವೆ ಎಂಬುದನ್ನು ತೋರಿಸುತ್ತದೆ, ಬೆಳೆಗೆ ಏನು ಹಾನಿ ಮಾಡುತ್ತದೆ ಎಂಬುದನ್ನಲ್ಲ.',
   soilSource: 'ಮಣ್ಣು: ಈ ನಿಖರ ಸ್ಥಳದ ISRIC SoilGrids ಮಣ್ಣಿನ ನಕ್ಷೆ (ಮೇಲಿನ 30 ಸೆಂ.ಮೀ.), ನೀವು ಸ್ವಂತ ಮಣ್ಣು ಪರೀಕ್ಷೆ ನೀಡದಿದ್ದರೆ.',
   soilNearby: 'ನೀವು ನಿಂತಿರುವ ಸ್ಥಳಕ್ಕೆ (ರಸ್ತೆ, ಕಟ್ಟಡ ಅಥವಾ ನೀರು) ಮಣ್ಣಿನ ನಕ್ಷೆಯಲ್ಲಿ ಮಾಹಿತಿ ಇಲ್ಲ, ಆದ್ದರಿಂದ ಸುಮಾರು {m} ಮೀ ದೂರದ ಹೊಲದಿಂದ ಮೌಲ್ಯಗಳನ್ನು ಓದಲಾಗಿದೆ.',
+  districtTypical:
+    'ಸಂಪೂರ್ಣ {district} ಜಿಲ್ಲೆಗೆ: ಅದರ ತಾಲ್ಲೂಕುಗಳಾದ್ಯಂತ ಇರುವ {n} ಮಾದರಿ ಜಮೀನುಗಳಲ್ಲಿ ಮಾದರಿಯನ್ನು ಓಡಿಸಿ ಫಲಿತಾಂಶಗಳ ಸರಾಸರಿ ತೆಗೆಯಲಾಗಿದೆ. ಕೆಳಗಿನ ಮೌಲ್ಯಗಳು ಆ ಜಮೀನುಗಳ ಸಾಮಾನ್ಯ (ಮಧ್ಯದ) ಮೌಲ್ಯಗಳು.',
+  talukTypical:
+    '{taluk} ತಾಲ್ಲೂಕಿಗೆ: ತಾಲ್ಲೂಕಿನಾದ್ಯಂತ ಇರುವ {n} ಮಾದರಿ ಜಮೀನುಗಳಲ್ಲಿ ಮಾದರಿಯನ್ನು ಓಡಿಸಿ ಫಲಿತಾಂಶಗಳ ಸರಾಸರಿ ತೆಗೆಯಲಾಗಿದೆ. ಕೆಳಗಿನ ಮೌಲ್ಯಗಳು ಆ ಜಮೀನುಗಳ ಸಾಮಾನ್ಯ (ಮಧ್ಯದ) ಮೌಲ್ಯಗಳು.',
+  seasonTitle: 'ಬಿತ್ತನೆಯ ಹಂಗಾಮು',
+  seasons: {
+    Kharif: 'ಮುಂಗಾರು (ಜೂನ್–ಸೆಪ್ಟೆಂಬರ್)',
+    Rabi: 'ಹಿಂಗಾರು (ಅಕ್ಟೋಬರ್–ಜನವರಿ)',
+    Summer: 'ಬೇಸಿಗೆ (ಫೆಬ್ರವರಿ–ಮೇ)',
+  },
+  seasonNames: { Kharif: 'ಮುಂಗಾರು', Rabi: 'ಹಿಂಗಾರು', Summer: 'ಬೇಸಿಗೆ' },
+  seasonHelp: 'ಹಂಗಾಮಿನೊಂದಿಗೆ ಬೆಳೆಗಳು ಬದಲಾಗುತ್ತವೆ. ಇಂದಿನ ದಿನಾಂಕದ ಹಂಗಾಮಿನಿಂದ ಆರಂಭವಾಗುತ್ತದೆ; ಮುಂದಿನ ಯೋಜನೆಗೆ ಬೇರೆ ಹಂಗಾಮನ್ನು ಆಯ್ಕೆಮಾಡಿ.',
+  bestCropFor: '{season} ಹಂಗಾಮಿಗೆ ಉತ್ತಮ ಆಯ್ಕೆ',
+  yearRound: 'ವರ್ಷಪೂರ್ತಿ ಬೆಳೆ',
+  sowTitle: 'ಈ {season} ಹಂಗಾಮಿನಲ್ಲಿ ಬಿತ್ತಲು',
+  sowShare: 'ಇಲ್ಲಿನ ಬಿತ್ತನೆಯ {n}%',
+  seeAllCrops: 'ಮೊದಲ {n} ಬೆಳೆಗಳನ್ನು ನೋಡಿ',
+  moreDetails: 'ಹೆಚ್ಚಿನ ವಿವರ: ಈ ಬೆಳೆ ಏಕೆ, ಮಣ್ಣು ಮತ್ತು ಹವಾಮಾನ',
+  hideDetails: 'ವಿವರ ಮುಚ್ಚಿ',
+  bestToSow: 'ಈ {season} ಹಂಗಾಮಿನಲ್ಲಿ ಬಿತ್ತಲು ಉತ್ತಮ ಬೆಳೆ',
+  yearRoundBest: 'ಈ ಜಮೀನಿಗೆ ಹೆಚ್ಚು ಸೂಕ್ತವಾದ ವರ್ಷಪೂರ್ತಿ ಬೆಳೆ',
+  yearRoundBestNote:
+    'ಇದು ವರ್ಷಪೂರ್ತಿ ಹೊಲದಲ್ಲಿರುತ್ತದೆ (ತೋಟದ ಬೆಳೆ ಅಥವಾ ಹಣ್ಣಿನ ಮರ), ಆದ್ದರಿಂದ ಪ್ರತಿ ಹಂಗಾಮಿನಲ್ಲಿ ಬಿತ್ತುವುದಿಲ್ಲ. ನಿಮ್ಮಂತಹ ಜಮೀನಿನಲ್ಲಿ ಎಲ್ಲಾ ಬೆಳೆಗಳಲ್ಲಿ ಇದಕ್ಕೆ ಹೆಚ್ಚು ಅಂಕ.',
+  hideAllCrops: 'ಕಡಿಮೆ ಬೆಳೆಗಳನ್ನು ತೋರಿಸಿ',
+  allCropsNote:
+    'ನಿಮ್ಮಂತಹ ಜಮೀನಿಗೆ ನಂತರದ ಹೆಚ್ಚು ಸಾಧ್ಯತೆಯ ಬೆಳೆಗಳು. ನಿಮ್ಮ ಮಣ್ಣಿನ ಪರೀಕ್ಷೆಯ pH ಅಥವಾ ಈ ಹಂಗಾಮಿನ ತಾಪಮಾನದಲ್ಲಿ ಬೆಳೆಯಲಾಗದ ಬೆಳೆಗಳನ್ನು (FAO ಬೆಳೆ ಅಗತ್ಯಗಳು) ಬಿಡಲಾಗಿದೆ.',
+  otherCropsTitle: 'ನಿಮ್ಮ ಜಮೀನಿಗೆ ತರಕಾರಿ, ಔಷಧೀಯ, ಸಾಂಬಾರ ಮತ್ತು ತೋಟದ ಬೆಳೆಗಳು',
+  otherCropsNote:
+    'ಪ್ರತಿ ಬೆಳೆಯ ಅಗತ್ಯಗಳನ್ನು (FAO EcoCrop) ಮಣ್ಣಿನ pH, ಈ ಹಂಗಾಮಿನ ತಾಪಮಾನ ಮತ್ತು ಇಲ್ಲಿನ ಸಾಮಾನ್ಯ ಮಳೆಯೊಂದಿಗೆ (IMD: ವರ್ಷಕ್ಕೆ {rain} ಮಿ.ಮೀ.; ತರಕಾರಿ ಮುಂತಾದ ಹಂಗಾಮಿನ ಬೆಳೆಗಳಿಗೆ ಈ ಹಂಗಾಮಿನ ಮಳೆ) ಹೋಲಿಸಿ ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ. ನಮ್ಮ ಕೃಷಿ ಅಂಕಿಅಂಶಗಳು ಈ ಬೆಳೆಗಳನ್ನು ಎಣಿಸುವುದಿಲ್ಲ, ಆದ್ದರಿಂದ ಮಾದರಿ ಅವುಗಳಿಗೆ ಶ್ರೇಣಿ ನೀಡಲಾರದು: ಬಿತ್ತುವ ಮೊದಲು ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರ ಅಥವಾ ತೋಟಗಾರಿಕೆ ಕಚೇರಿಯನ್ನು ಕೇಳಿ.',
+  cropGroups: { vegetable: 'ತರಕಾರಿಗಳು', herb: 'ಔಷಧೀಯ ಮತ್ತು ಸುಗಂಧ ಸಸ್ಯಗಳು', spice: 'ಸಾಂಬಾರ ಬೆಳೆಗಳು', plantation: 'ತೋಟದ ಬೆಳೆಗಳು' },
+  yearRoundMore: 'ಈ ಜಮೀನಿಗೆ ಇತರ ವರ್ಷಪೂರ್ತಿ ಬೆಳೆಗಳು',
+  suit: {
+    phGood: '✓ ನಿಮ್ಮ ಮಣ್ಣಿನ pH {ph}ಗೆ ಸೂಕ್ತ',
+    phPossible: '~ ನಿಮ್ಮ ಮಣ್ಣಿನ pH {ph}ನಲ್ಲಿ ಬೆಳೆಯುತ್ತದೆ; ಉತ್ತಮ {range}',
+    phBad: '✗ ನಿಮ್ಮ ಮಣ್ಣಿನ pH {ph}ನಲ್ಲಿ ಬೆಳೆಯಲಾಗದು (ಉತ್ತಮ {range})',
+    phMapBad: '✗ ಇಲ್ಲಿನ ಮಣ್ಣಿನ ನಕ್ಷೆಯ pH ({ph}) ಇದರ ಮಿತಿಯ ಹೊರಗಿದೆ (ಉತ್ತಮ {range}); ಮಣ್ಣಿನ ಪರೀಕ್ಷೆ ಖಚಿತವಾಗಿ ಹೇಳುತ್ತದೆ',
+    tempBad: '✗ ಈ ಹಂಗಾಮಿನಲ್ಲಿ ಇಲ್ಲಿ ತುಂಬಾ ಬಿಸಿ ಅಥವಾ ತಂಪು (ಉತ್ತಮ {range} °C)',
+    rainLow: '💧 ವರ್ಷಕ್ಕೆ ಸುಮಾರು {range} ಮಿ.ಮೀ. ಮಳೆ ಬೇಕು; ಇಲ್ಲಿನ ಸಾಮಾನ್ಯ ಮಳೆ {rain} ಮಿ.ಮೀ., ಆದ್ದರಿಂದ ನೀರಾವರಿ ಬೇಕು',
+    rainLowSeason: '💧 ಬೆಳೆಯುವಾಗ ಸುಮಾರು {range} ಮಿ.ಮೀ. ಮಳೆ ಬೇಕು; ಈ ಹಂಗಾಮಿನಲ್ಲಿ ಇಲ್ಲಿನ ಸಾಮಾನ್ಯ ಮಳೆ {rain} ಮಿ.ಮೀ., ಆದ್ದರಿಂದ ನೀರಾವರಿ ಬೇಕು',
+    fertile: '🌱 ಫಲವತ್ತಾದ ಮಣ್ಣು ಬೇಕು, ಮತ್ತು ನಿಮ್ಮ ಮಣ್ಣಿನ ಪರೀಕ್ಷೆಯಲ್ಲಿ ಸಾರಜನಕ ಕಡಿಮೆ ಇದೆ',
+    texture: 'ಇಲ್ಲಿನ ಮಣ್ಣಿನ ಬಗೆ (ಜೇಡಿ ಅಥವಾ ಮರಳು) ಇದಕ್ಕೆ ಅಷ್ಟು ಸೂಕ್ತವಲ್ಲ',
+  },
+  seasonSowingTitle: '{district} ಜಿಲ್ಲೆಯಲ್ಲಿ ಈ {season} ಹಂಗಾಮಿನಲ್ಲಿ ಹೆಚ್ಚು ಬಿತ್ತಿದ ಬೆಳೆಗಳು',
+  seasonSowingNote:
+    'ಕರ್ನಾಟಕದ ಬೆಳೆ ಸಮೀಕ್ಷೆ (ಅರ್ಥಶಾಸ್ತ್ರ ಮತ್ತು ಸಾಂಖ್ಯಿಕ ನಿರ್ದೇಶನಾಲಯ, 2022-23): ಈ ಹಂಗಾಮಿನಲ್ಲಿ ಇಡೀ ಜಿಲ್ಲೆಯಲ್ಲಿ ಬಿತ್ತಿದ ಹೆಕ್ಟೇರ್ ಮತ್ತು ಹೊಲದ ಬೆಳೆಗಳಲ್ಲಿ ಅವುಗಳ ಪಾಲು. ಮೇಲಿನ ಮಾದರಿಯ ಬೆಳೆಗಳು ನಿಮ್ಮಂತಹ ಜಮೀನಿಗೆ.',
+  sowNote: 'ಮೇಲಿನ ಬೆಳೆಗಳಲ್ಲಿ ವರ್ಷಪೂರ್ತಿ ಹೊಲದಲ್ಲಿರುವ ತೋಟದ ಬೆಳೆಗಳು ಮತ್ತು ಹಣ್ಣಿನ ಮರಗಳು ಸೇರಿವೆ. ಇವು ನಿಮ್ಮಂತಹ ಜಮೀನಿನಲ್ಲಿ ಈ ಹಂಗಾಮಿನಲ್ಲಿ ಬಿತ್ತುವ ಹೊಲದ ಬೆಳೆಗಳು.',
+  littleSown:
+    '{season} ಹಂಗಾಮಿನಲ್ಲಿ ಇಲ್ಲಿ ಕಡಿಮೆ ಬಿತ್ತನೆ ಆಗುತ್ತದೆ: ಈ ಜಿಲ್ಲೆಯ ಹೊಲದ ಬೆಳೆಗಳಲ್ಲಿ {n}% ಮಾತ್ರ ಈ ಹಂಗಾಮಿನಲ್ಲಿ ಬಿತ್ತಲಾಗುತ್ತದೆ (ಸರ್ಕಾರಿ ಬೆಳೆ ಅಂಕಿಅಂಶ). ನೀರಾವರಿ ಇದ್ದರೆ ಮಾತ್ರ {season} ಬೆಳೆ ಬೆಳೆಯಿರಿ.',
+  waterSourceTitle: 'ಈ ಜಮೀನಿಗೆ ನೀರು',
+  rainOnly: '🌧️ ಮಳೆ ಮಾತ್ರ',
+  irrigated: '💧 ನೀರಾವರಿ',
+  waterSourceHelp: 'ನೀರಾವರಿ ಎಂದರೆ ಮಳೆ ಕೈಕೊಟ್ಟಾಗ ಬೆಳೆಗೆ ನೀರು ಕೊಡಬಲ್ಲ ಕೊಳವೆಬಾವಿ, ಕಾಲುವೆ ಅಥವಾ ಕೆರೆ.',
+  seasonRainTitle: 'ಈ ಹಂಗಾಮಿನ ಮಳೆ',
+  seasonRainAmount: '1 ಜೂನ್‌ನಿಂದ ({to}ರವರೆಗೆ) {rain} ಮಿ.ಮೀ. ಈ ದಿನಗಳ ಸಾಮಾನ್ಯ ಮಳೆ: {normal} ಮಿ.ಮೀ.',
+  rainAbove: 'ಸಾಮಾನ್ಯಕ್ಕಿಂತ {n}% ಹೆಚ್ಚು',
+  rainBelow: 'ಸಾಮಾನ್ಯಕ್ಕಿಂತ {n}% ಕಡಿಮೆ',
+  rainNormal: 'ಸುಮಾರು ಸಾಮಾನ್ಯ',
+  rainCategory: {
+    excess: 'ಅಧಿಕ ಮಳೆ (IMD ವರ್ಗ)',
+    normal: 'ಸಾಮಾನ್ಯ ಮಳೆ (IMD ವರ್ಗ)',
+    deficient: 'ಕೊರತೆಯ ಮಳೆ (IMD ವರ್ಗ)',
+    large_deficient: 'ತೀವ್ರ ಕೊರತೆಯ ಮಳೆ (IMD ವರ್ಗ)',
+  } as Record<string, string>,
+  seasonRainSource: 'ಮೂಲ: ಈ ಸ್ಥಳದ NASA POWER ದೈನಂದಿನ ಮಳೆ; ವರ್ಗಗಳು ಭಾರತೀಯ ಹವಾಮಾನ ಇಲಾಖೆ (IMD) ಬಳಸುವಂತೆ.',
+  needsIrrigation: 'ನೀರಾವರಿ ಬೇಕು',
+  needsIrrigationTaluk:
+    '{place} ತಾಲ್ಲೂಕಿನಲ್ಲಿ {crop} ಬೆಳೆಯುವ ಜಮೀನಿನ ಕನಿಷ್ಠ {n}% ಇತ್ತೀಚಿನ ಪ್ರತಿ ಕೃಷಿ ಗಣತಿಯಲ್ಲೂ ನೀರಾವರಿಯಾಗಿತ್ತು - ಇಲ್ಲಿನ ಹೆಚ್ಚಿನ ರೈತರು ಇದಕ್ಕೆ ನೀರು ಹಾಯಿಸುತ್ತಾರೆ. ಮಳೆಯಾಶ್ರಿತ ಜಮೀನಿನಲ್ಲಿ ಇದು ಅಪಾಯಕಾರಿ.',
+  needsIrrigationDistrict:
+    '{place} ಜಿಲ್ಲೆಯಲ್ಲಿ {crop} ಬೆಳೆಯುವ ಜಮೀನಿನ ಕನಿಷ್ಠ {n}% ಇತ್ತೀಚಿನ ಪ್ರತಿ ಕೃಷಿ ಗಣತಿಯಲ್ಲೂ ನೀರಾವರಿಯಾಗಿತ್ತು - ಇಲ್ಲಿನ ಹೆಚ್ಚಿನ ರೈತರು ಇದಕ್ಕೆ ನೀರು ಹಾಯಿಸುತ್ತಾರೆ. ಮಳೆಯಾಶ್ರಿತ ಜಮೀನಿನಲ್ಲಿ ಇದು ಅಪಾಯಕಾರಿ.',
+  rainfedChoices: 'ಮಳೆಯಾಶ್ರಿತ ಜಮೀನಿನಲ್ಲಿ ಇಲ್ಲಿನ ರೈತರು ಹೆಚ್ಚಾಗಿ ಮಳೆಯಲ್ಲೇ ಬೆಳೆಯುವ ಬೆಳೆಗಳು: {crops}.',
+  rainfedNoChoices: 'ಇಲ್ಲಿನ ರೈತರು ಈ ಎಲ್ಲಾ ಬೆಳೆಗಳಿಗೂ ಹೆಚ್ಚಾಗಿ ನೀರಾವರಿ ಮಾಡುತ್ತಾರೆ. ಮಳೆಯಾಶ್ರಿತ ಆಯ್ಕೆಗಳ ಬಗ್ಗೆ ದಯವಿಟ್ಟು ನಿಮ್ಮ ಕೃಷಿ ಅಧಿಕಾರಿಯನ್ನು ಕೇಳಿ.',
+  irrigatedNote: 'ಈ ಜಮೀನಿಗೆ ನೀರಾವರಿ ಇದೆ ಎಂದು ನೀವು ಹೇಳಿದ್ದೀರಿ, ಆದ್ದರಿಂದ ಮಳೆಗಿಂತ ಹೆಚ್ಚು ನೀರು ಬೇಕಾದ ಬೆಳೆಗಳನ್ನು ಗುರುತಿಸಿಲ್ಲ.',
+  talukUsesDistrict:
+    'ಈ ತಾಲ್ಲೂಕಿಗೆ ಇನ್ನೂ ಗಣತಿಯ ಬೆಳೆ ಅಂಕಿಅಂಶಗಳು ನಮ್ಮಲ್ಲಿಲ್ಲ, ಆದ್ದರಿಂದ ಕೆಳಗಿನ ಬೆಳೆಗಳು ಇಡೀ {district} ಜಿಲ್ಲೆಯ ಉತ್ತರ.',
+  talukPartlyDistrict:
+    'ಈ ಉತ್ತರದ {n}% ಈ ತಾಲ್ಲೂಕಿನ ಜಮೀನುಗಳಿಂದ ಮತ್ತು ಉಳಿದದ್ದು ಇಡೀ {district} ಜಿಲ್ಲೆಯಿಂದ ಬಂದಿದೆ, ಏಕೆಂದರೆ ನಮ್ಮ ಪರೀಕ್ಷೆಗಳಲ್ಲಿ ಈ ಮಿಶ್ರಣ ಅತ್ಯಂತ ನಿಖರವಾಗಿತ್ತು.',
+  factsTaluk: '{name} ತಾಲ್ಲೂಕಿನಲ್ಲಿ ರೈತರು ಬೆಳೆಯುವ ಬೆಳೆಗಳು',
+  factsDistrict: '{name} ಜಿಲ್ಲೆಯಲ್ಲಿ ರೈತರು ಬೆಳೆಯುವ ಬೆಳೆಗಳು',
+  factsNote: 'ಒಟ್ಟು ಬೆಳೆ ಪ್ರದೇಶದಲ್ಲಿನ ಪಾಲು. ಮೂಲ: {source}.',
+  factsSourceTaluk: 'ಕೃಷಿ ಗಣತಿ 2010-11 ಮತ್ತು 2015-16 (ಭಾರತ ಸರ್ಕಾರ) ಹಾಗೂ ಕರ್ನಾಟಕ ಅರ್ಥಶಾಸ್ತ್ರ ಮತ್ತು ಸಾಂಖ್ಯಿಕ ನಿರ್ದೇಶನಾಲಯ 2019-22 ರ ಸರಾಸರಿ',
+  factsSourceDistrict: 'ಜಿಲ್ಲಾ ಬೆಳೆ ಅಂಕಿಅಂಶ 2019ರವರೆಗೆ (ICRISAT, ಕಾಫಿ ಮಂಡಳಿ, ತೋಟಗಾರಿಕೆ ಅಂಕಿಅಂಶ)',
   yourLand: 'ನಿಮ್ಮ ಜಮೀನು',
   soil: 'ಮಣ್ಣು',
   climate: 'ಹವಾಮಾನ (20 ವರ್ಷಗಳ ಸರಾಸರಿ)',
@@ -261,7 +444,11 @@ const kn: typeof en = {
   noHistory: 'ಇನ್ನೂ ಯಾವುದೇ ಫಲಿತಾಂಶಗಳಿಲ್ಲ. ಮುಖಪುಟದಿಂದ ನಿಮ್ಮ ಜಮೀನನ್ನು ಪರಿಶೀಲಿಸಿ.',
   yourLocation: 'ನಿಮ್ಮ ಸ್ಥಳ',
   useMyLocation: 'ನನ್ನ ಸ್ಥಳವನ್ನು ಬಳಸಿ',
-  detecting: 'ನಿಮ್ಮ ಜಿಲ್ಲೆಯನ್ನು ಪತ್ತೆಹಚ್ಚಲಾಗುತ್ತಿದೆ…',
+  detecting: 'ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ…',
+  detectingHelp: 'ಹೊರಗೆ ಇದಕ್ಕೆ ಕೆಲವು ಸೆಕೆಂಡುಗಳು ಸಾಕು. ಒಳಗೆ GPS ದುರ್ಬಲವಾಗಿರುವುದರಿಂದ 45 ಸೆಕೆಂಡುಗಳವರೆಗೆ ಬೇಕಾಗಬಹುದು.',
+  locationAccurate: 'ಸ್ಥಳ ಸುಮಾರು {n} ಮೀ ನಿಖರವಾಗಿದೆ.',
+  locationRough:
+    'ನಿಮ್ಮ ಫೋನ್‌ಗೆ ಈ ಸ್ಥಳ ಅಂದಾಜಾಗಿ ಮಾತ್ರ ಗೊತ್ತಿದೆ (ಸುಮಾರು {n} ಕಿ.ಮೀ ಒಳಗೆ), ಆದ್ದರಿಂದ ಮೇಲಿನ ಸ್ಥಳ ತಪ್ಪಾಗಿರಬಹುದು. ಹೊರಗೆ ಹೋಗಿ, GPS ಗಾಗಿ ಸ್ವಲ್ಪ ಕಾಯಿರಿ ಮತ್ತು “ನನ್ನ ಸ್ಥಳವನ್ನು ಬಳಸಿ” ಮತ್ತೆ ಒತ್ತಿರಿ, ಅಥವಾ ನಿಮ್ಮ ಜಿಲ್ಲೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ.',
   detectedDistrict: 'ನೀವು {district} ಜಿಲ್ಲೆಯಲ್ಲಿದ್ದೀರಿ',
   detectedTaluk: 'ನೀವು {district} ಜಿಲ್ಲೆಯ {taluk} ತಾಲ್ಲೂಕಿನಲ್ಲಿದ್ದೀರಿ',
   detectedPlace: 'ನೀವು {district} ಜಿಲ್ಲೆಯ {taluk} ತಾಲ್ಲೂಕಿನ {place} ಬಳಿ ಇದ್ದೀರಿ',
@@ -279,7 +466,13 @@ const kn: typeof en = {
   searchDistrict: 'ಜಿಲ್ಲೆ ಹುಡುಕಿ',
   noDistrictMatch: 'ನಿಮ್ಮ ಹುಡುಕಾಟಕ್ಕೆ ಯಾವುದೇ ಜಿಲ್ಲೆ ಹೊಂದುತ್ತಿಲ್ಲ',
   chosenDistrict: '{district} ಜಿಲ್ಲೆ (ನೀವು ಆಯ್ಕೆ ಮಾಡಿದ್ದು)',
-  manualNote: 'ಈ ಜಿಲ್ಲೆಯ ಒಂದು ಮಾದರಿ ಜಮೀನಿನ ಸ್ಥಳವನ್ನು ನಾವು ಪರಿಶೀಲಿಸುತ್ತೇವೆ.',
+  chosenTaluk: '{district} ಜಿಲ್ಲೆಯ {taluk} ತಾಲ್ಲೂಕು (ನೀವು ಆಯ್ಕೆ ಮಾಡಿದ್ದು)',
+  talukOptional: 'ತಾಲ್ಲೂಕು (ಐಚ್ಛಿಕ)',
+  chooseTaluk: 'ತಾಲ್ಲೂಕು ಆಯ್ಕೆಮಾಡಿ',
+  wholeDistrict: 'ಇಡೀ ಜಿಲ್ಲೆ',
+  talukListError: 'ತಾಲ್ಲೂಕುಗಳ ಪಟ್ಟಿ ತೆರೆಯಲಾಗಲಿಲ್ಲ. ನೀವು ಇಡೀ ಜಿಲ್ಲೆಯನ್ನು ಪರಿಶೀಲಿಸಬಹುದು.',
+  manualNoteTaluk: 'ಈ ತಾಲ್ಲೂಕಿನಾದ್ಯಂತ ಇರುವ ಮಾದರಿ ಜಮೀನುಗಳನ್ನು ಪರಿಶೀಲಿಸಿ ಒಟ್ಟುಗೂಡಿಸುತ್ತೇವೆ.',
+  manualNote: 'ಇಡೀ ಜಿಲ್ಲೆಯಾದ್ಯಂತ ಇರುವ ಮಾದರಿ ಜಮೀನುಗಳನ್ನು ಪರಿಶೀಲಿಸಿ ಒಟ್ಟುಗೂಡಿಸುತ್ತೇವೆ.',
   close: 'ಮುಚ್ಚಿ',
   admin: {
     open: 'ನಿರ್ವಾಹಕ ಲಾಗಿನ್',
@@ -296,7 +489,13 @@ const kn: typeof en = {
     short: 'ಕೇಳಿ',
     title: 'ಬೆಳೆ ಸಹಾಯಕ',
     intro:
-      'ನಮ್ಮ {count} ಬೆಳೆಗಳಲ್ಲಿ ಯಾವುದರ ಬಗ್ಗೆಯಾದರೂ ಕೇಳಿ: ಅದರ ಹೆಸರು, ಎಷ್ಟು ನೀರು ಬೇಕು, ಅಥವಾ ಬೆಳೆಯಲು ಎಷ್ಟು ಸಮಯ ಬೇಕು.\n\nಎಲ್ಲಾ ಉತ್ತರಗಳು ಪರಿಶೀಲಿತ ಮೂಲಗಳಿಂದ: TNAU, FAO, PAU, ICRISAT ಮತ್ತು ICAR.',
+      'ನಮ್ಮ {count} ಬೆಳೆಗಳಲ್ಲಿ ಯಾವುದರ ಬಗ್ಗೆಯಾದರೂ ಕೇಳಿ: ಅದರ ಹೆಸರು, ಎಷ್ಟು ನೀರು ಬೇಕು, ಬೆಳೆಯಲು ಎಷ್ಟು ಸಮಯ ಬೇಕು, ಅಥವಾ ಯಾವಾಗ ಹೇಗೆ ಬಿತ್ತಬೇಕು. ಮುಖಪುಟದಲ್ಲಿ ನಿಮ್ಮ ಜಮೀನನ್ನು ಪರಿಶೀಲಿಸಿದ ನಂತರ “ಇಲ್ಲಿ ಭತ್ತ ಬೆಳೆಯಬಹುದೇ?” ಎಂದೂ ಕೇಳಬಹುದು.\n\nಎಲ್ಲಾ ಉತ್ತರಗಳು ಪರಿಶೀಲಿತ ಮೂಲಗಳಿಂದ: TNAU, FAO, PAU, ICRISAT ಮತ್ತು ICAR.',
+    greeting:
+      'ನಮಸ್ಕಾರ! ನಾನು GreenRoot ಬೆಳೆ ಸಹಾಯಕ. ಬೆಳೆಯ ನೀರಿನ ಅಗತ್ಯ, ಬೆಳೆಯುವ ಸಮಯ ಅಥವಾ ಬಿತ್ತನೆ ಬಗ್ಗೆ ಕೇಳಿ - ಉದಾಹರಣೆ “ರಾಗಿಗೆ ಎಷ್ಟು ನೀರು ಬೇಕು?” - ಅಥವಾ ಜಮೀನು ಪರಿಶೀಲಿಸಿದ ನಂತರ “ಇಲ್ಲಿ ಭತ್ತ ಬೆಳೆಯಬಹುದೇ?”.',
+    outsideTopics:
+      'ಕೀಟ, ರೋಗ, ಮಾರುಕಟ್ಟೆ ಬೆಲೆ ಅಥವಾ ಸಾಲದ ಬಗ್ಗೆ ಆ್ಯಪ್‌ನಲ್ಲಿ ಪರಿಶೀಲಿತ ಮಾಹಿತಿ ಇಲ್ಲ, ಆದ್ದರಿಂದ ನಾನು ಸಲಹೆ ನೀಡಲಾರೆ. ದಯವಿಟ್ಟು ಕಿಸಾನ್ ಕಾಲ್ ಸೆಂಟರ್‌ಗೆ ಕರೆ ಮಾಡಿ (ಉಚಿತ: 1800-180-1551, ಕನ್ನಡದಲ್ಲಿ ಉತ್ತರಿಸುತ್ತಾರೆ) ಅಥವಾ ನಿಮ್ಮ ಹೋಬಳಿಯ ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.',
+    adviceFromResult:
+      '{place} ನಲ್ಲಿರುವ ನಿಮ್ಮ ಜಮೀನಿಗೆ ಈ ಬೆಳೆಗಳು ಹೆಚ್ಚು ಸೂಕ್ತ: {crops}. ಇನ್ನಷ್ಟು ನೋಡಲು ಮುಖಪುಟದಲ್ಲಿ ನಿಮ್ಮ ಫಲಿತಾಂಶ ತೆರೆಯಿರಿ.',
     thinking: 'ಹುಡುಕುತ್ತಿದ್ದೇನೆ…',
     placeholder: 'ನಿಮ್ಮ ಪ್ರಶ್ನೆ ಟೈಪ್ ಮಾಡಿ…',
     send: 'ಕಳುಹಿಸಿ',
@@ -304,13 +503,14 @@ const kn: typeof en = {
     askWater: 'ಎಷ್ಟು ನೀರು ಬೇಕು?',
     askTime: 'ಬೆಳೆಯಲು ಎಷ್ಟು ಸಮಯ?',
     whichCrop: 'ಯಾವ ಬೆಳೆ? ಕೆಳಗಿನ ಬೆಳೆಯನ್ನು ಒತ್ತಿ ಅಥವಾ ಅದರ ಹೆಸರು ಟೈಪ್ ಮಾಡಿ.',
-    notUnderstood: 'ಬೆಳೆಯ ಹೆಸರು, ನೀರಿನ ಅಗತ್ಯ ಮತ್ತು ಬೆಳೆಯುವ ಸಮಯದ ಬಗ್ಗೆ ಉತ್ತರಿಸಬಲ್ಲೆ. ಉದಾಹರಣೆ: “ರಾಗಿಗೆ ಎಷ್ಟು ನೀರು ಬೇಕು?”',
+    notUnderstood:
+      'ಕ್ಷಮಿಸಿ, ನನಗೆ ಅರ್ಥವಾಗಲಿಲ್ಲ. ಒಂದು ಬೆಳೆಯ ಬಗ್ಗೆ ಕೇಳಿ, ಉದಾಹರಣೆಗೆ: “ರಾಗಿ ನೀರು”, “ಭತ್ತ ಯಾವಾಗ ಬಿತ್ತಬೇಕು”, “ಶೇಂಗಾ ಎಷ್ಟು ದಿನ”.',
     nameAnswer: '{kn} (ಇಂಗ್ಲಿಷ್: {crop}). ವೈಜ್ಞಾನಿಕ ಹೆಸರು: {scientific}.',
     otherNames: 'ಇತರ ಹೆಸರುಗಳು: {names}.',
     seasonTime: '{crop} ಬಿತ್ತನೆಯಿಂದ ಕಟಾವಿಗೆ ಸುಮಾರು {months} ತಿಂಗಳು ({days} ದಿನಗಳು) ಬೇಕು.',
     treeTime: '{crop} ದೀರ್ಘಾವಧಿ ಬೆಳೆ. ನೆಟ್ಟ ಸುಮಾರು {years} ವರ್ಷಗಳ ನಂತರ ಫಸಲು ಕೊಡಲು ಆರಂಭಿಸುತ್ತದೆ.',
     seasonWater:
-      '{crop} ಬೆಳೆಗೆ ಒಟ್ಟು ಸುಮಾರು {mm} ಮಿ.ಮೀ. ನೀರು ಬೇಕು. ಅಂದರೆ ಸರಾಸರಿ ದಿನಕ್ಕೆ ಸುಮಾರು {daily} ಮಿ.ಮೀ., ಅಥವಾ ಎಕರೆಗೆ ದಿನಕ್ಕೆ ಸುಮಾರು {litres} ಲೀಟರ್. ಮಳೆಯ ನೀರೂ ಇದರಲ್ಲಿ ಸೇರುತ್ತದೆ. ಸಸಿಗಳಿಗೆ ಕಡಿಮೆ, ಹೂಬಿಡುವ ಹಂತದಲ್ಲಿ ಹೆಚ್ಚು ನೀರು ಬೇಕು.',
+      '{crop} ಬೆಳೆಗೆ ಎಕರೆಗೆ ದಿನಕ್ಕೆ ಸುಮಾರು {litres} ಲೀಟರ್ ನೀರು ಬೇಕು. ಮಳೆಯ ನೀರೂ ಇದರಲ್ಲಿ ಸೇರುತ್ತದೆ. ಸಸಿಗಳಿಗೆ ಕಡಿಮೆ, ಹೂಬಿಡುವಾಗ ಹೆಚ್ಚು ನೀರು ಬೇಕು. (ಇಡೀ ಬೆಳೆಗೆ: ಸುಮಾರು {mm} ಮಿ.ಮೀ., ದಿನಕ್ಕೆ {daily} ಮಿ.ಮೀ.)',
     treeWater: '{crop} ಗೆ ಹನಿ ನೀರಾವರಿಯಲ್ಲಿ ಪ್ರತಿ ಗಿಡಕ್ಕೆ ದಿನಕ್ಕೆ ಸುಮಾರು {litres} ಲೀಟರ್ ನೀರು ಬೇಕು.',
     noWater: '{crop} ಗೆ ಬೇಕಾದ ನೀರಿನ ಪರಿಶೀಲಿತ ಅಂಕಿ ನಮ್ಮಲ್ಲಿ ಇಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸ್ಥಳೀಯ ಕೃಷಿ ಅಧಿಕಾರಿಯನ್ನು ಕೇಳಿ.',
     noTime: '{crop} ಬೆಳೆಯಲು ಬೇಕಾದ ಸಮಯದ ಪರಿಶೀಲಿತ ಮಾಹಿತಿ ನಮ್ಮಲ್ಲಿ ಇಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸ್ಥಳೀಯ ಕೃಷಿ ಅಧಿಕಾರಿಯನ್ನು ಕೇಳಿ.',
@@ -321,6 +521,7 @@ const kn: typeof en = {
     noGrow: '{crop} ಬಿತ್ತನೆಯ ಪರಿಶೀಲಿತ ವಿವರ ನಮ್ಮಲ್ಲಿ ಇಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸ್ಥಳೀಯ ಕೃಷಿ ಅಧಿಕಾರಿಯನ್ನು ಕೇಳಿ.',
     noData: '{crop} ಕುರಿತು ಈ ವಿಷಯದ ಪರಿಶೀಲಿತ ಮಾಹಿತಿ ನಮ್ಮಲ್ಲಿ ಇಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸ್ಥಳೀಯ ಕೃಷಿ ಅಧಿಕಾರಿಯನ್ನು ಕೇಳಿ.',
     noDataGeneral: 'ಈ ವಿಷಯದ ಪರಿಶೀಲಿತ ಮಾಹಿತಿ ನಮ್ಮಲ್ಲಿ ಇಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸ್ಥಳೀಯ ಕೃಷಿ ಅಧಿಕಾರಿಯನ್ನು ಕೇಳಿ.',
+    generalNote: 'ℹ️ ಇದು AI ನೀಡಿದ ಸಾಮಾನ್ಯ ಮಾಹಿತಿ, ನಮ್ಮ ಪರಿಶೀಲಿತ ಮೂಲಗಳದ್ದಲ್ಲ. ದಯವಿಟ್ಟು ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರದಲ್ಲಿ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.',
     growAdvice: 'ನಿಮ್ಮ ಜಮೀನಿಗೆ ಯಾವ ಬೆಳೆ ಸೂಕ್ತ ಎಂದು ತಿಳಿಯಲು ಮುಖಪುಟದಲ್ಲಿ “ನನ್ನ ಜಮೀನಿಗೆ ಬೆಳೆ ಹುಡುಕಿ” ಒತ್ತಿ. ಅದು ನಿಮ್ಮ ಮಣ್ಣು ಮತ್ತು ಹವಾಮಾನವನ್ನು ಬಳಸುತ್ತದೆ. ಇಲ್ಲಿ ನಾನು ಯಾವುದೇ ಬೆಳೆಯ ಹೆಸರು, ನೀರಿನ ಅಗತ್ಯ ಮತ್ತು ಬೆಳೆಯುವ ಸಮಯ ಹೇಳಬಲ್ಲೆ.',
     cropList: 'ಈ ಬೆಳೆಗಳ ಪರಿಶೀಲಿತ ಮಾಹಿತಿ ನನ್ನಲ್ಲಿದೆ. ಯಾವುದೇ ಹೆಸರು ಟೈಪ್ ಮಾಡಿ ಅಥವಾ ಕೆಳಗೆ ಒತ್ತಿ: {crops}.',
     source: 'ಮೂಲ',
@@ -424,6 +625,7 @@ const kn: typeof en = {
     Solar_Radiation: 'ಸೂರ್ಯನ ಬೆಳಕು',
     Elevation: 'ಸಮುದ್ರ ಮಟ್ಟದಿಂದ ಎತ್ತರ',
     Slope: 'ಜಮೀನಿನ ಇಳಿಜಾರು',
+    Season: 'ಹಂಗಾಮು',
   },
 };
 
@@ -457,6 +659,7 @@ const cropsKn: Record<string, string> = {
   'niger seed': 'ಗುರೆಳ್ಳು',
   cashewnut: 'ಗೋಡಂಬಿ',
   cowpea: 'ಅಲಸಂದೆ',
+  'field bean (avare)': 'ಅವರೆ',
   cardamom: 'ಏಲಕ್ಕಿ',
   coffee: 'ಕಾಫಿ',
   castor: 'ಹರಳು',
@@ -493,6 +696,39 @@ const cropsKn: Record<string, string> = {
   drumstick: 'ನುಗ್ಗೆಕಾಯಿ',
   pumpkin: 'ಕುಂಬಳಕಾಯಿ',
   colocasia: 'ಕೆಸುವಿನ ಗಡ್ಡೆ',
+  // herbs, spices and plantation crops the model does not know (FAO EcoCrop needs only)
+  tulsi: 'ತುಳಸಿ',
+  ashwagandha: 'ಅಶ್ವಗಂಧ',
+  'aloe vera': 'ಲೋಳೆಸರ',
+  stevia: 'ಸ್ಟೀವಿಯಾ',
+  kalmegh: 'ನೆಲಬೇವು',
+  centella: 'ಒಂದೆಲಗ',
+  'curry leaf': 'ಕರಿಬೇವು',
+  mint: 'ಪುದೀನ',
+  fenugreek: 'ಮೆಂತ್ಯ',
+  lemongrass: 'ನಿಂಬೆಹುಲ್ಲು',
+  citronella: 'ಸಿಟ್ರೊನೆಲ್ಲಾ',
+  vetiver: 'ಲಾವಂಚ',
+  patchouli: 'ಪಚೌಲಿ',
+  clove: 'ಲವಂಗ',
+  nutmeg: 'ಜಾಯಿಕಾಯಿ',
+  cinnamon: 'ದಾಲ್ಚಿನ್ನಿ',
+  vanilla: 'ವೆನಿಲ್ಲಾ',
+  rubber: 'ರಬ್ಬರ್',
+  tea: 'ಚಹಾ',
+  cocoa: 'ಕೊಕೊ',
+  'betel vine': 'ವೀಳ್ಯದೆಲೆ',
+  okra: 'ಬೆಂಡೆಕಾಯಿ',
+  cucumber: 'ಸೌತೆಕಾಯಿ',
+  'bitter gourd': 'ಹಾಗಲಕಾಯಿ',
+  'bottle gourd': 'ಸೋರೆಕಾಯಿ',
+  'ridge gourd': 'ಹೀರೆಕಾಯಿ',
+  cauliflower: 'ಹೂಕೋಸು',
+  carrot: 'ಗಜ್ಜರಿ',
+  radish: 'ಮೂಲಂಗಿ',
+  amaranthus: 'ಹರಿವೆ ಸೊಪ್ಪು',
+  spinach: 'ಪಾಲಕ್ ಸೊಪ್ಪು',
+  'vegetable cowpea': 'ಅಲಸಂದೆ ಕಾಯಿ',
 };
 
 // Karnataka districts. The key is the exact name in our crop dataset (sent to the backend),
@@ -532,6 +768,11 @@ export const DISTRICT_NAMES: Record<string, { en: string; kn: string }> = {
 
 export function districtName(key: string, language: Language) {
   return DISTRICT_NAMES[key]?.[language] ?? key;
+}
+
+// Taluk names come from the Agriculture Census in capitals ("K.R. PET", "AFZALPUR + ALAND")
+export function talukName(name: string) {
+  return name.toLowerCase().replace(/(^|[\s.(])([a-z])/g, (_, before, letter) => before + letter.toUpperCase());
 }
 
 export const translations = { en, kn };

@@ -1,0 +1,6271 @@
+Place,Season,Crop,Share
+10:1,Kharif,chilli,0.0001
+10:1,Kharif,rice,0.9996
+10:1,Kharif,sesame,0.0003
+10:1,Rabi,chilli,0.0004
+10:1,Rabi,rice,0.9672
+10:1,Rabi,wheat,0.0324
+10:1,Summer,chilli,0.0
+10:1,Summer,rice,1.0
+10:10,Kharif,chilli,0.0005
+10:10,Kharif,groundnut,0.0
+10:10,Kharif,jowar,0.0003
+10:10,Kharif,niger seed,0.0002
+10:10,Kharif,ragi,0.0001
+10:10,Kharif,rice,0.9988
+10:10,Kharif,sesame,0.0002
+10:10,Rabi,chilli,0.0016
+10:10,Rabi,groundnut,0.0102
+10:10,Rabi,jowar,0.0046
+10:10,Rabi,ragi,0.0026
+10:10,Rabi,rice,0.9496
+10:10,Rabi,wheat,0.0314
+10:10,Summer,chilli,0.0
+10:10,Summer,jowar,0.017
+10:10,Summer,rice,0.983
+10:11,Kharif,groundnut,0.0003
+10:11,Kharif,rice,0.9989
+10:11,Kharif,sesame,0.0008
+10:11,Rabi,groundnut,0.4386
+10:11,Rabi,rice,0.4686
+10:11,Rabi,wheat,0.0928
+10:11,Summer,rice,1.0
+10:2,Kharif,groundnut,0.0
+10:2,Kharif,rice,1.0
+10:2,Rabi,groundnut,0.0104
+10:2,Rabi,rice,0.9789
+10:2,Rabi,wheat,0.0107
+10:2,Summer,rice,1.0
+10:3,Kharif,cotton,0.0342
+10:3,Kharif,maize,0.1296
+10:3,Kharif,rice,0.835
+10:3,Kharif,sunflower,0.0012
+10:3,Rabi,black gram,0.0042
+10:3,Rabi,green gram,0.0208
+10:3,Rabi,horse gram,0.0083
+10:3,Rabi,maize,0.7063
+10:3,Rabi,rice,0.2534
+10:3,Rabi,sunflower,0.0071
+10:3,Summer,maize,0.595
+10:3,Summer,rice,0.4043
+10:3,Summer,sunflower,0.0007
+10:4,Kharif,cotton,0.0251
+10:4,Kharif,groundnut,0.0
+10:4,Kharif,jowar,0.0001
+10:4,Kharif,maize,0.0026
+10:4,Kharif,ragi,0.0002
+10:4,Kharif,rice,0.972
+10:4,Rabi,chickpea,0.023
+10:4,Rabi,groundnut,0.0901
+10:4,Rabi,jowar,0.0017
+10:4,Rabi,maize,0.0399
+10:4,Rabi,ragi,0.0029
+10:4,Rabi,rice,0.8424
+10:4,Summer,jowar,0.0069
+10:4,Summer,maize,0.0243
+10:4,Summer,rice,0.9688
+10:5,Kharif,cotton,0.0363
+10:5,Kharif,maize,0.1588
+10:5,Kharif,rice,0.8046
+10:5,Kharif,soybean,0.0003
+10:5,Rabi,horse gram,0.0047
+10:5,Rabi,maize,0.7763
+10:5,Rabi,rice,0.2191
+10:5,Summer,maize,0.6517
+10:5,Summer,rice,0.3483
+10:6,Kharif,bajra,0.0036
+10:6,Kharif,chilli,0.0001
+10:6,Kharif,groundnut,0.0
+10:6,Kharif,maize,0.0067
+10:6,Kharif,rice,0.9896
+10:6,Rabi,bajra,0.0137
+10:6,Rabi,chilli,0.0003
+10:6,Rabi,groundnut,0.01
+10:6,Rabi,maize,0.1005
+10:6,Rabi,rice,0.8243
+10:6,Rabi,wheat,0.0513
+10:6,Summer,bajra,0.0107
+10:6,Summer,chilli,0.0
+10:6,Summer,maize,0.0598
+10:6,Summer,rice,0.9295
+10:7,Kharif,groundnut,0.0001
+10:7,Kharif,niger seed,0.0028
+10:7,Kharif,rice,0.9951
+10:7,Kharif,sesame,0.0001
+10:7,Kharif,sunflower,0.0019
+10:7,Rabi,groundnut,0.1577
+10:7,Rabi,rice,0.7841
+10:7,Rabi,sunflower,0.029
+10:7,Rabi,wheat,0.0293
+10:7,Summer,rice,0.9976
+10:7,Summer,sunflower,0.0024
+10:8,Kharif,ragi,0.0001
+10:8,Kharif,rice,0.9995
+10:8,Kharif,sesame,0.0003
+10:8,Rabi,chickpea,0.0106
+10:8,Rabi,ragi,0.0027
+10:8,Rabi,rice,0.9549
+10:8,Rabi,wheat,0.0318
+10:8,Summer,rice,1.0
+10:9,Kharif,chilli,0.0001
+10:9,Kharif,maize,0.0003
+10:9,Kharif,niger seed,0.0006
+10:9,Kharif,rice,0.999
+10:9,Rabi,black gram,0.0456
+10:9,Rabi,chilli,0.0004
+10:9,Rabi,maize,0.0047
+10:9,Rabi,rice,0.9493
+10:9,Summer,chilli,0.0
+10:9,Summer,maize,0.0026
+10:9,Summer,rice,0.9974
+11:1,Kharif,bajra,0.0006
+11:1,Kharif,black gram,0.0002
+11:1,Kharif,chilli,0.0077
+11:1,Kharif,cotton,0.3223
+11:1,Kharif,green gram,0.0006
+11:1,Kharif,groundnut,0.1095
+11:1,Kharif,horse gram,0.0
+11:1,Kharif,jowar,0.0001
+11:1,Kharif,maize,0.2425
+11:1,Kharif,niger seed,0.0006
+11:1,Kharif,onion,0.0001
+11:1,Kharif,pigeonpea (tur),0.0027
+11:1,Kharif,potato,0.0
+11:1,Kharif,ragi,0.0005
+11:1,Kharif,rice,0.228
+11:1,Kharif,soybean,0.0848
+11:1,Kharif,sunflower,0.0
+11:1,Rabi,bajra,0.0037
+11:1,Rabi,black gram,0.0018
+11:1,Rabi,chickpea,0.0088
+11:1,Rabi,cotton,0.0291
+11:1,Rabi,green gram,0.0214
+11:1,Rabi,groundnut,0.2525
+11:1,Rabi,horse gram,0.0107
+11:1,Rabi,jowar,0.1931
+11:1,Rabi,linseed,0.0011
+11:1,Rabi,maize,0.4387
+11:1,Rabi,mustard,0.0015
+11:1,Rabi,onion,0.0001
+11:1,Rabi,potato,0.0001
+11:1,Rabi,ragi,0.0043
+11:1,Rabi,rice,0.013
+11:1,Rabi,sunflower,0.0015
+11:1,Rabi,wheat,0.0187
+11:1,Summer,bajra,0.0027
+11:1,Summer,jowar,0.0023
+11:1,Summer,maize,0.1192
+11:1,Summer,onion,0.0
+11:1,Summer,potato,0.0
+11:1,Summer,ragi,0.0041
+11:1,Summer,rice,0.8716
+11:1,Summer,sunflower,0.0
+11:2,Kharif,bajra,0.0003
+11:2,Kharif,black gram,0.0003
+11:2,Kharif,castor,0.0003
+11:2,Kharif,chilli,0.0115
+11:2,Kharif,cotton,0.5552
+11:2,Kharif,green gram,0.0018
+11:2,Kharif,groundnut,0.1717
+11:2,Kharif,horse gram,0.0
+11:2,Kharif,jowar,0.0001
+11:2,Kharif,maize,0.198
+11:2,Kharif,niger seed,0.0029
+11:2,Kharif,onion,0.0008
+11:2,Kharif,pigeonpea (tur),0.0096
+11:2,Kharif,potato,0.0
+11:2,Kharif,ragi,0.0014
+11:2,Kharif,rice,0.0057
+11:2,Kharif,sesame,0.0021
+11:2,Kharif,soybean,0.0381
+11:2,Kharif,sunflower,0.0
+11:2,Kharif,tomato,0.0001
+11:2,Rabi,bajra,0.0013
+11:2,Rabi,black gram,0.0017
+11:2,Rabi,chickpea,0.0549
+11:2,Rabi,cotton,0.0349
+11:2,Rabi,green gram,0.0473
+11:2,Rabi,groundnut,0.2748
+11:2,Rabi,horse gram,0.0029
+11:2,Rabi,jowar,0.2822
+11:2,Rabi,linseed,0.0013
+11:2,Rabi,maize,0.2551
+11:2,Rabi,mustard,0.0062
+11:2,Rabi,onion,0.0004
+11:2,Rabi,potato,0.0001
+11:2,Rabi,ragi,0.0089
+11:2,Rabi,rice,0.0002
+11:2,Rabi,sunflower,0.0044
+11:2,Rabi,tomato,0.0003
+11:2,Rabi,wheat,0.0231
+11:2,Summer,bajra,0.0112
+11:2,Summer,jowar,0.036
+11:2,Summer,maize,0.7074
+11:2,Summer,onion,0.0008
+11:2,Summer,potato,0.0003
+11:2,Summer,ragi,0.0823
+11:2,Summer,rice,0.1594
+11:2,Summer,sunflower,0.0013
+11:2,Summer,tomato,0.0013
+11:3,Kharif,bajra,0.0002
+11:3,Kharif,black gram,0.0006
+11:3,Kharif,chilli,0.0023
+11:3,Kharif,cotton,0.205
+11:3,Kharif,green gram,0.0023
+11:3,Kharif,groundnut,0.0059
+11:3,Kharif,horse gram,0.0
+11:3,Kharif,jowar,0.0001
+11:3,Kharif,maize,0.2867
+11:3,Kharif,niger seed,0.0002
+11:3,Kharif,pigeonpea (tur),0.0002
+11:3,Kharif,potato,0.0
+11:3,Kharif,ragi,0.0002
+11:3,Kharif,rice,0.4572
+11:3,Kharif,sesame,0.0
+11:3,Kharif,soybean,0.0391
+11:3,Kharif,sunflower,0.0
+11:3,Kharif,tomato,0.0
+11:3,Rabi,bajra,0.0011
+11:3,Rabi,black gram,0.007
+11:3,Rabi,chickpea,0.0016
+11:3,Rabi,cotton,0.0205
+11:3,Rabi,green gram,0.0997
+11:3,Rabi,groundnut,0.0143
+11:3,Rabi,horse gram,0.0109
+11:3,Rabi,jowar,0.2168
+11:3,Rabi,linseed,0.0021
+11:3,Rabi,maize,0.572
+11:3,Rabi,mustard,0.0002
+11:3,Rabi,potato,0.0001
+11:3,Rabi,ragi,0.0022
+11:3,Rabi,rice,0.0292
+11:3,Rabi,sunflower,0.0186
+11:3,Rabi,tomato,0.0002
+11:3,Rabi,wheat,0.0034
+11:3,Summer,bajra,0.0005
+11:3,Summer,jowar,0.0011
+11:3,Summer,maize,0.0875
+11:3,Summer,potato,0.0
+11:3,Summer,ragi,0.0011
+11:3,Summer,rice,0.9095
+11:3,Summer,sunflower,0.0002
+11:3,Summer,tomato,0.0
+11:4,Kharif,bajra,0.0001
+11:4,Kharif,black gram,0.0001
+11:4,Kharif,chilli,0.0154
+11:4,Kharif,cotton,0.3163
+11:4,Kharif,green gram,0.0007
+11:4,Kharif,groundnut,0.0284
+11:4,Kharif,horse gram,0.0
+11:4,Kharif,jowar,0.0001
+11:4,Kharif,maize,0.5814
+11:4,Kharif,niger seed,0.0001
+11:4,Kharif,onion,0.0042
+11:4,Kharif,pigeonpea (tur),0.0038
+11:4,Kharif,potato,0.0
+11:4,Kharif,ragi,0.0002
+11:4,Kharif,rice,0.0242
+11:4,Kharif,sesame,0.0003
+11:4,Kharif,soybean,0.024
+11:4,Kharif,sunflower,0.0
+11:4,Kharif,tomato,0.0007
+11:4,Rabi,bajra,0.0003
+11:4,Rabi,black gram,0.0002
+11:4,Rabi,chickpea,0.0056
+11:4,Rabi,cotton,0.0164
+11:4,Rabi,green gram,0.015
+11:4,Rabi,groundnut,0.0367
+11:4,Rabi,horse gram,0.001
+11:4,Rabi,jowar,0.2808
+11:4,Rabi,linseed,0.0002
+11:4,Rabi,maize,0.6119
+11:4,Rabi,mustard,0.0005
+11:4,Rabi,onion,0.0017
+11:4,Rabi,potato,0.0001
+11:4,Rabi,ragi,0.0007
+11:4,Rabi,rice,0.0008
+11:4,Rabi,sunflower,0.0205
+11:4,Rabi,tomato,0.0032
+11:4,Rabi,wheat,0.0044
+11:4,Summer,bajra,0.0014
+11:4,Summer,jowar,0.0172
+11:4,Summer,maize,0.7341
+11:4,Summer,onion,0.0015
+11:4,Summer,potato,0.0001
+11:4,Summer,ragi,0.0037
+11:4,Summer,rice,0.2339
+11:4,Summer,sunflower,0.003
+11:4,Summer,tomato,0.0051
+11:5,Kharif,bajra,0.0001
+11:5,Kharif,black gram,0.0006
+11:5,Kharif,castor,0.0002
+11:5,Kharif,chilli,0.0007
+11:5,Kharif,cotton,0.3892
+11:5,Kharif,green gram,0.0008
+11:5,Kharif,groundnut,0.0032
+11:5,Kharif,horse gram,0.0
+11:5,Kharif,jowar,0.0001
+11:5,Kharif,maize,0.5745
+11:5,Kharif,niger seed,0.0004
+11:5,Kharif,onion,0.0004
+11:5,Kharif,pigeonpea (tur),0.0008
+11:5,Kharif,ragi,0.0003
+11:5,Kharif,rice,0.0217
+11:5,Kharif,sesame,0.0001
+11:5,Kharif,soybean,0.0024
+11:5,Kharif,sunflower,0.0
+11:5,Kharif,tomato,0.0045
+11:5,Rabi,bajra,0.0005
+11:5,Rabi,black gram,0.0048
+11:5,Rabi,chickpea,0.0002
+11:5,Rabi,cotton,0.0241
+11:5,Rabi,green gram,0.0186
+11:5,Rabi,groundnut,0.0055
+11:5,Rabi,horse gram,0.0235
+11:5,Rabi,jowar,0.2077
+11:5,Rabi,linseed,0.0003
+11:5,Rabi,maize,0.678
+11:5,Rabi,mustard,0.0014
+11:5,Rabi,onion,0.0002
+11:5,Rabi,ragi,0.0017
+11:5,Rabi,rice,0.0008
+11:5,Rabi,sunflower,0.0139
+11:5,Rabi,tomato,0.0187
+11:5,Rabi,wheat,0.0001
+11:5,Summer,bajra,0.0016
+11:5,Summer,jowar,0.0102
+11:5,Summer,maize,0.7272
+11:5,Summer,onion,0.0002
+11:5,Summer,ragi,0.0063
+11:5,Summer,rice,0.2193
+11:5,Summer,sunflower,0.0016
+11:5,Summer,tomato,0.0336
+11:6,Kharif,bajra,0.0
+11:6,Kharif,castor,0.0
+11:6,Kharif,cotton,0.3242
+11:6,Kharif,green gram,0.0
+11:6,Kharif,groundnut,0.0022
+11:6,Kharif,horse gram,0.0001
+11:6,Kharif,jowar,0.0
+11:6,Kharif,maize,0.6335
+11:6,Kharif,niger seed,0.0001
+11:6,Kharif,onion,0.0001
+11:6,Kharif,pigeonpea (tur),0.0025
+11:6,Kharif,ragi,0.0008
+11:6,Kharif,rice,0.033
+11:6,Kharif,soybean,0.0006
+11:6,Kharif,sunflower,0.0
+11:6,Kharif,tomato,0.0028
+11:6,Rabi,bajra,0.0001
+11:6,Rabi,chickpea,0.0027
+11:6,Rabi,cotton,0.0215
+11:6,Rabi,green gram,0.0008
+11:6,Rabi,groundnut,0.0043
+11:6,Rabi,horse gram,0.0821
+11:6,Rabi,jowar,0.0618
+11:6,Rabi,maize,0.7847
+11:6,Rabi,mustard,0.0001
+11:6,Rabi,onion,0.0001
+11:6,Rabi,ragi,0.006
+11:6,Rabi,rice,0.0013
+11:6,Rabi,sunflower,0.0204
+11:6,Rabi,tomato,0.0137
+11:6,Rabi,wheat,0.0006
+11:6,Summer,bajra,0.0002
+11:6,Summer,jowar,0.0025
+11:6,Summer,maize,0.6779
+11:6,Summer,onion,0.0
+11:6,Summer,ragi,0.0167
+11:6,Summer,rice,0.2814
+11:6,Summer,sunflower,0.0019
+11:6,Summer,tomato,0.0193
+11:7,Kharif,bajra,0.0002
+11:7,Kharif,black gram,0.0
+11:7,Kharif,chilli,0.0007
+11:7,Kharif,cotton,0.3255
+11:7,Kharif,green gram,0.0002
+11:7,Kharif,groundnut,0.0093
+11:7,Kharif,horse gram,0.0
+11:7,Kharif,jowar,0.0001
+11:7,Kharif,maize,0.4918
+11:7,Kharif,niger seed,0.0003
+11:7,Kharif,onion,0.0586
+11:7,Kharif,pigeonpea (tur),0.0071
+11:7,Kharif,potato,0.0
+11:7,Kharif,ragi,0.0012
+11:7,Kharif,rice,0.0984
+11:7,Kharif,soybean,0.0015
+11:7,Kharif,sunflower,0.0
+11:7,Kharif,tomato,0.0049
+11:7,Rabi,bajra,0.001
+11:7,Rabi,black gram,0.0002
+11:7,Rabi,chickpea,0.003
+11:7,Rabi,cotton,0.0188
+11:7,Rabi,green gram,0.0038
+11:7,Rabi,groundnut,0.0132
+11:7,Rabi,horse gram,0.0177
+11:7,Rabi,jowar,0.1897
+11:7,Rabi,linseed,0.0001
+11:7,Rabi,maize,0.5487
+11:7,Rabi,mustard,0.0018
+11:7,Rabi,onion,0.0218
+11:7,Rabi,potato,0.0
+11:7,Rabi,ragi,0.006
+11:7,Rabi,rice,0.0035
+11:7,Rabi,sunflower,0.0804
+11:7,Rabi,tomato,0.0235
+11:7,Rabi,wheat,0.0669
+11:7,Summer,bajra,0.0017
+11:7,Summer,jowar,0.0055
+11:7,Summer,maize,0.3639
+11:7,Summer,onion,0.0126
+11:7,Summer,potato,0.0001
+11:7,Summer,ragi,0.0157
+11:7,Summer,rice,0.5708
+11:7,Summer,sunflower,0.0057
+11:7,Summer,tomato,0.0239
+12:1,Kharif,bajra,0.0738
+12:1,Kharif,black gram,0.0012
+12:1,Kharif,castor,0.0013
+12:1,Kharif,chilli,0.0082
+12:1,Kharif,cotton,0.0666
+12:1,Kharif,green gram,0.0122
+12:1,Kharif,groundnut,0.0383
+12:1,Kharif,horse gram,0.0022
+12:1,Kharif,jowar,0.0739
+12:1,Kharif,maize,0.5658
+12:1,Kharif,niger seed,0.0005
+12:1,Kharif,onion,0.023
+12:1,Kharif,pigeonpea (tur),0.0159
+12:1,Kharif,potato,0.0
+12:1,Kharif,ragi,0.0072
+12:1,Kharif,rice,0.035
+12:1,Kharif,sesame,0.0032
+12:1,Kharif,sunflower,0.0706
+12:1,Kharif,tomato,0.001
+12:1,Rabi,bajra,0.0208
+12:1,Rabi,black gram,0.0193
+12:1,Rabi,chickpea,0.0986
+12:1,Rabi,chilli,0.0024
+12:1,Rabi,cotton,0.0134
+12:1,Rabi,green gram,0.0147
+12:1,Rabi,groundnut,0.0554
+12:1,Rabi,horse gram,0.0117
+12:1,Rabi,jowar,0.4104
+12:1,Rabi,linseed,0.006
+12:1,Rabi,maize,0.1353
+12:1,Rabi,mustard,0.0085
+12:1,Rabi,onion,0.024
+12:1,Rabi,potato,0.0
+12:1,Rabi,ragi,0.0397
+12:1,Rabi,rice,0.0087
+12:1,Rabi,sunflower,0.0711
+12:1,Rabi,tomato,0.001
+12:1,Rabi,wheat,0.0593
+12:1,Summer,bajra,0.1741
+12:1,Summer,chilli,0.0001
+12:1,Summer,jowar,0.0621
+12:1,Summer,maize,0.0822
+12:1,Summer,onion,0.0196
+12:1,Summer,potato,0.0003
+12:1,Summer,ragi,0.0215
+12:1,Summer,rice,0.6291
+12:1,Summer,sunflower,0.0071
+12:1,Summer,tomato,0.004
+12:2,Kharif,bajra,0.1335
+12:2,Kharif,black gram,0.0001
+12:2,Kharif,castor,0.0009
+12:2,Kharif,chilli,0.0023
+12:2,Kharif,cotton,0.0189
+12:2,Kharif,green gram,0.0009
+12:2,Kharif,groundnut,0.0798
+12:2,Kharif,horse gram,0.0023
+12:2,Kharif,jowar,0.029
+12:2,Kharif,maize,0.5341
+12:2,Kharif,niger seed,0.0002
+12:2,Kharif,onion,0.0082
+12:2,Kharif,pigeonpea (tur),0.015
+12:2,Kharif,potato,0.0
+12:2,Kharif,ragi,0.0019
+12:2,Kharif,rice,0.035
+12:2,Kharif,sesame,0.0028
+12:2,Kharif,soybean,0.0003
+12:2,Kharif,sunflower,0.1339
+12:2,Kharif,tobacco,0.0002
+12:2,Kharif,tomato,0.0008
+12:2,Rabi,bajra,0.0326
+12:2,Rabi,black gram,0.001
+12:2,Rabi,chickpea,0.1934
+12:2,Rabi,chilli,0.0005
+12:2,Rabi,cotton,0.0059
+12:2,Rabi,green gram,0.0012
+12:2,Rabi,groundnut,0.1701
+12:2,Rabi,horse gram,0.0171
+12:2,Rabi,jowar,0.2063
+12:2,Rabi,linseed,0.0006
+12:2,Rabi,maize,0.1388
+12:2,Rabi,mustard,0.002
+12:2,Rabi,onion,0.0144
+12:2,Rabi,potato,0.0
+12:2,Rabi,ragi,0.0105
+12:2,Rabi,rice,0.0098
+12:2,Rabi,sunflower,0.1851
+12:2,Rabi,tomato,0.0012
+12:2,Rabi,wheat,0.0096
+12:2,Summer,bajra,0.3265
+12:2,Summer,chilli,0.0
+12:2,Summer,jowar,0.0201
+12:2,Summer,maize,0.07
+12:2,Summer,onion,0.0052
+12:2,Summer,potato,0.0001
+12:2,Summer,ragi,0.0052
+12:2,Summer,rice,0.5597
+12:2,Summer,sunflower,0.0107
+12:2,Summer,tomato,0.0025
+12:3,Kharif,bajra,0.0302
+12:3,Kharif,black gram,0.0
+12:3,Kharif,chilli,0.0066
+12:3,Kharif,cotton,0.033
+12:3,Kharif,green gram,0.0001
+12:3,Kharif,groundnut,0.0159
+12:3,Kharif,horse gram,0.0027
+12:3,Kharif,jowar,0.0573
+12:3,Kharif,maize,0.1888
+12:3,Kharif,niger seed,0.0
+12:3,Kharif,onion,0.0014
+12:3,Kharif,pigeonpea (tur),0.0031
+12:3,Kharif,potato,0.0
+12:3,Kharif,ragi,0.0003
+12:3,Kharif,rice,0.6488
+12:3,Kharif,sesame,0.0019
+12:3,Kharif,sunflower,0.0084
+12:3,Kharif,tomato,0.0014
+12:3,Rabi,bajra,0.0108
+12:3,Rabi,black gram,0.0005
+12:3,Rabi,chilli,0.0023
+12:3,Rabi,cotton,0.0124
+12:3,Rabi,green gram,0.0001
+12:3,Rabi,groundnut,0.0415
+12:3,Rabi,horse gram,0.0269
+12:3,Rabi,jowar,0.5658
+12:3,Rabi,maize,0.0666
+12:3,Rabi,mustard,0.001
+12:3,Rabi,onion,0.0035
+12:3,Rabi,potato,0.0
+12:3,Rabi,ragi,0.0024
+12:3,Rabi,rice,0.2429
+12:3,Rabi,sunflower,0.0174
+12:3,Rabi,tomato,0.0034
+12:3,Rabi,wheat,0.0023
+12:3,Summer,bajra,0.0067
+12:3,Summer,chilli,0.0
+12:3,Summer,jowar,0.0038
+12:3,Summer,maize,0.0024
+12:3,Summer,onion,0.0001
+12:3,Summer,potato,0.0
+12:3,Summer,ragi,0.0001
+12:3,Summer,rice,0.9865
+12:3,Summer,sunflower,0.0001
+12:3,Summer,tomato,0.0004
+12:4,Kharif,bajra,0.0092
+12:4,Kharif,castor,0.0003
+12:4,Kharif,chilli,0.0166
+12:4,Kharif,cotton,0.4321
+12:4,Kharif,groundnut,0.0012
+12:4,Kharif,horse gram,0.0
+12:4,Kharif,jowar,0.0088
+12:4,Kharif,maize,0.0061
+12:4,Kharif,niger seed,0.0007
+12:4,Kharif,onion,0.0001
+12:4,Kharif,pigeonpea (tur),0.0087
+12:4,Kharif,ragi,0.0001
+12:4,Kharif,rice,0.4559
+12:4,Kharif,sesame,0.0001
+12:4,Kharif,soybean,0.0003
+12:4,Kharif,sunflower,0.0597
+12:4,Rabi,bajra,0.0042
+12:4,Rabi,chickpea,0.1176
+12:4,Rabi,chilli,0.0095
+12:4,Rabi,cotton,0.3187
+12:4,Rabi,groundnut,0.007
+12:4,Rabi,horse gram,0.0001
+12:4,Rabi,jowar,0.1098
+12:4,Rabi,maize,0.0044
+12:4,Rabi,mustard,0.0001
+12:4,Rabi,onion,0.0008
+12:4,Rabi,ragi,0.0015
+12:4,Rabi,rice,0.2711
+12:4,Rabi,sunflower,0.1494
+12:4,Rabi,wheat,0.0058
+12:4,Summer,bajra,0.0027
+12:4,Summer,chilli,0.0
+12:4,Summer,jowar,0.0007
+12:4,Summer,maize,0.0001
+12:4,Summer,onion,0.0
+12:4,Summer,ragi,0.0
+12:4,Summer,rice,0.9958
+12:4,Summer,sunflower,0.0006
+12:5,Kharif,bajra,0.018
+12:5,Kharif,black gram,0.0
+12:5,Kharif,castor,0.0039
+12:5,Kharif,chilli,0.1417
+12:5,Kharif,cotton,0.213
+12:5,Kharif,green gram,0.0004
+12:5,Kharif,groundnut,0.0184
+12:5,Kharif,horse gram,0.0003
+12:5,Kharif,jowar,0.0515
+12:5,Kharif,maize,0.145
+12:5,Kharif,niger seed,0.0005
+12:5,Kharif,onion,0.0
+12:5,Kharif,pigeonpea (tur),0.0353
+12:5,Kharif,ragi,0.0001
+12:5,Kharif,rice,0.3597
+12:5,Kharif,sesame,0.0004
+12:5,Kharif,sunflower,0.0116
+12:5,Rabi,bajra,0.005
+12:5,Rabi,black gram,0.0001
+12:5,Rabi,chickpea,0.3613
+12:5,Rabi,chilli,0.0411
+12:5,Rabi,cotton,0.0562
+12:5,Rabi,green gram,0.0005
+12:5,Rabi,groundnut,0.0294
+12:5,Rabi,horse gram,0.0021
+12:5,Rabi,jowar,0.3556
+12:5,Rabi,maize,0.0356
+12:5,Rabi,mustard,0.0012
+12:5,Rabi,onion,0.0001
+12:5,Rabi,ragi,0.001
+12:5,Rabi,rice,0.0919
+12:5,Rabi,sunflower,0.0165
+12:5,Rabi,wheat,0.0023
+12:5,Summer,bajra,0.0078
+12:5,Summer,chilli,0.0002
+12:5,Summer,jowar,0.006
+12:5,Summer,maize,0.0032
+12:5,Summer,onion,0.0
+12:5,Summer,ragi,0.0001
+12:5,Summer,rice,0.9825
+12:5,Summer,sunflower,0.0002
+12:6,Kharif,bajra,0.0592
+12:6,Kharif,castor,0.0007
+12:6,Kharif,chilli,0.0012
+12:6,Kharif,cotton,0.1306
+12:6,Kharif,groundnut,0.0721
+12:6,Kharif,horse gram,0.0004
+12:6,Kharif,jowar,0.1342
+12:6,Kharif,maize,0.5493
+12:6,Kharif,niger seed,0.0008
+12:6,Kharif,onion,0.0025
+12:6,Kharif,pigeonpea (tur),0.0039
+12:6,Kharif,ragi,0.0079
+12:6,Kharif,rice,0.0295
+12:6,Kharif,sesame,0.0023
+12:6,Kharif,sunflower,0.0055
+12:6,Kharif,tomato,0.0001
+12:6,Rabi,bajra,0.0136
+12:6,Rabi,chickpea,0.0005
+12:6,Rabi,chilli,0.0002
+12:6,Rabi,cotton,0.0232
+12:6,Rabi,groundnut,0.1282
+12:6,Rabi,horse gram,0.0027
+12:6,Rabi,jowar,0.6434
+12:6,Rabi,maize,0.12
+12:6,Rabi,mustard,0.0073
+12:6,Rabi,onion,0.003
+12:6,Rabi,ragi,0.0431
+12:6,Rabi,rice,0.0075
+12:6,Rabi,sunflower,0.0066
+12:6,Rabi,tomato,0.0002
+12:6,Rabi,wheat,0.0005
+12:6,Summer,bajra,0.174
+12:6,Summer,chilli,0.0
+12:6,Summer,jowar,0.1508
+12:6,Summer,maize,0.0947
+12:6,Summer,onion,0.0026
+12:6,Summer,ragi,0.0267
+12:6,Summer,rice,0.5503
+12:6,Summer,sunflower,0.0006
+12:6,Summer,tomato,0.0004
+12:7,Kharif,bajra,0.0568
+12:7,Kharif,black gram,0.0
+12:7,Kharif,castor,0.0024
+12:7,Kharif,chilli,0.0004
+12:7,Kharif,cotton,0.0518
+12:7,Kharif,green gram,0.0028
+12:7,Kharif,groundnut,0.3605
+12:7,Kharif,horse gram,0.0013
+12:7,Kharif,jowar,0.0531
+12:7,Kharif,maize,0.3137
+12:7,Kharif,niger seed,0.0003
+12:7,Kharif,onion,0.0113
+12:7,Kharif,pigeonpea (tur),0.0124
+12:7,Kharif,ragi,0.0551
+12:7,Kharif,rice,0.0261
+12:7,Kharif,sesame,0.0088
+12:7,Kharif,soybean,0.0002
+12:7,Kharif,sunflower,0.0393
+12:7,Kharif,tomato,0.0036
+12:7,Rabi,bajra,0.0086
+12:7,Rabi,black gram,0.0001
+12:7,Rabi,chickpea,0.0592
+12:7,Rabi,chilli,0.0001
+12:7,Rabi,cotton,0.0089
+12:7,Rabi,green gram,0.0022
+12:7,Rabi,groundnut,0.4007
+12:7,Rabi,horse gram,0.0051
+12:7,Rabi,jowar,0.2302
+12:7,Rabi,linseed,0.0007
+12:7,Rabi,maize,0.0468
+12:7,Rabi,mustard,0.0008
+12:7,Rabi,onion,0.0103
+12:7,Rabi,ragi,0.1821
+12:7,Rabi,rice,0.0037
+12:7,Rabi,sunflower,0.0309
+12:7,Rabi,tomato,0.003
+12:7,Rabi,wheat,0.0065
+12:7,Summer,bajra,0.2282
+12:7,Summer,chilli,0.0
+12:7,Summer,jowar,0.0633
+12:7,Summer,maize,0.064
+12:7,Summer,onion,0.0085
+12:7,Summer,ragi,0.1478
+12:7,Summer,rice,0.4747
+12:7,Summer,sunflower,0.0035
+12:7,Summer,tomato,0.01
+13:1,Kharif,bajra,0.038
+13:1,Kharif,black gram,0.0001
+13:1,Kharif,castor,0.0008
+13:1,Kharif,chilli,0.0007
+13:1,Kharif,cotton,0.1173
+13:1,Kharif,green gram,0.0007
+13:1,Kharif,groundnut,0.6137
+13:1,Kharif,horse gram,0.0046
+13:1,Kharif,jowar,0.0251
+13:1,Kharif,maize,0.0722
+13:1,Kharif,niger seed,0.0
+13:1,Kharif,onion,0.0101
+13:1,Kharif,pigeonpea (tur),0.0089
+13:1,Kharif,ragi,0.0235
+13:1,Kharif,rice,0.0496
+13:1,Kharif,sesame,0.0002
+13:1,Kharif,soybean,0.0
+13:1,Kharif,sunflower,0.0334
+13:1,Kharif,tomato,0.0011
+13:1,Rabi,bajra,0.0161
+13:1,Rabi,black gram,0.0005
+13:1,Rabi,chickpea,0.0028
+13:1,Rabi,chilli,0.0011
+13:1,Rabi,cotton,0.1004
+13:1,Rabi,green gram,0.0
+13:1,Rabi,groundnut,0.3154
+13:1,Rabi,horse gram,0.0101
+13:1,Rabi,jowar,0.3121
+13:1,Rabi,maize,0.089
+13:1,Rabi,mustard,0.0051
+13:1,Rabi,onion,0.0168
+13:1,Rabi,ragi,0.0247
+13:1,Rabi,rice,0.0855
+13:1,Rabi,sunflower,0.0106
+13:1,Rabi,tomato,0.0029
+13:1,Rabi,wheat,0.0068
+13:1,Summer,bajra,0.0056
+13:1,Summer,chilli,0.0001
+13:1,Summer,jowar,0.2784
+13:1,Summer,maize,0.2216
+13:1,Summer,onion,0.0025
+13:1,Summer,ragi,0.0638
+13:1,Summer,rice,0.4121
+13:1,Summer,sunflower,0.0021
+13:1,Summer,tomato,0.0138
+13:2,Kharif,bajra,0.0036
+13:2,Kharif,black gram,0.0
+13:2,Kharif,castor,0.0002
+13:2,Kharif,chilli,0.0
+13:2,Kharif,cotton,0.014
+13:2,Kharif,green gram,0.0011
+13:2,Kharif,groundnut,0.7068
+13:2,Kharif,horse gram,0.0179
+13:2,Kharif,jowar,0.0063
+13:2,Kharif,maize,0.026
+13:2,Kharif,niger seed,0.0001
+13:2,Kharif,onion,0.0479
+13:2,Kharif,pigeonpea (tur),0.0755
+13:2,Kharif,potato,0.0
+13:2,Kharif,ragi,0.0213
+13:2,Kharif,rice,0.0458
+13:2,Kharif,sesame,0.0
+13:2,Kharif,soybean,0.0
+13:2,Kharif,sunflower,0.0327
+13:2,Kharif,tomato,0.0005
+13:2,Rabi,bajra,0.0021
+13:2,Rabi,black gram,0.0003
+13:2,Rabi,chickpea,0.0062
+13:2,Rabi,chilli,0.0001
+13:2,Rabi,cotton,0.0156
+13:2,Rabi,green gram,0.0
+13:2,Rabi,groundnut,0.5021
+13:2,Rabi,horse gram,0.0565
+13:2,Rabi,jowar,0.1033
+13:2,Rabi,linseed,0.0009
+13:2,Rabi,maize,0.0437
+13:2,Rabi,mustard,0.0023
+13:2,Rabi,onion,0.1141
+13:2,Rabi,potato,0.0027
+13:2,Rabi,ragi,0.0315
+13:2,Rabi,rice,0.0986
+13:2,Rabi,sunflower,0.0144
+13:2,Rabi,tomato,0.0019
+13:2,Rabi,wheat,0.0039
+13:2,Summer,bajra,0.0009
+13:2,Summer,chilli,0.0
+13:2,Summer,jowar,0.1134
+13:2,Summer,maize,0.1609
+13:2,Summer,onion,0.0294
+13:2,Summer,ragi,0.1188
+13:2,Summer,rice,0.5562
+13:2,Summer,sunflower,0.0037
+13:2,Summer,tomato,0.0167
+13:3,Kharif,bajra,0.002
+13:3,Kharif,black gram,0.0
+13:3,Kharif,castor,0.0004
+13:3,Kharif,chilli,0.0001
+13:3,Kharif,cotton,0.0331
+13:3,Kharif,green gram,0.0003
+13:3,Kharif,groundnut,0.0618
+13:3,Kharif,horse gram,0.0033
+13:3,Kharif,jowar,0.0051
+13:3,Kharif,maize,0.6462
+13:3,Kharif,niger seed,0.0
+13:3,Kharif,onion,0.0612
+13:3,Kharif,pigeonpea (tur),0.0126
+13:3,Kharif,ragi,0.0803
+13:3,Kharif,rice,0.0625
+13:3,Kharif,sesame,0.0001
+13:3,Kharif,sunflower,0.0303
+13:3,Kharif,tomato,0.0005
+13:3,Rabi,bajra,0.0007
+13:3,Rabi,black gram,0.0
+13:3,Rabi,chickpea,0.0399
+13:3,Rabi,chilli,0.0001
+13:3,Rabi,cotton,0.0208
+13:3,Rabi,green gram,0.0
+13:3,Rabi,groundnut,0.0249
+13:3,Rabi,horse gram,0.0059
+13:3,Rabi,jowar,0.0483
+13:3,Rabi,linseed,0.002
+13:3,Rabi,maize,0.6152
+13:3,Rabi,mustard,0.0004
+13:3,Rabi,onion,0.0761
+13:3,Rabi,ragi,0.0647
+13:3,Rabi,rice,0.0742
+13:3,Rabi,sunflower,0.0071
+13:3,Rabi,tomato,0.0012
+13:3,Rabi,wheat,0.0185
+13:3,Summer,bajra,0.0001
+13:3,Summer,chilli,0.0
+13:3,Summer,jowar,0.0195
+13:3,Summer,maize,0.6626
+13:3,Summer,onion,0.0041
+13:3,Summer,ragi,0.0587
+13:3,Summer,rice,0.2525
+13:3,Summer,sunflower,0.0004
+13:3,Summer,tomato,0.002
+13:4,Kharif,bajra,0.0002
+13:4,Kharif,castor,0.0004
+13:4,Kharif,chilli,0.0004
+13:4,Kharif,cotton,0.034
+13:4,Kharif,green gram,0.0043
+13:4,Kharif,groundnut,0.0134
+13:4,Kharif,horse gram,0.0028
+13:4,Kharif,jowar,0.0032
+13:4,Kharif,maize,0.6838
+13:4,Kharif,niger seed,0.0
+13:4,Kharif,onion,0.0152
+13:4,Kharif,pigeonpea (tur),0.015
+13:4,Kharif,potato,0.0
+13:4,Kharif,ragi,0.1571
+13:4,Kharif,rice,0.0503
+13:4,Kharif,sesame,0.0098
+13:4,Kharif,soybean,0.0002
+13:4,Kharif,sunflower,0.0073
+13:4,Kharif,tomato,0.0026
+13:4,Rabi,bajra,0.0001
+13:4,Rabi,chickpea,0.0319
+13:4,Rabi,chilli,0.0005
+13:4,Rabi,cotton,0.0232
+13:4,Rabi,green gram,0.0
+13:4,Rabi,groundnut,0.0054
+13:4,Rabi,horse gram,0.0049
+13:4,Rabi,jowar,0.0316
+13:4,Rabi,linseed,0.0049
+13:4,Rabi,maize,0.6613
+13:4,Rabi,mustard,0.0044
+13:4,Rabi,onion,0.0198
+13:4,Rabi,potato,0.0004
+13:4,Rabi,ragi,0.1306
+13:4,Rabi,rice,0.0693
+13:4,Rabi,sunflower,0.0019
+13:4,Rabi,tomato,0.0056
+13:4,Rabi,wheat,0.0041
+13:4,Summer,bajra,0.0
+13:4,Summer,chilli,0.0
+13:4,Summer,jowar,0.011
+13:4,Summer,maize,0.667
+13:4,Summer,onion,0.001
+13:4,Summer,ragi,0.1024
+13:4,Summer,rice,0.2117
+13:4,Summer,sunflower,0.0001
+13:4,Summer,tomato,0.0068
+13:5,Kharif,bajra,0.001
+13:5,Kharif,black gram,0.0005
+13:5,Kharif,castor,0.0009
+13:5,Kharif,chilli,0.0002
+13:5,Kharif,cotton,0.0327
+13:5,Kharif,green gram,0.142
+13:5,Kharif,groundnut,0.03
+13:5,Kharif,horse gram,0.052
+13:5,Kharif,jowar,0.0106
+13:5,Kharif,maize,0.13
+13:5,Kharif,niger seed,0.0003
+13:5,Kharif,onion,0.0157
+13:5,Kharif,pigeonpea (tur),0.0225
+13:5,Kharif,ragi,0.4465
+13:5,Kharif,rice,0.0487
+13:5,Kharif,sesame,0.0463
+13:5,Kharif,soybean,0.0002
+13:5,Kharif,sunflower,0.0198
+13:5,Kharif,tomato,0.0002
+13:5,Rabi,bajra,0.0004
+13:5,Rabi,black gram,0.0019
+13:5,Rabi,chickpea,0.0424
+13:5,Rabi,chilli,0.0002
+13:5,Rabi,cotton,0.0243
+13:5,Rabi,green gram,0.0014
+13:5,Rabi,groundnut,0.0134
+13:5,Rabi,horse gram,0.0997
+13:5,Rabi,jowar,0.1132
+13:5,Rabi,linseed,0.0203
+13:5,Rabi,maize,0.1391
+13:5,Rabi,mustard,0.0189
+13:5,Rabi,onion,0.0227
+13:5,Rabi,ragi,0.4062
+13:5,Rabi,rice,0.0718
+13:5,Rabi,sunflower,0.0054
+13:5,Rabi,tomato,0.0004
+13:5,Rabi,wheat,0.0184
+13:5,Summer,bajra,0.0001
+13:5,Summer,chilli,0.0
+13:5,Summer,jowar,0.0544
+13:5,Summer,maize,0.1968
+13:5,Summer,onion,0.0018
+13:5,Summer,ragi,0.4662
+13:5,Summer,rice,0.2795
+13:5,Summer,sunflower,0.0003
+13:5,Summer,tomato,0.0009
+13:6,Kharif,bajra,0.004
+13:6,Kharif,black gram,0.0001
+13:6,Kharif,castor,0.0012
+13:6,Kharif,chilli,0.0002
+13:6,Kharif,cotton,0.0631
+13:6,Kharif,green gram,0.0013
+13:6,Kharif,groundnut,0.2027
+13:6,Kharif,horse gram,0.0444
+13:6,Kharif,jowar,0.0539
+13:6,Kharif,maize,0.1072
+13:6,Kharif,niger seed,0.0
+13:6,Kharif,onion,0.0663
+13:6,Kharif,pigeonpea (tur),0.1168
+13:6,Kharif,ragi,0.1135
+13:6,Kharif,rice,0.0453
+13:6,Kharif,sesame,0.0002
+13:6,Kharif,soybean,0.0001
+13:6,Kharif,sunflower,0.1788
+13:6,Kharif,tobacco,0.0006
+13:6,Kharif,tomato,0.0005
+13:6,Rabi,bajra,0.001
+13:6,Rabi,black gram,0.0001
+13:6,Rabi,chickpea,0.0793
+13:6,Rabi,chilli,0.0003
+13:6,Rabi,cotton,0.0365
+13:6,Rabi,green gram,0.0
+13:6,Rabi,groundnut,0.0791
+13:6,Rabi,horse gram,0.0548
+13:6,Rabi,jowar,0.3851
+13:6,Rabi,linseed,0.0008
+13:6,Rabi,maize,0.0872
+13:6,Rabi,mustard,0.0015
+13:6,Rabi,onion,0.0934
+13:6,Rabi,ragi,0.086
+13:6,Rabi,rice,0.0398
+13:6,Rabi,sunflower,0.0358
+13:6,Rabi,tomato,0.0012
+13:6,Rabi,wheat,0.0179
+13:6,Summer,bajra,0.0003
+13:6,Summer,chilli,0.0
+13:6,Summer,jowar,0.3053
+13:6,Summer,maize,0.2198
+13:6,Summer,onion,0.0158
+13:6,Summer,ragi,0.2042
+13:6,Summer,rice,0.2433
+13:6,Summer,sunflower,0.0053
+13:6,Summer,tomato,0.0059
+14:1,Kharif,bajra,0.0016
+14:1,Kharif,chilli,0.0
+14:1,Kharif,cotton,0.0072
+14:1,Kharif,green gram,0.0001
+14:1,Kharif,groundnut,0.0001
+14:1,Kharif,jowar,0.0011
+14:1,Kharif,maize,0.261
+14:1,Kharif,niger seed,0.0001
+14:1,Kharif,onion,0.0004
+14:1,Kharif,pigeonpea (tur),0.001
+14:1,Kharif,ragi,0.0002
+14:1,Kharif,rice,0.7266
+14:1,Kharif,sunflower,0.0001
+14:1,Kharif,tobacco,0.0
+14:1,Kharif,tomato,0.0003
+14:1,Rabi,chickpea,0.0153
+14:1,Rabi,cotton,0.0154
+14:1,Rabi,green gram,0.0009
+14:1,Rabi,groundnut,0.0015
+14:1,Rabi,jowar,0.3647
+14:1,Rabi,maize,0.4123
+14:1,Rabi,onion,0.0045
+14:1,Rabi,ragi,0.0056
+14:1,Rabi,rice,0.1559
+14:1,Rabi,sunflower,0.0023
+14:1,Rabi,tomato,0.0039
+14:1,Rabi,wheat,0.0178
+14:1,Summer,jowar,0.0006
+14:1,Summer,maize,0.0065
+14:1,Summer,onion,0.0
+14:1,Summer,ragi,0.0
+14:1,Summer,rice,0.9927
+14:1,Summer,sunflower,0.0
+14:1,Summer,tomato,0.0002
+14:2,Kharif,bajra,0.0004
+14:2,Kharif,black gram,0.0007
+14:2,Kharif,castor,0.0006
+14:2,Kharif,chilli,0.0
+14:2,Kharif,cotton,0.0566
+14:2,Kharif,green gram,0.0002
+14:2,Kharif,groundnut,0.0192
+14:2,Kharif,horse gram,0.0002
+14:2,Kharif,jowar,0.0057
+14:2,Kharif,maize,0.7734
+14:2,Kharif,niger seed,0.0004
+14:2,Kharif,onion,0.0163
+14:2,Kharif,pigeonpea (tur),0.019
+14:2,Kharif,ragi,0.0455
+14:2,Kharif,rice,0.0413
+14:2,Kharif,sesame,0.0
+14:2,Kharif,soybean,0.0
+14:2,Kharif,sunflower,0.0179
+14:2,Kharif,tobacco,0.001
+14:2,Kharif,tomato,0.0015
+14:2,Rabi,black gram,0.0013
+14:2,Rabi,chickpea,0.0066
+14:2,Rabi,cotton,0.0194
+14:2,Rabi,green gram,0.0004
+14:2,Rabi,groundnut,0.0388
+14:2,Rabi,horse gram,0.0159
+14:2,Rabi,jowar,0.332
+14:2,Rabi,linseed,0.0005
+14:2,Rabi,maize,0.2309
+14:2,Rabi,mustard,0.0029
+14:2,Rabi,onion,0.0312
+14:2,Rabi,ragi,0.239
+14:2,Rabi,rice,0.0014
+14:2,Rabi,sunflower,0.0745
+14:2,Rabi,tomato,0.0039
+14:2,Rabi,wheat,0.0012
+14:2,Summer,jowar,0.0306
+14:2,Summer,maize,0.2274
+14:2,Summer,onion,0.0035
+14:2,Summer,ragi,0.0417
+14:2,Summer,rice,0.6813
+14:2,Summer,sunflower,0.008
+14:2,Summer,tomato,0.0075
+14:3,Kharif,bajra,0.004
+14:3,Kharif,castor,0.0002
+14:3,Kharif,chilli,0.0001
+14:3,Kharif,cotton,0.141
+14:3,Kharif,green gram,0.0001
+14:3,Kharif,groundnut,0.1524
+14:3,Kharif,horse gram,0.0001
+14:3,Kharif,jowar,0.003
+14:3,Kharif,maize,0.5318
+14:3,Kharif,niger seed,0.0001
+14:3,Kharif,onion,0.0386
+14:3,Kharif,pigeonpea (tur),0.0159
+14:3,Kharif,potato,0.0
+14:3,Kharif,ragi,0.0958
+14:3,Kharif,rice,0.0092
+14:3,Kharif,sesame,0.0006
+14:3,Kharif,sunflower,0.0062
+14:3,Kharif,tomato,0.0008
+14:3,Rabi,chickpea,0.0002
+14:3,Rabi,cotton,0.0431
+14:3,Rabi,green gram,0.0001
+14:3,Rabi,groundnut,0.2198
+14:3,Rabi,horse gram,0.0065
+14:3,Rabi,jowar,0.1507
+14:3,Rabi,linseed,0.0006
+14:3,Rabi,maize,0.1213
+14:3,Rabi,mustard,0.0095
+14:3,Rabi,onion,0.0581
+14:3,Rabi,potato,0.0
+14:3,Rabi,ragi,0.3645
+14:3,Rabi,rice,0.0002
+14:3,Rabi,sunflower,0.0203
+14:3,Rabi,tomato,0.0018
+14:3,Rabi,wheat,0.0032
+14:3,Summer,jowar,0.052
+14:3,Summer,maize,0.4208
+14:3,Summer,onion,0.0258
+14:3,Summer,potato,0.0024
+14:3,Summer,ragi,0.1913
+14:3,Summer,rice,0.2877
+14:3,Summer,sunflower,0.0088
+14:3,Summer,tomato,0.0113
+14:4,Kharif,bajra,0.0001
+14:4,Kharif,chilli,0.0009
+14:4,Kharif,cotton,0.007
+14:4,Kharif,groundnut,0.0039
+14:4,Kharif,jowar,0.0014
+14:4,Kharif,maize,0.587
+14:4,Kharif,niger seed,0.0
+14:4,Kharif,onion,0.0004
+14:4,Kharif,pigeonpea (tur),0.0028
+14:4,Kharif,ragi,0.0145
+14:4,Kharif,rice,0.3728
+14:4,Kharif,sunflower,0.0005
+14:4,Kharif,tomato,0.0086
+14:4,Rabi,chickpea,0.0046
+14:4,Rabi,cotton,0.0113
+14:4,Rabi,groundnut,0.0133
+14:4,Rabi,jowar,0.2068
+14:4,Rabi,linseed,0.0039
+14:4,Rabi,maize,0.4655
+14:4,Rabi,mustard,0.0015
+14:4,Rabi,onion,0.0013
+14:4,Rabi,ragi,0.1518
+14:4,Rabi,rice,0.0435
+14:4,Rabi,sunflower,0.0081
+14:4,Rabi,tomato,0.0489
+14:4,Rabi,wheat,0.0396
+14:4,Summer,jowar,0.0016
+14:4,Summer,maize,0.0309
+14:4,Summer,onion,0.0
+14:4,Summer,ragi,0.0027
+14:4,Summer,rice,0.9547
+14:4,Summer,sunflower,0.0
+14:4,Summer,tomato,0.0101
+14:5,Kharif,bajra,0.0001
+14:5,Kharif,castor,0.0
+14:5,Kharif,chilli,0.0009
+14:5,Kharif,cotton,0.0144
+14:5,Kharif,green gram,0.0
+14:5,Kharif,groundnut,0.0331
+14:5,Kharif,horse gram,0.0
+14:5,Kharif,jowar,0.0008
+14:5,Kharif,maize,0.7147
+14:5,Kharif,niger seed,0.0002
+14:5,Kharif,onion,0.0153
+14:5,Kharif,pigeonpea (tur),0.0007
+14:5,Kharif,ragi,0.0039
+14:5,Kharif,rice,0.1991
+14:5,Kharif,sesame,0.0001
+14:5,Kharif,sunflower,0.0037
+14:5,Kharif,tobacco,0.0094
+14:5,Kharif,tomato,0.0034
+14:5,Rabi,chickpea,0.0035
+14:5,Rabi,cotton,0.0141
+14:5,Rabi,green gram,0.0
+14:5,Rabi,groundnut,0.1457
+14:5,Rabi,horse gram,0.0003
+14:5,Rabi,jowar,0.1246
+14:5,Rabi,linseed,0.0003
+14:5,Rabi,maize,0.5048
+14:5,Rabi,mustard,0.007
+14:5,Rabi,onion,0.0691
+14:5,Rabi,ragi,0.0473
+14:5,Rabi,rice,0.0171
+14:5,Rabi,sunflower,0.0378
+14:5,Rabi,tomato,0.0241
+14:5,Rabi,wheat,0.004
+14:5,Summer,jowar,0.0012
+14:5,Summer,maize,0.0691
+14:5,Summer,onion,0.0012
+14:5,Summer,ragi,0.001
+14:5,Summer,rice,0.9203
+14:5,Summer,sunflower,0.0005
+14:5,Summer,tomato,0.0066
+14:6,Kharif,bajra,0.0008
+14:6,Kharif,castor,0.0002
+14:6,Kharif,chilli,0.0006
+14:6,Kharif,cotton,0.0074
+14:6,Kharif,green gram,0.0001
+14:6,Kharif,groundnut,0.0004
+14:6,Kharif,horse gram,0.0
+14:6,Kharif,jowar,0.0015
+14:6,Kharif,maize,0.7718
+14:6,Kharif,onion,0.0022
+14:6,Kharif,pigeonpea (tur),0.001
+14:6,Kharif,potato,0.0001
+14:6,Kharif,ragi,0.024
+14:6,Kharif,rice,0.1888
+14:6,Kharif,sesame,0.0006
+14:6,Kharif,sunflower,0.0004
+14:6,Kharif,tomato,0.0
+14:6,Rabi,chickpea,0.0001
+14:6,Rabi,cotton,0.0064
+14:6,Rabi,green gram,0.0005
+14:6,Rabi,groundnut,0.0013
+14:6,Rabi,horse gram,0.0055
+14:6,Rabi,jowar,0.1884
+14:6,Rabi,linseed,0.0018
+14:6,Rabi,maize,0.4914
+14:6,Rabi,mustard,0.0037
+14:6,Rabi,onion,0.0089
+14:6,Rabi,potato,0.0003
+14:6,Rabi,ragi,0.2626
+14:6,Rabi,rice,0.0143
+14:6,Rabi,sunflower,0.0036
+14:6,Rabi,tomato,0.0002
+14:6,Rabi,wheat,0.011
+14:6,Summer,jowar,0.0025
+14:6,Summer,maize,0.0656
+14:6,Summer,onion,0.0001
+14:6,Summer,potato,0.0023
+14:6,Summer,ragi,0.0062
+14:6,Summer,rice,0.9233
+14:6,Summer,sunflower,0.0001
+14:6,Summer,tomato,0.0001
+15:1,Kharif,bajra,0.0
+15:1,Kharif,castor,0.0001
+15:1,Kharif,chilli,0.0012
+15:1,Kharif,cotton,0.0002
+15:1,Kharif,groundnut,0.0014
+15:1,Kharif,jowar,0.0001
+15:1,Kharif,maize,0.1137
+15:1,Kharif,niger seed,0.0
+15:1,Kharif,ragi,0.0002
+15:1,Kharif,rice,0.8762
+15:1,Kharif,sesame,0.0
+15:1,Kharif,soybean,0.0069
+15:1,Rabi,chickpea,0.0071
+15:1,Rabi,chilli,0.0116
+15:1,Rabi,groundnut,0.0324
+15:1,Rabi,jowar,0.0334
+15:1,Rabi,linseed,0.1427
+15:1,Rabi,maize,0.4653
+15:1,Rabi,ragi,0.001
+15:1,Rabi,rice,0.2147
+15:1,Rabi,wheat,0.0917
+15:1,Summer,bajra,0.0005
+15:1,Summer,chilli,0.0
+15:1,Summer,jowar,0.0343
+15:1,Summer,maize,0.1633
+15:1,Summer,ragi,0.0002
+15:1,Summer,rice,0.8018
+15:2,Kharif,bajra,0.0001
+15:2,Kharif,chilli,0.0007
+15:2,Kharif,cotton,0.0057
+15:2,Kharif,groundnut,0.0007
+15:2,Kharif,horse gram,0.0001
+15:2,Kharif,jowar,0.0
+15:2,Kharif,maize,0.2198
+15:2,Kharif,niger seed,0.0
+15:2,Kharif,pigeonpea (tur),0.0
+15:2,Kharif,ragi,0.0006
+15:2,Kharif,rice,0.7723
+15:2,Kharif,sesame,0.0001
+15:2,Rabi,chickpea,0.0475
+15:2,Rabi,chilli,0.0054
+15:2,Rabi,groundnut,0.012
+15:2,Rabi,horse gram,0.0211
+15:2,Rabi,jowar,0.0187
+15:2,Rabi,linseed,0.0086
+15:2,Rabi,maize,0.7036
+15:2,Rabi,ragi,0.0031
+15:2,Rabi,rice,0.1504
+15:2,Rabi,wheat,0.0295
+15:2,Summer,bajra,0.0022
+15:2,Summer,chilli,0.0
+15:2,Summer,jowar,0.0218
+15:2,Summer,maize,0.3017
+15:2,Summer,ragi,0.0007
+15:2,Summer,rice,0.6737
+15:3,Kharif,bajra,0.0004
+15:3,Kharif,black gram,0.0001
+15:3,Kharif,chilli,0.0003
+15:3,Kharif,cotton,0.0238
+15:3,Kharif,green gram,0.0007
+15:3,Kharif,groundnut,0.0008
+15:3,Kharif,horse gram,0.0002
+15:3,Kharif,jowar,0.0
+15:3,Kharif,maize,0.4041
+15:3,Kharif,niger seed,0.0
+15:3,Kharif,pigeonpea (tur),0.0002
+15:3,Kharif,potato,0.0001
+15:3,Kharif,ragi,0.0012
+15:3,Kharif,rice,0.5672
+15:3,Kharif,tobacco,0.0006
+15:3,Kharif,tomato,0.0002
+15:3,Rabi,black gram,0.0019
+15:3,Rabi,chickpea,0.0319
+15:3,Rabi,chilli,0.0007
+15:3,Rabi,green gram,0.2376
+15:3,Rabi,groundnut,0.0042
+15:3,Rabi,horse gram,0.0212
+15:3,Rabi,jowar,0.0016
+15:3,Rabi,maize,0.3948
+15:3,Rabi,ragi,0.002
+15:3,Rabi,rice,0.033
+15:3,Rabi,sunflower,0.2569
+15:3,Rabi,wheat,0.0142
+15:3,Summer,bajra,0.007
+15:3,Summer,chilli,0.0
+15:3,Summer,jowar,0.0057
+15:3,Summer,maize,0.5161
+15:3,Summer,ragi,0.0014
+15:3,Summer,rice,0.463
+15:3,Summer,sunflower,0.0056
+15:3,Summer,tomato,0.0012
+15:4,Kharif,bajra,0.0001
+15:4,Kharif,chilli,0.0001
+15:4,Kharif,cotton,0.0001
+15:4,Kharif,groundnut,0.0001
+15:4,Kharif,horse gram,0.0001
+15:4,Kharif,jowar,0.0001
+15:4,Kharif,maize,0.0246
+15:4,Kharif,ragi,0.0002
+15:4,Kharif,rice,0.9738
+15:4,Kharif,soybean,0.0008
+15:4,Rabi,chilli,0.0027
+15:4,Rabi,groundnut,0.004
+15:4,Rabi,horse gram,0.0652
+15:4,Rabi,jowar,0.1032
+15:4,Rabi,linseed,0.113
+15:4,Rabi,maize,0.1998
+15:4,Rabi,ragi,0.003
+15:4,Rabi,rice,0.478
+15:4,Rabi,sunflower,0.0311
+15:4,Summer,bajra,0.0014
+15:4,Summer,chilli,0.0
+15:4,Summer,jowar,0.0528
+15:4,Summer,maize,0.0362
+15:4,Summer,ragi,0.0003
+15:4,Summer,rice,0.9092
+15:4,Summer,sunflower,0.0001
+15:5,Kharif,bajra,0.0042
+15:5,Kharif,chilli,0.0049
+15:5,Kharif,cotton,0.0001
+15:5,Kharif,groundnut,0.0058
+15:5,Kharif,horse gram,0.0003
+15:5,Kharif,jowar,0.0001
+15:5,Kharif,maize,0.0352
+15:5,Kharif,niger seed,0.0003
+15:5,Kharif,pigeonpea (tur),0.0027
+15:5,Kharif,ragi,0.0
+15:5,Kharif,rice,0.9411
+15:5,Kharif,sesame,0.0053
+15:5,Kharif,soybean,0.0001
+15:5,Rabi,chickpea,0.0583
+15:5,Rabi,chilli,0.094
+15:5,Rabi,groundnut,0.0856
+15:5,Rabi,horse gram,0.0944
+15:5,Rabi,jowar,0.0264
+15:5,Rabi,linseed,0.0875
+15:5,Rabi,maize,0.099
+15:5,Rabi,ragi,0.0001
+15:5,Rabi,rice,0.3111
+15:5,Rabi,sunflower,0.1436
+15:5,Summer,bajra,0.0709
+15:5,Summer,chilli,0.0
+15:5,Summer,jowar,0.0309
+15:5,Summer,maize,0.0447
+15:5,Summer,ragi,0.0
+15:5,Summer,rice,0.8522
+15:5,Summer,sunflower,0.0012
+15:6,Kharif,bajra,0.0004
+15:6,Kharif,black gram,0.0001
+15:6,Kharif,castor,0.0003
+15:6,Kharif,chilli,0.0005
+15:6,Kharif,cotton,0.0043
+15:6,Kharif,groundnut,0.0027
+15:6,Kharif,horse gram,0.0001
+15:6,Kharif,jowar,0.0
+15:6,Kharif,maize,0.3982
+15:6,Kharif,niger seed,0.0002
+15:6,Kharif,pigeonpea (tur),0.0007
+15:6,Kharif,ragi,0.0165
+15:6,Kharif,rice,0.5755
+15:6,Kharif,sesame,0.0
+15:6,Kharif,tobacco,0.0003
+15:6,Kharif,tomato,0.0001
+15:6,Rabi,black gram,0.0046
+15:6,Rabi,chickpea,0.0038
+15:6,Rabi,chilli,0.0025
+15:6,Rabi,groundnut,0.0267
+15:6,Rabi,horse gram,0.0285
+15:6,Rabi,jowar,0.0022
+15:6,Rabi,linseed,0.0154
+15:6,Rabi,maize,0.6986
+15:6,Rabi,mustard,0.0038
+15:6,Rabi,ragi,0.0488
+15:6,Rabi,rice,0.062
+15:6,Rabi,wheat,0.103
+15:6,Summer,bajra,0.0074
+15:6,Summer,chilli,0.0
+15:6,Summer,jowar,0.0047
+15:6,Summer,maize,0.5031
+15:6,Summer,ragi,0.0191
+15:6,Summer,rice,0.465
+15:6,Summer,tomato,0.0006
+15:7,Kharif,bajra,0.0001
+15:7,Kharif,chilli,0.0009
+15:7,Kharif,cotton,0.0071
+15:7,Kharif,green gram,0.0
+15:7,Kharif,groundnut,0.0012
+15:7,Kharif,jowar,0.0
+15:7,Kharif,maize,0.221
+15:7,Kharif,pigeonpea (tur),0.0002
+15:7,Kharif,ragi,0.011
+15:7,Kharif,rice,0.7587
+15:7,Rabi,chickpea,0.151
+15:7,Rabi,chilli,0.0026
+15:7,Rabi,green gram,0.013
+15:7,Rabi,groundnut,0.0083
+15:7,Rabi,jowar,0.0009
+15:7,Rabi,maize,0.5039
+15:7,Rabi,mustard,0.0261
+15:7,Rabi,ragi,0.0498
+15:7,Rabi,rice,0.1364
+15:7,Rabi,sunflower,0.0025
+15:7,Rabi,wheat,0.1055
+15:7,Summer,bajra,0.0012
+15:7,Summer,chilli,0.0
+15:7,Summer,jowar,0.0028
+15:7,Summer,maize,0.305
+15:7,Summer,ragi,0.0138
+15:7,Summer,rice,0.6771
+15:7,Summer,sunflower,0.0
+16:1,Kharif,bajra,0.0007
+16:1,Kharif,castor,0.0001
+16:1,Kharif,pigeonpea (tur),0.0001
+16:1,Kharif,rice,0.9979
+16:1,Kharif,sesame,0.0002
+16:1,Kharif,soybean,0.0006
+16:1,Kharif,sunflower,0.0
+16:1,Kharif,tomato,0.0004
+16:1,Rabi,bajra,0.0002
+16:1,Rabi,black gram,0.1556
+16:1,Rabi,chickpea,0.0007
+16:1,Rabi,chilli,0.0002
+16:1,Rabi,green gram,0.0275
+16:1,Rabi,groundnut,0.1192
+16:1,Rabi,horse gram,0.0065
+16:1,Rabi,jowar,0.001
+16:1,Rabi,maize,0.0079
+16:1,Rabi,ragi,0.0206
+16:1,Rabi,rice,0.5858
+16:1,Rabi,sunflower,0.0001
+16:1,Rabi,tomato,0.0005
+16:1,Rabi,wheat,0.0742
+16:1,Summer,bajra,0.0282
+16:1,Summer,rice,0.8262
+16:1,Summer,sunflower,0.0008
+16:1,Summer,tomato,0.1448
+16:2,Kharif,bajra,0.0005
+16:2,Kharif,cotton,0.0006
+16:2,Kharif,niger seed,0.0004
+16:2,Kharif,potato,0.0001
+16:2,Kharif,rice,0.9972
+16:2,Kharif,sesame,0.0011
+16:2,Kharif,soybean,0.0001
+16:2,Rabi,bajra,0.0001
+16:2,Rabi,black gram,0.1667
+16:2,Rabi,chickpea,0.0942
+16:2,Rabi,chilli,0.0003
+16:2,Rabi,cotton,0.0001
+16:2,Rabi,green gram,0.0072
+16:2,Rabi,groundnut,0.0182
+16:2,Rabi,horse gram,0.043
+16:2,Rabi,jowar,0.0017
+16:2,Rabi,maize,0.0003
+16:2,Rabi,potato,0.0002
+16:2,Rabi,rice,0.6519
+16:2,Rabi,wheat,0.0163
+16:2,Summer,bajra,0.0229
+16:2,Summer,potato,0.0064
+16:2,Summer,rice,0.9707
+16:3,Kharif,bajra,0.0002
+16:3,Kharif,castor,0.0003
+16:3,Kharif,cotton,0.0005
+16:3,Kharif,niger seed,0.0055
+16:3,Kharif,rice,0.9881
+16:3,Kharif,sesame,0.0049
+16:3,Kharif,soybean,0.0003
+16:3,Kharif,tomato,0.0001
+16:3,Rabi,bajra,0.0001
+16:3,Rabi,black gram,0.0788
+16:3,Rabi,chickpea,0.0002
+16:3,Rabi,chilli,0.0013
+16:3,Rabi,cotton,0.0001
+16:3,Rabi,green gram,0.0031
+16:3,Rabi,groundnut,0.0145
+16:3,Rabi,horse gram,0.0029
+16:3,Rabi,jowar,0.0028
+16:3,Rabi,linseed,0.0007
+16:3,Rabi,maize,0.0009
+16:3,Rabi,rice,0.8739
+16:3,Rabi,tomato,0.0003
+16:3,Rabi,wheat,0.0205
+16:3,Summer,bajra,0.0087
+16:3,Summer,rice,0.9389
+16:3,Summer,tomato,0.0525
+17:1,Kharif,chilli,0.0101
+17:1,Kharif,green gram,0.0027
+17:1,Kharif,groundnut,0.0003
+17:1,Kharif,rice,0.9869
+17:1,Rabi,chilli,0.0193
+17:1,Rabi,green gram,0.0001
+17:1,Rabi,groundnut,0.0002
+17:1,Rabi,rice,0.9805
+17:1,Summer,rice,1.0
+17:2,Kharif,chilli,0.0085
+17:2,Kharif,groundnut,0.0002
+17:2,Kharif,jowar,0.0001
+17:2,Kharif,ragi,0.0015
+17:2,Kharif,rice,0.9891
+17:2,Kharif,sesame,0.0006
+17:2,Rabi,chilli,0.0159
+17:2,Rabi,groundnut,0.0001
+17:2,Rabi,jowar,0.0085
+17:2,Rabi,linseed,0.0047
+17:2,Rabi,ragi,0.0016
+17:2,Rabi,rice,0.9693
+17:2,Summer,jowar,0.0001
+17:2,Summer,ragi,0.0
+17:2,Summer,rice,0.9998
+17:3,Kharif,chilli,0.0014
+17:3,Kharif,maize,0.0339
+17:3,Kharif,ragi,0.0002
+17:3,Kharif,rice,0.9645
+17:3,Rabi,chickpea,0.0026
+17:3,Rabi,chilli,0.0024
+17:3,Rabi,maize,0.13
+17:3,Rabi,ragi,0.0002
+17:3,Rabi,rice,0.8083
+17:3,Rabi,wheat,0.0566
+17:3,Summer,maize,0.0109
+17:3,Summer,ragi,0.0
+17:3,Summer,rice,0.9891
+17:4,Kharif,bajra,0.0016
+17:4,Kharif,black gram,0.0039
+17:4,Kharif,castor,0.001
+17:4,Kharif,chilli,0.0213
+17:4,Kharif,cotton,0.001
+17:4,Kharif,green gram,0.0009
+17:4,Kharif,groundnut,0.0292
+17:4,Kharif,horse gram,0.0158
+17:4,Kharif,jowar,0.03
+17:4,Kharif,maize,0.1671
+17:4,Kharif,niger seed,0.0
+17:4,Kharif,onion,0.1171
+17:4,Kharif,pigeonpea (tur),0.0039
+17:4,Kharif,potato,0.0338
+17:4,Kharif,ragi,0.2378
+17:4,Kharif,rice,0.303
+17:4,Kharif,sesame,0.0262
+17:4,Kharif,soybean,0.0001
+17:4,Kharif,sunflower,0.0028
+17:4,Kharif,tomato,0.0036
+17:4,Rabi,chickpea,0.2433
+17:4,Rabi,chilli,0.0097
+17:4,Rabi,cotton,0.0001
+17:4,Rabi,green gram,0.0
+17:4,Rabi,groundnut,0.0043
+17:4,Rabi,horse gram,0.1716
+17:4,Rabi,jowar,0.258
+17:4,Rabi,linseed,0.0022
+17:4,Rabi,maize,0.1204
+17:4,Rabi,mustard,0.0044
+17:4,Rabi,onion,0.0039
+17:4,Rabi,potato,0.0212
+17:4,Rabi,ragi,0.0459
+17:4,Rabi,rice,0.0968
+17:4,Rabi,tomato,0.0026
+17:4,Rabi,wheat,0.0157
+17:4,Summer,jowar,0.152
+17:4,Summer,maize,0.1779
+17:4,Summer,onion,0.0012
+17:4,Summer,ragi,0.0231
+17:4,Summer,rice,0.6134
+17:4,Summer,tomato,0.0324
+17:5,Kharif,bajra,0.003
+17:5,Kharif,black gram,0.0148
+17:5,Kharif,castor,0.0007
+17:5,Kharif,chilli,0.0145
+17:5,Kharif,cotton,0.0088
+17:5,Kharif,green gram,0.0684
+17:5,Kharif,groundnut,0.05
+17:5,Kharif,horse gram,0.0518
+17:5,Kharif,jowar,0.0302
+17:5,Kharif,maize,0.1177
+17:5,Kharif,niger seed,0.0003
+17:5,Kharif,onion,0.0288
+17:5,Kharif,pigeonpea (tur),0.0034
+17:5,Kharif,potato,0.0068
+17:5,Kharif,ragi,0.4446
+17:5,Kharif,rice,0.0063
+17:5,Kharif,sesame,0.0937
+17:5,Kharif,soybean,0.0
+17:5,Kharif,sunflower,0.0394
+17:5,Kharif,tomato,0.0168
+17:5,Rabi,chickpea,0.1094
+17:5,Rabi,chilli,0.0037
+17:5,Rabi,cotton,0.0005
+17:5,Rabi,green gram,0.0002
+17:5,Rabi,groundnut,0.0037
+17:5,Rabi,horse gram,0.391
+17:5,Rabi,jowar,0.3066
+17:5,Rabi,linseed,0.0131
+17:5,Rabi,maize,0.0668
+17:5,Rabi,mustard,0.0151
+17:5,Rabi,onion,0.0009
+17:5,Rabi,potato,0.0018
+17:5,Rabi,ragi,0.0586
+17:5,Rabi,rice,0.0008
+17:5,Rabi,tomato,0.0141
+17:5,Rabi,wheat,0.0139
+17:5,Summer,jowar,0.2923
+17:5,Summer,maize,0.2728
+17:5,Summer,onion,0.0006
+17:5,Summer,ragi,0.1
+17:5,Summer,rice,0.0459
+17:5,Summer,tomato,0.2884
+17:6,Kharif,bajra,0.0002
+17:6,Kharif,black gram,0.0008
+17:6,Kharif,castor,0.0006
+17:6,Kharif,chilli,0.012
+17:6,Kharif,cotton,0.0393
+17:6,Kharif,green gram,0.0009
+17:6,Kharif,groundnut,0.0224
+17:6,Kharif,horse gram,0.0198
+17:6,Kharif,jowar,0.0243
+17:6,Kharif,maize,0.1652
+17:6,Kharif,onion,0.0057
+17:6,Kharif,pigeonpea (tur),0.0012
+17:6,Kharif,potato,0.0687
+17:6,Kharif,ragi,0.2586
+17:6,Kharif,rice,0.2614
+17:6,Kharif,sesame,0.0491
+17:6,Kharif,soybean,0.0001
+17:6,Kharif,sunflower,0.0433
+17:6,Kharif,tomato,0.0262
+17:6,Rabi,chickpea,0.0751
+17:6,Rabi,chilli,0.0039
+17:6,Rabi,cotton,0.0029
+17:6,Rabi,green gram,0.0
+17:6,Rabi,groundnut,0.0028
+17:6,Rabi,horse gram,0.2441
+17:6,Rabi,jowar,0.3288
+17:6,Rabi,linseed,0.003
+17:6,Rabi,maize,0.1408
+17:6,Rabi,mustard,0.0061
+17:6,Rabi,onion,0.0002
+17:6,Rabi,potato,0.0299
+17:6,Rabi,ragi,0.057
+17:6,Rabi,rice,0.0558
+17:6,Rabi,tomato,0.035
+17:6,Rabi,wheat,0.0145
+17:6,Summer,jowar,0.0788
+17:6,Summer,maize,0.1251
+17:6,Summer,onion,0.0
+17:6,Summer,ragi,0.0191
+17:6,Summer,rice,0.6279
+17:6,Summer,tomato,0.1491
+17:7,Kharif,chilli,0.0254
+17:7,Kharif,cotton,0.0005
+17:7,Kharif,jowar,0.0002
+17:7,Kharif,ragi,0.0009
+17:7,Kharif,rice,0.973
+17:7,Kharif,sunflower,0.0
+17:7,Rabi,chilli,0.0468
+17:7,Rabi,cotton,0.0002
+17:7,Rabi,jowar,0.0125
+17:7,Rabi,ragi,0.0009
+17:7,Rabi,rice,0.9397
+17:7,Summer,jowar,0.0002
+17:7,Summer,ragi,0.0
+17:7,Summer,rice,0.9997
+18:1,Kharif,bajra,0.0041
+18:1,Kharif,black gram,0.0035
+18:1,Kharif,castor,0.0026
+18:1,Kharif,chilli,0.002
+18:1,Kharif,cotton,0.0002
+18:1,Kharif,green gram,0.089
+18:1,Kharif,groundnut,0.0036
+18:1,Kharif,horse gram,0.0995
+18:1,Kharif,jowar,0.0396
+18:1,Kharif,maize,0.0076
+18:1,Kharif,niger seed,0.0042
+18:1,Kharif,onion,0.0042
+18:1,Kharif,pigeonpea (tur),0.0501
+18:1,Kharif,potato,0.0005
+18:1,Kharif,ragi,0.6145
+18:1,Kharif,rice,0.0591
+18:1,Kharif,sesame,0.0038
+18:1,Kharif,soybean,0.0005
+18:1,Kharif,sunflower,0.0029
+18:1,Kharif,tomato,0.0082
+18:1,Rabi,chickpea,0.0102
+18:1,Rabi,chilli,0.0056
+18:1,Rabi,cotton,0.0001
+18:1,Rabi,groundnut,0.0107
+18:1,Rabi,horse gram,0.1533
+18:1,Rabi,jowar,0.1768
+18:1,Rabi,linseed,0.2123
+18:1,Rabi,maize,0.0255
+18:1,Rabi,mustard,0.0035
+18:1,Rabi,onion,0.0145
+18:1,Rabi,ragi,0.0006
+18:1,Rabi,sunflower,0.0018
+18:1,Rabi,tomato,0.0179
+18:1,Rabi,wheat,0.3672
+18:1,Summer,chilli,0.0178
+18:1,Summer,jowar,0.1306
+18:1,Summer,maize,0.0077
+18:1,Summer,onion,0.0078
+18:1,Summer,ragi,0.2761
+18:1,Summer,rice,0.5443
+18:1,Summer,sunflower,0.0032
+18:1,Summer,tomato,0.0125
+18:10,Kharif,bajra,0.0009
+18:10,Kharif,black gram,0.0008
+18:10,Kharif,castor,0.0045
+18:10,Kharif,chilli,0.0001
+18:10,Kharif,cotton,0.0016
+18:10,Kharif,green gram,0.002
+18:10,Kharif,groundnut,0.0038
+18:10,Kharif,horse gram,0.1251
+18:10,Kharif,jowar,0.0209
+18:10,Kharif,maize,0.0091
+18:10,Kharif,niger seed,0.0021
+18:10,Kharif,onion,0.0015
+18:10,Kharif,pigeonpea (tur),0.023
+18:10,Kharif,potato,0.0
+18:10,Kharif,ragi,0.6623
+18:10,Kharif,rice,0.1376
+18:10,Kharif,sesame,0.0004
+18:10,Kharif,soybean,0.0002
+18:10,Kharif,sunflower,0.0031
+18:10,Kharif,tomato,0.001
+18:10,Rabi,chickpea,0.0205
+18:10,Rabi,chilli,0.0005
+18:10,Rabi,cotton,0.0007
+18:10,Rabi,groundnut,0.0155
+18:10,Rabi,horse gram,0.234
+18:10,Rabi,jowar,0.1215
+18:10,Rabi,linseed,0.0543
+18:10,Rabi,maize,0.0402
+18:10,Rabi,mustard,0.0306
+18:10,Rabi,onion,0.007
+18:10,Rabi,ragi,0.0009
+18:10,Rabi,sunflower,0.0027
+18:10,Rabi,tomato,0.003
+18:10,Rabi,wheat,0.4686
+18:10,Summer,chilli,0.0005
+18:10,Summer,jowar,0.0247
+18:10,Summer,maize,0.0091
+18:10,Summer,onion,0.0028
+18:10,Summer,ragi,0.1052
+18:10,Summer,rice,0.8527
+18:10,Summer,sunflower,0.0036
+18:10,Summer,tomato,0.0015
+18:2,Kharif,bajra,0.0001
+18:2,Kharif,black gram,0.0002
+18:2,Kharif,castor,0.0012
+18:2,Kharif,chilli,0.0013
+18:2,Kharif,cotton,0.0129
+18:2,Kharif,green gram,0.0006
+18:2,Kharif,groundnut,0.487
+18:2,Kharif,horse gram,0.0538
+18:2,Kharif,jowar,0.0566
+18:2,Kharif,maize,0.0068
+18:2,Kharif,niger seed,0.0001
+18:2,Kharif,onion,0.0075
+18:2,Kharif,pigeonpea (tur),0.0935
+18:2,Kharif,ragi,0.2181
+18:2,Kharif,rice,0.0236
+18:2,Kharif,sesame,0.0002
+18:2,Kharif,soybean,0.0007
+18:2,Kharif,sunflower,0.0349
+18:2,Kharif,tomato,0.0009
+18:2,Rabi,chickpea,0.0438
+18:2,Rabi,chilli,0.002
+18:2,Rabi,cotton,0.0018
+18:2,Rabi,groundnut,0.6984
+18:2,Rabi,horse gram,0.0395
+18:2,Rabi,jowar,0.1075
+18:2,Rabi,linseed,0.0405
+18:2,Rabi,maize,0.0103
+18:2,Rabi,mustard,0.0071
+18:2,Rabi,onion,0.0119
+18:2,Rabi,ragi,0.0001
+18:2,Rabi,sunflower,0.0108
+18:2,Rabi,tomato,0.0009
+18:2,Rabi,wheat,0.0253
+18:2,Summer,chilli,0.0109
+18:2,Summer,jowar,0.2785
+18:2,Summer,maize,0.0191
+18:2,Summer,onion,0.0381
+18:2,Summer,ragi,0.1242
+18:2,Summer,rice,0.4305
+18:2,Summer,sunflower,0.0947
+18:2,Summer,tomato,0.004
+18:3,Kharif,bajra,0.001
+18:3,Kharif,black gram,0.0002
+18:3,Kharif,castor,0.0005
+18:3,Kharif,chilli,0.0003
+18:3,Kharif,cotton,0.0066
+18:3,Kharif,green gram,0.0023
+18:3,Kharif,groundnut,0.7883
+18:3,Kharif,horse gram,0.013
+18:3,Kharif,jowar,0.0114
+18:3,Kharif,maize,0.0135
+18:3,Kharif,niger seed,0.0002
+18:3,Kharif,onion,0.0011
+18:3,Kharif,pigeonpea (tur),0.0648
+18:3,Kharif,ragi,0.0386
+18:3,Kharif,rice,0.0484
+18:3,Kharif,sesame,0.0002
+18:3,Kharif,soybean,0.0003
+18:3,Kharif,sunflower,0.0017
+18:3,Kharif,tomato,0.0073
+18:3,Rabi,chickpea,0.0247
+18:3,Rabi,chilli,0.0003
+18:3,Rabi,cotton,0.0007
+18:3,Rabi,groundnut,0.8963
+18:3,Rabi,horse gram,0.0078
+18:3,Rabi,jowar,0.0202
+18:3,Rabi,linseed,0.0011
+18:3,Rabi,maize,0.0154
+18:3,Rabi,mustard,0.0079
+18:3,Rabi,onion,0.0014
+18:3,Rabi,ragi,0.0
+18:3,Rabi,sunflower,0.0004
+18:3,Rabi,tomato,0.0059
+18:3,Rabi,wheat,0.018
+18:3,Summer,chilli,0.0032
+18:3,Summer,jowar,0.0334
+18:3,Summer,maize,0.0345
+18:3,Summer,onion,0.0041
+18:3,Summer,ragi,0.0155
+18:3,Summer,rice,0.8835
+18:3,Summer,sunflower,0.0052
+18:3,Summer,tomato,0.0208
+18:4,Kharif,bajra,0.0002
+18:4,Kharif,black gram,0.0004
+18:4,Kharif,castor,0.0002
+18:4,Kharif,chilli,0.0002
+18:4,Kharif,cotton,0.0007
+18:4,Kharif,green gram,0.0013
+18:4,Kharif,groundnut,0.4085
+18:4,Kharif,horse gram,0.0531
+18:4,Kharif,jowar,0.0298
+18:4,Kharif,maize,0.2788
+18:4,Kharif,niger seed,0.0002
+18:4,Kharif,onion,0.0
+18:4,Kharif,pigeonpea (tur),0.0349
+18:4,Kharif,potato,0.0
+18:4,Kharif,ragi,0.1601
+18:4,Kharif,rice,0.0306
+18:4,Kharif,sesame,0.0
+18:4,Kharif,soybean,0.0001
+18:4,Kharif,sunflower,0.0005
+18:4,Kharif,tobacco,0.0001
+18:4,Kharif,tomato,0.0002
+18:4,Rabi,chickpea,0.1278
+18:4,Rabi,chilli,0.0002
+18:4,Rabi,cotton,0.0001
+18:4,Rabi,groundnut,0.4407
+18:4,Rabi,horse gram,0.0283
+18:4,Rabi,jowar,0.0472
+18:4,Rabi,linseed,0.0237
+18:4,Rabi,maize,0.2982
+18:4,Rabi,mustard,0.0163
+18:4,Rabi,onion,0.0
+18:4,Rabi,ragi,0.0001
+18:4,Rabi,sunflower,0.0001
+18:4,Rabi,tomato,0.0002
+18:4,Rabi,wheat,0.0171
+18:4,Summer,chilli,0.0012
+18:4,Summer,jowar,0.069
+18:4,Summer,maize,0.4865
+18:4,Summer,onion,0.0001
+18:4,Summer,ragi,0.051
+18:4,Summer,rice,0.3907
+18:4,Summer,sunflower,0.001
+18:4,Summer,tomato,0.0006
+18:5,Kharif,bajra,0.0017
+18:5,Kharif,black gram,0.0004
+18:5,Kharif,castor,0.001
+18:5,Kharif,chilli,0.0011
+18:5,Kharif,cotton,0.0008
+18:5,Kharif,green gram,0.0004
+18:5,Kharif,groundnut,0.1643
+18:5,Kharif,horse gram,0.0428
+18:5,Kharif,jowar,0.0445
+18:5,Kharif,maize,0.3915
+18:5,Kharif,niger seed,0.0001
+18:5,Kharif,pigeonpea (tur),0.0316
+18:5,Kharif,potato,0.0002
+18:5,Kharif,ragi,0.2819
+18:5,Kharif,rice,0.0342
+18:5,Kharif,sesame,0.0005
+18:5,Kharif,soybean,0.0
+18:5,Kharif,sunflower,0.0025
+18:5,Kharif,tomato,0.0007
+18:5,Rabi,chickpea,0.0367
+18:5,Rabi,chilli,0.0015
+18:5,Rabi,cotton,0.0001
+18:5,Rabi,groundnut,0.2405
+18:5,Rabi,horse gram,0.0292
+18:5,Rabi,jowar,0.0888
+18:5,Rabi,linseed,0.0047
+18:5,Rabi,maize,0.5486
+18:5,Rabi,mustard,0.023
+18:5,Rabi,ragi,0.0001
+18:5,Rabi,sunflower,0.0007
+18:5,Rabi,tomato,0.0006
+18:5,Rabi,wheat,0.0255
+18:5,Summer,chilli,0.0052
+18:5,Summer,jowar,0.0758
+18:5,Summer,maize,0.507
+18:5,Summer,ragi,0.068
+18:5,Summer,rice,0.3389
+18:5,Summer,sunflower,0.0037
+18:5,Summer,tomato,0.0013
+18:6,Kharif,bajra,0.0002
+18:6,Kharif,black gram,0.0001
+18:6,Kharif,castor,0.0007
+18:6,Kharif,chilli,0.0004
+18:6,Kharif,cotton,0.0001
+18:6,Kharif,green gram,0.0016
+18:6,Kharif,groundnut,0.058
+18:6,Kharif,horse gram,0.0636
+18:6,Kharif,jowar,0.0401
+18:6,Kharif,maize,0.0357
+18:6,Kharif,niger seed,0.0011
+18:6,Kharif,onion,0.0009
+18:6,Kharif,pigeonpea (tur),0.0366
+18:6,Kharif,potato,0.0001
+18:6,Kharif,ragi,0.6664
+18:6,Kharif,rice,0.091
+18:6,Kharif,sesame,0.0
+18:6,Kharif,soybean,0.0002
+18:6,Kharif,sunflower,0.0001
+18:6,Kharif,tomato,0.0035
+18:6,Rabi,chickpea,0.1081
+18:6,Rabi,chilli,0.0013
+18:6,Rabi,cotton,0.0
+18:6,Rabi,groundnut,0.1509
+18:6,Rabi,horse gram,0.1005
+18:6,Rabi,jowar,0.2053
+18:6,Rabi,linseed,0.0964
+18:6,Rabi,maize,0.1146
+18:6,Rabi,mustard,0.0324
+18:6,Rabi,onion,0.0022
+18:6,Rabi,ragi,0.0008
+18:6,Rabi,sunflower,0.0
+18:6,Rabi,tomato,0.0087
+18:6,Rabi,wheat,0.1787
+18:6,Summer,chilli,0.0012
+18:6,Summer,jowar,0.0644
+18:6,Summer,maize,0.0459
+18:6,Summer,onion,0.0027
+18:6,Summer,ragi,0.151
+18:6,Summer,rice,0.7293
+18:6,Summer,sunflower,0.0002
+18:6,Summer,tomato,0.0053
+18:7,Kharif,bajra,0.0002
+18:7,Kharif,black gram,0.0
+18:7,Kharif,castor,0.0004
+18:7,Kharif,chilli,0.0007
+18:7,Kharif,cotton,0.0015
+18:7,Kharif,green gram,0.0089
+18:7,Kharif,groundnut,0.0105
+18:7,Kharif,horse gram,0.0958
+18:7,Kharif,jowar,0.0257
+18:7,Kharif,maize,0.0185
+18:7,Kharif,niger seed,0.0002
+18:7,Kharif,onion,0.0002
+18:7,Kharif,pigeonpea (tur),0.0336
+18:7,Kharif,potato,0.0
+18:7,Kharif,ragi,0.7325
+18:7,Kharif,rice,0.0635
+18:7,Kharif,sesame,0.0006
+18:7,Kharif,soybean,0.0013
+18:7,Kharif,sunflower,0.0044
+18:7,Kharif,tomato,0.0015
+18:7,Rabi,chickpea,0.1432
+18:7,Rabi,chilli,0.0013
+18:7,Rabi,cotton,0.0003
+18:7,Rabi,groundnut,0.0197
+18:7,Rabi,horse gram,0.0874
+18:7,Rabi,jowar,0.0714
+18:7,Rabi,linseed,0.1345
+18:7,Rabi,maize,0.033
+18:7,Rabi,mustard,0.0057
+18:7,Rabi,onion,0.0003
+18:7,Rabi,ragi,0.0005
+18:7,Rabi,sunflower,0.0015
+18:7,Rabi,tomato,0.0018
+18:7,Rabi,wheat,0.4995
+18:7,Summer,chilli,0.005
+18:7,Summer,jowar,0.0588
+18:7,Summer,maize,0.0219
+18:7,Summer,onion,0.0003
+18:7,Summer,ragi,0.2262
+18:7,Summer,rice,0.6789
+18:7,Summer,sunflower,0.0058
+18:7,Summer,tomato,0.0032
+18:8,Kharif,bajra,0.0003
+18:8,Kharif,black gram,0.0011
+18:8,Kharif,castor,0.0301
+18:8,Kharif,chilli,0.0003
+18:8,Kharif,cotton,0.0003
+18:8,Kharif,green gram,0.0196
+18:8,Kharif,groundnut,0.0006
+18:8,Kharif,horse gram,0.0704
+18:8,Kharif,jowar,0.0492
+18:8,Kharif,maize,0.0009
+18:8,Kharif,niger seed,0.0016
+18:8,Kharif,pigeonpea (tur),0.0432
+18:8,Kharif,ragi,0.7595
+18:8,Kharif,rice,0.0151
+18:8,Kharif,sesame,0.006
+18:8,Kharif,soybean,0.0007
+18:8,Kharif,sunflower,0.0001
+18:8,Kharif,tomato,0.0011
+18:8,Rabi,chickpea,0.0089
+18:8,Rabi,chilli,0.0011
+18:8,Rabi,cotton,0.0001
+18:8,Rabi,groundnut,0.0023
+18:8,Rabi,horse gram,0.1321
+18:8,Rabi,jowar,0.2731
+18:8,Rabi,linseed,0.1671
+18:8,Rabi,maize,0.003
+18:8,Rabi,mustard,0.0016
+18:8,Rabi,ragi,0.001
+18:8,Rabi,sunflower,0.0001
+18:8,Rabi,tomato,0.0025
+18:8,Rabi,wheat,0.4071
+18:8,Summer,chilli,0.0029
+18:8,Summer,jowar,0.2285
+18:8,Summer,maize,0.002
+18:8,Summer,ragi,0.4974
+18:8,Summer,rice,0.2653
+18:8,Summer,sunflower,0.0003
+18:8,Summer,tomato,0.0036
+18:9,Kharif,bajra,0.0006
+18:9,Kharif,black gram,0.0018
+18:9,Kharif,castor,0.0005
+18:9,Kharif,chilli,0.0004
+18:9,Kharif,cotton,0.0025
+18:9,Kharif,green gram,0.0128
+18:9,Kharif,groundnut,0.0044
+18:9,Kharif,horse gram,0.1329
+18:9,Kharif,jowar,0.0245
+18:9,Kharif,maize,0.0145
+18:9,Kharif,niger seed,0.0009
+18:9,Kharif,onion,0.0049
+18:9,Kharif,pigeonpea (tur),0.0282
+18:9,Kharif,ragi,0.6456
+18:9,Kharif,rice,0.1112
+18:9,Kharif,sesame,0.0028
+18:9,Kharif,soybean,0.0002
+18:9,Kharif,sunflower,0.0098
+18:9,Kharif,tomato,0.0018
+18:9,Rabi,chickpea,0.0436
+18:9,Rabi,chilli,0.0012
+18:9,Rabi,cotton,0.0006
+18:9,Rabi,groundnut,0.0142
+18:9,Rabi,horse gram,0.2005
+18:9,Rabi,jowar,0.1244
+18:9,Rabi,linseed,0.0724
+18:9,Rabi,maize,0.035
+18:9,Rabi,mustard,0.0254
+18:9,Rabi,onion,0.0119
+18:9,Rabi,ragi,0.0008
+18:9,Rabi,sunflower,0.0046
+18:9,Rabi,tomato,0.0031
+18:9,Rabi,wheat,0.4624
+18:9,Summer,chilli,0.0016
+18:9,Summer,jowar,0.0371
+18:9,Summer,maize,0.0108
+18:9,Summer,onion,0.0065
+18:9,Summer,ragi,0.1397
+18:9,Summer,rice,0.7939
+18:9,Summer,sunflower,0.0084
+18:9,Summer,tomato,0.0022
+19:10,Kharif,bajra,0.0006
+19:10,Kharif,black gram,0.0
+19:10,Kharif,castor,0.0005
+19:10,Kharif,chilli,0.0002
+19:10,Kharif,cotton,0.0
+19:10,Kharif,green gram,0.0001
+19:10,Kharif,groundnut,0.0701
+19:10,Kharif,horse gram,0.0054
+19:10,Kharif,jowar,0.0364
+19:10,Kharif,maize,0.0018
+19:10,Kharif,onion,0.0002
+19:10,Kharif,pigeonpea (tur),0.0301
+19:10,Kharif,potato,0.026
+19:10,Kharif,ragi,0.7048
+19:10,Kharif,rice,0.0315
+19:10,Kharif,sunflower,0.0
+19:10,Kharif,tobacco,0.0
+19:10,Kharif,tomato,0.0923
+19:10,Rabi,bajra,0.0002
+19:10,Rabi,chickpea,0.002
+19:10,Rabi,chilli,0.0
+19:10,Rabi,cotton,0.0001
+19:10,Rabi,green gram,0.0
+19:10,Rabi,groundnut,0.0097
+19:10,Rabi,horse gram,0.1475
+19:10,Rabi,jowar,0.0431
+19:10,Rabi,linseed,0.0017
+19:10,Rabi,maize,0.0072
+19:10,Rabi,mustard,0.0018
+19:10,Rabi,onion,0.0019
+19:10,Rabi,potato,0.6266
+19:10,Rabi,ragi,0.0407
+19:10,Rabi,rice,0.0083
+19:10,Rabi,tomato,0.0974
+19:10,Rabi,wheat,0.0118
+19:10,Summer,chilli,0.0
+19:10,Summer,jowar,0.0187
+19:10,Summer,maize,0.0186
+19:10,Summer,onion,0.0042
+19:10,Summer,potato,0.2798
+19:10,Summer,ragi,0.1183
+19:10,Summer,rice,0.0875
+19:10,Summer,sunflower,0.0002
+19:10,Summer,tomato,0.4727
+19:11,Kharif,bajra,0.0008
+19:11,Kharif,black gram,0.0003
+19:11,Kharif,castor,0.0008
+19:11,Kharif,chilli,0.0001
+19:11,Kharif,cotton,0.0
+19:11,Kharif,green gram,0.0002
+19:11,Kharif,groundnut,0.3424
+19:11,Kharif,horse gram,0.0102
+19:11,Kharif,jowar,0.0144
+19:11,Kharif,maize,0.0003
+19:11,Kharif,niger seed,0.0002
+19:11,Kharif,pigeonpea (tur),0.0129
+19:11,Kharif,potato,0.0033
+19:11,Kharif,ragi,0.472
+19:11,Kharif,rice,0.0842
+19:11,Kharif,sesame,0.0002
+19:11,Kharif,sunflower,0.0002
+19:11,Kharif,tomato,0.0576
+19:11,Rabi,bajra,0.0004
+19:11,Rabi,chickpea,0.0336
+19:11,Rabi,chilli,0.0
+19:11,Rabi,cotton,0.0028
+19:11,Rabi,green gram,0.0
+19:11,Rabi,groundnut,0.0794
+19:11,Rabi,horse gram,0.471
+19:11,Rabi,jowar,0.0308
+19:11,Rabi,linseed,0.0006
+19:11,Rabi,maize,0.0019
+19:11,Rabi,mustard,0.0042
+19:11,Rabi,potato,0.1435
+19:11,Rabi,ragi,0.0484
+19:11,Rabi,rice,0.0368
+19:11,Rabi,tomato,0.1083
+19:11,Rabi,wheat,0.0382
+19:11,Summer,chilli,0.0
+19:11,Summer,jowar,0.0131
+19:11,Summer,maize,0.0052
+19:11,Summer,potato,0.0576
+19:11,Summer,ragi,0.14
+19:11,Summer,rice,0.3041
+19:11,Summer,sunflower,0.0011
+19:11,Summer,tomato,0.4789
+19:7,Kharif,bajra,0.0004
+19:7,Kharif,black gram,0.0001
+19:7,Kharif,castor,0.0001
+19:7,Kharif,groundnut,0.1042
+19:7,Kharif,horse gram,0.0115
+19:7,Kharif,jowar,0.0345
+19:7,Kharif,maize,0.0034
+19:7,Kharif,pigeonpea (tur),0.0115
+19:7,Kharif,potato,0.0008
+19:7,Kharif,ragi,0.717
+19:7,Kharif,rice,0.0349
+19:7,Kharif,sunflower,0.0001
+19:7,Kharif,tomato,0.0815
+19:7,Rabi,bajra,0.0002
+19:7,Rabi,chickpea,0.0191
+19:7,Rabi,groundnut,0.0239
+19:7,Rabi,horse gram,0.5458
+19:7,Rabi,jowar,0.0805
+19:7,Rabi,maize,0.0258
+19:7,Rabi,potato,0.0384
+19:7,Rabi,ragi,0.0769
+19:7,Rabi,rice,0.0167
+19:7,Rabi,tomato,0.1584
+19:7,Rabi,wheat,0.0144
+19:7,Summer,jowar,0.0251
+19:7,Summer,maize,0.0471
+19:7,Summer,potato,0.0129
+19:7,Summer,ragi,0.1729
+19:7,Summer,rice,0.1316
+19:7,Summer,sunflower,0.0007
+19:7,Summer,tomato,0.6097
+19:8,Kharif,bajra,0.001
+19:8,Kharif,castor,0.0
+19:8,Kharif,chilli,0.0003
+19:8,Kharif,groundnut,0.0134
+19:8,Kharif,horse gram,0.0023
+19:8,Kharif,jowar,0.0208
+19:8,Kharif,maize,0.0007
+19:8,Kharif,onion,0.0
+19:8,Kharif,pigeonpea (tur),0.0321
+19:8,Kharif,potato,0.0019
+19:8,Kharif,ragi,0.8569
+19:8,Kharif,rice,0.0042
+19:8,Kharif,soybean,0.0002
+19:8,Kharif,tomato,0.0663
+19:8,Rabi,bajra,0.001
+19:8,Rabi,chickpea,0.0029
+19:8,Rabi,chilli,0.0002
+19:8,Rabi,groundnut,0.0067
+19:8,Rabi,horse gram,0.2296
+19:8,Rabi,jowar,0.0948
+19:8,Rabi,linseed,0.0013
+19:8,Rabi,maize,0.0097
+19:8,Rabi,mustard,0.0016
+19:8,Rabi,onion,0.0014
+19:8,Rabi,potato,0.176
+19:8,Rabi,ragi,0.1875
+19:8,Rabi,rice,0.0039
+19:8,Rabi,tomato,0.2669
+19:8,Rabi,wheat,0.0164
+19:8,Summer,chilli,0.0
+19:8,Summer,jowar,0.0248
+19:8,Summer,maize,0.0172
+19:8,Summer,onion,0.0017
+19:8,Summer,potato,0.0363
+19:8,Summer,ragi,0.2928
+19:8,Summer,rice,0.0213
+19:8,Summer,tomato,0.606
+19:9,Kharif,bajra,0.0007
+19:9,Kharif,black gram,0.0001
+19:9,Kharif,castor,0.0001
+19:9,Kharif,chilli,0.0003
+19:9,Kharif,cotton,0.0
+19:9,Kharif,green gram,0.0004
+19:9,Kharif,groundnut,0.006
+19:9,Kharif,horse gram,0.0034
+19:9,Kharif,jowar,0.0292
+19:9,Kharif,maize,0.0012
+19:9,Kharif,niger seed,0.0
+19:9,Kharif,onion,0.0001
+19:9,Kharif,pigeonpea (tur),0.0147
+19:9,Kharif,potato,0.0113
+19:9,Kharif,ragi,0.8348
+19:9,Kharif,rice,0.0182
+19:9,Kharif,sesame,0.0013
+19:9,Kharif,tomato,0.0783
+19:9,Rabi,bajra,0.0003
+19:9,Rabi,chickpea,0.0003
+19:9,Rabi,chilli,0.0001
+19:9,Rabi,cotton,0.0007
+19:9,Rabi,green gram,0.0001
+19:9,Rabi,groundnut,0.0016
+19:9,Rabi,horse gram,0.1576
+19:9,Rabi,jowar,0.0599
+19:9,Rabi,linseed,0.001
+19:9,Rabi,maize,0.008
+19:9,Rabi,mustard,0.0081
+19:9,Rabi,onion,0.0026
+19:9,Rabi,potato,0.4961
+19:9,Rabi,ragi,0.0938
+19:9,Rabi,rice,0.0086
+19:9,Rabi,tomato,0.1578
+19:9,Rabi,wheat,0.0033
+19:9,Summer,chilli,0.0
+19:9,Summer,jowar,0.0196
+19:9,Summer,maize,0.0152
+19:9,Summer,onion,0.0039
+19:9,Summer,potato,0.1629
+19:9,Summer,ragi,0.1904
+19:9,Summer,rice,0.0654
+19:9,Summer,tomato,0.5427
+1:1,Kharif,bajra,0.0172
+1:1,Kharif,black gram,0.0318
+1:1,Kharif,castor,0.0009
+1:1,Kharif,chilli,0.0001
+1:1,Kharif,cotton,0.0326
+1:1,Kharif,green gram,0.0329
+1:1,Kharif,groundnut,0.1499
+1:1,Kharif,horse gram,0.0036
+1:1,Kharif,jowar,0.0161
+1:1,Kharif,maize,0.1692
+1:1,Kharif,niger seed,0.0001
+1:1,Kharif,onion,0.0014
+1:1,Kharif,pigeonpea (tur),0.0113
+1:1,Kharif,potato,0.0
+1:1,Kharif,ragi,0.0015
+1:1,Kharif,rice,0.0285
+1:1,Kharif,sesame,0.0002
+1:1,Kharif,soybean,0.2286
+1:1,Kharif,sunflower,0.0007
+1:1,Kharif,tobacco,0.273
+1:1,Kharif,tomato,0.0004
+1:1,Rabi,bajra,0.0009
+1:1,Rabi,black gram,0.0011
+1:1,Rabi,chickpea,0.075
+1:1,Rabi,chilli,0.0044
+1:1,Rabi,cotton,0.0034
+1:1,Rabi,green gram,0.0001
+1:1,Rabi,groundnut,0.1285
+1:1,Rabi,horse gram,0.0028
+1:1,Rabi,jowar,0.4788
+1:1,Rabi,linseed,0.0002
+1:1,Rabi,maize,0.1894
+1:1,Rabi,mustard,0.0011
+1:1,Rabi,onion,0.0003
+1:1,Rabi,potato,0.0
+1:1,Rabi,ragi,0.0005
+1:1,Rabi,rice,0.0001
+1:1,Rabi,sunflower,0.0034
+1:1,Rabi,tomato,0.0009
+1:1,Rabi,wheat,0.1091
+1:1,Summer,bajra,0.0032
+1:1,Summer,jowar,0.1161
+1:1,Summer,maize,0.86
+1:1,Summer,onion,0.0007
+1:1,Summer,potato,0.0
+1:1,Summer,ragi,0.0016
+1:1,Summer,rice,0.0029
+1:1,Summer,sunflower,0.0012
+1:1,Summer,tomato,0.0142
+1:10,Kharif,bajra,0.1487
+1:10,Kharif,black gram,0.0017
+1:10,Kharif,castor,0.0016
+1:10,Kharif,chilli,0.0001
+1:10,Kharif,cotton,0.0232
+1:10,Kharif,green gram,0.232
+1:10,Kharif,groundnut,0.112
+1:10,Kharif,horse gram,0.0113
+1:10,Kharif,jowar,0.0356
+1:10,Kharif,maize,0.2864
+1:10,Kharif,onion,0.0053
+1:10,Kharif,pigeonpea (tur),0.0099
+1:10,Kharif,potato,0.0
+1:10,Kharif,ragi,0.0029
+1:10,Kharif,rice,0.0858
+1:10,Kharif,sesame,0.0002
+1:10,Kharif,soybean,0.0005
+1:10,Kharif,sunflower,0.0428
+1:10,Kharif,tomato,0.0
+1:10,Rabi,bajra,0.0035
+1:10,Rabi,black gram,0.0
+1:10,Rabi,chickpea,0.1083
+1:10,Rabi,chilli,0.001
+1:10,Rabi,cotton,0.0011
+1:10,Rabi,green gram,0.0006
+1:10,Rabi,groundnut,0.0398
+1:10,Rabi,horse gram,0.0038
+1:10,Rabi,jowar,0.4493
+1:10,Rabi,linseed,0.0018
+1:10,Rabi,maize,0.1328
+1:10,Rabi,mustard,0.0014
+1:10,Rabi,onion,0.0005
+1:10,Rabi,potato,0.0
+1:10,Rabi,ragi,0.0003
+1:10,Rabi,rice,0.0001
+1:10,Rabi,sunflower,0.117
+1:10,Rabi,tomato,0.0
+1:10,Rabi,wheat,0.1386
+1:10,Summer,bajra,0.0164
+1:10,Summer,jowar,0.1378
+1:10,Summer,maize,0.7856
+1:10,Summer,onion,0.0018
+1:10,Summer,potato,0.0
+1:10,Summer,ragi,0.0014
+1:10,Summer,rice,0.0041
+1:10,Summer,sunflower,0.0522
+1:10,Summer,tomato,0.0007
+1:2,Kharif,bajra,0.259
+1:2,Kharif,black gram,0.0503
+1:2,Kharif,castor,0.0004
+1:2,Kharif,chilli,0.0
+1:2,Kharif,cotton,0.0062
+1:2,Kharif,green gram,0.047
+1:2,Kharif,groundnut,0.0527
+1:2,Kharif,horse gram,0.0247
+1:2,Kharif,jowar,0.0207
+1:2,Kharif,maize,0.3863
+1:2,Kharif,niger seed,0.0001
+1:2,Kharif,onion,0.0046
+1:2,Kharif,pigeonpea (tur),0.0719
+1:2,Kharif,potato,0.0001
+1:2,Kharif,ragi,0.0007
+1:2,Kharif,rice,0.0091
+1:2,Kharif,sesame,0.0001
+1:2,Kharif,soybean,0.0589
+1:2,Kharif,sunflower,0.0036
+1:2,Kharif,tomato,0.0039
+1:2,Rabi,bajra,0.0092
+1:2,Rabi,black gram,0.0009
+1:2,Rabi,chickpea,0.1863
+1:2,Rabi,chilli,0.0
+1:2,Rabi,cotton,0.0005
+1:2,Rabi,green gram,0.0001
+1:2,Rabi,groundnut,0.0169
+1:2,Rabi,horse gram,0.0101
+1:2,Rabi,jowar,0.2819
+1:2,Rabi,linseed,0.0044
+1:2,Rabi,maize,0.2081
+1:2,Rabi,mustard,0.0067
+1:2,Rabi,onion,0.0004
+1:2,Rabi,potato,0.0
+1:2,Rabi,ragi,0.0001
+1:2,Rabi,rice,0.0
+1:2,Rabi,sunflower,0.0091
+1:2,Rabi,tomato,0.0027
+1:2,Rabi,wheat,0.2626
+1:2,Summer,bajra,0.0275
+1:2,Summer,jowar,0.0623
+1:2,Summer,maize,0.8572
+1:2,Summer,onion,0.0009
+1:2,Summer,potato,0.0
+1:2,Summer,ragi,0.0002
+1:2,Summer,rice,0.0003
+1:2,Summer,sunflower,0.0029
+1:2,Summer,tomato,0.0486
+1:3,Kharif,bajra,0.0492
+1:3,Kharif,black gram,0.001
+1:3,Kharif,chilli,0.0003
+1:3,Kharif,cotton,0.0996
+1:3,Kharif,green gram,0.0018
+1:3,Kharif,groundnut,0.0395
+1:3,Kharif,horse gram,0.0165
+1:3,Kharif,jowar,0.0018
+1:3,Kharif,maize,0.6448
+1:3,Kharif,onion,0.0005
+1:3,Kharif,pigeonpea (tur),0.0672
+1:3,Kharif,ragi,0.0005
+1:3,Kharif,rice,0.0143
+1:3,Kharif,sesame,0.0005
+1:3,Kharif,soybean,0.0557
+1:3,Kharif,sunflower,0.0064
+1:3,Kharif,tobacco,0.0002
+1:3,Kharif,tomato,0.0003
+1:3,Rabi,bajra,0.0028
+1:3,Rabi,black gram,0.0001
+1:3,Rabi,chickpea,0.0075
+1:3,Rabi,chilli,0.0099
+1:3,Rabi,cotton,0.012
+1:3,Rabi,green gram,0.0
+1:3,Rabi,groundnut,0.0352
+1:3,Rabi,horse gram,0.0115
+1:3,Rabi,jowar,0.0466
+1:3,Rabi,linseed,0.0003
+1:3,Rabi,maize,0.704
+1:3,Rabi,mustard,0.002
+1:3,Rabi,onion,0.0001
+1:3,Rabi,ragi,0.0001
+1:3,Rabi,rice,0.0
+1:3,Rabi,sunflower,0.0355
+1:3,Rabi,tomato,0.0005
+1:3,Rabi,wheat,0.1317
+1:3,Summer,bajra,0.003
+1:3,Summer,jowar,0.0036
+1:3,Summer,maize,0.9859
+1:3,Summer,onion,0.0001
+1:3,Summer,ragi,0.0002
+1:3,Summer,rice,0.0004
+1:3,Summer,sunflower,0.0037
+1:3,Summer,tomato,0.0032
+1:4,Kharif,bajra,0.01
+1:4,Kharif,black gram,0.0001
+1:4,Kharif,castor,0.0024
+1:4,Kharif,chilli,0.0
+1:4,Kharif,cotton,0.0853
+1:4,Kharif,green gram,0.0098
+1:4,Kharif,groundnut,0.0415
+1:4,Kharif,horse gram,0.01
+1:4,Kharif,jowar,0.0074
+1:4,Kharif,maize,0.6258
+1:4,Kharif,niger seed,0.0
+1:4,Kharif,onion,0.0008
+1:4,Kharif,pigeonpea (tur),0.0113
+1:4,Kharif,potato,0.0001
+1:4,Kharif,ragi,0.0049
+1:4,Kharif,rice,0.0312
+1:4,Kharif,sesame,0.0022
+1:4,Kharif,soybean,0.1062
+1:4,Kharif,sunflower,0.0193
+1:4,Kharif,tobacco,0.0302
+1:4,Kharif,tomato,0.0013
+1:4,Rabi,bajra,0.0003
+1:4,Rabi,black gram,0.0
+1:4,Rabi,chickpea,0.0271
+1:4,Rabi,chilli,0.0001
+1:4,Rabi,cotton,0.0062
+1:4,Rabi,green gram,0.0
+1:4,Rabi,groundnut,0.0198
+1:4,Rabi,horse gram,0.0038
+1:4,Rabi,jowar,0.1362
+1:4,Rabi,linseed,0.0005
+1:4,Rabi,maize,0.4296
+1:4,Rabi,mustard,0.0022
+1:4,Rabi,onion,0.0001
+1:4,Rabi,potato,0.0001
+1:4,Rabi,ragi,0.0007
+1:4,Rabi,rice,0.0001
+1:4,Rabi,sunflower,0.0678
+1:4,Rabi,tomato,0.0015
+1:4,Rabi,wheat,0.304
+1:4,Summer,bajra,0.0006
+1:4,Summer,jowar,0.0168
+1:4,Summer,maize,0.9536
+1:4,Summer,onion,0.0001
+1:4,Summer,potato,0.0
+1:4,Summer,ragi,0.0015
+1:4,Summer,rice,0.001
+1:4,Summer,sunflower,0.0114
+1:4,Summer,tomato,0.015
+1:5,Kharif,bajra,0.0012
+1:5,Kharif,black gram,0.0026
+1:5,Kharif,castor,0.0009
+1:5,Kharif,chilli,0.0002
+1:5,Kharif,cotton,0.0718
+1:5,Kharif,green gram,0.0048
+1:5,Kharif,groundnut,0.1269
+1:5,Kharif,horse gram,0.0017
+1:5,Kharif,jowar,0.0161
+1:5,Kharif,maize,0.0954
+1:5,Kharif,niger seed,0.0008
+1:5,Kharif,onion,0.0001
+1:5,Kharif,pigeonpea (tur),0.0024
+1:5,Kharif,potato,0.004
+1:5,Kharif,ragi,0.0003
+1:5,Kharif,rice,0.0562
+1:5,Kharif,sesame,0.0
+1:5,Kharif,soybean,0.5447
+1:5,Kharif,sunflower,0.0007
+1:5,Kharif,tobacco,0.0683
+1:5,Kharif,tomato,0.001
+1:5,Rabi,bajra,0.0001
+1:5,Rabi,black gram,0.0001
+1:5,Rabi,chickpea,0.1164
+1:5,Rabi,chilli,0.0063
+1:5,Rabi,cotton,0.01
+1:5,Rabi,green gram,0.0
+1:5,Rabi,groundnut,0.1111
+1:5,Rabi,horse gram,0.0014
+1:5,Rabi,jowar,0.5799
+1:5,Rabi,linseed,0.0004
+1:5,Rabi,maize,0.1234
+1:5,Rabi,mustard,0.002
+1:5,Rabi,onion,0.0
+1:5,Rabi,potato,0.0027
+1:5,Rabi,ragi,0.0001
+1:5,Rabi,rice,0.0002
+1:5,Rabi,sunflower,0.0045
+1:5,Rabi,tomato,0.0022
+1:5,Rabi,wheat,0.0391
+1:5,Summer,bajra,0.0004
+1:5,Summer,jowar,0.183
+1:5,Summer,maize,0.7468
+1:5,Summer,onion,0.0001
+1:5,Summer,potato,0.0061
+1:5,Summer,ragi,0.0004
+1:5,Summer,rice,0.009
+1:5,Summer,sunflower,0.0021
+1:5,Summer,tomato,0.0521
+1:6,Kharif,bajra,0.0055
+1:6,Kharif,black gram,0.0001
+1:6,Kharif,castor,0.0004
+1:6,Kharif,chilli,0.0001
+1:6,Kharif,cotton,0.0533
+1:6,Kharif,green gram,0.0001
+1:6,Kharif,groundnut,0.0757
+1:6,Kharif,horse gram,0.0001
+1:6,Kharif,jowar,0.0065
+1:6,Kharif,maize,0.0033
+1:6,Kharif,niger seed,0.0004
+1:6,Kharif,onion,0.0001
+1:6,Kharif,pigeonpea (tur),0.0
+1:6,Kharif,potato,0.0535
+1:6,Kharif,ragi,0.017
+1:6,Kharif,rice,0.6722
+1:6,Kharif,soybean,0.1066
+1:6,Kharif,sunflower,0.0001
+1:6,Kharif,tomato,0.005
+1:6,Rabi,bajra,0.0008
+1:6,Rabi,black gram,0.0
+1:6,Rabi,chickpea,0.0707
+1:6,Rabi,chilli,0.0091
+1:6,Rabi,cotton,0.0177
+1:6,Rabi,green gram,0.0
+1:6,Rabi,groundnut,0.1576
+1:6,Rabi,horse gram,0.0001
+1:6,Rabi,jowar,0.5503
+1:6,Rabi,linseed,0.0002
+1:6,Rabi,maize,0.0098
+1:6,Rabi,mustard,0.0131
+1:6,Rabi,onion,0.0001
+1:6,Rabi,potato,0.0829
+1:6,Rabi,ragi,0.0119
+1:6,Rabi,rice,0.0065
+1:6,Rabi,sunflower,0.001
+1:6,Rabi,tomato,0.0265
+1:6,Rabi,wheat,0.0416
+1:6,Summer,bajra,0.0027
+1:6,Summer,jowar,0.126
+1:6,Summer,maize,0.0434
+1:6,Summer,onion,0.0002
+1:6,Summer,potato,0.1343
+1:6,Summer,ragi,0.0438
+1:6,Summer,rice,0.1858
+1:6,Summer,sunflower,0.0003
+1:6,Summer,tomato,0.4635
+1:7,Kharif,bajra,0.0001
+1:7,Kharif,chilli,0.0
+1:7,Kharif,cotton,0.0019
+1:7,Kharif,green gram,0.0015
+1:7,Kharif,groundnut,0.0323
+1:7,Kharif,horse gram,0.0016
+1:7,Kharif,jowar,0.0001
+1:7,Kharif,maize,0.0032
+1:7,Kharif,potato,0.0001
+1:7,Kharif,ragi,0.0058
+1:7,Kharif,rice,0.9521
+1:7,Kharif,sesame,0.0013
+1:7,Kharif,soybean,0.0
+1:7,Kharif,sunflower,0.0001
+1:7,Rabi,bajra,0.0001
+1:7,Rabi,chickpea,0.1516
+1:7,Rabi,chilli,0.0026
+1:7,Rabi,cotton,0.0048
+1:7,Rabi,green gram,0.0001
+1:7,Rabi,groundnut,0.4503
+1:7,Rabi,horse gram,0.0252
+1:7,Rabi,jowar,0.0395
+1:7,Rabi,maize,0.1218
+1:7,Rabi,mustard,0.001
+1:7,Rabi,potato,0.0009
+1:7,Rabi,ragi,0.0266
+1:7,Rabi,rice,0.0945
+1:7,Rabi,sunflower,0.0057
+1:7,Rabi,wheat,0.0752
+1:7,Summer,bajra,0.0003
+1:7,Summer,jowar,0.0044
+1:7,Summer,maize,0.1278
+1:7,Summer,potato,0.0006
+1:7,Summer,ragi,0.0493
+1:7,Summer,rice,0.8165
+1:7,Summer,sunflower,0.0011
+1:8,Kharif,bajra,0.0143
+1:8,Kharif,black gram,0.0043
+1:8,Kharif,castor,0.0005
+1:8,Kharif,chilli,0.0
+1:8,Kharif,cotton,0.187
+1:8,Kharif,green gram,0.0558
+1:8,Kharif,groundnut,0.0565
+1:8,Kharif,horse gram,0.0031
+1:8,Kharif,jowar,0.018
+1:8,Kharif,maize,0.0924
+1:8,Kharif,niger seed,0.0
+1:8,Kharif,onion,0.0031
+1:8,Kharif,pigeonpea (tur),0.0114
+1:8,Kharif,potato,0.0032
+1:8,Kharif,ragi,0.0002
+1:8,Kharif,rice,0.1001
+1:8,Kharif,sesame,0.0001
+1:8,Kharif,soybean,0.4382
+1:8,Kharif,sunflower,0.0048
+1:8,Kharif,tobacco,0.0038
+1:8,Kharif,tomato,0.003
+1:8,Rabi,bajra,0.0007
+1:8,Rabi,black gram,0.0002
+1:8,Rabi,chickpea,0.1765
+1:8,Rabi,chilli,0.0001
+1:8,Rabi,cotton,0.0208
+1:8,Rabi,green gram,0.0003
+1:8,Rabi,groundnut,0.0402
+1:8,Rabi,horse gram,0.0018
+1:8,Rabi,jowar,0.5132
+1:8,Rabi,linseed,0.0096
+1:8,Rabi,maize,0.0928
+1:8,Rabi,mustard,0.0012
+1:8,Rabi,onion,0.0005
+1:8,Rabi,potato,0.0016
+1:8,Rabi,ragi,0.0
+1:8,Rabi,rice,0.0003
+1:8,Rabi,sunflower,0.0241
+1:8,Rabi,tomato,0.0054
+1:8,Rabi,wheat,0.1107
+1:8,Summer,bajra,0.0036
+1:8,Summer,jowar,0.1833
+1:8,Summer,maize,0.6329
+1:8,Summer,onion,0.0021
+1:8,Summer,potato,0.0039
+1:8,Summer,ragi,0.0002
+1:8,Summer,rice,0.0145
+1:8,Summer,sunflower,0.012
+1:8,Summer,tomato,0.1476
+1:9,Kharif,bajra,0.0365
+1:9,Kharif,black gram,0.0042
+1:9,Kharif,castor,0.0001
+1:9,Kharif,chilli,0.0001
+1:9,Kharif,cotton,0.304
+1:9,Kharif,green gram,0.1954
+1:9,Kharif,groundnut,0.0387
+1:9,Kharif,horse gram,0.0062
+1:9,Kharif,jowar,0.0166
+1:9,Kharif,maize,0.1832
+1:9,Kharif,onion,0.134
+1:9,Kharif,pigeonpea (tur),0.0246
+1:9,Kharif,potato,0.0005
+1:9,Kharif,ragi,0.0004
+1:9,Kharif,rice,0.0067
+1:9,Kharif,sesame,0.0004
+1:9,Kharif,soybean,0.0265
+1:9,Kharif,sunflower,0.021
+1:9,Kharif,tobacco,0.0
+1:9,Kharif,tomato,0.001
+1:9,Rabi,bajra,0.0014
+1:9,Rabi,black gram,0.0001
+1:9,Rabi,chickpea,0.2405
+1:9,Rabi,chilli,0.0019
+1:9,Rabi,cotton,0.0274
+1:9,Rabi,green gram,0.0008
+1:9,Rabi,groundnut,0.0176
+1:9,Rabi,horse gram,0.0023
+1:9,Rabi,jowar,0.3504
+1:9,Rabi,linseed,0.0095
+1:9,Rabi,maize,0.1325
+1:9,Rabi,mustard,0.0004
+1:9,Rabi,onion,0.0222
+1:9,Rabi,potato,0.0002
+1:9,Rabi,ragi,0.0001
+1:9,Rabi,rice,0.0
+1:9,Rabi,sunflower,0.0668
+1:9,Rabi,tomato,0.0013
+1:9,Rabi,wheat,0.1246
+1:9,Summer,bajra,0.0061
+1:9,Summer,jowar,0.1043
+1:9,Summer,maize,0.7574
+1:9,Summer,onion,0.0722
+1:9,Summer,potato,0.0003
+1:9,Summer,ragi,0.0003
+1:9,Summer,rice,0.0007
+1:9,Summer,sunflower,0.0282
+1:9,Summer,tomato,0.0304
+20:1,Kharif,bajra,0.0011
+20:1,Kharif,castor,0.0004
+20:1,Kharif,chilli,0.0005
+20:1,Kharif,green gram,0.0001
+20:1,Kharif,groundnut,0.0001
+20:1,Kharif,horse gram,0.0186
+20:1,Kharif,jowar,0.0365
+20:1,Kharif,maize,0.0294
+20:1,Kharif,niger seed,0.0009
+20:1,Kharif,pigeonpea (tur),0.0079
+20:1,Kharif,potato,0.0002
+20:1,Kharif,ragi,0.8554
+20:1,Kharif,rice,0.0166
+20:1,Kharif,sunflower,0.0
+20:1,Kharif,tomato,0.0323
+20:1,Rabi,bajra,0.0029
+20:1,Rabi,horse gram,0.0552
+20:1,Rabi,jowar,0.0415
+20:1,Rabi,linseed,0.0225
+20:1,Rabi,maize,0.0358
+20:1,Rabi,mustard,0.0461
+20:1,Rabi,potato,0.0003
+20:1,Rabi,ragi,0.7103
+20:1,Rabi,sunflower,0.0001
+20:1,Rabi,tomato,0.0406
+20:1,Rabi,wheat,0.0448
+20:1,Summer,jowar,0.596
+20:1,Summer,maize,0.179
+20:1,Summer,tomato,0.2251
+20:2,Kharif,horse gram,0.0345
+20:2,Kharif,jowar,0.0067
+20:2,Kharif,maize,0.0677
+20:2,Kharif,niger seed,0.0002
+20:2,Kharif,pigeonpea (tur),0.0148
+20:2,Kharif,ragi,0.8544
+20:2,Kharif,rice,0.0157
+20:2,Kharif,soybean,0.0007
+20:2,Kharif,tomato,0.0053
+20:2,Rabi,chickpea,0.1136
+20:2,Rabi,horse gram,0.0863
+20:2,Rabi,jowar,0.0059
+20:2,Rabi,linseed,0.002
+20:2,Rabi,maize,0.0686
+20:2,Rabi,mustard,0.0257
+20:2,Rabi,ragi,0.6346
+20:2,Rabi,tomato,0.0061
+20:2,Rabi,wheat,0.0572
+20:2,Summer,jowar,0.2231
+20:2,Summer,maize,0.4876
+20:2,Summer,tomato,0.2894
+20:3,Kharif,bajra,0.0003
+20:3,Kharif,groundnut,0.0004
+20:3,Kharif,horse gram,0.026
+20:3,Kharif,jowar,0.0024
+20:3,Kharif,maize,0.0177
+20:3,Kharif,niger seed,0.0012
+20:3,Kharif,onion,0.0014
+20:3,Kharif,pigeonpea (tur),0.0122
+20:3,Kharif,potato,0.0154
+20:3,Kharif,ragi,0.8507
+20:3,Kharif,rice,0.0249
+20:3,Kharif,soybean,0.001
+20:3,Kharif,sunflower,0.0006
+20:3,Kharif,tomato,0.046
+20:3,Rabi,bajra,0.0008
+20:3,Rabi,horse gram,0.0782
+20:3,Rabi,jowar,0.0028
+20:3,Rabi,linseed,0.0256
+20:3,Rabi,maize,0.0223
+20:3,Rabi,mustard,0.063
+20:3,Rabi,potato,0.0238
+20:3,Rabi,ragi,0.7201
+20:3,Rabi,sunflower,0.0013
+20:3,Rabi,tomato,0.0586
+20:3,Rabi,wheat,0.0037
+20:3,Summer,jowar,0.1514
+20:3,Summer,maize,0.1522
+20:3,Summer,tomato,0.6964
+20:4,Kharif,groundnut,0.0037
+20:4,Kharif,horse gram,0.0204
+20:4,Kharif,jowar,0.0211
+20:4,Kharif,maize,0.0052
+20:4,Kharif,onion,0.0237
+20:4,Kharif,pigeonpea (tur),0.0124
+20:4,Kharif,potato,0.018
+20:4,Kharif,ragi,0.8187
+20:4,Kharif,rice,0.0381
+20:4,Kharif,tomato,0.0385
+20:4,Rabi,horse gram,0.0724
+20:4,Rabi,jowar,0.0277
+20:4,Rabi,maize,0.0076
+20:4,Rabi,potato,0.0325
+20:4,Rabi,ragi,0.8028
+20:4,Rabi,tomato,0.0571
+20:4,Summer,jowar,0.6841
+20:4,Summer,maize,0.025
+20:4,Summer,tomato,0.2909
+21:1,Kharif,bajra,0.0004
+21:1,Kharif,black gram,0.0
+21:1,Kharif,castor,0.0003
+21:1,Kharif,chilli,0.0
+21:1,Kharif,green gram,0.0026
+21:1,Kharif,groundnut,0.0004
+21:1,Kharif,horse gram,0.0403
+21:1,Kharif,jowar,0.0726
+21:1,Kharif,maize,0.0561
+21:1,Kharif,niger seed,0.0012
+21:1,Kharif,onion,0.0001
+21:1,Kharif,pigeonpea (tur),0.0307
+21:1,Kharif,potato,0.0004
+21:1,Kharif,ragi,0.7667
+21:1,Kharif,rice,0.0187
+21:1,Kharif,sesame,0.0001
+21:1,Kharif,sunflower,0.0004
+21:1,Kharif,tomato,0.009
+21:1,Rabi,black gram,0.0004
+21:1,Rabi,chickpea,0.0044
+21:1,Rabi,chilli,0.0006
+21:1,Rabi,groundnut,0.0008
+21:1,Rabi,horse gram,0.2262
+21:1,Rabi,jowar,0.2056
+21:1,Rabi,linseed,0.0131
+21:1,Rabi,maize,0.0548
+21:1,Rabi,mustard,0.041
+21:1,Rabi,onion,0.0017
+21:1,Rabi,potato,0.0532
+21:1,Rabi,ragi,0.1894
+21:1,Rabi,rice,0.0155
+21:1,Rabi,tomato,0.0486
+21:1,Rabi,wheat,0.1444
+21:1,Summer,jowar,0.088
+21:1,Summer,maize,0.0994
+21:1,Summer,onion,0.0008
+21:1,Summer,potato,0.0008
+21:1,Summer,ragi,0.0451
+21:1,Summer,rice,0.4793
+21:1,Summer,tomato,0.2867
+21:2,Kharif,bajra,0.0005
+21:2,Kharif,black gram,0.0
+21:2,Kharif,castor,0.0007
+21:2,Kharif,chilli,0.001
+21:2,Kharif,green gram,0.0
+21:2,Kharif,groundnut,0.0006
+21:2,Kharif,horse gram,0.0159
+21:2,Kharif,jowar,0.243
+21:2,Kharif,maize,0.1298
+21:2,Kharif,niger seed,0.0001
+21:2,Kharif,onion,0.0003
+21:2,Kharif,pigeonpea (tur),0.0221
+21:2,Kharif,potato,0.0005
+21:2,Kharif,ragi,0.572
+21:2,Kharif,rice,0.0083
+21:2,Kharif,sunflower,0.0004
+21:2,Kharif,tomato,0.005
+21:2,Rabi,black gram,0.0001
+21:2,Rabi,chickpea,0.056
+21:2,Rabi,chilli,0.011
+21:2,Rabi,groundnut,0.001
+21:2,Rabi,horse gram,0.0625
+21:2,Rabi,jowar,0.4858
+21:2,Rabi,linseed,0.0073
+21:2,Rabi,maize,0.1194
+21:2,Rabi,mustard,0.0328
+21:2,Rabi,onion,0.0043
+21:2,Rabi,potato,0.0457
+21:2,Rabi,ragi,0.1066
+21:2,Rabi,rice,0.0044
+21:2,Rabi,tomato,0.0204
+21:2,Rabi,wheat,0.0427
+21:2,Summer,jowar,0.3077
+21:2,Summer,maize,0.2663
+21:2,Summer,onion,0.0025
+21:2,Summer,potato,0.0011
+21:2,Summer,ragi,0.0362
+21:2,Summer,rice,0.2161
+21:2,Summer,tomato,0.1702
+21:3,Kharif,bajra,0.001
+21:3,Kharif,castor,0.0002
+21:3,Kharif,chilli,0.0002
+21:3,Kharif,cotton,0.0001
+21:3,Kharif,green gram,0.0
+21:3,Kharif,groundnut,0.0003
+21:3,Kharif,horse gram,0.0036
+21:3,Kharif,jowar,0.0297
+21:3,Kharif,maize,0.0583
+21:3,Kharif,niger seed,0.0001
+21:3,Kharif,onion,0.0007
+21:3,Kharif,pigeonpea (tur),0.0085
+21:3,Kharif,potato,0.0037
+21:3,Kharif,ragi,0.861
+21:3,Kharif,rice,0.0077
+21:3,Kharif,sesame,0.0002
+21:3,Kharif,sunflower,0.0005
+21:3,Kharif,tomato,0.0243
+21:3,Rabi,chickpea,0.005
+21:3,Rabi,chilli,0.0026
+21:3,Rabi,groundnut,0.0007
+21:3,Rabi,horse gram,0.0225
+21:3,Rabi,jowar,0.0794
+21:3,Rabi,maize,0.0469
+21:3,Rabi,mustard,0.0057
+21:3,Rabi,onion,0.014
+21:3,Rabi,potato,0.4752
+21:3,Rabi,ragi,0.2025
+21:3,Rabi,rice,0.0062
+21:3,Rabi,tomato,0.1165
+21:3,Rabi,wheat,0.0228
+21:3,Summer,jowar,0.0326
+21:3,Summer,maize,0.0743
+21:3,Summer,onion,0.0051
+21:3,Summer,potato,0.0067
+21:3,Summer,ragi,0.0471
+21:3,Summer,rice,0.19
+21:3,Summer,tomato,0.6443
+21:4,Kharif,bajra,0.0004
+21:4,Kharif,green gram,0.0004
+21:4,Kharif,groundnut,0.0001
+21:4,Kharif,horse gram,0.0073
+21:4,Kharif,jowar,0.0426
+21:4,Kharif,maize,0.054
+21:4,Kharif,onion,0.0004
+21:4,Kharif,pigeonpea (tur),0.0215
+21:4,Kharif,potato,0.0029
+21:4,Kharif,ragi,0.8294
+21:4,Kharif,rice,0.0285
+21:4,Kharif,sesame,0.0005
+21:4,Kharif,sunflower,0.0004
+21:4,Kharif,tomato,0.0118
+21:4,Rabi,groundnut,0.0002
+21:4,Rabi,horse gram,0.0287
+21:4,Rabi,jowar,0.129
+21:4,Rabi,linseed,0.006
+21:4,Rabi,maize,0.0656
+21:4,Rabi,mustard,0.1173
+21:4,Rabi,onion,0.011
+21:4,Rabi,potato,0.3039
+21:4,Rabi,ragi,0.1861
+21:4,Rabi,rice,0.0159
+21:4,Rabi,tomato,0.0459
+21:4,Rabi,wheat,0.0904
+21:4,Summer,jowar,0.0813
+21:4,Summer,maize,0.1844
+21:4,Summer,onion,0.007
+21:4,Summer,potato,0.0045
+21:4,Summer,ragi,0.0577
+21:4,Summer,rice,0.4178
+21:4,Summer,tomato,0.2473
+22:1,Kharif,bajra,0.0008
+22:1,Kharif,black gram,0.002
+22:1,Kharif,castor,0.0002
+22:1,Kharif,cotton,0.0
+22:1,Kharif,green gram,0.0054
+22:1,Kharif,groundnut,0.0001
+22:1,Kharif,horse gram,0.1419
+22:1,Kharif,maize,0.0031
+22:1,Kharif,niger seed,0.0008
+22:1,Kharif,onion,0.0
+22:1,Kharif,pigeonpea (tur),0.0075
+22:1,Kharif,potato,0.0
+22:1,Kharif,ragi,0.5725
+22:1,Kharif,rice,0.2297
+22:1,Kharif,sesame,0.0333
+22:1,Kharif,soybean,0.0
+22:1,Kharif,sunflower,0.0
+22:1,Kharif,tomato,0.0025
+22:1,Rabi,black gram,0.0004
+22:1,Rabi,chickpea,0.009
+22:1,Rabi,cotton,0.0001
+22:1,Rabi,green gram,0.0009
+22:1,Rabi,groundnut,0.0001
+22:1,Rabi,horse gram,0.3581
+22:1,Rabi,jowar,0.0902
+22:1,Rabi,linseed,0.012
+22:1,Rabi,maize,0.0065
+22:1,Rabi,mustard,0.0004
+22:1,Rabi,onion,0.0
+22:1,Rabi,potato,0.0005
+22:1,Rabi,ragi,0.4915
+22:1,Rabi,rice,0.0024
+22:1,Rabi,sunflower,0.0
+22:1,Rabi,tomato,0.0059
+22:1,Rabi,wheat,0.0218
+22:1,Summer,maize,0.0254
+22:1,Summer,onion,0.0001
+22:1,Summer,ragi,0.3173
+22:1,Summer,rice,0.6421
+22:1,Summer,sunflower,0.0001
+22:1,Summer,tomato,0.0149
+22:2,Kharif,bajra,0.0002
+22:2,Kharif,black gram,0.0016
+22:2,Kharif,castor,0.0034
+22:2,Kharif,chilli,0.0003
+22:2,Kharif,cotton,0.0
+22:2,Kharif,green gram,0.0008
+22:2,Kharif,groundnut,0.0005
+22:2,Kharif,horse gram,0.2448
+22:2,Kharif,maize,0.0031
+22:2,Kharif,niger seed,0.0074
+22:2,Kharif,onion,0.0023
+22:2,Kharif,pigeonpea (tur),0.0304
+22:2,Kharif,potato,0.0002
+22:2,Kharif,ragi,0.6319
+22:2,Kharif,rice,0.0525
+22:2,Kharif,sesame,0.0126
+22:2,Kharif,soybean,0.0027
+22:2,Kharif,sunflower,0.0
+22:2,Kharif,tobacco,0.0
+22:2,Kharif,tomato,0.0051
+22:2,Rabi,black gram,0.0002
+22:2,Rabi,chickpea,0.0008
+22:2,Rabi,chilli,0.0001
+22:2,Rabi,cotton,0.0
+22:2,Rabi,green gram,0.0001
+22:2,Rabi,groundnut,0.0002
+22:2,Rabi,horse gram,0.3958
+22:2,Rabi,jowar,0.1547
+22:2,Rabi,linseed,0.0609
+22:2,Rabi,maize,0.0037
+22:2,Rabi,mustard,0.0006
+22:2,Rabi,onion,0.0007
+22:2,Rabi,potato,0.0049
+22:2,Rabi,ragi,0.3374
+22:2,Rabi,rice,0.0004
+22:2,Rabi,sunflower,0.0
+22:2,Rabi,tomato,0.0088
+22:2,Rabi,wheat,0.0307
+22:2,Summer,chilli,0.0
+22:2,Summer,maize,0.0402
+22:2,Summer,onion,0.1322
+22:2,Summer,ragi,0.5561
+22:2,Summer,rice,0.2292
+22:2,Summer,sunflower,0.0006
+22:2,Summer,tomato,0.0416
+22:3,Kharif,bajra,0.0005
+22:3,Kharif,black gram,0.0069
+22:3,Kharif,castor,0.0034
+22:3,Kharif,chilli,0.0012
+22:3,Kharif,cotton,0.0001
+22:3,Kharif,green gram,0.0067
+22:3,Kharif,groundnut,0.0
+22:3,Kharif,horse gram,0.2559
+22:3,Kharif,maize,0.0011
+22:3,Kharif,niger seed,0.0043
+22:3,Kharif,onion,0.0001
+22:3,Kharif,pigeonpea (tur),0.0233
+22:3,Kharif,ragi,0.4685
+22:3,Kharif,rice,0.1568
+22:3,Kharif,sesame,0.0164
+22:3,Kharif,soybean,0.0001
+22:3,Kharif,sunflower,0.0001
+22:3,Kharif,tomato,0.0545
+22:3,Rabi,black gram,0.001
+22:3,Rabi,chickpea,0.0007
+22:3,Rabi,chilli,0.0003
+22:3,Rabi,cotton,0.0002
+22:3,Rabi,green gram,0.0008
+22:3,Rabi,groundnut,0.0
+22:3,Rabi,horse gram,0.4805
+22:3,Rabi,jowar,0.1019
+22:3,Rabi,linseed,0.0023
+22:3,Rabi,maize,0.0016
+22:3,Rabi,mustard,0.0005
+22:3,Rabi,onion,0.0
+22:3,Rabi,ragi,0.2882
+22:3,Rabi,rice,0.0011
+22:3,Rabi,sunflower,0.0001
+22:3,Rabi,tomato,0.1042
+22:3,Rabi,wheat,0.0167
+22:3,Summer,chilli,0.0
+22:3,Summer,maize,0.0089
+22:3,Summer,onion,0.0037
+22:3,Summer,ragi,0.2743
+22:3,Summer,rice,0.4316
+22:3,Summer,sunflower,0.0011
+22:3,Summer,tomato,0.2804
+22:4,Kharif,bajra,0.0004
+22:4,Kharif,black gram,0.0006
+22:4,Kharif,green gram,0.0
+22:4,Kharif,groundnut,0.0001
+22:4,Kharif,horse gram,0.0898
+22:4,Kharif,maize,0.0002
+22:4,Kharif,pigeonpea (tur),0.0011
+22:4,Kharif,ragi,0.2673
+22:4,Kharif,rice,0.637
+22:4,Kharif,sesame,0.0006
+22:4,Kharif,tomato,0.0028
+22:4,Rabi,black gram,0.0002
+22:4,Rabi,chickpea,0.001
+22:4,Rabi,green gram,0.0
+22:4,Rabi,groundnut,0.0002
+22:4,Rabi,horse gram,0.4368
+22:4,Rabi,jowar,0.046
+22:4,Rabi,linseed,0.0004
+22:4,Rabi,maize,0.0009
+22:4,Rabi,ragi,0.4437
+22:4,Rabi,rice,0.0128
+22:4,Rabi,tomato,0.016
+22:4,Rabi,wheat,0.0421
+22:4,Summer,maize,0.0009
+22:4,Summer,ragi,0.0746
+22:4,Summer,rice,0.9173
+22:4,Summer,tomato,0.0072
+22:5,Kharif,bajra,0.0011
+22:5,Kharif,black gram,0.0017
+22:5,Kharif,castor,0.0005
+22:5,Kharif,chilli,0.0001
+22:5,Kharif,cotton,0.0002
+22:5,Kharif,green gram,0.0084
+22:5,Kharif,groundnut,0.0014
+22:5,Kharif,horse gram,0.1441
+22:5,Kharif,maize,0.0042
+22:5,Kharif,niger seed,0.0007
+22:5,Kharif,onion,0.0005
+22:5,Kharif,pigeonpea (tur),0.018
+22:5,Kharif,potato,0.0
+22:5,Kharif,ragi,0.3783
+22:5,Kharif,rice,0.4326
+22:5,Kharif,sesame,0.0051
+22:5,Kharif,soybean,0.0003
+22:5,Kharif,tomato,0.0028
+22:5,Rabi,black gram,0.0003
+22:5,Rabi,chickpea,0.0023
+22:5,Rabi,chilli,0.0
+22:5,Rabi,cotton,0.0005
+22:5,Rabi,green gram,0.0011
+22:5,Rabi,groundnut,0.0009
+22:5,Rabi,horse gram,0.3092
+22:5,Rabi,jowar,0.3907
+22:5,Rabi,linseed,0.0019
+22:5,Rabi,maize,0.0074
+22:5,Rabi,onion,0.0002
+22:5,Rabi,potato,0.0004
+22:5,Rabi,ragi,0.2669
+22:5,Rabi,rice,0.0037
+22:5,Rabi,tomato,0.0063
+22:5,Rabi,wheat,0.0084
+22:5,Summer,chilli,0.0
+22:5,Summer,maize,0.0207
+22:5,Summer,onion,0.0114
+22:5,Summer,ragi,0.1386
+22:5,Summer,rice,0.82
+22:5,Summer,tomato,0.0093
+22:6,Kharif,bajra,0.0006
+22:6,Kharif,black gram,0.0002
+22:6,Kharif,castor,0.0001
+22:6,Kharif,cotton,0.0002
+22:6,Kharif,green gram,0.0002
+22:6,Kharif,groundnut,0.0294
+22:6,Kharif,horse gram,0.079
+22:6,Kharif,maize,0.0014
+22:6,Kharif,niger seed,0.001
+22:6,Kharif,onion,0.0
+22:6,Kharif,pigeonpea (tur),0.0005
+22:6,Kharif,ragi,0.3093
+22:6,Kharif,rice,0.5634
+22:6,Kharif,sesame,0.0125
+22:6,Kharif,sunflower,0.0
+22:6,Kharif,tomato,0.0024
+22:6,Rabi,black gram,0.0
+22:6,Rabi,chickpea,0.005
+22:6,Rabi,cotton,0.001
+22:6,Rabi,green gram,0.0
+22:6,Rabi,groundnut,0.027
+22:6,Rabi,horse gram,0.2578
+22:6,Rabi,jowar,0.3449
+22:6,Rabi,linseed,0.0027
+22:6,Rabi,maize,0.0037
+22:6,Rabi,onion,0.0
+22:6,Rabi,ragi,0.334
+22:6,Rabi,rice,0.0073
+22:6,Rabi,sunflower,0.0
+22:6,Rabi,tomato,0.0085
+22:6,Rabi,wheat,0.0078
+22:6,Summer,maize,0.0056
+22:6,Summer,onion,0.0006
+22:6,Summer,ragi,0.0954
+22:6,Summer,rice,0.8918
+22:6,Summer,sunflower,0.0001
+22:6,Summer,tomato,0.0065
+22:7,Kharif,bajra,0.0064
+22:7,Kharif,black gram,0.0011
+22:7,Kharif,castor,0.0002
+22:7,Kharif,chilli,0.0001
+22:7,Kharif,cotton,0.0001
+22:7,Kharif,green gram,0.0014
+22:7,Kharif,groundnut,0.0305
+22:7,Kharif,horse gram,0.1356
+22:7,Kharif,maize,0.0339
+22:7,Kharif,niger seed,0.0031
+22:7,Kharif,onion,0.0
+22:7,Kharif,pigeonpea (tur),0.0063
+22:7,Kharif,potato,0.0001
+22:7,Kharif,ragi,0.3835
+22:7,Kharif,rice,0.3729
+22:7,Kharif,sesame,0.0114
+22:7,Kharif,tomato,0.0132
+22:7,Rabi,black gram,0.0002
+22:7,Rabi,chickpea,0.003
+22:7,Rabi,chilli,0.0
+22:7,Rabi,cotton,0.0005
+22:7,Rabi,green gram,0.0002
+22:7,Rabi,groundnut,0.0145
+22:7,Rabi,horse gram,0.2472
+22:7,Rabi,jowar,0.339
+22:7,Rabi,linseed,0.0006
+22:7,Rabi,maize,0.0721
+22:7,Rabi,mustard,0.0008
+22:7,Rabi,onion,0.0
+22:7,Rabi,potato,0.0031
+22:7,Rabi,ragi,0.2661
+22:7,Rabi,rice,0.0037
+22:7,Rabi,tomato,0.0305
+22:7,Rabi,wheat,0.0183
+22:7,Summer,chilli,0.0
+22:7,Summer,maize,0.1466
+22:7,Summer,onion,0.0006
+22:7,Summer,ragi,0.1583
+22:7,Summer,rice,0.6463
+22:7,Summer,tomato,0.0482
+23:1,Kharif,bajra,0.0001
+23:1,Kharif,black gram,0.0001
+23:1,Kharif,castor,0.0011
+23:1,Kharif,chilli,0.09
+23:1,Kharif,groundnut,0.0002
+23:1,Kharif,jowar,0.0001
+23:1,Kharif,maize,0.0015
+23:1,Kharif,niger seed,0.0008
+23:1,Kharif,pigeonpea (tur),0.0004
+23:1,Kharif,ragi,0.0175
+23:1,Kharif,rice,0.8878
+23:1,Kharif,tobacco,0.0004
+23:1,Rabi,bajra,0.0007
+23:1,Rabi,chilli,0.5478
+23:1,Rabi,groundnut,0.001
+23:1,Rabi,jowar,0.0007
+23:1,Rabi,maize,0.0032
+23:1,Rabi,ragi,0.0292
+23:1,Rabi,rice,0.4168
+23:1,Rabi,wheat,0.0005
+23:1,Summer,jowar,0.001
+23:1,Summer,maize,0.0038
+23:1,Summer,ragi,0.0075
+23:1,Summer,rice,0.9877
+23:2,Kharif,bajra,0.0009
+23:2,Kharif,black gram,0.0003
+23:2,Kharif,castor,0.0
+23:2,Kharif,chilli,0.0039
+23:2,Kharif,cotton,0.0003
+23:2,Kharif,green gram,0.0001
+23:2,Kharif,groundnut,0.0033
+23:2,Kharif,horse gram,0.0013
+23:2,Kharif,jowar,0.0991
+23:2,Kharif,maize,0.4201
+23:2,Kharif,niger seed,0.0011
+23:2,Kharif,onion,0.0
+23:2,Kharif,pigeonpea (tur),0.0045
+23:2,Kharif,potato,0.0445
+23:2,Kharif,ragi,0.1515
+23:2,Kharif,rice,0.248
+23:2,Kharif,sesame,0.0038
+23:2,Kharif,sunflower,0.011
+23:2,Kharif,tomato,0.0065
+23:2,Rabi,bajra,0.0064
+23:2,Rabi,chickpea,0.0106
+23:2,Rabi,chilli,0.0152
+23:2,Rabi,cotton,0.0
+23:2,Rabi,green gram,0.0
+23:2,Rabi,groundnut,0.0063
+23:2,Rabi,horse gram,0.0226
+23:2,Rabi,jowar,0.2984
+23:2,Rabi,linseed,0.0027
+23:2,Rabi,maize,0.3545
+23:2,Rabi,mustard,0.0058
+23:2,Rabi,onion,0.0
+23:2,Rabi,potato,0.0308
+23:2,Rabi,ragi,0.1709
+23:2,Rabi,rice,0.0562
+23:2,Rabi,sunflower,0.0001
+23:2,Rabi,tomato,0.0066
+23:2,Rabi,wheat,0.0128
+23:2,Summer,jowar,0.311
+23:2,Summer,maize,0.5109
+23:2,Summer,potato,0.0095
+23:2,Summer,ragi,0.0302
+23:2,Summer,rice,0.1353
+23:2,Summer,tomato,0.0032
+23:3,Kharif,bajra,0.0014
+23:3,Kharif,black gram,0.0112
+23:3,Kharif,castor,0.0025
+23:3,Kharif,chilli,0.0009
+23:3,Kharif,cotton,0.0004
+23:3,Kharif,green gram,0.076
+23:3,Kharif,groundnut,0.0003
+23:3,Kharif,horse gram,0.0312
+23:3,Kharif,jowar,0.0895
+23:3,Kharif,maize,0.1501
+23:3,Kharif,niger seed,0.0029
+23:3,Kharif,onion,0.0009
+23:3,Kharif,pigeonpea (tur),0.0203
+23:3,Kharif,potato,0.0253
+23:3,Kharif,ragi,0.5098
+23:3,Kharif,rice,0.004
+23:3,Kharif,sesame,0.0361
+23:3,Kharif,soybean,0.0008
+23:3,Kharif,sunflower,0.0131
+23:3,Kharif,tomato,0.0232
+23:3,Rabi,bajra,0.0055
+23:3,Rabi,chickpea,0.018
+23:3,Rabi,chilli,0.0019
+23:3,Rabi,cotton,0.0
+23:3,Rabi,green gram,0.0003
+23:3,Rabi,groundnut,0.0004
+23:3,Rabi,horse gram,0.2959
+23:3,Rabi,jowar,0.1553
+23:3,Rabi,linseed,0.0265
+23:3,Rabi,maize,0.078
+23:3,Rabi,mustard,0.0055
+23:3,Rabi,onion,0.0006
+23:3,Rabi,potato,0.0089
+23:3,Rabi,ragi,0.3116
+23:3,Rabi,rice,0.0004
+23:3,Rabi,sunflower,0.0001
+23:3,Rabi,tomato,0.0161
+23:3,Rabi,wheat,0.075
+23:3,Summer,jowar,0.4991
+23:3,Summer,maize,0.3085
+23:3,Summer,potato,0.0079
+23:3,Summer,ragi,0.1593
+23:3,Summer,rice,0.0034
+23:3,Summer,tomato,0.0219
+23:4,Kharif,bajra,0.0004
+23:4,Kharif,black gram,0.0001
+23:4,Kharif,castor,0.0007
+23:4,Kharif,chilli,0.0004
+23:4,Kharif,cotton,0.0001
+23:4,Kharif,green gram,0.0021
+23:4,Kharif,groundnut,0.0009
+23:4,Kharif,horse gram,0.0019
+23:4,Kharif,jowar,0.0521
+23:4,Kharif,maize,0.4774
+23:4,Kharif,niger seed,0.0
+23:4,Kharif,onion,0.0002
+23:4,Kharif,pigeonpea (tur),0.0017
+23:4,Kharif,potato,0.1965
+23:4,Kharif,ragi,0.2025
+23:4,Kharif,rice,0.0491
+23:4,Kharif,sesame,0.0004
+23:4,Kharif,soybean,0.0001
+23:4,Kharif,sunflower,0.0038
+23:4,Kharif,tomato,0.0095
+23:4,Rabi,bajra,0.0028
+23:4,Rabi,chickpea,0.0234
+23:4,Rabi,chilli,0.0018
+23:4,Rabi,cotton,0.0
+23:4,Rabi,green gram,0.0
+23:4,Rabi,groundnut,0.0022
+23:4,Rabi,horse gram,0.0348
+23:4,Rabi,jowar,0.1599
+23:4,Rabi,linseed,0.0034
+23:4,Rabi,maize,0.4038
+23:4,Rabi,mustard,0.0008
+23:4,Rabi,onion,0.0002
+23:4,Rabi,potato,0.12
+23:4,Rabi,ragi,0.2169
+23:4,Rabi,rice,0.0104
+23:4,Rabi,sunflower,0.0
+23:4,Rabi,tomato,0.0112
+23:4,Rabi,wheat,0.0083
+23:4,Summer,jowar,0.1982
+23:4,Summer,maize,0.6797
+23:4,Summer,potato,0.0422
+23:4,Summer,ragi,0.0444
+23:4,Summer,rice,0.0291
+23:4,Summer,tomato,0.0064
+23:5,Kharif,bajra,0.0002
+23:5,Kharif,black gram,0.0003
+23:5,Kharif,castor,0.0003
+23:5,Kharif,chilli,0.006
+23:5,Kharif,cotton,0.0006
+23:5,Kharif,groundnut,0.0001
+23:5,Kharif,horse gram,0.0002
+23:5,Kharif,jowar,0.1356
+23:5,Kharif,maize,0.4126
+23:5,Kharif,niger seed,0.0002
+23:5,Kharif,onion,0.0002
+23:5,Kharif,pigeonpea (tur),0.0003
+23:5,Kharif,potato,0.0333
+23:5,Kharif,ragi,0.0938
+23:5,Kharif,rice,0.3163
+23:5,Rabi,bajra,0.0014
+23:5,Rabi,chickpea,0.0002
+23:5,Rabi,chilli,0.0261
+23:5,Rabi,cotton,0.0001
+23:5,Rabi,groundnut,0.0002
+23:5,Rabi,horse gram,0.0042
+23:5,Rabi,jowar,0.3635
+23:5,Rabi,linseed,0.0009
+23:5,Rabi,maize,0.3922
+23:5,Rabi,onion,0.0002
+23:5,Rabi,potato,0.0229
+23:5,Rabi,ragi,0.1038
+23:5,Rabi,rice,0.0758
+23:5,Rabi,wheat,0.0084
+23:5,Summer,jowar,0.3494
+23:5,Summer,maize,0.4762
+23:5,Summer,potato,0.0058
+23:5,Summer,ragi,0.0156
+23:5,Summer,rice,0.1529
+23:6,Kharif,bajra,0.0004
+23:6,Kharif,black gram,0.0001
+23:6,Kharif,castor,0.0
+23:6,Kharif,chilli,0.0001
+23:6,Kharif,cotton,0.0001
+23:6,Kharif,green gram,0.0001
+23:6,Kharif,groundnut,0.0001
+23:6,Kharif,horse gram,0.0018
+23:6,Kharif,jowar,0.0186
+23:6,Kharif,maize,0.4036
+23:6,Kharif,niger seed,0.0003
+23:6,Kharif,pigeonpea (tur),0.0009
+23:6,Kharif,potato,0.0606
+23:6,Kharif,ragi,0.1498
+23:6,Kharif,rice,0.2072
+23:6,Kharif,sesame,0.0001
+23:6,Kharif,soybean,0.0001
+23:6,Kharif,sunflower,0.0
+23:6,Kharif,tobacco,0.156
+23:6,Rabi,bajra,0.0043
+23:6,Rabi,chickpea,0.0029
+23:6,Rabi,chilli,0.0004
+23:6,Rabi,cotton,0.0
+23:6,Rabi,green gram,0.0
+23:6,Rabi,groundnut,0.0005
+23:6,Rabi,horse gram,0.0469
+23:6,Rabi,jowar,0.0889
+23:6,Rabi,linseed,0.0043
+23:6,Rabi,maize,0.4857
+23:6,Rabi,mustard,0.0014
+23:6,Rabi,potato,0.056
+23:6,Rabi,ragi,0.2335
+23:6,Rabi,rice,0.0665
+23:6,Rabi,sunflower,0.0
+23:6,Rabi,wheat,0.0086
+23:6,Summer,jowar,0.0991
+23:6,Summer,maize,0.6773
+23:6,Summer,potato,0.0174
+23:6,Summer,ragi,0.0409
+23:6,Summer,rice,0.1654
+23:7,Kharif,bajra,0.0001
+23:7,Kharif,black gram,0.0
+23:7,Kharif,chilli,0.0007
+23:7,Kharif,cotton,0.0002
+23:7,Kharif,green gram,0.003
+23:7,Kharif,groundnut,0.0002
+23:7,Kharif,horse gram,0.0093
+23:7,Kharif,jowar,0.0618
+23:7,Kharif,maize,0.2442
+23:7,Kharif,niger seed,0.0001
+23:7,Kharif,pigeonpea (tur),0.0007
+23:7,Kharif,potato,0.0103
+23:7,Kharif,ragi,0.3016
+23:7,Kharif,rice,0.2951
+23:7,Kharif,sesame,0.0016
+23:7,Kharif,soybean,0.0
+23:7,Kharif,sunflower,0.0002
+23:7,Kharif,tobacco,0.0705
+23:7,Kharif,tomato,0.0003
+23:7,Rabi,bajra,0.001
+23:7,Rabi,chickpea,0.0025
+23:7,Rabi,chilli,0.0028
+23:7,Rabi,cotton,0.0
+23:7,Rabi,green gram,0.0
+23:7,Rabi,groundnut,0.0004
+23:7,Rabi,horse gram,0.1717
+23:7,Rabi,jowar,0.1958
+23:7,Rabi,linseed,0.0059
+23:7,Rabi,maize,0.1949
+23:7,Rabi,mustard,0.0015
+23:7,Rabi,potato,0.0063
+23:7,Rabi,ragi,0.3264
+23:7,Rabi,rice,0.0679
+23:7,Rabi,sunflower,0.0
+23:7,Rabi,tomato,0.0003
+23:7,Rabi,wheat,0.0225
+23:7,Summer,jowar,0.2915
+23:7,Summer,maize,0.3671
+23:7,Summer,potato,0.0027
+23:7,Summer,ragi,0.0832
+23:7,Summer,rice,0.2553
+23:7,Summer,tomato,0.0002
+23:8,Kharif,bajra,0.0005
+23:8,Kharif,black gram,0.0013
+23:8,Kharif,castor,0.0014
+23:8,Kharif,chilli,0.0035
+23:8,Kharif,cotton,0.0001
+23:8,Kharif,green gram,0.0053
+23:8,Kharif,groundnut,0.0005
+23:8,Kharif,horse gram,0.0265
+23:8,Kharif,jowar,0.0773
+23:8,Kharif,maize,0.0938
+23:8,Kharif,niger seed,0.0048
+23:8,Kharif,onion,0.0
+23:8,Kharif,pigeonpea (tur),0.0062
+23:8,Kharif,potato,0.0072
+23:8,Kharif,ragi,0.6768
+23:8,Kharif,rice,0.0885
+23:8,Kharif,sesame,0.0018
+23:8,Kharif,soybean,0.0007
+23:8,Kharif,sunflower,0.0002
+23:8,Kharif,tomato,0.0035
+23:8,Rabi,bajra,0.0016
+23:8,Rabi,chickpea,0.0774
+23:8,Rabi,chilli,0.0066
+23:8,Rabi,cotton,0.0
+23:8,Rabi,green gram,0.0
+23:8,Rabi,groundnut,0.0008
+23:8,Rabi,horse gram,0.2595
+23:8,Rabi,jowar,0.1214
+23:8,Rabi,linseed,0.0114
+23:8,Rabi,maize,0.0462
+23:8,Rabi,mustard,0.0007
+23:8,Rabi,onion,0.0
+23:8,Rabi,potato,0.0029
+23:8,Rabi,ragi,0.4124
+23:8,Rabi,rice,0.0125
+23:8,Rabi,sunflower,0.0
+23:8,Rabi,tomato,0.0025
+23:8,Rabi,wheat,0.0438
+23:8,Summer,jowar,0.4199
+23:8,Summer,maize,0.2259
+23:8,Summer,potato,0.003
+23:8,Summer,ragi,0.2436
+23:8,Summer,rice,0.1033
+23:8,Summer,tomato,0.0043
+24:1,Kharif,bajra,0.0001
+24:1,Kharif,black gram,0.0016
+24:1,Kharif,chilli,0.0044
+24:1,Kharif,cotton,0.0001
+24:1,Kharif,green gram,0.0005
+24:1,Kharif,groundnut,0.0007
+24:1,Kharif,horse gram,0.0
+24:1,Kharif,niger seed,0.0004
+24:1,Kharif,onion,0.0002
+24:1,Kharif,rice,0.9907
+24:1,Kharif,sesame,0.0009
+24:1,Kharif,soybean,0.0003
+24:1,Rabi,bajra,0.0
+24:1,Rabi,black gram,0.0005
+24:1,Rabi,chickpea,0.002
+24:1,Rabi,chilli,0.0012
+24:1,Rabi,cotton,0.0
+24:1,Rabi,green gram,0.0001
+24:1,Rabi,groundnut,0.0023
+24:1,Rabi,horse gram,0.0002
+24:1,Rabi,mustard,0.0003
+24:1,Rabi,onion,0.0004
+24:1,Rabi,rice,0.9752
+24:1,Rabi,wheat,0.0177
+24:1,Summer,bajra,0.0022
+24:1,Summer,chilli,0.0026
+24:1,Summer,onion,0.0062
+24:1,Summer,rice,0.989
+24:2,Kharif,chilli,0.0076
+24:2,Kharif,green gram,0.0004
+24:2,Kharif,groundnut,0.0013
+24:2,Kharif,onion,0.0
+24:2,Kharif,ragi,0.0095
+24:2,Kharif,rice,0.9811
+24:2,Rabi,chilli,0.0021
+24:2,Rabi,green gram,0.0
+24:2,Rabi,groundnut,0.0042
+24:2,Rabi,linseed,0.0007
+24:2,Rabi,onion,0.0001
+24:2,Rabi,ragi,0.0083
+24:2,Rabi,rice,0.9518
+24:2,Rabi,wheat,0.0329
+24:2,Summer,chilli,0.004
+24:2,Summer,onion,0.0013
+24:2,Summer,ragi,0.0759
+24:2,Summer,rice,0.9188
+24:3,Kharif,bajra,0.0001
+24:3,Kharif,chilli,0.0016
+24:3,Kharif,groundnut,0.0023
+24:3,Kharif,maize,0.0004
+24:3,Kharif,niger seed,0.0002
+24:3,Kharif,ragi,0.0034
+24:3,Kharif,rice,0.9824
+24:3,Kharif,sesame,0.0092
+24:3,Kharif,soybean,0.0001
+24:3,Kharif,sunflower,0.0002
+24:3,Rabi,bajra,0.0
+24:3,Rabi,chilli,0.0004
+24:3,Rabi,groundnut,0.0063
+24:3,Rabi,linseed,0.034
+24:3,Rabi,maize,0.0004
+24:3,Rabi,ragi,0.0028
+24:3,Rabi,rice,0.7951
+24:3,Rabi,sunflower,0.0002
+24:3,Rabi,wheat,0.1607
+24:3,Summer,bajra,0.0021
+24:3,Summer,chilli,0.0009
+24:3,Summer,maize,0.0129
+24:3,Summer,ragi,0.0291
+24:3,Summer,rice,0.9534
+24:3,Summer,sunflower,0.0014
+24:4,Kharif,bajra,0.0018
+24:4,Kharif,chilli,0.1822
+24:4,Kharif,groundnut,0.0042
+24:4,Kharif,maize,0.0055
+24:4,Kharif,niger seed,0.002
+24:4,Kharif,ragi,0.0009
+24:4,Kharif,rice,0.801
+24:4,Kharif,sesame,0.0005
+24:4,Kharif,soybean,0.002
+24:4,Rabi,bajra,0.0006
+24:4,Rabi,chilli,0.0442
+24:4,Rabi,groundnut,0.0117
+24:4,Rabi,linseed,0.0406
+24:4,Rabi,maize,0.005
+24:4,Rabi,ragi,0.0007
+24:4,Rabi,rice,0.6893
+24:4,Rabi,wheat,0.2079
+24:4,Summer,bajra,0.0455
+24:4,Summer,chilli,0.1118
+24:4,Summer,maize,0.1301
+24:4,Summer,ragi,0.0061
+24:4,Summer,rice,0.7065
+24:5,Kharif,chilli,0.0246
+24:5,Kharif,green gram,0.0121
+24:5,Kharif,groundnut,0.0054
+24:5,Kharif,jowar,0.0007
+24:5,Kharif,rice,0.9306
+24:5,Kharif,sesame,0.0173
+24:5,Kharif,sunflower,0.0093
+24:5,Rabi,chickpea,0.0053
+24:5,Rabi,chilli,0.0022
+24:5,Rabi,green gram,0.0009
+24:5,Rabi,groundnut,0.0056
+24:5,Rabi,jowar,0.0185
+24:5,Rabi,linseed,0.0263
+24:5,Rabi,rice,0.4415
+24:5,Rabi,sunflower,0.0098
+24:5,Rabi,wheat,0.4899
+24:5,Summer,chilli,0.0155
+24:5,Summer,jowar,0.0253
+24:5,Summer,rice,0.8854
+24:5,Summer,sunflower,0.0738
+25:1,Kharif,bajra,0.0007
+25:1,Kharif,chilli,0.0129
+25:1,Kharif,groundnut,0.0001
+25:1,Kharif,jowar,0.0003
+25:1,Kharif,niger seed,0.0003
+25:1,Kharif,ragi,0.0004
+25:1,Kharif,rice,0.9854
+25:1,Rabi,bajra,0.0865
+25:1,Rabi,chilli,0.7673
+25:1,Rabi,groundnut,0.0477
+25:1,Rabi,rice,0.0985
+25:1,Summer,bajra,0.0403
+25:1,Summer,chilli,0.0205
+25:1,Summer,rice,0.9392
+25:2,Kharif,bajra,0.0008
+25:2,Kharif,chilli,0.0088
+25:2,Kharif,jowar,0.0991
+25:2,Kharif,maize,0.0835
+25:2,Kharif,niger seed,0.0015
+25:2,Kharif,potato,0.0005
+25:2,Kharif,ragi,0.027
+25:2,Kharif,rice,0.7691
+25:2,Kharif,tobacco,0.0092
+25:2,Kharif,tomato,0.0003
+25:2,Rabi,bajra,0.0549
+25:2,Rabi,chilli,0.5063
+25:2,Rabi,potato,0.2894
+25:2,Rabi,rice,0.058
+25:2,Rabi,tomato,0.0915
+25:2,Summer,bajra,0.0407
+25:2,Summer,chilli,0.0175
+25:2,Summer,potato,0.0421
+25:2,Summer,rice,0.765
+25:2,Summer,tomato,0.1348
+25:3,Kharif,chilli,0.1431
+25:3,Kharif,niger seed,0.0001
+25:3,Kharif,pigeonpea (tur),0.0001
+25:3,Kharif,rice,0.8567
+25:3,Rabi,chickpea,0.4642
+25:3,Rabi,chilli,0.5051
+25:3,Rabi,rice,0.0307
+25:3,Summer,chilli,0.1986
+25:3,Summer,rice,0.8014
+26:1,Kharif,bajra,0.0
+26:1,Kharif,black gram,0.0094
+26:1,Kharif,castor,0.0002
+26:1,Kharif,cotton,0.003
+26:1,Kharif,green gram,0.0001
+26:1,Kharif,groundnut,0.0001
+26:1,Kharif,horse gram,0.0036
+26:1,Kharif,jowar,0.0741
+26:1,Kharif,maize,0.1007
+26:1,Kharif,pigeonpea (tur),0.0
+26:1,Kharif,potato,0.0008
+26:1,Kharif,ragi,0.0977
+26:1,Kharif,rice,0.0654
+26:1,Kharif,sesame,0.0001
+26:1,Kharif,tobacco,0.6447
+26:1,Rabi,bajra,0.0
+26:1,Rabi,black gram,0.0
+26:1,Rabi,cotton,0.0001
+26:1,Rabi,green gram,0.0
+26:1,Rabi,groundnut,0.0
+26:1,Rabi,horse gram,0.2436
+26:1,Rabi,jowar,0.0859
+26:1,Rabi,maize,0.137
+26:1,Rabi,potato,0.0123
+26:1,Rabi,ragi,0.5194
+26:1,Rabi,wheat,0.0017
+26:1,Summer,jowar,0.1493
+26:1,Summer,maize,0.1868
+26:1,Summer,potato,0.0076
+26:1,Summer,ragi,0.046
+26:1,Summer,rice,0.6104
+26:2,Kharif,bajra,0.0003
+26:2,Kharif,black gram,0.0
+26:2,Kharif,castor,0.0001
+26:2,Kharif,chilli,0.0001
+26:2,Kharif,cotton,0.0254
+26:2,Kharif,green gram,0.0003
+26:2,Kharif,groundnut,0.002
+26:2,Kharif,horse gram,0.0018
+26:2,Kharif,jowar,0.0188
+26:2,Kharif,maize,0.1829
+26:2,Kharif,pigeonpea (tur),0.0006
+26:2,Kharif,potato,0.0
+26:2,Kharif,ragi,0.1016
+26:2,Kharif,rice,0.1193
+26:2,Kharif,sesame,0.0093
+26:2,Kharif,soybean,0.0001
+26:2,Kharif,tobacco,0.5323
+26:2,Kharif,tomato,0.0051
+26:2,Rabi,bajra,0.0003
+26:2,Rabi,black gram,0.0
+26:2,Rabi,chickpea,0.0015
+26:2,Rabi,chilli,0.0
+26:2,Rabi,cotton,0.0005
+26:2,Rabi,green gram,0.0
+26:2,Rabi,groundnut,0.0003
+26:2,Rabi,horse gram,0.1187
+26:2,Rabi,jowar,0.0192
+26:2,Rabi,linseed,0.0023
+26:2,Rabi,maize,0.2581
+26:2,Rabi,potato,0.0007
+26:2,Rabi,ragi,0.583
+26:2,Rabi,tomato,0.0094
+26:2,Rabi,wheat,0.006
+26:2,Summer,chilli,0.0
+26:2,Summer,jowar,0.0198
+26:2,Summer,maize,0.2282
+26:2,Summer,potato,0.0002
+26:2,Summer,ragi,0.0299
+26:2,Summer,rice,0.6779
+26:2,Summer,tomato,0.0439
+26:3,Kharif,bajra,0.0006
+26:3,Kharif,black gram,0.0006
+26:3,Kharif,chilli,0.0
+26:3,Kharif,cotton,0.0066
+26:3,Kharif,green gram,0.001
+26:3,Kharif,groundnut,0.0002
+26:3,Kharif,horse gram,0.0117
+26:3,Kharif,jowar,0.0034
+26:3,Kharif,maize,0.0116
+26:3,Kharif,niger seed,0.0015
+26:3,Kharif,pigeonpea (tur),0.0012
+26:3,Kharif,ragi,0.237
+26:3,Kharif,rice,0.5271
+26:3,Kharif,sesame,0.0109
+26:3,Kharif,sunflower,0.0
+26:3,Kharif,tobacco,0.1858
+26:3,Kharif,tomato,0.0006
+26:3,Rabi,bajra,0.0003
+26:3,Rabi,black gram,0.0
+26:3,Rabi,chickpea,0.0008
+26:3,Rabi,chilli,0.0
+26:3,Rabi,cotton,0.0001
+26:3,Rabi,green gram,0.0
+26:3,Rabi,groundnut,0.0
+26:3,Rabi,horse gram,0.3893
+26:3,Rabi,jowar,0.0016
+26:3,Rabi,linseed,0.0037
+26:3,Rabi,maize,0.006
+26:3,Rabi,ragi,0.5933
+26:3,Rabi,tomato,0.0005
+26:3,Rabi,wheat,0.0045
+26:3,Summer,chilli,0.0
+26:3,Summer,jowar,0.0012
+26:3,Summer,maize,0.0035
+26:3,Summer,ragi,0.0214
+26:3,Summer,rice,0.972
+26:3,Summer,tomato,0.0019
+26:4,Kharif,bajra,0.0011
+26:4,Kharif,black gram,0.0301
+26:4,Kharif,castor,0.0009
+26:4,Kharif,cotton,0.0619
+26:4,Kharif,green gram,0.0045
+26:4,Kharif,groundnut,0.0006
+26:4,Kharif,horse gram,0.0175
+26:4,Kharif,jowar,0.1164
+26:4,Kharif,maize,0.0015
+26:4,Kharif,pigeonpea (tur),0.0173
+26:4,Kharif,ragi,0.221
+26:4,Kharif,rice,0.4337
+26:4,Kharif,sesame,0.071
+26:4,Kharif,sunflower,0.0001
+26:4,Kharif,tobacco,0.0039
+26:4,Kharif,tomato,0.0185
+26:4,Rabi,bajra,0.0004
+26:4,Rabi,black gram,0.0
+26:4,Rabi,chickpea,0.0013
+26:4,Rabi,cotton,0.0004
+26:4,Rabi,green gram,0.0
+26:4,Rabi,groundnut,0.0
+26:4,Rabi,horse gram,0.4243
+26:4,Rabi,jowar,0.0477
+26:4,Rabi,linseed,0.0022
+26:4,Rabi,maize,0.0006
+26:4,Rabi,ragi,0.5077
+26:4,Rabi,tomato,0.0136
+26:4,Rabi,wheat,0.0017
+26:4,Summer,jowar,0.0479
+26:4,Summer,maize,0.0004
+26:4,Summer,ragi,0.0252
+26:4,Summer,rice,0.8624
+26:4,Summer,tomato,0.064
+26:5,Kharif,bajra,0.0005
+26:5,Kharif,black gram,0.0
+26:5,Kharif,castor,0.0006
+26:5,Kharif,chilli,0.0001
+26:5,Kharif,cotton,0.4144
+26:5,Kharif,groundnut,0.0004
+26:5,Kharif,horse gram,0.0035
+26:5,Kharif,jowar,0.0094
+26:5,Kharif,maize,0.0188
+26:5,Kharif,niger seed,0.0001
+26:5,Kharif,pigeonpea (tur),0.0067
+26:5,Kharif,ragi,0.1225
+26:5,Kharif,rice,0.309
+26:5,Kharif,sesame,0.0258
+26:5,Kharif,sunflower,0.0028
+26:5,Kharif,tobacco,0.0849
+26:5,Kharif,tomato,0.0005
+26:5,Rabi,bajra,0.0005
+26:5,Rabi,black gram,0.0
+26:5,Rabi,chickpea,0.0013
+26:5,Rabi,chilli,0.0
+26:5,Rabi,cotton,0.0098
+26:5,Rabi,groundnut,0.0001
+26:5,Rabi,horse gram,0.1754
+26:5,Rabi,jowar,0.0079
+26:5,Rabi,linseed,0.0001
+26:5,Rabi,maize,0.0434
+26:5,Rabi,mustard,0.0001
+26:5,Rabi,ragi,0.7582
+26:5,Rabi,tomato,0.0011
+26:5,Rabi,wheat,0.0021
+26:5,Summer,chilli,0.0
+26:5,Summer,jowar,0.0074
+26:5,Summer,maize,0.008
+26:5,Summer,ragi,0.0231
+26:5,Summer,rice,0.9581
+26:5,Summer,tomato,0.0033
+26:6,Kharif,bajra,0.0008
+26:6,Kharif,black gram,0.0218
+26:6,Kharif,castor,0.0018
+26:6,Kharif,chilli,0.0
+26:6,Kharif,cotton,0.1916
+26:6,Kharif,green gram,0.017
+26:6,Kharif,groundnut,0.0131
+26:6,Kharif,horse gram,0.007
+26:6,Kharif,jowar,0.2353
+26:6,Kharif,maize,0.0027
+26:6,Kharif,niger seed,0.026
+26:6,Kharif,onion,0.0
+26:6,Kharif,pigeonpea (tur),0.0158
+26:6,Kharif,ragi,0.0912
+26:6,Kharif,rice,0.3433
+26:6,Kharif,sesame,0.0078
+26:6,Kharif,soybean,0.0001
+26:6,Kharif,sunflower,0.0083
+26:6,Kharif,tobacco,0.0147
+26:6,Kharif,tomato,0.0015
+26:6,Rabi,bajra,0.0006
+26:6,Rabi,black gram,0.0
+26:6,Rabi,chickpea,0.0281
+26:6,Rabi,chilli,0.0
+26:6,Rabi,cotton,0.0026
+26:6,Rabi,green gram,0.0001
+26:6,Rabi,groundnut,0.0013
+26:6,Rabi,horse gram,0.3857
+26:6,Rabi,jowar,0.186
+26:6,Rabi,linseed,0.0007
+26:6,Rabi,maize,0.0026
+26:6,Rabi,mustard,0.0007
+26:6,Rabi,onion,0.0001
+26:6,Rabi,ragi,0.3803
+26:6,Rabi,tomato,0.0026
+26:6,Rabi,wheat,0.0086
+26:6,Summer,chilli,0.0
+26:6,Summer,jowar,0.1115
+26:6,Summer,maize,0.0012
+26:6,Summer,onion,0.0
+26:6,Summer,ragi,0.0113
+26:6,Summer,rice,0.8688
+26:6,Summer,tomato,0.0072
+26:7,Kharif,bajra,0.0002
+26:7,Kharif,black gram,0.0232
+26:7,Kharif,chilli,0.0001
+26:7,Kharif,cotton,0.0001
+26:7,Kharif,green gram,0.0062
+26:7,Kharif,groundnut,0.0344
+26:7,Kharif,horse gram,0.0039
+26:7,Kharif,jowar,0.0215
+26:7,Kharif,maize,0.0476
+26:7,Kharif,niger seed,0.0
+26:7,Kharif,onion,0.0
+26:7,Kharif,pigeonpea (tur),0.0011
+26:7,Kharif,ragi,0.0976
+26:7,Kharif,rice,0.7609
+26:7,Kharif,sesame,0.0013
+26:7,Kharif,sunflower,0.0007
+26:7,Kharif,tobacco,0.0
+26:7,Kharif,tomato,0.0011
+26:7,Rabi,bajra,0.0002
+26:7,Rabi,black gram,0.0001
+26:7,Rabi,chickpea,0.0006
+26:7,Rabi,chilli,0.0001
+26:7,Rabi,cotton,0.0
+26:7,Rabi,green gram,0.0001
+26:7,Rabi,groundnut,0.0051
+26:7,Rabi,horse gram,0.3157
+26:7,Rabi,jowar,0.0221
+26:7,Rabi,linseed,0.0005
+26:7,Rabi,maize,0.0635
+26:7,Rabi,mustard,0.0006
+26:7,Rabi,onion,0.0001
+26:7,Rabi,ragi,0.5867
+26:7,Rabi,tomato,0.0024
+26:7,Rabi,wheat,0.0023
+26:7,Summer,chilli,0.0
+26:7,Summer,jowar,0.0054
+26:7,Summer,maize,0.0101
+26:7,Summer,onion,0.0
+26:7,Summer,ragi,0.0063
+26:7,Summer,rice,0.9754
+26:7,Summer,tomato,0.0028
+27:1,Kharif,bajra,0.0004
+27:1,Kharif,black gram,0.0001
+27:1,Kharif,castor,0.0039
+27:1,Kharif,chilli,0.0
+27:1,Kharif,cotton,0.1419
+27:1,Kharif,green gram,0.001
+27:1,Kharif,groundnut,0.1357
+27:1,Kharif,horse gram,0.0057
+27:1,Kharif,jowar,0.3235
+27:1,Kharif,maize,0.0194
+27:1,Kharif,niger seed,0.0001
+27:1,Kharif,onion,0.0106
+27:1,Kharif,pigeonpea (tur),0.0029
+27:1,Kharif,potato,0.0007
+27:1,Kharif,ragi,0.0113
+27:1,Kharif,rice,0.0034
+27:1,Kharif,sesame,0.0048
+27:1,Kharif,sunflower,0.2937
+27:1,Kharif,tobacco,0.0321
+27:1,Kharif,tomato,0.0089
+27:1,Rabi,bajra,0.0001
+27:1,Rabi,black gram,0.0002
+27:1,Rabi,chickpea,0.0932
+27:1,Rabi,chilli,0.002
+27:1,Rabi,cotton,0.0146
+27:1,Rabi,green gram,0.001
+27:1,Rabi,groundnut,0.1158
+27:1,Rabi,horse gram,0.2449
+27:1,Rabi,jowar,0.088
+27:1,Rabi,linseed,0.0035
+27:1,Rabi,maize,0.0883
+27:1,Rabi,mustard,0.0065
+27:1,Rabi,onion,0.1629
+27:1,Rabi,potato,0.0003
+27:1,Rabi,ragi,0.0019
+27:1,Rabi,rice,0.0042
+27:1,Rabi,sunflower,0.1051
+27:1,Rabi,tomato,0.0449
+27:1,Rabi,wheat,0.0226
+27:1,Summer,chilli,0.003
+27:1,Summer,jowar,0.1057
+27:1,Summer,maize,0.3186
+27:1,Summer,onion,0.073
+27:1,Summer,ragi,0.0124
+27:1,Summer,rice,0.0312
+27:1,Summer,sunflower,0.3802
+27:1,Summer,tomato,0.076
+27:2,Kharif,bajra,0.0022
+27:2,Kharif,black gram,0.0669
+27:2,Kharif,castor,0.0013
+27:2,Kharif,chilli,0.0
+27:2,Kharif,cotton,0.002
+27:2,Kharif,green gram,0.0371
+27:2,Kharif,groundnut,0.038
+27:2,Kharif,horse gram,0.0347
+27:2,Kharif,jowar,0.4563
+27:2,Kharif,maize,0.0461
+27:2,Kharif,onion,0.0029
+27:2,Kharif,pigeonpea (tur),0.0137
+27:2,Kharif,ragi,0.1479
+27:2,Kharif,rice,0.0456
+27:2,Kharif,sesame,0.0362
+27:2,Kharif,soybean,0.0005
+27:2,Kharif,sunflower,0.0608
+27:2,Kharif,tomato,0.0079
+27:2,Rabi,bajra,0.0001
+27:2,Rabi,black gram,0.0356
+27:2,Rabi,chickpea,0.1096
+27:2,Rabi,chilli,0.0002
+27:2,Rabi,cotton,0.0001
+27:2,Rabi,green gram,0.0138
+27:2,Rabi,groundnut,0.013
+27:2,Rabi,horse gram,0.5848
+27:2,Rabi,jowar,0.0483
+27:2,Rabi,linseed,0.004
+27:2,Rabi,maize,0.0801
+27:2,Rabi,mustard,0.0015
+27:2,Rabi,onion,0.016
+27:2,Rabi,ragi,0.0102
+27:2,Rabi,rice,0.0221
+27:2,Rabi,sunflower,0.0082
+27:2,Rabi,tomato,0.0151
+27:2,Rabi,wheat,0.0373
+27:2,Summer,chilli,0.0005
+27:2,Summer,jowar,0.0911
+27:2,Summer,maize,0.464
+27:2,Summer,onion,0.0121
+27:2,Summer,ragi,0.0979
+27:2,Summer,rice,0.2448
+27:2,Summer,sunflower,0.0472
+27:2,Summer,tomato,0.0424
+27:3,Kharif,bajra,0.0014
+27:3,Kharif,black gram,0.1006
+27:3,Kharif,green gram,0.0566
+27:3,Kharif,horse gram,0.0006
+27:3,Kharif,jowar,0.1351
+27:3,Kharif,maize,0.0386
+27:3,Kharif,pigeonpea (tur),0.0021
+27:3,Kharif,ragi,0.1855
+27:3,Kharif,rice,0.479
+27:3,Kharif,sesame,0.0005
+27:3,Rabi,bajra,0.0002
+27:3,Rabi,black gram,0.1336
+27:3,Rabi,chickpea,0.0032
+27:3,Rabi,green gram,0.0514
+27:3,Rabi,horse gram,0.023
+27:3,Rabi,jowar,0.0339
+27:3,Rabi,linseed,0.0094
+27:3,Rabi,maize,0.1621
+27:3,Rabi,ragi,0.0296
+27:3,Rabi,rice,0.549
+27:3,Rabi,wheat,0.0047
+27:3,Summer,jowar,0.0089
+27:3,Summer,maize,0.1165
+27:3,Summer,ragi,0.0361
+27:3,Summer,rice,0.8385
+27:4,Kharif,bajra,0.0098
+27:4,Kharif,black gram,0.0015
+27:4,Kharif,castor,0.0
+27:4,Kharif,chilli,0.0
+27:4,Kharif,cotton,0.0019
+27:4,Kharif,green gram,0.0048
+27:4,Kharif,groundnut,0.1138
+27:4,Kharif,horse gram,0.0184
+27:4,Kharif,jowar,0.1709
+27:4,Kharif,maize,0.3681
+27:4,Kharif,onion,0.01
+27:4,Kharif,pigeonpea (tur),0.0006
+27:4,Kharif,potato,0.024
+27:4,Kharif,ragi,0.1766
+27:4,Kharif,rice,0.0927
+27:4,Kharif,sesame,0.0055
+27:4,Kharif,sunflower,0.0001
+27:4,Kharif,tomato,0.0011
+27:4,Rabi,bajra,0.0006
+27:4,Rabi,black gram,0.0007
+27:4,Rabi,chickpea,0.0012
+27:4,Rabi,chilli,0.001
+27:4,Rabi,cotton,0.0001
+27:4,Rabi,green gram,0.0015
+27:4,Rabi,groundnut,0.0331
+27:4,Rabi,horse gram,0.2846
+27:4,Rabi,jowar,0.0166
+27:4,Rabi,linseed,0.0016
+27:4,Rabi,maize,0.5403
+27:4,Rabi,mustard,0.0012
+27:4,Rabi,onion,0.0544
+27:4,Rabi,potato,0.0036
+27:4,Rabi,ragi,0.0104
+27:4,Rabi,rice,0.0387
+27:4,Rabi,sunflower,0.0
+27:4,Rabi,tomato,0.0019
+27:4,Rabi,wheat,0.0086
+27:4,Summer,chilli,0.0011
+27:4,Summer,jowar,0.0153
+27:4,Summer,maize,0.7756
+27:4,Summer,onion,0.0194
+27:4,Summer,ragi,0.0392
+27:4,Summer,rice,0.1467
+27:4,Summer,sunflower,0.0
+27:4,Summer,tomato,0.0027
+28:5,Kharif,bajra,0.0003
+28:5,Kharif,black gram,0.0003
+28:5,Kharif,castor,0.0036
+28:5,Kharif,chilli,0.0004
+28:5,Kharif,cotton,0.0002
+28:5,Kharif,green gram,0.0002
+28:5,Kharif,groundnut,0.0012
+28:5,Kharif,horse gram,0.0473
+28:5,Kharif,jowar,0.0451
+28:5,Kharif,maize,0.0012
+28:5,Kharif,niger seed,0.0034
+28:5,Kharif,onion,0.0001
+28:5,Kharif,pigeonpea (tur),0.0666
+28:5,Kharif,ragi,0.7684
+28:5,Kharif,rice,0.0579
+28:5,Kharif,sesame,0.0001
+28:5,Kharif,tobacco,0.0
+28:5,Kharif,tomato,0.0038
+28:5,Rabi,chickpea,0.0025
+28:5,Rabi,horse gram,0.3135
+28:5,Rabi,jowar,0.1659
+28:5,Rabi,linseed,0.0022
+28:5,Rabi,maize,0.0094
+28:5,Rabi,mustard,0.0696
+28:5,Rabi,onion,0.0007
+28:5,Rabi,ragi,0.3385
+28:5,Rabi,rice,0.0261
+28:5,Rabi,tomato,0.0165
+28:5,Rabi,wheat,0.0551
+28:5,Summer,maize,0.0061
+28:5,Summer,ragi,0.4415
+28:5,Summer,rice,0.2149
+28:5,Summer,tomato,0.3375
+28:6,Kharif,bajra,0.0002
+28:6,Kharif,castor,0.0023
+28:6,Kharif,chilli,0.0003
+28:6,Kharif,cotton,0.0001
+28:6,Kharif,green gram,0.0002
+28:6,Kharif,groundnut,0.0037
+28:6,Kharif,horse gram,0.0769
+28:6,Kharif,jowar,0.0269
+28:6,Kharif,maize,0.0062
+28:6,Kharif,niger seed,0.0054
+28:6,Kharif,pigeonpea (tur),0.0377
+28:6,Kharif,ragi,0.8006
+28:6,Kharif,rice,0.0385
+28:6,Kharif,sesame,0.0005
+28:6,Kharif,soybean,0.0
+28:6,Kharif,tomato,0.0005
+28:6,Rabi,chickpea,0.0077
+28:6,Rabi,horse gram,0.4233
+28:6,Rabi,jowar,0.0823
+28:6,Rabi,linseed,0.0037
+28:6,Rabi,maize,0.0454
+28:6,Rabi,mustard,0.0301
+28:6,Rabi,ragi,0.2878
+28:6,Rabi,rice,0.0135
+28:6,Rabi,tomato,0.002
+28:6,Rabi,wheat,0.1042
+28:6,Summer,maize,0.065
+28:6,Summer,ragi,0.6629
+28:6,Summer,rice,0.1843
+28:6,Summer,tomato,0.0879
+28:7,Kharif,bajra,0.0002
+28:7,Kharif,black gram,0.0016
+28:7,Kharif,castor,0.0001
+28:7,Kharif,chilli,0.0001
+28:7,Kharif,cotton,0.0002
+28:7,Kharif,green gram,0.0009
+28:7,Kharif,groundnut,0.0086
+28:7,Kharif,horse gram,0.0528
+28:7,Kharif,jowar,0.0455
+28:7,Kharif,maize,0.0052
+28:7,Kharif,niger seed,0.0
+28:7,Kharif,onion,0.0001
+28:7,Kharif,pigeonpea (tur),0.028
+28:7,Kharif,ragi,0.7688
+28:7,Kharif,rice,0.0848
+28:7,Kharif,sesame,0.0009
+28:7,Kharif,sunflower,0.0001
+28:7,Kharif,tomato,0.0023
+28:7,Rabi,chickpea,0.0066
+28:7,Rabi,horse gram,0.326
+28:7,Rabi,jowar,0.1547
+28:7,Rabi,linseed,0.0294
+28:7,Rabi,maize,0.0453
+28:7,Rabi,mustard,0.0005
+28:7,Rabi,onion,0.0013
+28:7,Rabi,ragi,0.3122
+28:7,Rabi,rice,0.0334
+28:7,Rabi,tomato,0.0101
+28:7,Rabi,wheat,0.0807
+28:7,Summer,maize,0.0357
+28:7,Summer,ragi,0.4277
+28:7,Summer,rice,0.2746
+28:7,Summer,tomato,0.262
+28:8,Kharif,bajra,0.0002
+28:8,Kharif,black gram,0.0001
+28:8,Kharif,castor,0.0052
+28:8,Kharif,chilli,0.0003
+28:8,Kharif,cotton,0.0004
+28:8,Kharif,green gram,0.0019
+28:8,Kharif,groundnut,0.1328
+28:8,Kharif,horse gram,0.0298
+28:8,Kharif,jowar,0.0293
+28:8,Kharif,maize,0.0074
+28:8,Kharif,niger seed,0.0026
+28:8,Kharif,onion,0.0
+28:8,Kharif,pigeonpea (tur),0.0274
+28:8,Kharif,ragi,0.6981
+28:8,Kharif,rice,0.0603
+28:8,Kharif,sesame,0.0035
+28:8,Kharif,soybean,0.0
+28:8,Kharif,sunflower,0.0
+28:8,Kharif,tomato,0.0007
+28:8,Rabi,chickpea,0.0149
+28:8,Rabi,horse gram,0.2417
+28:8,Rabi,jowar,0.1321
+28:8,Rabi,linseed,0.0769
+28:8,Rabi,maize,0.0814
+28:8,Rabi,mustard,0.0176
+28:8,Rabi,onion,0.0006
+28:8,Rabi,ragi,0.3705
+28:8,Rabi,rice,0.0312
+28:8,Rabi,tomato,0.0038
+28:8,Rabi,wheat,0.0292
+28:8,Summer,maize,0.0821
+28:8,Summer,ragi,0.5493
+28:8,Summer,rice,0.2665
+28:8,Summer,tomato,0.1021
+29:1,Kharif,bajra,0.0001
+29:1,Kharif,black gram,0.0001
+29:1,Kharif,castor,0.0002
+29:1,Kharif,cotton,0.0
+29:1,Kharif,green gram,0.0002
+29:1,Kharif,groundnut,0.0174
+29:1,Kharif,horse gram,0.0033
+29:1,Kharif,jowar,0.0304
+29:1,Kharif,maize,0.6539
+29:1,Kharif,niger seed,0.0001
+29:1,Kharif,onion,0.0
+29:1,Kharif,pigeonpea (tur),0.0291
+29:1,Kharif,potato,0.0
+29:1,Kharif,ragi,0.2115
+29:1,Kharif,rice,0.0468
+29:1,Kharif,sunflower,0.0001
+29:1,Kharif,tomato,0.0068
+29:1,Rabi,bajra,0.0001
+29:1,Rabi,black gram,0.0003
+29:1,Rabi,chickpea,0.0085
+29:1,Rabi,chilli,0.0062
+29:1,Rabi,cotton,0.0002
+29:1,Rabi,green gram,0.0007
+29:1,Rabi,groundnut,0.0282
+29:1,Rabi,horse gram,0.0371
+29:1,Rabi,jowar,0.1612
+29:1,Rabi,linseed,0.0013
+29:1,Rabi,maize,0.4997
+29:1,Rabi,mustard,0.0029
+29:1,Rabi,onion,0.0005
+29:1,Rabi,potato,0.0005
+29:1,Rabi,ragi,0.0938
+29:1,Rabi,rice,0.1328
+29:1,Rabi,sunflower,0.0038
+29:1,Rabi,tomato,0.0137
+29:1,Rabi,wheat,0.0086
+29:1,Summer,bajra,0.0
+29:1,Summer,jowar,0.124
+29:1,Summer,maize,0.5175
+29:1,Summer,onion,0.0004
+29:1,Summer,potato,0.0
+29:1,Summer,ragi,0.0551
+29:1,Summer,rice,0.2625
+29:1,Summer,sunflower,0.0027
+29:1,Summer,tomato,0.0377
+29:2,Kharif,bajra,0.0071
+29:2,Kharif,black gram,0.0001
+29:2,Kharif,groundnut,0.0182
+29:2,Kharif,horse gram,0.0098
+29:2,Kharif,jowar,0.0711
+29:2,Kharif,maize,0.0559
+29:2,Kharif,onion,0.0015
+29:2,Kharif,pigeonpea (tur),0.0373
+29:2,Kharif,potato,0.0036
+29:2,Kharif,ragi,0.7645
+29:2,Kharif,rice,0.0231
+29:2,Kharif,sesame,0.0001
+29:2,Kharif,sunflower,0.0001
+29:2,Kharif,tomato,0.0077
+29:2,Rabi,bajra,0.0082
+29:2,Rabi,black gram,0.0004
+29:2,Rabi,chickpea,0.0102
+29:2,Rabi,chilli,0.0021
+29:2,Rabi,groundnut,0.0258
+29:2,Rabi,horse gram,0.0867
+29:2,Rabi,jowar,0.302
+29:2,Rabi,maize,0.0344
+29:2,Rabi,mustard,0.0021
+29:2,Rabi,onion,0.0331
+29:2,Rabi,potato,0.1266
+29:2,Rabi,ragi,0.281
+29:2,Rabi,rice,0.0585
+29:2,Rabi,sunflower,0.0025
+29:2,Rabi,tomato,0.0125
+29:2,Rabi,wheat,0.0139
+29:2,Summer,bajra,0.0019
+29:2,Summer,jowar,0.3751
+29:2,Summer,maize,0.0555
+29:2,Summer,onion,0.042
+29:2,Summer,potato,0.0087
+29:2,Summer,ragi,0.2649
+29:2,Summer,rice,0.2042
+29:2,Summer,sunflower,0.003
+29:2,Summer,tomato,0.0446
+29:3,Kharif,bajra,0.0008
+29:3,Kharif,castor,0.0003
+29:3,Kharif,groundnut,0.1845
+29:3,Kharif,horse gram,0.0008
+29:3,Kharif,jowar,0.0732
+29:3,Kharif,maize,0.286
+29:3,Kharif,niger seed,0.0001
+29:3,Kharif,onion,0.0012
+29:3,Kharif,pigeonpea (tur),0.0697
+29:3,Kharif,potato,0.0001
+29:3,Kharif,ragi,0.35
+29:3,Kharif,rice,0.015
+29:3,Kharif,sunflower,0.0
+29:3,Kharif,tomato,0.0184
+29:3,Rabi,bajra,0.0007
+29:3,Rabi,chickpea,0.0003
+29:3,Rabi,chilli,0.001
+29:3,Rabi,groundnut,0.252
+29:3,Rabi,horse gram,0.006
+29:3,Rabi,jowar,0.252
+29:3,Rabi,linseed,0.001
+29:3,Rabi,maize,0.2348
+29:3,Rabi,mustard,0.0032
+29:3,Rabi,onion,0.036
+29:3,Rabi,potato,0.0072
+29:3,Rabi,ragi,0.1381
+29:3,Rabi,rice,0.0324
+29:3,Rabi,sunflower,0.001
+29:3,Rabi,tomato,0.0314
+29:3,Rabi,wheat,0.003
+29:3,Summer,bajra,0.0002
+29:3,Summer,jowar,0.2809
+29:3,Summer,maize,0.3358
+29:3,Summer,onion,0.0457
+29:3,Summer,potato,0.0004
+29:3,Summer,ragi,0.1186
+29:3,Summer,rice,0.1089
+29:3,Summer,sunflower,0.0013
+29:3,Summer,tomato,0.1081
+29:4,Kharif,bajra,0.002
+29:4,Kharif,castor,0.0
+29:4,Kharif,cotton,0.0001
+29:4,Kharif,groundnut,0.3842
+29:4,Kharif,horse gram,0.0011
+29:4,Kharif,jowar,0.0269
+29:4,Kharif,maize,0.3231
+29:4,Kharif,niger seed,0.0001
+29:4,Kharif,onion,0.0012
+29:4,Kharif,pigeonpea (tur),0.0305
+29:4,Kharif,potato,0.001
+29:4,Kharif,ragi,0.1858
+29:4,Kharif,rice,0.0376
+29:4,Kharif,sunflower,0.0007
+29:4,Kharif,tomato,0.0056
+29:4,Rabi,bajra,0.0016
+29:4,Rabi,chickpea,0.0055
+29:4,Rabi,chilli,0.001
+29:4,Rabi,cotton,0.003
+29:4,Rabi,groundnut,0.4233
+29:4,Rabi,horse gram,0.0074
+29:4,Rabi,jowar,0.1062
+29:4,Rabi,maize,0.2081
+29:4,Rabi,mustard,0.0032
+29:4,Rabi,onion,0.0267
+29:4,Rabi,potato,0.0399
+29:4,Rabi,ragi,0.0713
+29:4,Rabi,rice,0.0737
+29:4,Rabi,sunflower,0.0209
+29:4,Rabi,tomato,0.0071
+29:4,Rabi,wheat,0.001
+29:4,Summer,bajra,0.0005
+29:4,Summer,jowar,0.1438
+29:4,Summer,maize,0.3562
+29:4,Summer,onion,0.0407
+29:4,Summer,potato,0.0028
+29:4,Summer,ragi,0.0723
+29:4,Summer,rice,0.3173
+29:4,Summer,sunflower,0.0348
+29:4,Summer,tomato,0.0315
+29:5,Kharif,bajra,0.0008
+29:5,Kharif,black gram,0.0002
+29:5,Kharif,cotton,0.0
+29:5,Kharif,green gram,0.0001
+29:5,Kharif,groundnut,0.0026
+29:5,Kharif,horse gram,0.0267
+29:5,Kharif,jowar,0.0291
+29:5,Kharif,maize,0.0404
+29:5,Kharif,onion,0.0013
+29:5,Kharif,pigeonpea (tur),0.0195
+29:5,Kharif,potato,0.0011
+29:5,Kharif,ragi,0.8373
+29:5,Kharif,rice,0.0323
+29:5,Kharif,sesame,0.0003
+29:5,Kharif,tomato,0.0082
+29:5,Rabi,bajra,0.0007
+29:5,Rabi,black gram,0.0006
+29:5,Rabi,chickpea,0.0057
+29:5,Rabi,cotton,0.0008
+29:5,Rabi,green gram,0.0002
+29:5,Rabi,groundnut,0.0042
+29:5,Rabi,horse gram,0.2404
+29:5,Rabi,jowar,0.136
+29:5,Rabi,maize,0.0211
+29:5,Rabi,onion,0.0332
+29:5,Rabi,potato,0.0433
+29:5,Rabi,ragi,0.3299
+29:5,Rabi,rice,0.0697
+29:5,Rabi,tomato,0.0122
+29:5,Rabi,wheat,0.1019
+29:5,Summer,bajra,0.0002
+29:5,Summer,jowar,0.1944
+29:5,Summer,maize,0.0367
+29:5,Summer,onion,0.0577
+29:5,Summer,potato,0.0034
+29:5,Summer,ragi,0.3707
+29:5,Summer,rice,0.2839
+29:5,Summer,tomato,0.053
+29:6,Kharif,bajra,0.0
+29:6,Kharif,black gram,0.0
+29:6,Kharif,cotton,0.0
+29:6,Kharif,green gram,0.0
+29:6,Kharif,groundnut,0.1057
+29:6,Kharif,horse gram,0.0121
+29:6,Kharif,jowar,0.0227
+29:6,Kharif,maize,0.0452
+29:6,Kharif,niger seed,0.0002
+29:6,Kharif,onion,0.0003
+29:6,Kharif,pigeonpea (tur),0.0275
+29:6,Kharif,potato,0.0006
+29:6,Kharif,ragi,0.7073
+29:6,Kharif,rice,0.0458
+29:6,Kharif,tomato,0.0325
+29:6,Rabi,bajra,0.0
+29:6,Rabi,black gram,0.0001
+29:6,Rabi,chickpea,0.0832
+29:6,Rabi,cotton,0.0007
+29:6,Rabi,green gram,0.0
+29:6,Rabi,groundnut,0.1554
+29:6,Rabi,horse gram,0.1237
+29:6,Rabi,jowar,0.1192
+29:6,Rabi,linseed,0.0006
+29:6,Rabi,maize,0.0357
+29:6,Rabi,mustard,0.0005
+29:6,Rabi,onion,0.0072
+29:6,Rabi,potato,0.0234
+29:6,Rabi,ragi,0.2887
+29:6,Rabi,rice,0.1079
+29:6,Rabi,tomato,0.05
+29:6,Rabi,wheat,0.0035
+29:6,Summer,bajra,0.0
+29:6,Summer,jowar,0.1763
+29:6,Summer,maize,0.0753
+29:6,Summer,onion,0.0116
+29:6,Summer,potato,0.0013
+29:6,Summer,ragi,0.292
+29:6,Summer,rice,0.2914
+29:6,Summer,tomato,0.152
+2:1,Kharif,bajra,0.0434
+2:1,Kharif,black gram,0.0009
+2:1,Kharif,castor,0.001
+2:1,Kharif,chilli,0.0006
+2:1,Kharif,cotton,0.0019
+2:1,Kharif,green gram,0.0026
+2:1,Kharif,groundnut,0.0004
+2:1,Kharif,horse gram,0.0095
+2:1,Kharif,jowar,0.0121
+2:1,Kharif,maize,0.6893
+2:1,Kharif,onion,0.0502
+2:1,Kharif,pigeonpea (tur),0.0118
+2:1,Kharif,ragi,0.002
+2:1,Kharif,rice,0.0094
+2:1,Kharif,sesame,0.0003
+2:1,Kharif,soybean,0.0094
+2:1,Kharif,sunflower,0.1512
+2:1,Kharif,tomato,0.0038
+2:1,Rabi,chickpea,0.0599
+2:1,Rabi,chilli,0.0001
+2:1,Rabi,cotton,0.0002
+2:1,Rabi,groundnut,0.0168
+2:1,Rabi,horse gram,0.0054
+2:1,Rabi,jowar,0.5587
+2:1,Rabi,linseed,0.0007
+2:1,Rabi,maize,0.1638
+2:1,Rabi,mustard,0.0008
+2:1,Rabi,onion,0.0014
+2:1,Rabi,potato,0.0
+2:1,Rabi,sunflower,0.0098
+2:1,Rabi,tomato,0.0036
+2:1,Rabi,wheat,0.1788
+2:1,Summer,chilli,0.0
+2:1,Summer,maize,0.9243
+2:1,Summer,onion,0.01
+2:1,Summer,sunflower,0.0452
+2:1,Summer,tomato,0.0204
+2:2,Kharif,bajra,0.1894
+2:2,Kharif,black gram,0.0006
+2:2,Kharif,castor,0.0003
+2:2,Kharif,chilli,0.0102
+2:2,Kharif,cotton,0.0232
+2:2,Kharif,green gram,0.0054
+2:2,Kharif,groundnut,0.0031
+2:2,Kharif,horse gram,0.0008
+2:2,Kharif,jowar,0.0122
+2:2,Kharif,maize,0.3239
+2:2,Kharif,onion,0.0757
+2:2,Kharif,pigeonpea (tur),0.078
+2:2,Kharif,ragi,0.001
+2:2,Kharif,rice,0.1216
+2:2,Kharif,sesame,0.0021
+2:2,Kharif,soybean,0.0038
+2:2,Kharif,sunflower,0.1477
+2:2,Kharif,tomato,0.0011
+2:2,Rabi,chickpea,0.1001
+2:2,Rabi,chilli,0.0008
+2:2,Rabi,cotton,0.0016
+2:2,Rabi,groundnut,0.1365
+2:2,Rabi,horse gram,0.0009
+2:2,Rabi,jowar,0.4894
+2:2,Rabi,linseed,0.0019
+2:2,Rabi,maize,0.1014
+2:2,Rabi,mustard,0.0028
+2:2,Rabi,onion,0.0038
+2:2,Rabi,potato,0.0033
+2:2,Rabi,sunflower,0.0091
+2:2,Rabi,tomato,0.0022
+2:2,Rabi,wheat,0.1463
+2:2,Summer,chilli,0.0008
+2:2,Summer,maize,0.8732
+2:2,Summer,onion,0.0337
+2:2,Summer,sunflower,0.0787
+2:2,Summer,tomato,0.0137
+2:3,Kharif,bajra,0.0535
+2:3,Kharif,castor,0.0015
+2:3,Kharif,chilli,0.0004
+2:3,Kharif,cotton,0.0119
+2:3,Kharif,green gram,0.1128
+2:3,Kharif,groundnut,0.0013
+2:3,Kharif,jowar,0.01
+2:3,Kharif,maize,0.5258
+2:3,Kharif,onion,0.1099
+2:3,Kharif,pigeonpea (tur),0.005
+2:3,Kharif,ragi,0.0028
+2:3,Kharif,rice,0.0436
+2:3,Kharif,soybean,0.0842
+2:3,Kharif,sunflower,0.0356
+2:3,Kharif,tomato,0.0018
+2:3,Rabi,chickpea,0.1518
+2:3,Rabi,chilli,0.0
+2:3,Rabi,cotton,0.0009
+2:3,Rabi,groundnut,0.04
+2:3,Rabi,jowar,0.4296
+2:3,Rabi,linseed,0.0272
+2:3,Rabi,maize,0.1147
+2:3,Rabi,mustard,0.0001
+2:3,Rabi,onion,0.0032
+2:3,Rabi,potato,0.0
+2:3,Rabi,sunflower,0.0017
+2:3,Rabi,tomato,0.0019
+2:3,Rabi,wheat,0.2288
+2:3,Summer,chilli,0.0
+2:3,Summer,maize,0.9401
+2:3,Summer,onion,0.0324
+2:3,Summer,sunflower,0.0121
+2:3,Summer,tomato,0.0154
+2:4,Kharif,bajra,0.248
+2:4,Kharif,black gram,0.0003
+2:4,Kharif,castor,0.001
+2:4,Kharif,chilli,0.0003
+2:4,Kharif,cotton,0.0137
+2:4,Kharif,green gram,0.2034
+2:4,Kharif,groundnut,0.0026
+2:4,Kharif,horse gram,0.0057
+2:4,Kharif,jowar,0.0053
+2:4,Kharif,maize,0.2318
+2:4,Kharif,niger seed,0.0
+2:4,Kharif,onion,0.0388
+2:4,Kharif,pigeonpea (tur),0.0443
+2:4,Kharif,ragi,0.0001
+2:4,Kharif,rice,0.0119
+2:4,Kharif,sesame,0.0099
+2:4,Kharif,sunflower,0.1827
+2:4,Kharif,tomato,0.0001
+2:4,Rabi,chickpea,0.1465
+2:4,Rabi,chilli,0.0
+2:4,Rabi,cotton,0.002
+2:4,Rabi,groundnut,0.1757
+2:4,Rabi,horse gram,0.0071
+2:4,Rabi,jowar,0.4743
+2:4,Rabi,linseed,0.0061
+2:4,Rabi,maize,0.1114
+2:4,Rabi,mustard,0.0081
+2:4,Rabi,onion,0.0023
+2:4,Rabi,potato,0.0002
+2:4,Rabi,sunflower,0.0212
+2:4,Rabi,tomato,0.0002
+2:4,Rabi,wheat,0.045
+2:4,Summer,chilli,0.0
+2:4,Summer,maize,0.838
+2:4,Summer,onion,0.0224
+2:4,Summer,sunflower,0.138
+2:4,Summer,tomato,0.0016
+2:5,Kharif,bajra,0.2266
+2:5,Kharif,black gram,0.0006
+2:5,Kharif,castor,0.001
+2:5,Kharif,chilli,0.0066
+2:5,Kharif,cotton,0.0038
+2:5,Kharif,green gram,0.2073
+2:5,Kharif,groundnut,0.0035
+2:5,Kharif,horse gram,0.0036
+2:5,Kharif,jowar,0.0079
+2:5,Kharif,maize,0.1074
+2:5,Kharif,niger seed,0.0003
+2:5,Kharif,onion,0.1292
+2:5,Kharif,pigeonpea (tur),0.1366
+2:5,Kharif,ragi,0.0002
+2:5,Kharif,rice,0.0546
+2:5,Kharif,sesame,0.0062
+2:5,Kharif,soybean,0.0054
+2:5,Kharif,sunflower,0.0984
+2:5,Kharif,tomato,0.0009
+2:5,Rabi,chickpea,0.1508
+2:5,Rabi,chilli,0.0011
+2:5,Rabi,cotton,0.0005
+2:5,Rabi,groundnut,0.1811
+2:5,Rabi,horse gram,0.0046
+2:5,Rabi,jowar,0.497
+2:5,Rabi,linseed,0.0031
+2:5,Rabi,maize,0.0386
+2:5,Rabi,mustard,0.0029
+2:5,Rabi,onion,0.0057
+2:5,Rabi,potato,0.0034
+2:5,Rabi,sunflower,0.0089
+2:5,Rabi,tomato,0.0018
+2:5,Rabi,wheat,0.1007
+2:5,Summer,chilli,0.0015
+2:5,Summer,maize,0.7058
+2:5,Summer,onion,0.1294
+2:5,Summer,sunflower,0.136
+2:5,Summer,tomato,0.0273
+2:6,Kharif,bajra,0.1989
+2:6,Kharif,black gram,0.0009
+2:6,Kharif,castor,0.0003
+2:6,Kharif,chilli,0.0036
+2:6,Kharif,cotton,0.0044
+2:6,Kharif,green gram,0.3147
+2:6,Kharif,groundnut,0.001
+2:6,Kharif,horse gram,0.0025
+2:6,Kharif,jowar,0.0108
+2:6,Kharif,maize,0.0702
+2:6,Kharif,niger seed,0.0001
+2:6,Kharif,onion,0.0309
+2:6,Kharif,pigeonpea (tur),0.1169
+2:6,Kharif,ragi,0.0002
+2:6,Kharif,rice,0.0022
+2:6,Kharif,sesame,0.0233
+2:6,Kharif,soybean,0.0007
+2:6,Kharif,sunflower,0.2185
+2:6,Kharif,tomato,0.0
+2:6,Rabi,chickpea,0.3211
+2:6,Rabi,chilli,0.0003
+2:6,Rabi,cotton,0.0005
+2:6,Rabi,groundnut,0.0415
+2:6,Rabi,horse gram,0.0023
+2:6,Rabi,jowar,0.5568
+2:6,Rabi,linseed,0.003
+2:6,Rabi,maize,0.0223
+2:6,Rabi,mustard,0.0004
+2:6,Rabi,onion,0.0011
+2:6,Rabi,potato,0.0002
+2:6,Rabi,sunflower,0.015
+2:6,Rabi,tomato,0.0
+2:6,Rabi,wheat,0.0355
+2:6,Summer,chilli,0.0011
+2:6,Summer,maize,0.5635
+2:6,Summer,onion,0.0406
+2:6,Summer,sunflower,0.3946
+2:6,Summer,tomato,0.0002
+30:10,Kharif,bajra,0.0039
+30:10,Kharif,black gram,0.0063
+30:10,Kharif,castor,0.002
+30:10,Kharif,cotton,0.2028
+30:10,Kharif,green gram,0.2204
+30:10,Kharif,groundnut,0.0015
+30:10,Kharif,horse gram,0.0003
+30:10,Kharif,jowar,0.0007
+30:10,Kharif,maize,0.0019
+30:10,Kharif,niger seed,0.0001
+30:10,Kharif,onion,0.0
+30:10,Kharif,pigeonpea (tur),0.458
+30:10,Kharif,ragi,0.0
+30:10,Kharif,rice,0.1002
+30:10,Kharif,soybean,0.0012
+30:10,Kharif,sunflower,0.0006
+30:10,Rabi,bajra,0.0046
+30:10,Rabi,chickpea,0.0921
+30:10,Rabi,cotton,0.0026
+30:10,Rabi,green gram,0.0108
+30:10,Rabi,groundnut,0.2594
+30:10,Rabi,horse gram,0.0015
+30:10,Rabi,jowar,0.5988
+30:10,Rabi,maize,0.0244
+30:10,Rabi,onion,0.0004
+30:10,Rabi,ragi,0.0001
+30:10,Rabi,rice,0.0049
+30:10,Rabi,sunflower,0.0002
+30:10,Rabi,wheat,0.0004
+30:10,Summer,bajra,0.032
+30:10,Summer,jowar,0.0316
+30:10,Summer,maize,0.0223
+30:10,Summer,onion,0.0001
+30:10,Summer,rice,0.9138
+30:10,Summer,sunflower,0.0001
+30:8,Kharif,bajra,0.0503
+30:8,Kharif,black gram,0.0009
+30:8,Kharif,castor,0.0
+30:8,Kharif,chilli,0.0012
+30:8,Kharif,cotton,0.2726
+30:8,Kharif,green gram,0.0034
+30:8,Kharif,groundnut,0.0005
+30:8,Kharif,jowar,0.0005
+30:8,Kharif,maize,0.0001
+30:8,Kharif,onion,0.0003
+30:8,Kharif,pigeonpea (tur),0.2364
+30:8,Kharif,ragi,0.0001
+30:8,Kharif,rice,0.4203
+30:8,Kharif,sesame,0.0002
+30:8,Kharif,soybean,0.0
+30:8,Kharif,sunflower,0.0133
+30:8,Kharif,tomato,0.0
+30:8,Rabi,bajra,0.0809
+30:8,Rabi,chickpea,0.1589
+30:8,Rabi,chilli,0.0004
+30:8,Rabi,cotton,0.0048
+30:8,Rabi,green gram,0.0002
+30:8,Rabi,groundnut,0.1086
+30:8,Rabi,jowar,0.5683
+30:8,Rabi,maize,0.0011
+30:8,Rabi,onion,0.0042
+30:8,Rabi,ragi,0.0003
+30:8,Rabi,rice,0.0284
+30:8,Rabi,sunflower,0.0058
+30:8,Rabi,tomato,0.0001
+30:8,Rabi,wheat,0.0381
+30:8,Summer,bajra,0.0963
+30:8,Summer,chilli,0.0
+30:8,Summer,jowar,0.0051
+30:8,Summer,maize,0.0002
+30:8,Summer,onion,0.0002
+30:8,Summer,rice,0.8975
+30:8,Summer,sunflower,0.0007
+30:8,Summer,tomato,0.0
+30:9,Kharif,bajra,0.0042
+30:9,Kharif,black gram,0.0001
+30:9,Kharif,chilli,0.0003
+30:9,Kharif,cotton,0.5313
+30:9,Kharif,green gram,0.1025
+30:9,Kharif,groundnut,0.0003
+30:9,Kharif,horse gram,0.0
+30:9,Kharif,jowar,0.0003
+30:9,Kharif,maize,0.0003
+30:9,Kharif,pigeonpea (tur),0.2749
+30:9,Kharif,ragi,0.0003
+30:9,Kharif,rice,0.0841
+30:9,Kharif,sesame,0.0
+30:9,Kharif,soybean,0.0001
+30:9,Kharif,sunflower,0.0013
+30:9,Kharif,tomato,0.0
+30:9,Rabi,bajra,0.0148
+30:9,Rabi,chickpea,0.06
+30:9,Rabi,chilli,0.0002
+30:9,Rabi,cotton,0.0203
+30:9,Rabi,green gram,0.0151
+30:9,Rabi,groundnut,0.1366
+30:9,Rabi,horse gram,0.0003
+30:9,Rabi,jowar,0.7194
+30:9,Rabi,maize,0.0104
+30:9,Rabi,ragi,0.0016
+30:9,Rabi,rice,0.0123
+30:9,Rabi,sunflower,0.0012
+30:9,Rabi,tomato,0.0001
+30:9,Rabi,wheat,0.0078
+30:9,Summer,bajra,0.0423
+30:9,Summer,chilli,0.0
+30:9,Summer,jowar,0.0154
+30:9,Summer,maize,0.0039
+30:9,Summer,rice,0.9379
+30:9,Summer,sunflower,0.0004
+30:9,Summer,tomato,0.0
+3:1,Kharif,bajra,0.188
+3:1,Kharif,black gram,0.0016
+3:1,Kharif,castor,0.0006
+3:1,Kharif,chilli,0.0009
+3:1,Kharif,cotton,0.004
+3:1,Kharif,green gram,0.0389
+3:1,Kharif,groundnut,0.0317
+3:1,Kharif,horse gram,0.0152
+3:1,Kharif,jowar,0.0002
+3:1,Kharif,maize,0.1158
+3:1,Kharif,niger seed,0.0004
+3:1,Kharif,onion,0.0108
+3:1,Kharif,pigeonpea (tur),0.4521
+3:1,Kharif,potato,0.0
+3:1,Kharif,ragi,0.0002
+3:1,Kharif,rice,0.0006
+3:1,Kharif,sesame,0.0042
+3:1,Kharif,soybean,0.0
+3:1,Kharif,sunflower,0.1333
+3:1,Kharif,tomato,0.0016
+3:1,Rabi,bajra,0.0016
+3:1,Rabi,black gram,0.0
+3:1,Rabi,chickpea,0.257
+3:1,Rabi,cotton,0.0001
+3:1,Rabi,green gram,0.0007
+3:1,Rabi,groundnut,0.0591
+3:1,Rabi,horse gram,0.0017
+3:1,Rabi,jowar,0.5048
+3:1,Rabi,linseed,0.0025
+3:1,Rabi,maize,0.0173
+3:1,Rabi,mustard,0.0002
+3:1,Rabi,onion,0.0214
+3:1,Rabi,potato,0.0
+3:1,Rabi,ragi,0.0002
+3:1,Rabi,rice,0.0003
+3:1,Rabi,sunflower,0.0035
+3:1,Rabi,tomato,0.0008
+3:1,Rabi,wheat,0.129
+3:1,Summer,chilli,0.0254
+3:1,Summer,maize,0.6593
+3:1,Summer,onion,0.1987
+3:1,Summer,potato,0.0001
+3:1,Summer,sunflower,0.0674
+3:1,Summer,tomato,0.049
+3:2,Kharif,bajra,0.1067
+3:2,Kharif,black gram,0.0007
+3:2,Kharif,castor,0.0008
+3:2,Kharif,chilli,0.0004
+3:2,Kharif,cotton,0.0268
+3:2,Kharif,green gram,0.0904
+3:2,Kharif,groundnut,0.0567
+3:2,Kharif,horse gram,0.0222
+3:2,Kharif,jowar,0.0002
+3:2,Kharif,maize,0.0859
+3:2,Kharif,niger seed,0.0001
+3:2,Kharif,onion,0.0035
+3:2,Kharif,pigeonpea (tur),0.538
+3:2,Kharif,potato,0.0002
+3:2,Kharif,ragi,0.0
+3:2,Kharif,rice,0.0025
+3:2,Kharif,sesame,0.0003
+3:2,Kharif,sunflower,0.063
+3:2,Kharif,tomato,0.0019
+3:2,Rabi,bajra,0.0009
+3:2,Rabi,black gram,0.0
+3:2,Rabi,chickpea,0.2378
+3:2,Rabi,cotton,0.0008
+3:2,Rabi,green gram,0.002
+3:2,Rabi,groundnut,0.1273
+3:2,Rabi,horse gram,0.0024
+3:2,Rabi,jowar,0.4675
+3:2,Rabi,linseed,0.0017
+3:2,Rabi,maize,0.0182
+3:2,Rabi,mustard,0.0001
+3:2,Rabi,onion,0.0075
+3:2,Rabi,potato,0.0002
+3:2,Rabi,ragi,0.0001
+3:2,Rabi,rice,0.0016
+3:2,Rabi,sunflower,0.0019
+3:2,Rabi,tomato,0.0008
+3:2,Rabi,wheat,0.1293
+3:2,Summer,chilli,0.0182
+3:2,Summer,maize,0.7577
+3:2,Summer,onion,0.1091
+3:2,Summer,potato,0.0012
+3:2,Summer,sunflower,0.0531
+3:2,Summer,tomato,0.0607
+3:3,Kharif,bajra,0.0418
+3:3,Kharif,black gram,0.0004
+3:3,Kharif,castor,0.0003
+3:3,Kharif,chilli,0.0019
+3:3,Kharif,cotton,0.1619
+3:3,Kharif,green gram,0.0017
+3:3,Kharif,groundnut,0.0099
+3:3,Kharif,horse gram,0.0051
+3:3,Kharif,jowar,0.0001
+3:3,Kharif,maize,0.0223
+3:3,Kharif,onion,0.0017
+3:3,Kharif,pigeonpea (tur),0.6721
+3:3,Kharif,potato,0.0001
+3:3,Kharif,ragi,0.0
+3:3,Kharif,rice,0.0031
+3:3,Kharif,sesame,0.0005
+3:3,Kharif,sunflower,0.0766
+3:3,Kharif,tomato,0.0005
+3:3,Rabi,bajra,0.0007
+3:3,Rabi,black gram,0.0
+3:3,Rabi,chickpea,0.3132
+3:3,Rabi,cotton,0.0068
+3:3,Rabi,green gram,0.0001
+3:3,Rabi,groundnut,0.0354
+3:3,Rabi,horse gram,0.0012
+3:3,Rabi,jowar,0.4047
+3:3,Rabi,linseed,0.0
+3:3,Rabi,maize,0.0057
+3:3,Rabi,mustard,0.0001
+3:3,Rabi,onion,0.0053
+3:3,Rabi,potato,0.0
+3:3,Rabi,ragi,0.0
+3:3,Rabi,rice,0.0015
+3:3,Rabi,sunflower,0.0038
+3:3,Rabi,tomato,0.0002
+3:3,Rabi,wheat,0.2213
+3:3,Summer,chilli,0.2174
+3:3,Summer,maize,0.4551
+3:3,Summer,onion,0.1275
+3:3,Summer,potato,0.0007
+3:3,Summer,sunflower,0.1619
+3:3,Summer,tomato,0.0374
+3:4,Kharif,bajra,0.1253
+3:4,Kharif,black gram,0.0007
+3:4,Kharif,chilli,0.0005
+3:4,Kharif,cotton,0.0021
+3:4,Kharif,green gram,0.0011
+3:4,Kharif,groundnut,0.0064
+3:4,Kharif,horse gram,0.0013
+3:4,Kharif,jowar,0.0005
+3:4,Kharif,maize,0.1311
+3:4,Kharif,onion,0.0499
+3:4,Kharif,pigeonpea (tur),0.575
+3:4,Kharif,potato,0.0001
+3:4,Kharif,ragi,0.0005
+3:4,Kharif,rice,0.0034
+3:4,Kharif,sesame,0.0024
+3:4,Kharif,sunflower,0.0998
+3:4,Kharif,tomato,0.0
+3:4,Rabi,bajra,0.0005
+3:4,Rabi,black gram,0.0
+3:4,Rabi,chickpea,0.2802
+3:4,Rabi,cotton,0.0
+3:4,Rabi,green gram,0.0
+3:4,Rabi,groundnut,0.0073
+3:4,Rabi,horse gram,0.0001
+3:4,Rabi,jowar,0.5145
+3:4,Rabi,linseed,0.0029
+3:4,Rabi,maize,0.0099
+3:4,Rabi,mustard,0.0001
+3:4,Rabi,onion,0.0566
+3:4,Rabi,potato,0.0
+3:4,Rabi,ragi,0.0003
+3:4,Rabi,rice,0.0009
+3:4,Rabi,sunflower,0.0015
+3:4,Rabi,tomato,0.0
+3:4,Rabi,wheat,0.1252
+3:4,Summer,chilli,0.0107
+3:4,Summer,maize,0.3775
+3:4,Summer,onion,0.5801
+3:4,Summer,potato,0.0003
+3:4,Summer,sunflower,0.0308
+3:4,Summer,tomato,0.0006
+3:5,Kharif,bajra,0.1174
+3:5,Kharif,black gram,0.0006
+3:5,Kharif,castor,0.0004
+3:5,Kharif,chilli,0.0007
+3:5,Kharif,cotton,0.0015
+3:5,Kharif,green gram,0.0105
+3:5,Kharif,groundnut,0.0186
+3:5,Kharif,horse gram,0.0061
+3:5,Kharif,jowar,0.0001
+3:5,Kharif,maize,0.0227
+3:5,Kharif,onion,0.0028
+3:5,Kharif,pigeonpea (tur),0.7317
+3:5,Kharif,potato,0.0
+3:5,Kharif,ragi,0.0
+3:5,Kharif,rice,0.0021
+3:5,Kharif,sesame,0.007
+3:5,Kharif,soybean,0.0011
+3:5,Kharif,sunflower,0.0761
+3:5,Kharif,tomato,0.0004
+3:5,Rabi,bajra,0.0023
+3:5,Rabi,black gram,0.0
+3:5,Rabi,chickpea,0.4248
+3:5,Rabi,cotton,0.0001
+3:5,Rabi,green gram,0.0005
+3:5,Rabi,groundnut,0.0853
+3:5,Rabi,horse gram,0.0015
+3:5,Rabi,jowar,0.4106
+3:5,Rabi,linseed,0.0033
+3:5,Rabi,maize,0.0088
+3:5,Rabi,mustard,0.0002
+3:5,Rabi,onion,0.0145
+3:5,Rabi,potato,0.0001
+3:5,Rabi,ragi,0.0001
+3:5,Rabi,rice,0.0022
+3:5,Rabi,sunflower,0.005
+3:5,Rabi,tomato,0.0005
+3:5,Rabi,wheat,0.0401
+3:5,Summer,chilli,0.1173
+3:5,Summer,maize,0.4798
+3:5,Summer,onion,0.2123
+3:5,Summer,potato,0.0005
+3:5,Summer,sunflower,0.1504
+3:5,Summer,tomato,0.0397
+4:2+1,Kharif,bajra,0.0623
+4:2+1,Kharif,black gram,0.0674
+4:2+1,Kharif,castor,0.0001
+4:2+1,Kharif,chilli,0.0
+4:2+1,Kharif,cotton,0.0159
+4:2+1,Kharif,green gram,0.0308
+4:2+1,Kharif,groundnut,0.0001
+4:2+1,Kharif,horse gram,0.0001
+4:2+1,Kharif,jowar,0.0001
+4:2+1,Kharif,maize,0.001
+4:2+1,Kharif,niger seed,0.0
+4:2+1,Kharif,onion,0.0004
+4:2+1,Kharif,pigeonpea (tur),0.6958
+4:2+1,Kharif,ragi,0.0001
+4:2+1,Kharif,rice,0.007
+4:2+1,Kharif,sesame,0.0507
+4:2+1,Kharif,soybean,0.0175
+4:2+1,Kharif,sunflower,0.0502
+4:2+1,Kharif,tomato,0.0005
+4:2+1,Rabi,bajra,0.0964
+4:2+1,Rabi,black gram,0.0002
+4:2+1,Rabi,chickpea,0.3752
+4:2+1,Rabi,chilli,0.0005
+4:2+1,Rabi,cotton,0.0022
+4:2+1,Rabi,green gram,0.0004
+4:2+1,Rabi,groundnut,0.014
+4:2+1,Rabi,horse gram,0.0001
+4:2+1,Rabi,jowar,0.404
+4:2+1,Rabi,linseed,0.002
+4:2+1,Rabi,maize,0.0035
+4:2+1,Rabi,mustard,0.0015
+4:2+1,Rabi,onion,0.018
+4:2+1,Rabi,ragi,0.0012
+4:2+1,Rabi,rice,0.009
+4:2+1,Rabi,sunflower,0.02
+4:2+1,Rabi,tomato,0.0027
+4:2+1,Rabi,wheat,0.049
+4:2+1,Summer,bajra,0.7487
+4:2+1,Summer,chilli,0.0003
+4:2+1,Summer,jowar,0.0354
+4:2+1,Summer,maize,0.008
+4:2+1,Summer,onion,0.0151
+4:2+1,Summer,ragi,0.0003
+4:2+1,Summer,rice,0.1641
+4:2+1,Summer,sunflower,0.0185
+4:2+1,Summer,tomato,0.0096
+4:3,Kharif,bajra,0.0452
+4:3,Kharif,black gram,0.0531
+4:3,Kharif,castor,0.0007
+4:3,Kharif,cotton,0.0172
+4:3,Kharif,green gram,0.0601
+4:3,Kharif,groundnut,0.0
+4:3,Kharif,horse gram,0.0
+4:3,Kharif,jowar,0.0003
+4:3,Kharif,maize,0.0012
+4:3,Kharif,niger seed,0.001
+4:3,Kharif,onion,0.001
+4:3,Kharif,pigeonpea (tur),0.7599
+4:3,Kharif,ragi,0.0001
+4:3,Kharif,rice,0.0021
+4:3,Kharif,sesame,0.0094
+4:3,Kharif,soybean,0.0024
+4:3,Kharif,sunflower,0.0461
+4:3,Kharif,tomato,0.0001
+4:3,Rabi,bajra,0.0339
+4:3,Rabi,black gram,0.0001
+4:3,Rabi,chickpea,0.2661
+4:3,Rabi,cotton,0.0026
+4:3,Rabi,green gram,0.0005
+4:3,Rabi,groundnut,0.0028
+4:3,Rabi,horse gram,0.0
+4:3,Rabi,jowar,0.599
+4:3,Rabi,linseed,0.0002
+4:3,Rabi,maize,0.0018
+4:3,Rabi,mustard,0.0001
+4:3,Rabi,onion,0.0389
+4:3,Rabi,ragi,0.0005
+4:3,Rabi,rice,0.0023
+4:3,Rabi,sunflower,0.0174
+4:3,Rabi,tomato,0.0009
+4:3,Rabi,wheat,0.0329
+4:3,Summer,bajra,0.566
+4:3,Summer,jowar,0.1343
+4:3,Summer,maize,0.007
+4:3,Summer,onion,0.0974
+4:3,Summer,ragi,0.0002
+4:3,Summer,rice,0.1333
+4:3,Summer,sunflower,0.0518
+4:3,Summer,tomato,0.01
+4:4,Kharif,bajra,0.004
+4:4,Kharif,black gram,0.2532
+4:4,Kharif,castor,0.0
+4:4,Kharif,chilli,0.0
+4:4,Kharif,cotton,0.0002
+4:4,Kharif,green gram,0.1466
+4:4,Kharif,groundnut,0.0001
+4:4,Kharif,horse gram,0.0001
+4:4,Kharif,jowar,0.0001
+4:4,Kharif,maize,0.0002
+4:4,Kharif,niger seed,0.0
+4:4,Kharif,onion,0.0002
+4:4,Kharif,pigeonpea (tur),0.5871
+4:4,Kharif,ragi,0.0
+4:4,Kharif,rice,0.0001
+4:4,Kharif,sesame,0.0033
+4:4,Kharif,soybean,0.0045
+4:4,Kharif,sunflower,0.0003
+4:4,Rabi,bajra,0.0072
+4:4,Rabi,black gram,0.0072
+4:4,Rabi,chickpea,0.2066
+4:4,Rabi,chilli,0.0047
+4:4,Rabi,cotton,0.0004
+4:4,Rabi,green gram,0.0141
+4:4,Rabi,groundnut,0.0124
+4:4,Rabi,horse gram,0.0007
+4:4,Rabi,jowar,0.7245
+4:4,Rabi,maize,0.0011
+4:4,Rabi,mustard,0.0011
+4:4,Rabi,onion,0.0183
+4:4,Rabi,ragi,0.0001
+4:4,Rabi,rice,0.0008
+4:4,Rabi,sunflower,0.0004
+4:4,Rabi,wheat,0.0004
+4:4,Summer,bajra,0.3379
+4:4,Summer,chilli,0.0267
+4:4,Summer,jowar,0.4221
+4:4,Summer,maize,0.0146
+4:4,Summer,onion,0.0932
+4:4,Summer,ragi,0.0001
+4:4,Summer,rice,0.1031
+4:4,Summer,sunflower,0.0023
+4:5,Kharif,bajra,0.0007
+4:5,Kharif,black gram,0.0733
+4:5,Kharif,chilli,0.0
+4:5,Kharif,cotton,0.0136
+4:5,Kharif,green gram,0.0996
+4:5,Kharif,groundnut,0.0003
+4:5,Kharif,jowar,0.0002
+4:5,Kharif,maize,0.0004
+4:5,Kharif,onion,0.0
+4:5,Kharif,pigeonpea (tur),0.7994
+4:5,Kharif,rice,0.012
+4:5,Kharif,sunflower,0.0004
+4:5,Kharif,tomato,0.0
+4:5,Rabi,bajra,0.0005
+4:5,Rabi,black gram,0.0002
+4:5,Rabi,chickpea,0.3402
+4:5,Rabi,chilli,0.0
+4:5,Rabi,cotton,0.0018
+4:5,Rabi,green gram,0.0009
+4:5,Rabi,groundnut,0.0497
+4:5,Rabi,jowar,0.5949
+4:5,Rabi,maize,0.0007
+4:5,Rabi,onion,0.0005
+4:5,Rabi,rice,0.0104
+4:5,Rabi,sunflower,0.0002
+4:5,Rabi,tomato,0.0
+4:5,Summer,bajra,0.0132
+4:5,Summer,chilli,0.0001
+4:5,Summer,jowar,0.2042
+4:5,Summer,maize,0.0055
+4:5,Summer,onion,0.0015
+4:5,Summer,rice,0.7747
+4:5,Summer,sunflower,0.0007
+4:5,Summer,tomato,0.0002
+4:6,Kharif,bajra,0.0039
+4:6,Kharif,black gram,0.0424
+4:6,Kharif,cotton,0.0009
+4:6,Kharif,green gram,0.1125
+4:6,Kharif,groundnut,0.0
+4:6,Kharif,jowar,0.0002
+4:6,Kharif,maize,0.0001
+4:6,Kharif,niger seed,0.0
+4:6,Kharif,onion,0.0
+4:6,Kharif,pigeonpea (tur),0.8307
+4:6,Kharif,ragi,0.0001
+4:6,Kharif,rice,0.0031
+4:6,Kharif,sesame,0.003
+4:6,Kharif,soybean,0.0001
+4:6,Kharif,sunflower,0.003
+4:6,Rabi,bajra,0.0036
+4:6,Rabi,black gram,0.0001
+4:6,Rabi,chickpea,0.6228
+4:6,Rabi,cotton,0.0001
+4:6,Rabi,green gram,0.001
+4:6,Rabi,groundnut,0.0001
+4:6,Rabi,jowar,0.3623
+4:6,Rabi,maize,0.0002
+4:6,Rabi,onion,0.0005
+4:6,Rabi,ragi,0.0003
+4:6,Rabi,rice,0.004
+4:6,Rabi,sunflower,0.0006
+4:6,Rabi,wheat,0.0044
+4:6,Summer,bajra,0.2146
+4:6,Summer,jowar,0.2711
+4:6,Summer,maize,0.003
+4:6,Summer,onion,0.0037
+4:6,Summer,ragi,0.0007
+4:6,Summer,rice,0.5023
+4:6,Summer,sunflower,0.0045
+4:7,Kharif,bajra,0.01
+4:7,Kharif,black gram,0.0042
+4:7,Kharif,castor,0.0001
+4:7,Kharif,chilli,0.0009
+4:7,Kharif,cotton,0.2401
+4:7,Kharif,green gram,0.0181
+4:7,Kharif,groundnut,0.0003
+4:7,Kharif,horse gram,0.0003
+4:7,Kharif,jowar,0.0002
+4:7,Kharif,maize,0.0034
+4:7,Kharif,pigeonpea (tur),0.6727
+4:7,Kharif,ragi,0.0001
+4:7,Kharif,rice,0.0048
+4:7,Kharif,sesame,0.0039
+4:7,Kharif,soybean,0.0002
+4:7,Kharif,sunflower,0.0406
+4:7,Rabi,bajra,0.0086
+4:7,Rabi,black gram,0.0
+4:7,Rabi,chickpea,0.2947
+4:7,Rabi,chilli,0.0258
+4:7,Rabi,cotton,0.0266
+4:7,Rabi,green gram,0.0001
+4:7,Rabi,groundnut,0.0193
+4:7,Rabi,horse gram,0.0003
+4:7,Rabi,jowar,0.5226
+4:7,Rabi,linseed,0.0002
+4:7,Rabi,maize,0.0086
+4:7,Rabi,mustard,0.0062
+4:7,Rabi,ragi,0.0013
+4:7,Rabi,rice,0.007
+4:7,Rabi,sunflower,0.0102
+4:7,Rabi,wheat,0.0682
+4:7,Summer,bajra,0.2533
+4:7,Summer,chilli,0.0882
+4:7,Summer,jowar,0.1673
+4:7,Summer,maize,0.0604
+4:7,Summer,ragi,0.0011
+4:7,Summer,rice,0.3956
+4:7,Summer,sunflower,0.0342
+5:1,Kharif,bajra,0.0434
+5:1,Kharif,black gram,0.134
+5:1,Kharif,castor,0.0004
+5:1,Kharif,chilli,0.0003
+5:1,Kharif,cotton,0.0
+5:1,Kharif,green gram,0.0888
+5:1,Kharif,groundnut,0.0001
+5:1,Kharif,horse gram,0.0001
+5:1,Kharif,jowar,0.0008
+5:1,Kharif,maize,0.0014
+5:1,Kharif,niger seed,0.0004
+5:1,Kharif,onion,0.0
+5:1,Kharif,pigeonpea (tur),0.3292
+5:1,Kharif,ragi,0.0004
+5:1,Kharif,rice,0.0057
+5:1,Kharif,sesame,0.0161
+5:1,Kharif,soybean,0.3784
+5:1,Kharif,sunflower,0.0003
+5:1,Kharif,tomato,0.0001
+5:1,Rabi,black gram,0.0001
+5:1,Rabi,chickpea,0.3842
+5:1,Rabi,chilli,0.0
+5:1,Rabi,green gram,0.0
+5:1,Rabi,groundnut,0.0072
+5:1,Rabi,horse gram,0.0001
+5:1,Rabi,jowar,0.5436
+5:1,Rabi,linseed,0.0011
+5:1,Rabi,maize,0.0008
+5:1,Rabi,mustard,0.0015
+5:1,Rabi,onion,0.0008
+5:1,Rabi,sunflower,0.0381
+5:1,Rabi,tomato,0.0006
+5:1,Rabi,wheat,0.0217
+5:1,Summer,chilli,0.0
+5:1,Summer,jowar,0.4625
+5:1,Summer,maize,0.0477
+5:1,Summer,onion,0.0206
+5:1,Summer,sunflower,0.4298
+5:1,Summer,tomato,0.0393
+5:2,Kharif,bajra,0.0236
+5:2,Kharif,black gram,0.1951
+5:2,Kharif,castor,0.0001
+5:2,Kharif,chilli,0.0003
+5:2,Kharif,cotton,0.0001
+5:2,Kharif,green gram,0.1242
+5:2,Kharif,groundnut,0.0001
+5:2,Kharif,horse gram,0.0002
+5:2,Kharif,jowar,0.0005
+5:2,Kharif,maize,0.0002
+5:2,Kharif,niger seed,0.0022
+5:2,Kharif,onion,0.0
+5:2,Kharif,pigeonpea (tur),0.3151
+5:2,Kharif,potato,0.0
+5:2,Kharif,ragi,0.0006
+5:2,Kharif,rice,0.0035
+5:2,Kharif,sesame,0.0012
+5:2,Kharif,soybean,0.3329
+5:2,Kharif,sunflower,0.0001
+5:2,Kharif,tomato,0.0
+5:2,Rabi,black gram,0.0001
+5:2,Rabi,chickpea,0.5889
+5:2,Rabi,chilli,0.0001
+5:2,Rabi,green gram,0.0001
+5:2,Rabi,groundnut,0.009
+5:2,Rabi,horse gram,0.0002
+5:2,Rabi,jowar,0.3654
+5:2,Rabi,linseed,0.0001
+5:2,Rabi,maize,0.0002
+5:2,Rabi,mustard,0.0019
+5:2,Rabi,onion,0.001
+5:2,Rabi,potato,0.0007
+5:2,Rabi,sunflower,0.0237
+5:2,Rabi,tomato,0.0002
+5:2,Rabi,wheat,0.0087
+5:2,Summer,chilli,0.0001
+5:2,Summer,jowar,0.4675
+5:2,Summer,maize,0.0172
+5:2,Summer,onion,0.0472
+5:2,Summer,sunflower,0.4546
+5:2,Summer,tomato,0.0134
+5:3,Kharif,bajra,0.0057
+5:3,Kharif,black gram,0.1262
+5:3,Kharif,castor,0.0002
+5:3,Kharif,chilli,0.0003
+5:3,Kharif,cotton,0.0017
+5:3,Kharif,green gram,0.1235
+5:3,Kharif,groundnut,0.0
+5:3,Kharif,horse gram,0.0
+5:3,Kharif,jowar,0.0007
+5:3,Kharif,maize,0.0046
+5:3,Kharif,niger seed,0.0004
+5:3,Kharif,onion,0.0
+5:3,Kharif,pigeonpea (tur),0.3061
+5:3,Kharif,ragi,0.0019
+5:3,Kharif,rice,0.003
+5:3,Kharif,sesame,0.001
+5:3,Kharif,soybean,0.4247
+5:3,Kharif,sunflower,0.0001
+5:3,Rabi,black gram,0.0001
+5:3,Rabi,chickpea,0.3958
+5:3,Rabi,chilli,0.0
+5:3,Rabi,green gram,0.0001
+5:3,Rabi,groundnut,0.0039
+5:3,Rabi,horse gram,0.0001
+5:3,Rabi,jowar,0.5326
+5:3,Rabi,linseed,0.0003
+5:3,Rabi,maize,0.0068
+5:3,Rabi,mustard,0.002
+5:3,Rabi,onion,0.0003
+5:3,Rabi,sunflower,0.0119
+5:3,Rabi,wheat,0.0463
+5:3,Summer,chilli,0.0001
+5:3,Summer,jowar,0.471
+5:3,Summer,maize,0.3772
+5:3,Summer,onion,0.0074
+5:3,Summer,sunflower,0.1444
+5:4,Kharif,bajra,0.0007
+5:4,Kharif,black gram,0.1478
+5:4,Kharif,castor,0.0001
+5:4,Kharif,chilli,0.0001
+5:4,Kharif,cotton,0.0009
+5:4,Kharif,green gram,0.1859
+5:4,Kharif,groundnut,0.0
+5:4,Kharif,jowar,0.0009
+5:4,Kharif,maize,0.0018
+5:4,Kharif,niger seed,0.0013
+5:4,Kharif,onion,0.0
+5:4,Kharif,pigeonpea (tur),0.3825
+5:4,Kharif,potato,0.0
+5:4,Kharif,ragi,0.0
+5:4,Kharif,rice,0.0323
+5:4,Kharif,sesame,0.0006
+5:4,Kharif,soybean,0.2448
+5:4,Kharif,sunflower,0.0001
+5:4,Kharif,tomato,0.0001
+5:4,Rabi,black gram,0.0001
+5:4,Rabi,chickpea,0.4936
+5:4,Rabi,chilli,0.0
+5:4,Rabi,green gram,0.0001
+5:4,Rabi,groundnut,0.0014
+5:4,Rabi,jowar,0.4571
+5:4,Rabi,linseed,0.0005
+5:4,Rabi,maize,0.0018
+5:4,Rabi,mustard,0.0143
+5:4,Rabi,onion,0.0017
+5:4,Rabi,potato,0.0015
+5:4,Rabi,sunflower,0.0164
+5:4,Rabi,tomato,0.0007
+5:4,Rabi,wheat,0.0108
+5:4,Summer,chilli,0.0
+5:4,Summer,jowar,0.5274
+5:4,Summer,maize,0.1351
+5:4,Summer,onion,0.0677
+5:4,Summer,sunflower,0.2245
+5:4,Summer,tomato,0.0453
+5:5,Kharif,bajra,0.0321
+5:5,Kharif,black gram,0.228
+5:5,Kharif,castor,0.0003
+5:5,Kharif,chilli,0.0007
+5:5,Kharif,cotton,0.0007
+5:5,Kharif,green gram,0.1509
+5:5,Kharif,groundnut,0.0008
+5:5,Kharif,horse gram,0.0003
+5:5,Kharif,jowar,0.0017
+5:5,Kharif,maize,0.0066
+5:5,Kharif,niger seed,0.0028
+5:5,Kharif,onion,0.0
+5:5,Kharif,pigeonpea (tur),0.4509
+5:5,Kharif,potato,0.0
+5:5,Kharif,ragi,0.0008
+5:5,Kharif,rice,0.021
+5:5,Kharif,sesame,0.0286
+5:5,Kharif,soybean,0.0732
+5:5,Kharif,sunflower,0.0003
+5:5,Kharif,tomato,0.0001
+5:5,Rabi,black gram,0.0
+5:5,Rabi,chickpea,0.2443
+5:5,Rabi,chilli,0.0001
+5:5,Rabi,green gram,0.0
+5:5,Rabi,groundnut,0.032
+5:5,Rabi,horse gram,0.0001
+5:5,Rabi,jowar,0.645
+5:5,Rabi,linseed,0.0002
+5:5,Rabi,maize,0.0018
+5:5,Rabi,mustard,0.0001
+5:5,Rabi,onion,0.0045
+5:5,Rabi,potato,0.0004
+5:5,Rabi,sunflower,0.0166
+5:5,Rabi,tomato,0.0002
+5:5,Rabi,wheat,0.0547
+5:5,Summer,chilli,0.0001
+5:5,Summer,jowar,0.5807
+5:5,Summer,maize,0.1095
+5:5,Summer,onion,0.1197
+5:5,Summer,sunflower,0.1795
+5:5,Summer,tomato,0.0105
+6:1,Kharif,bajra,0.3302
+6:1,Kharif,black gram,0.0006
+6:1,Kharif,castor,0.0009
+6:1,Kharif,cotton,0.0693
+6:1,Kharif,green gram,0.0052
+6:1,Kharif,groundnut,0.0018
+6:1,Kharif,horse gram,0.0027
+6:1,Kharif,jowar,0.0474
+6:1,Kharif,maize,0.0032
+6:1,Kharif,niger seed,0.0001
+6:1,Kharif,pigeonpea (tur),0.2115
+6:1,Kharif,ragi,0.0002
+6:1,Kharif,rice,0.0628
+6:1,Kharif,sesame,0.0467
+6:1,Kharif,soybean,0.0001
+6:1,Kharif,sunflower,0.2174
+6:1,Rabi,bajra,0.18
+6:1,Rabi,black gram,0.0012
+6:1,Rabi,chickpea,0.1525
+6:1,Rabi,cotton,0.0047
+6:1,Rabi,green gram,0.0036
+6:1,Rabi,groundnut,0.0883
+6:1,Rabi,horse gram,0.0079
+6:1,Rabi,jowar,0.4981
+6:1,Rabi,linseed,0.0002
+6:1,Rabi,maize,0.0116
+6:1,Rabi,mustard,0.0001
+6:1,Rabi,ragi,0.0007
+6:1,Rabi,rice,0.0474
+6:1,Rabi,sunflower,0.0018
+6:1,Rabi,wheat,0.002
+6:1,Summer,bajra,0.5362
+6:1,Summer,jowar,0.0143
+6:1,Summer,maize,0.0077
+6:1,Summer,rice,0.4411
+6:1,Summer,sunflower,0.0007
+6:2,Kharif,bajra,0.1013
+6:2,Kharif,black gram,0.0004
+6:2,Kharif,chilli,0.037
+6:2,Kharif,cotton,0.2628
+6:2,Kharif,green gram,0.006
+6:2,Kharif,groundnut,0.0047
+6:2,Kharif,horse gram,0.0002
+6:2,Kharif,jowar,0.0172
+6:2,Kharif,maize,0.0052
+6:2,Kharif,niger seed,0.002
+6:2,Kharif,onion,0.0004
+6:2,Kharif,pigeonpea (tur),0.1457
+6:2,Kharif,ragi,0.0005
+6:2,Kharif,rice,0.3476
+6:2,Kharif,sesame,0.0026
+6:2,Kharif,soybean,0.0
+6:2,Kharif,sunflower,0.0664
+6:2,Rabi,bajra,0.0508
+6:2,Rabi,black gram,0.0006
+6:2,Rabi,chickpea,0.0984
+6:2,Rabi,chilli,0.0003
+6:2,Rabi,cotton,0.0117
+6:2,Rabi,green gram,0.0037
+6:2,Rabi,groundnut,0.2889
+6:2,Rabi,horse gram,0.0005
+6:2,Rabi,jowar,0.2174
+6:2,Rabi,maize,0.0279
+6:2,Rabi,mustard,0.0003
+6:2,Rabi,onion,0.0003
+6:2,Rabi,ragi,0.0014
+6:2,Rabi,rice,0.2802
+6:2,Rabi,sunflower,0.0008
+6:2,Rabi,wheat,0.0169
+6:2,Summer,bajra,0.0758
+6:2,Summer,jowar,0.0023
+6:2,Summer,maize,0.0036
+6:2,Summer,rice,0.9182
+6:2,Summer,sunflower,0.0001
+6:3,Kharif,bajra,0.0232
+6:3,Kharif,castor,0.0042
+6:3,Kharif,chilli,0.009
+6:3,Kharif,cotton,0.463
+6:3,Kharif,green gram,0.0086
+6:3,Kharif,groundnut,0.0012
+6:3,Kharif,jowar,0.0195
+6:3,Kharif,maize,0.0103
+6:3,Kharif,niger seed,0.0001
+6:3,Kharif,onion,0.0004
+6:3,Kharif,pigeonpea (tur),0.1794
+6:3,Kharif,ragi,0.0004
+6:3,Kharif,rice,0.2333
+6:3,Kharif,sesame,0.0
+6:3,Kharif,sunflower,0.0476
+6:3,Rabi,bajra,0.0155
+6:3,Rabi,chickpea,0.0883
+6:3,Rabi,chilli,0.0001
+6:3,Rabi,cotton,0.0333
+6:3,Rabi,green gram,0.0092
+6:3,Rabi,groundnut,0.1072
+6:3,Rabi,jowar,0.3749
+6:3,Rabi,maize,0.073
+6:3,Rabi,onion,0.0006
+6:3,Rabi,ragi,0.0016
+6:3,Rabi,rice,0.2955
+6:3,Rabi,sunflower,0.0007
+6:3,Summer,bajra,0.023
+6:3,Summer,jowar,0.0037
+6:3,Summer,maize,0.0183
+6:3,Summer,rice,0.9548
+6:3,Summer,sunflower,0.0001
+6:4,Kharif,bajra,0.0518
+6:4,Kharif,black gram,0.0
+6:4,Kharif,chilli,0.0001
+6:4,Kharif,cotton,0.2911
+6:4,Kharif,green gram,0.0013
+6:4,Kharif,groundnut,0.0001
+6:4,Kharif,horse gram,0.0003
+6:4,Kharif,jowar,0.0247
+6:4,Kharif,maize,0.0019
+6:4,Kharif,niger seed,0.0032
+6:4,Kharif,onion,0.0015
+6:4,Kharif,pigeonpea (tur),0.0801
+6:4,Kharif,ragi,0.0003
+6:4,Kharif,rice,0.4852
+6:4,Kharif,sesame,0.0042
+6:4,Kharif,soybean,0.0001
+6:4,Kharif,sunflower,0.0541
+6:4,Rabi,bajra,0.0321
+6:4,Rabi,black gram,0.0001
+6:4,Rabi,chickpea,0.0388
+6:4,Rabi,chilli,0.0
+6:4,Rabi,cotton,0.0175
+6:4,Rabi,green gram,0.0011
+6:4,Rabi,groundnut,0.0057
+6:4,Rabi,horse gram,0.0012
+6:4,Rabi,jowar,0.3958
+6:4,Rabi,maize,0.0117
+6:4,Rabi,onion,0.0015
+6:4,Rabi,ragi,0.0013
+6:4,Rabi,rice,0.4915
+6:4,Rabi,sunflower,0.0007
+6:4,Rabi,wheat,0.0009
+6:4,Summer,bajra,0.022
+6:4,Summer,jowar,0.0023
+6:4,Summer,maize,0.0013
+6:4,Summer,rice,0.9744
+6:4,Summer,sunflower,0.0
+6:5,Kharif,bajra,0.0257
+6:5,Kharif,black gram,0.0
+6:5,Kharif,castor,0.0
+6:5,Kharif,cotton,0.1256
+6:5,Kharif,green gram,0.0002
+6:5,Kharif,groundnut,0.0
+6:5,Kharif,horse gram,0.0
+6:5,Kharif,jowar,0.0311
+6:5,Kharif,maize,0.0056
+6:5,Kharif,niger seed,0.0003
+6:5,Kharif,pigeonpea (tur),0.0293
+6:5,Kharif,ragi,0.0006
+6:5,Kharif,rice,0.7186
+6:5,Kharif,sesame,0.0012
+6:5,Kharif,sunflower,0.0616
+6:5,Rabi,bajra,0.0126
+6:5,Rabi,black gram,0.0
+6:5,Rabi,chickpea,0.0535
+6:5,Rabi,cotton,0.0057
+6:5,Rabi,green gram,0.0001
+6:5,Rabi,groundnut,0.0021
+6:5,Rabi,horse gram,0.0001
+6:5,Rabi,jowar,0.3628
+6:5,Rabi,linseed,0.0
+6:5,Rabi,maize,0.0255
+6:5,Rabi,ragi,0.0016
+6:5,Rabi,rice,0.5309
+6:5,Rabi,sunflower,0.0006
+6:5,Rabi,wheat,0.0043
+6:5,Summer,bajra,0.0083
+6:5,Summer,jowar,0.0019
+6:5,Summer,maize,0.0027
+6:5,Summer,rice,0.9871
+6:5,Summer,sunflower,0.0
+7:1,Kharif,bajra,0.2134
+7:1,Kharif,black gram,0.0006
+7:1,Kharif,castor,0.0014
+7:1,Kharif,chilli,0.0004
+7:1,Kharif,cotton,0.05
+7:1,Kharif,green gram,0.2314
+7:1,Kharif,groundnut,0.0209
+7:1,Kharif,horse gram,0.0084
+7:1,Kharif,jowar,0.0123
+7:1,Kharif,maize,0.1965
+7:1,Kharif,niger seed,0.0003
+7:1,Kharif,onion,0.0312
+7:1,Kharif,pigeonpea (tur),0.0409
+7:1,Kharif,ragi,0.0005
+7:1,Kharif,rice,0.0035
+7:1,Kharif,sesame,0.0228
+7:1,Kharif,soybean,0.0002
+7:1,Kharif,sunflower,0.165
+7:1,Kharif,tomato,0.0002
+7:1,Rabi,bajra,0.0028
+7:1,Rabi,black gram,0.0162
+7:1,Rabi,chickpea,0.1699
+7:1,Rabi,chilli,0.0001
+7:1,Rabi,cotton,0.0085
+7:1,Rabi,green gram,0.0024
+7:1,Rabi,groundnut,0.2623
+7:1,Rabi,horse gram,0.0362
+7:1,Rabi,jowar,0.2708
+7:1,Rabi,linseed,0.0146
+7:1,Rabi,maize,0.0507
+7:1,Rabi,mustard,0.0031
+7:1,Rabi,onion,0.0021
+7:1,Rabi,ragi,0.0018
+7:1,Rabi,rice,0.0002
+7:1,Rabi,sunflower,0.0275
+7:1,Rabi,tomato,0.0002
+7:1,Rabi,wheat,0.1306
+7:1,Summer,bajra,0.0798
+7:1,Summer,jowar,0.1645
+7:1,Summer,maize,0.2456
+7:1,Summer,onion,0.0135
+7:1,Summer,rice,0.4507
+7:1,Summer,sunflower,0.0387
+7:1,Summer,tomato,0.0073
+7:2,Kharif,bajra,0.4352
+7:2,Kharif,black gram,0.0
+7:2,Kharif,castor,0.0003
+7:2,Kharif,cotton,0.0048
+7:2,Kharif,green gram,0.0665
+7:2,Kharif,groundnut,0.012
+7:2,Kharif,horse gram,0.013
+7:2,Kharif,jowar,0.0134
+7:2,Kharif,maize,0.1927
+7:2,Kharif,niger seed,0.0007
+7:2,Kharif,onion,0.003
+7:2,Kharif,pigeonpea (tur),0.084
+7:2,Kharif,ragi,0.0019
+7:2,Kharif,rice,0.0165
+7:2,Kharif,sesame,0.0432
+7:2,Kharif,soybean,0.0002
+7:2,Kharif,sunflower,0.1123
+7:2,Kharif,tomato,0.0002
+7:2,Rabi,bajra,0.0094
+7:2,Rabi,black gram,0.0006
+7:2,Rabi,chickpea,0.0692
+7:2,Rabi,cotton,0.0011
+7:2,Rabi,green gram,0.001
+7:2,Rabi,groundnut,0.2017
+7:2,Rabi,horse gram,0.0736
+7:2,Rabi,jowar,0.4567
+7:2,Rabi,linseed,0.0058
+7:2,Rabi,maize,0.091
+7:2,Rabi,mustard,0.0043
+7:2,Rabi,onion,0.0003
+7:2,Rabi,ragi,0.0086
+7:2,Rabi,rice,0.0018
+7:2,Rabi,sunflower,0.0309
+7:2,Rabi,tomato,0.0004
+7:2,Rabi,wheat,0.0436
+7:2,Summer,bajra,0.0833
+7:2,Summer,jowar,0.1049
+7:2,Summer,maize,0.0923
+7:2,Summer,onion,0.0007
+7:2,Summer,rice,0.7014
+7:2,Summer,sunflower,0.0149
+7:2,Summer,tomato,0.0024
+7:3,Kharif,bajra,0.1969
+7:3,Kharif,black gram,0.0
+7:3,Kharif,castor,0.0002
+7:3,Kharif,cotton,0.0112
+7:3,Kharif,green gram,0.002
+7:3,Kharif,groundnut,0.0005
+7:3,Kharif,horse gram,0.002
+7:3,Kharif,jowar,0.0063
+7:3,Kharif,maize,0.0539
+7:3,Kharif,niger seed,0.0
+7:3,Kharif,pigeonpea (tur),0.038
+7:3,Kharif,ragi,0.0
+7:3,Kharif,rice,0.6172
+7:3,Kharif,sesame,0.0126
+7:3,Kharif,soybean,0.0
+7:3,Kharif,sunflower,0.0591
+7:3,Rabi,bajra,0.0113
+7:3,Rabi,black gram,0.0006
+7:3,Rabi,chickpea,0.0285
+7:3,Rabi,cotton,0.0085
+7:3,Rabi,green gram,0.0001
+7:3,Rabi,groundnut,0.0282
+7:3,Rabi,horse gram,0.0394
+7:3,Rabi,jowar,0.6257
+7:3,Rabi,maize,0.0603
+7:3,Rabi,ragi,0.0001
+7:3,Rabi,rice,0.1489
+7:3,Rabi,sunflower,0.0442
+7:3,Rabi,wheat,0.0041
+7:3,Summer,bajra,0.001
+7:3,Summer,jowar,0.0011
+7:3,Summer,maize,0.0008
+7:3,Summer,rice,0.9969
+7:3,Summer,sunflower,0.0002
+7:4,Kharif,bajra,0.2739
+7:4,Kharif,black gram,0.0001
+7:4,Kharif,castor,0.0013
+7:4,Kharif,cotton,0.0186
+7:4,Kharif,green gram,0.0082
+7:4,Kharif,groundnut,0.0083
+7:4,Kharif,horse gram,0.0022
+7:4,Kharif,jowar,0.0072
+7:4,Kharif,maize,0.4175
+7:4,Kharif,niger seed,0.0005
+7:4,Kharif,onion,0.0031
+7:4,Kharif,pigeonpea (tur),0.0354
+7:4,Kharif,ragi,0.0002
+7:4,Kharif,rice,0.0749
+7:4,Kharif,sesame,0.0232
+7:4,Kharif,soybean,0.0005
+7:4,Kharif,sunflower,0.1246
+7:4,Kharif,tomato,0.0001
+7:4,Rabi,bajra,0.0081
+7:4,Rabi,black gram,0.0059
+7:4,Rabi,chickpea,0.0421
+7:4,Rabi,cotton,0.0073
+7:4,Rabi,green gram,0.0002
+7:4,Rabi,groundnut,0.2353
+7:4,Rabi,horse gram,0.0206
+7:4,Rabi,jowar,0.362
+7:4,Rabi,linseed,0.0052
+7:4,Rabi,maize,0.2364
+7:4,Rabi,mustard,0.0064
+7:4,Rabi,onion,0.0004
+7:4,Rabi,ragi,0.0017
+7:4,Rabi,rice,0.009
+7:4,Rabi,sunflower,0.047
+7:4,Rabi,tomato,0.0002
+7:4,Rabi,wheat,0.0123
+7:4,Summer,bajra,0.0102
+7:4,Summer,jowar,0.0097
+7:4,Summer,maize,0.0511
+7:4,Summer,onion,0.0001
+7:4,Summer,rice,0.9257
+7:4,Summer,sunflower,0.0027
+7:4,Summer,tomato,0.0003
+8:1,Kharif,bajra,0.0006
+8:1,Kharif,cotton,0.0943
+8:1,Kharif,green gram,0.3895
+8:1,Kharif,groundnut,0.0004
+8:1,Kharif,horse gram,0.0
+8:1,Kharif,jowar,0.0007
+8:1,Kharif,maize,0.3788
+8:1,Kharif,niger seed,0.0002
+8:1,Kharif,onion,0.0935
+8:1,Kharif,pigeonpea (tur),0.0004
+8:1,Kharif,ragi,0.0001
+8:1,Kharif,rice,0.0008
+8:1,Kharif,soybean,0.0001
+8:1,Kharif,sunflower,0.0403
+8:1,Rabi,bajra,0.0003
+8:1,Rabi,chickpea,0.337
+8:1,Rabi,cotton,0.0135
+8:1,Rabi,green gram,0.0
+8:1,Rabi,groundnut,0.0004
+8:1,Rabi,horse gram,0.0001
+8:1,Rabi,jowar,0.1453
+8:1,Rabi,linseed,0.0005
+8:1,Rabi,maize,0.0472
+8:1,Rabi,mustard,0.0003
+8:1,Rabi,onion,0.0009
+8:1,Rabi,ragi,0.0002
+8:1,Rabi,rice,0.0006
+8:1,Rabi,sunflower,0.062
+8:1,Rabi,wheat,0.3918
+8:1,Summer,jowar,0.0023
+8:1,Summer,maize,0.2868
+8:1,Summer,onion,0.1243
+8:1,Summer,rice,0.2435
+8:1,Summer,sunflower,0.3431
+8:2,Kharif,bajra,0.0056
+8:2,Kharif,black gram,0.0001
+8:2,Kharif,castor,0.0018
+8:2,Kharif,chilli,0.0141
+8:2,Kharif,cotton,0.1264
+8:2,Kharif,green gram,0.414
+8:2,Kharif,groundnut,0.0932
+8:2,Kharif,horse gram,0.0002
+8:2,Kharif,jowar,0.0015
+8:2,Kharif,maize,0.0605
+8:2,Kharif,onion,0.2013
+8:2,Kharif,pigeonpea (tur),0.0145
+8:2,Kharif,potato,0.0
+8:2,Kharif,ragi,0.0002
+8:2,Kharif,rice,0.0009
+8:2,Kharif,sesame,0.005
+8:2,Kharif,sunflower,0.0608
+8:2,Kharif,tomato,0.0
+8:2,Rabi,bajra,0.0034
+8:2,Rabi,black gram,0.0
+8:2,Rabi,chickpea,0.3175
+8:2,Rabi,chilli,0.0002
+8:2,Rabi,cotton,0.0189
+8:2,Rabi,green gram,0.0
+8:2,Rabi,groundnut,0.0881
+8:2,Rabi,horse gram,0.0021
+8:2,Rabi,jowar,0.3246
+8:2,Rabi,linseed,0.0031
+8:2,Rabi,maize,0.0076
+8:2,Rabi,mustard,0.0004
+8:2,Rabi,onion,0.0022
+8:2,Rabi,potato,0.0001
+8:2,Rabi,ragi,0.0002
+8:2,Rabi,rice,0.0007
+8:2,Rabi,sunflower,0.0981
+8:2,Rabi,tomato,0.0001
+8:2,Rabi,wheat,0.1326
+8:2,Summer,jowar,0.0036
+8:2,Summer,maize,0.0533
+8:2,Summer,onion,0.2018
+8:2,Summer,rice,0.2373
+8:2,Summer,sunflower,0.4845
+8:2,Summer,tomato,0.0196
+8:3,Kharif,bajra,0.0001
+8:3,Kharif,black gram,0.0003
+8:3,Kharif,castor,0.0002
+8:3,Kharif,chilli,0.1637
+8:3,Kharif,cotton,0.1783
+8:3,Kharif,green gram,0.2524
+8:3,Kharif,groundnut,0.0899
+8:3,Kharif,horse gram,0.0003
+8:3,Kharif,jowar,0.0008
+8:3,Kharif,maize,0.0923
+8:3,Kharif,niger seed,0.0002
+8:3,Kharif,onion,0.1707
+8:3,Kharif,pigeonpea (tur),0.003
+8:3,Kharif,potato,0.0
+8:3,Kharif,ragi,0.0011
+8:3,Kharif,rice,0.0041
+8:3,Kharif,sesame,0.0003
+8:3,Kharif,soybean,0.0094
+8:3,Kharif,sunflower,0.0323
+8:3,Kharif,tomato,0.0007
+8:3,Rabi,bajra,0.0001
+8:3,Rabi,black gram,0.0
+8:3,Rabi,chickpea,0.2446
+8:3,Rabi,chilli,0.0035
+8:3,Rabi,cotton,0.0389
+8:3,Rabi,green gram,0.0
+8:3,Rabi,groundnut,0.1258
+8:3,Rabi,horse gram,0.0047
+8:3,Rabi,jowar,0.275
+8:3,Rabi,linseed,0.0
+8:3,Rabi,maize,0.0169
+8:3,Rabi,onion,0.0028
+8:3,Rabi,potato,0.0
+8:3,Rabi,ragi,0.0022
+8:3,Rabi,rice,0.0047
+8:3,Rabi,sunflower,0.0762
+8:3,Rabi,tomato,0.0016
+8:3,Rabi,wheat,0.2029
+8:3,Summer,jowar,0.0021
+8:3,Summer,maize,0.0762
+8:3,Summer,onion,0.1842
+8:3,Summer,rice,0.3744
+8:3,Summer,sunflower,0.2835
+8:3,Summer,tomato,0.0796
+8:4,Kharif,bajra,0.0001
+8:4,Kharif,black gram,0.0001
+8:4,Kharif,castor,0.0001
+8:4,Kharif,chilli,0.0511
+8:4,Kharif,cotton,0.4059
+8:4,Kharif,green gram,0.1587
+8:4,Kharif,groundnut,0.1416
+8:4,Kharif,horse gram,0.0001
+8:4,Kharif,jowar,0.0007
+8:4,Kharif,maize,0.1601
+8:4,Kharif,niger seed,0.0001
+8:4,Kharif,onion,0.0391
+8:4,Kharif,pigeonpea (tur),0.0031
+8:4,Kharif,ragi,0.0002
+8:4,Kharif,rice,0.0122
+8:4,Kharif,sesame,0.001
+8:4,Kharif,soybean,0.0002
+8:4,Kharif,sunflower,0.0256
+8:4,Rabi,bajra,0.0002
+8:4,Rabi,black gram,0.0
+8:4,Rabi,chickpea,0.0534
+8:4,Rabi,chilli,0.0014
+8:4,Rabi,cotton,0.1403
+8:4,Rabi,green gram,0.0
+8:4,Rabi,groundnut,0.2637
+8:4,Rabi,horse gram,0.0028
+8:4,Rabi,jowar,0.3098
+8:4,Rabi,maize,0.0413
+8:4,Rabi,mustard,0.0007
+8:4,Rabi,onion,0.0008
+8:4,Rabi,ragi,0.0006
+8:4,Rabi,rice,0.024
+8:4,Rabi,sunflower,0.0931
+8:4,Rabi,wheat,0.0675
+8:4,Summer,jowar,0.0009
+8:4,Summer,maize,0.0655
+8:4,Summer,onion,0.0217
+8:4,Summer,rice,0.8341
+8:4,Summer,sunflower,0.0778
+8:5,Kharif,bajra,0.0168
+8:5,Kharif,castor,0.0011
+8:5,Kharif,chilli,0.0017
+8:5,Kharif,cotton,0.1191
+8:5,Kharif,green gram,0.1328
+8:5,Kharif,groundnut,0.1093
+8:5,Kharif,horse gram,0.0002
+8:5,Kharif,jowar,0.0019
+8:5,Kharif,maize,0.342
+8:5,Kharif,niger seed,0.0001
+8:5,Kharif,onion,0.0426
+8:5,Kharif,pigeonpea (tur),0.0476
+8:5,Kharif,potato,0.0
+8:5,Kharif,ragi,0.0009
+8:5,Kharif,rice,0.0357
+8:5,Kharif,sesame,0.0012
+8:5,Kharif,sunflower,0.147
+8:5,Kharif,tomato,0.0
+8:5,Rabi,bajra,0.012
+8:5,Rabi,chickpea,0.0892
+8:5,Rabi,chilli,0.0
+8:5,Rabi,cotton,0.0133
+8:5,Rabi,green gram,0.0
+8:5,Rabi,groundnut,0.1218
+8:5,Rabi,horse gram,0.0024
+8:5,Rabi,jowar,0.3578
+8:5,Rabi,linseed,0.0004
+8:5,Rabi,maize,0.0507
+8:5,Rabi,mustard,0.0
+8:5,Rabi,onion,0.0004
+8:5,Rabi,potato,0.0002
+8:5,Rabi,ragi,0.0008
+8:5,Rabi,rice,0.0328
+8:5,Rabi,sunflower,0.2454
+8:5,Rabi,tomato,0.0
+8:5,Rabi,wheat,0.0727
+8:5,Summer,jowar,0.0004
+8:5,Summer,maize,0.0254
+8:5,Summer,onion,0.0041
+8:5,Summer,rice,0.8623
+8:5,Summer,sunflower,0.1075
+8:5,Summer,tomato,0.0002
+9:1,Kharif,bajra,0.0006
+9:1,Kharif,black gram,0.034
+9:1,Kharif,castor,0.0005
+9:1,Kharif,chilli,0.0009
+9:1,Kharif,cotton,0.1115
+9:1,Kharif,green gram,0.1622
+9:1,Kharif,groundnut,0.1474
+9:1,Kharif,horse gram,0.0
+9:1,Kharif,jowar,0.0006
+9:1,Kharif,maize,0.1252
+9:1,Kharif,niger seed,0.0001
+9:1,Kharif,onion,0.0527
+9:1,Kharif,pigeonpea (tur),0.0085
+9:1,Kharif,potato,0.0064
+9:1,Kharif,ragi,0.0002
+9:1,Kharif,rice,0.2177
+9:1,Kharif,sesame,0.0001
+9:1,Kharif,soybean,0.1309
+9:1,Kharif,sunflower,0.0
+9:1,Kharif,tomato,0.0006
+9:1,Rabi,black gram,0.0003
+9:1,Rabi,chickpea,0.4561
+9:1,Rabi,chilli,0.0
+9:1,Rabi,cotton,0.0097
+9:1,Rabi,green gram,0.0148
+9:1,Rabi,groundnut,0.0031
+9:1,Rabi,horse gram,0.0061
+9:1,Rabi,jowar,0.2487
+9:1,Rabi,linseed,0.0001
+9:1,Rabi,maize,0.049
+9:1,Rabi,mustard,0.002
+9:1,Rabi,onion,0.0011
+9:1,Rabi,potato,0.0001
+9:1,Rabi,ragi,0.0001
+9:1,Rabi,rice,0.0006
+9:1,Rabi,sunflower,0.0015
+9:1,Rabi,tomato,0.0008
+9:1,Rabi,wheat,0.206
+9:1,Summer,maize,0.54
+9:1,Summer,onion,0.0022
+9:1,Summer,rice,0.4294
+9:1,Summer,tomato,0.0284
+9:2,Kharif,bajra,0.0001
+9:2,Kharif,castor,0.0
+9:2,Kharif,chilli,0.0935
+9:2,Kharif,cotton,0.2491
+9:2,Kharif,green gram,0.2038
+9:2,Kharif,groundnut,0.0397
+9:2,Kharif,horse gram,0.0
+9:2,Kharif,jowar,0.0006
+9:2,Kharif,maize,0.1957
+9:2,Kharif,onion,0.2132
+9:2,Kharif,pigeonpea (tur),0.0031
+9:2,Kharif,ragi,0.0001
+9:2,Kharif,rice,0.001
+9:2,Kharif,sunflower,0.0002
+9:2,Rabi,chickpea,0.3569
+9:2,Rabi,chilli,0.0004
+9:2,Rabi,cotton,0.0151
+9:2,Rabi,green gram,0.0132
+9:2,Rabi,groundnut,0.0006
+9:2,Rabi,horse gram,0.0044
+9:2,Rabi,jowar,0.1941
+9:2,Rabi,maize,0.0551
+9:2,Rabi,onion,0.003
+9:2,Rabi,ragi,0.0
+9:2,Rabi,rice,0.0
+9:2,Rabi,sunflower,0.0948
+9:2,Rabi,wheat,0.2623
+9:2,Summer,maize,0.9816
+9:2,Summer,onion,0.0147
+9:2,Summer,rice,0.0037
+9:3,Kharif,bajra,0.0007
+9:3,Kharif,black gram,0.0009
+9:3,Kharif,castor,0.0003
+9:3,Kharif,chilli,0.17
+9:3,Kharif,cotton,0.253
+9:3,Kharif,green gram,0.1006
+9:3,Kharif,groundnut,0.1844
+9:3,Kharif,horse gram,0.0001
+9:3,Kharif,jowar,0.0006
+9:3,Kharif,maize,0.0523
+9:3,Kharif,onion,0.1019
+9:3,Kharif,pigeonpea (tur),0.0016
+9:3,Kharif,potato,0.0002
+9:3,Kharif,ragi,0.0001
+9:3,Kharif,rice,0.0143
+9:3,Kharif,sesame,0.0
+9:3,Kharif,soybean,0.1187
+9:3,Kharif,sunflower,0.0001
+9:3,Kharif,tomato,0.0002
+9:3,Rabi,black gram,0.0
+9:3,Rabi,chickpea,0.133
+9:3,Rabi,chilli,0.002
+9:3,Rabi,cotton,0.0348
+9:3,Rabi,green gram,0.0187
+9:3,Rabi,groundnut,0.0053
+9:3,Rabi,horse gram,0.0348
+9:3,Rabi,jowar,0.3554
+9:3,Rabi,maize,0.036
+9:3,Rabi,mustard,0.0024
+9:3,Rabi,onion,0.0055
+9:3,Rabi,potato,0.0
+9:3,Rabi,ragi,0.0001
+9:3,Rabi,rice,0.0001
+9:3,Rabi,sunflower,0.1412
+9:3,Rabi,tomato,0.0006
+9:3,Rabi,wheat,0.2301
+9:3,Summer,maize,0.8425
+9:3,Summer,onion,0.0174
+9:3,Summer,rice,0.0985
+9:3,Summer,tomato,0.0416
+9:4,Kharif,bajra,0.0001
+9:4,Kharif,black gram,0.0004
+9:4,Kharif,castor,0.0002
+9:4,Kharif,chilli,0.0001
+9:4,Kharif,cotton,0.087
+9:4,Kharif,green gram,0.0473
+9:4,Kharif,groundnut,0.0022
+9:4,Kharif,horse gram,0.0001
+9:4,Kharif,jowar,0.0003
+9:4,Kharif,maize,0.1724
+9:4,Kharif,niger seed,0.0003
+9:4,Kharif,onion,0.0
+9:4,Kharif,pigeonpea (tur),0.0032
+9:4,Kharif,ragi,0.0004
+9:4,Kharif,rice,0.4434
+9:4,Kharif,soybean,0.2422
+9:4,Kharif,sunflower,0.0
+9:4,Kharif,tomato,0.0004
+9:4,Rabi,black gram,0.0
+9:4,Rabi,chickpea,0.0145
+9:4,Rabi,chilli,0.0
+9:4,Rabi,cotton,0.028
+9:4,Rabi,green gram,0.0166
+9:4,Rabi,groundnut,0.0002
+9:4,Rabi,horse gram,0.0534
+9:4,Rabi,jowar,0.6102
+9:4,Rabi,linseed,0.0039
+9:4,Rabi,maize,0.2605
+9:4,Rabi,mustard,0.0014
+9:4,Rabi,onion,0.0
+9:4,Rabi,ragi,0.0007
+9:4,Rabi,rice,0.0051
+9:4,Rabi,sunflower,0.0024
+9:4,Rabi,tomato,0.0018
+9:4,Rabi,wheat,0.0014
+9:4,Summer,maize,0.4453
+9:4,Summer,onion,0.0
+9:4,Summer,rice,0.5411
+9:4,Summer,tomato,0.0136
+9:5,Kharif,bajra,0.0001
+9:5,Kharif,black gram,0.0002
+9:5,Kharif,castor,0.0008
+9:5,Kharif,chilli,0.2556
+9:5,Kharif,cotton,0.352
+9:5,Kharif,green gram,0.0382
+9:5,Kharif,groundnut,0.2748
+9:5,Kharif,horse gram,0.0001
+9:5,Kharif,jowar,0.0005
+9:5,Kharif,maize,0.0201
+9:5,Kharif,niger seed,0.0002
+9:5,Kharif,onion,0.0139
+9:5,Kharif,pigeonpea (tur),0.0036
+9:5,Kharif,ragi,0.0011
+9:5,Kharif,rice,0.0062
+9:5,Kharif,sesame,0.0001
+9:5,Kharif,soybean,0.0325
+9:5,Kharif,sunflower,0.0
+9:5,Rabi,black gram,0.0
+9:5,Rabi,chickpea,0.2106
+9:5,Rabi,chilli,0.0022
+9:5,Rabi,cotton,0.0479
+9:5,Rabi,green gram,0.0054
+9:5,Rabi,groundnut,0.0098
+9:5,Rabi,horse gram,0.0153
+9:5,Rabi,jowar,0.3499
+9:5,Rabi,linseed,0.0001
+9:5,Rabi,maize,0.0121
+9:5,Rabi,mustard,0.0004
+9:5,Rabi,onion,0.0004
+9:5,Rabi,ragi,0.0008
+9:5,Rabi,rice,0.0
+9:5,Rabi,sunflower,0.0085
+9:5,Rabi,wheat,0.3365
+9:5,Summer,maize,0.8647
+9:5,Summer,onion,0.0065
+9:5,Summer,rice,0.1287

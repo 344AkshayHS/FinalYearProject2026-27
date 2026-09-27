@@ -125,7 +125,8 @@ CREATE TABLE recommendations (
     slope_degrees        NUMERIC(5,2),
 
     climate_source       TEXT          NOT NULL,
-    model_version        TEXT          NOT NULL,   -- e.g. 'rf-india-1.2'
+    model_version        TEXT          NOT NULL,   -- e.g. 'rf-india-2.0'
+    season               TEXT          CHECK (season IN ('Kharif', 'Rabi', 'Summer')),   -- NULL for yearly models (1.x)
     farmer_soil          JSONB,        -- the farmer's own soil test values, if given
     created_at           TIMESTAMPTZ   NOT NULL DEFAULT now()
 );

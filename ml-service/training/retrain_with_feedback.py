@@ -7,6 +7,8 @@
 #   - "good" or "average" = this crop grows on this land. The farm point is added to the training data
 #     the same way build_dataset.py adds a point: 20 rows per 100% of the area, all of this crop.
 #   - "poor" is counted but not used: it tells us what failed, not what would grow.
+#   - the season is the one the crops were recommended for; for results made before the app saved it,
+#     the season of the day they were recommended (the app's default season then).
 #
 # The check (same as our paper's Rule 1): 5-fold GroupKFold by district on the government statistics.
 # In each fold a Random Forest is trained with and without the feedback (feedback from the test
@@ -21,24 +23,21 @@ import json
 import joblib
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GroupKFold
 
-FEATURES = [
-    "pH", "Nitrogen", "Organic_Carbon", "Clay", "Sand", "CEC",
-    "Temperature", "Winter_Temperature", "Humidity", "Rainfall", "Monsoon_Rain_Share",
-    "Post_Monsoon_Rain_Share", "Dry_Months", "Max_Temperature", "Solar_Radiation",
-    "Elevation", "Slope",
-]
+from forest import FEATURES, SEASONS, random_forest
+
 COPIES_PER_FIELD = 20    # same as COPIES_PER_SHARE in build_dataset.py: one point = 20 rows
 MAX_DROP = 0.005         # half a percentage point
 GROWS = ["good", "average"]
 
 
-def random_forest():
-    # Same settings as train_location_model.py
-    return RandomForestClassifier(n_estimators=400, min_samples_leaf=3, random_state=42, n_jobs=-1)
+def season_of(month):
+    # As the ML service's season_now(): June-September kharif, October-January rabi, February-May summer
+    if 6 <= month <= 9:
+        return SEASONS["Kharif"]
+    return SEASONS["Rabi"] if month >= 10 or month == 1 else SEASONS["Summer"]
 
 
 stats = pd.read_csv("data/processed/india_dataset.csv")
@@ -58,6 +57,8 @@ if usable.empty:
 
 # Karnataka feedback carries the statistics district name, so it joins that district's group;
 # other feedback gets its own group per district.
+usable["Season"] = usable["Season"].map(SEASONS).fillna(
+    pd.to_datetime(usable["Recommended"], utc=True).dt.month.map(season_of)).astype(int)
 usable["Group"] = usable["State"].fillna("?") + " | " + usable["District"].fillna("?").str.upper()
 feedback_rows = usable.loc[usable.index.repeat(COPIES_PER_FIELD)]
 

@@ -6,17 +6,19 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Chip } from '@/components/chip';
 import { api } from '@/lib/api';
 import { useApp } from '@/lib/app-context';
-import { allCropFacts, answerQuestion, cropFacts, notAvailable, replyLanguage } from '@/lib/chatbot';
+import { allCropFacts, answerQuestion, HELP_CONTACTS, replyLanguage } from '@/lib/chatbot';
 import { CROP_INFO } from '@/lib/crop-info';
-import { cropName } from '@/lib/translations';
+import { normaliseQuestion } from '@/lib/farmer-words';
+import { cropName, translations } from '@/lib/translations';
 import { colors, radius } from '@/theme';
 
 type Message = { id: number; from: 'user' | 'bot'; text: string };
 
 const CROPS = Object.keys(CROP_INFO);
+const HISTORY = 6; // earlier messages sent along, so "and how much water?" follows the conversation
 
 export default function ChatScreen() {
-  const { t, language, token } = useApp();
+  const { t, language, token, farm } = useApp();
   const insets = useSafeAreaInsets();
   // Opened from a result: start the chat about that crop
   const params = useLocalSearchParams<{ crop?: string }>();
@@ -43,35 +45,44 @@ export default function ChatScreen() {
     }
     // Reply in the language the question was asked in
     const replyIn = replyLanguage(question, language);
-    const reply = answerQuestion(question, aboutCrop, replyIn);
-    setCrop(reply.crop);
+    const reply = answerQuestion(question, aboutCrop, replyIn, farm);
+    const history = messages.slice(1).slice(-HISTORY).map(({ from, text }) => ({ from, text }));
     setInput('');
     addMessage('user', question);
 
-    // First ask the LLM on our server. It only gets checked facts: one crop's facts when the question
-    // is about a crop, otherwise the short facts of every crop, so it can compare them.
-    // If it can't answer safely (no key, limit reached, offline, a number not in the facts),
-    // the rule-based answer is shown instead.
+    // The app's own checked answer comes first. Only when it cannot answer (a detail or crop its facts do not
+    // cover, a question it cannot read) is the LLM on our server asked. It gets every crop's checked facts,
+    // the farmer's last result, official help contacts and the recent conversation, and may fall back on
+    // general farming knowledge - such a reply is marked "general information, please confirm". If it can't
+    // answer safely (no key, limit reached, offline, a number not in the facts, a chemical dose), the app's
+    // own answer is shown instead.
     let answer = reply.text;
+    let answerCrop = reply.crop;
     if (reply.askLlm) {
       setWaiting(true);
       try {
-        const data = await api<{ answer: string }>('/chat', {
+        const data = await api<{ answer: string; crop: string | null; source: 'facts' | 'general' }>('/chat', {
           method: 'POST',
           token,
           body: {
             question,
             language: replyIn,
-            facts: reply.crop ? cropFacts(reply.crop) : allCropFacts(),
-            not_available: reply.crop ? notAvailable(reply.crop, replyIn) : t.chat.noDataGeneral,
+            history,
+            current_crop: reply.crop ?? aboutCrop, // the crop the app read in the question, in any spelling
+            read_as: normaliseQuestion(question).trim(), // "ragi ge gobbara yavaga" -> "ragi fertilizer when"
+            facts: { crops: allCropFacts(), help_contacts: HELP_CONTACTS },
+            farm,
+            not_available: translations[replyIn].chat.noDataGeneral,
           },
         });
-        answer = data.answer;
+        answer = data.source === 'general' ? `${data.answer}\n\n${translations[replyIn].chat.generalNote}` : data.answer;
+        answerCrop = data.crop && CROP_INFO[data.crop] ? data.crop : answerCrop;
       } catch {
         // keep the rule-based answer
       }
       setWaiting(false);
     }
+    setCrop(answerCrop);
     addMessage('bot', answer);
   }
 

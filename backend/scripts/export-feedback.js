@@ -35,6 +35,8 @@ const COLUMNS = {
   Crop: 'f.crop',
   Outcome: 'f.outcome',
   Created: 'f.created_at',
+  Season: 'r.season', // the season the crops were recommended for (empty for results made before seasons)
+  Recommended: 'r.created_at', // for those older results the date gives the season
 };
 
 function csvValue(value) {

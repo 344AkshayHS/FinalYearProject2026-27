@@ -1,10 +1,14 @@
 const express = require('express');
 const { findDistrict } = require('../services/district');
+const { findTaluk, taluksOf } = require('../services/taluk');
+const { normaliseDistrict } = require('../districts');
 
 const router = express.Router();
 
 // GET /location/district?lat=12.87&lon=74.88
-// -> { district: "DAKSHIN KANNAD", state: "Karnataka", taluk: "Mangaluru", source: "boundary" }
+// -> { district: "DAKSHIN KANNAD", state: "Karnataka", taluk: "MANGALORE", taluk_key: "24:1", source: "boundary" }
+// Taluks are Karnataka only: they come from our taluk map (the taluks our crop figures and model use).
+// Outside Karnataka we have no taluk data, so taluk is null there.
 router.get('/district', async (req, res) => {
   const lat = Number(req.query.lat);
   const lon = Number(req.query.lon);
@@ -21,12 +25,23 @@ router.get('/district', async (req, res) => {
     if (result.error) {
       return res.status(404).json({ error: result.error });
     }
-    res.json(result);
+    const taluk = result.state === 'Karnataka' ? findTaluk(lat, lon, result.district) : null;
+    res.json({ ...result, taluk: taluk?.name ?? null, taluk_key: taluk?.key ?? null });
   } catch (err) {
     // Offline lookup found nothing and Nominatim could not be reached
     console.error(err);
     res.status(502).json({ error: 'district_lookup_failed' });
   }
+});
+
+// GET /location/taluks?district=MYSORE -> [{ key: "26:1", name: "H.D. KOTE" }, ...]
+// The taluks a farmer can pick after choosing a Karnataka district by hand.
+router.get('/taluks', (req, res) => {
+  const district = normaliseDistrict(req.query.district);
+  if (!district) {
+    return res.status(400).json({ error: 'district_invalid' });
+  }
+  res.json(taluksOf(district));
 });
 
 module.exports = router;

@@ -40,4 +40,19 @@ async function getClimate(lat, lng) {
   return response.json();
 }
 
-module.exports = { getClimate };
+// This monsoon's rain so far against the 2001-2020 normal for the same days (NASA POWER), with IMD's
+// category. null outside June-November - and also when NASA can't be reached, because it is extra
+// advice next to the recommendation and must never stop the recommendation itself.
+async function getSeasonRain(lat, lng) {
+  try {
+    const response = await fetch(`${process.env.ML_SERVICE_URL}/season_rain?lat=${lat}&lng=${lng}`, {
+      signal: giveUpAfter('climate'),
+    });
+    return response.ok ? await response.json() : null;
+  } catch (err) {
+    console.error('Season rain lookup failed:', err.message);
+    return null;
+  }
+}
+
+module.exports = { getClimate, getSeasonRain };
