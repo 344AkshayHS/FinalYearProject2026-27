@@ -15,7 +15,7 @@ async function main() {
   await pool.query(
     `INSERT INTO admins (username, password_hash) VALUES ($1, $2)
      ON CONFLICT (username) DO UPDATE SET password_hash = $2`,
-    [username.trim(), hashPassword(password)]
+    [username.trim(), await hashPassword(password)]
   );
   await pool.query('DELETE FROM admin_sessions WHERE admin_id = (SELECT id FROM admins WHERE username = $1)', [
     username.trim(),

@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { Animated, PanResponder, Text, View } from 'react-native';
+import { Animated, Image, PanResponder, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { colors } from '@/theme';
@@ -10,7 +10,7 @@ const BOX = { width: 76, height: 96 }; // avatar + label underneath
 const MARGIN = 16;
 const TAP_DISTANCE = 6; // moved less than this = a tap, not a drag
 
-// Round chat avatar. It starts at the bottom left and the farmer can drag it anywhere on the screen,
+// Round chat avatar (the GreenRoot robot). It starts at the bottom left and the farmer can drag it anywhere on the screen,
 // so it never covers what they want to read. A tap opens the crop helper chat.
 export function ChatButton({ crop, label }: { crop?: string; label: string }) {
   const router = useRouter();
@@ -75,29 +75,13 @@ export function ChatButton({ crop, label }: { crop?: string; label: string }) {
             borderRadius: SIZE / 2,
             alignItems: 'center',
             justifyContent: 'center',
+            overflow: 'hidden',
             backgroundColor: colors.primaryDark,
             borderWidth: 3,
             borderColor: colors.white,
             boxShadow: '0 4px 14px rgba(27, 77, 32, 0.35)',
           }}>
-          <Text style={{ fontSize: 30 }}>🤖</Text>
-          {/* Speech badge, so it reads as "chat" */}
-          <View
-            style={{
-              position: 'absolute',
-              top: -4,
-              right: -6,
-              width: 24,
-              height: 24,
-              borderRadius: 12,
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: colors.accent,
-              borderWidth: 2,
-              borderColor: colors.white,
-            }}>
-            <Text style={{ fontSize: 11 }}>💬</Text>
-          </View>
+          <Image source={require('../../assets/images/chatbot.png')} style={{ width: SIZE - 6, height: SIZE - 6 }} />
         </View>
         <Text
           numberOfLines={1}

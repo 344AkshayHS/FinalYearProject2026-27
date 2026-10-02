@@ -1,15 +1,16 @@
 const express = require('express');
 const pool = require('../db');
-const { checkPassword, createAdminSession, requireAdmin } = require('../auth');
+const { ADMIN_COOKIE, checkLogin, hashToken, createAdminSession, sendSession, clearSessionCookie, requireAdmin } = require('../auth');
 const { lockedOut, wrongPassword, rightPassword } = require('../rate-limit');
 const { giveUpAfter } = require('../services/timeout');
 
 const router = express.Router();
 
-// POST /admin/login   { "username": "...", "password": "..." } -> { "token": "..." }
+// POST /admin/login   { "username": "...", "password": "..." } -> { "token": "..." } for the phone app;
+// the website (header "X-Client: web") gets an httpOnly cookie instead and no token
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
-  if (typeof username !== 'string' || typeof password !== 'string') {
+  if (typeof username !== 'string' || typeof password !== 'string' || password.length > 128) {
     return res.status(400).json({ error: 'admin_login_failed' });
   }
   if (lockedOut(req, username)) {
@@ -18,12 +19,12 @@ router.post('/login', async (req, res) => {
   try {
     const result = await pool.query('SELECT id, password_hash FROM admins WHERE username = $1', [username.trim()]);
     const admin = result.rows[0];
-    if (!admin || !checkPassword(password, admin.password_hash)) {
+    if (!(await checkLogin(password, admin?.password_hash))) {
       wrongPassword(req, username);
       return res.status(401).json({ error: 'admin_login_failed' });
     }
     rightPassword(req, username);
-    res.json({ token: await createAdminSession(admin.id) });
+    sendSession(req, res, ADMIN_COOKIE, await createAdminSession(admin.id), {});
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'server_error' });
@@ -31,7 +32,10 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', requireAdmin, async (req, res) => {
-  await pool.query('DELETE FROM admin_sessions WHERE token = $1', [req.adminToken]);
+  await pool.query('DELETE FROM admin_sessions WHERE token_hash = $1', [hashToken(req.adminToken)]);
+  if (req.adminTokenViaCookie) {
+    clearSessionCookie(res, ADMIN_COOKIE);
+  }
   res.json({ ok: true });
 });
 

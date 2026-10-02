@@ -44,6 +44,8 @@ const RATED_VALUES: RatedValue[] = ['organic_carbon_pct', 'n', 'p', 'k'];
 export type RecommendResponse = {
   recommendation_id: string;
   area: 'point' | 'taluk' | 'district'; // GPS point, or a taluk / district picked by hand
+  district_middle?: boolean; // a district outside Karnataka picked by hand: the answer is for one spot in its middle
+  untested_place?: boolean; // no crop statistics for this district: the answer could not be checked against them
   location: { lat: number; lng: number; state: string | null; district: string | null; taluk: string | null };
   features: Record<string, number>;
   model_version: string;
@@ -456,6 +458,18 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
           {t.littleSown
             .replaceAll('{season}', t.seasonNames[data.season])
             .replace('{n}', data.season_sown_share < 0.01 ? '<1' : String(Math.round(data.season_sown_share * 100)))}
+        </Text>
+      )}
+
+      {/* A place without crop statistics (a few districts outside Karnataka): the answer could not be checked */}
+      {data.district_middle && (
+        <Text style={{ fontSize: 15, lineHeight: 21, color: colors.text, padding: 14, borderRadius: radius.medium, backgroundColor: colors.accentSoft }}>
+          ⚠️ {t.middleNote}
+        </Text>
+      )}
+      {data.untested_place && (
+        <Text style={{ fontSize: 15, lineHeight: 21, color: colors.text, padding: 14, borderRadius: radius.medium, backgroundColor: colors.accentSoft }}>
+          ⚠️ {t.noStatsHere}
         </Text>
       )}
 

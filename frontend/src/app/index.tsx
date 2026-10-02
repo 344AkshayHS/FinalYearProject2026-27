@@ -6,6 +6,7 @@ import { ChatButton } from '@/components/chat-button';
 import { DistrictPicker } from '@/components/district-picker';
 import { Chip } from '@/components/chip';
 import { Results, type RecommendResponse, type WaterSource } from '@/components/results';
+import { StatePicker } from '@/components/state-picker';
 import { EMPTY_SOIL_TEST, SoilTestForm, soilTestBody } from '@/components/soil-test-form';
 import { TalukPicker, type Taluk } from '@/components/taluk-picker';
 import { api, ApiError } from '@/lib/api';
@@ -13,7 +14,7 @@ import { useApp } from '@/lib/app-context';
 import { farmSummary } from '@/lib/chatbot';
 import { detectLocation, ROUGH_ACCURACY_M, type DetectedLocation } from '@/lib/detect-location';
 import { SEASONS, seasonNow, type Season } from '@/lib/season';
-import { districtName, talukName } from '@/lib/translations';
+import { districtName, stateName, talukName } from '@/lib/translations';
 import { cardShadow, colors, radius } from '@/theme';
 
 function errorCode(err: unknown) {
@@ -41,6 +42,11 @@ export default function HomeScreen() {
   const [locationError, setLocationError] = useState<string | null>(null);
   const [district, setDistrict] = useState<string | null>(null);
   const [pickerOpen, setPickerOpen] = useState(false);
+  // Picking by hand goes state, then district, then (Karnataka only) taluk. manualState is the state of the
+  // picked district; pickedState is a state just picked whose districts are being listed.
+  const [manualState, setManualState] = useState<string | null>(null);
+  const [pickedState, setPickedState] = useState<string | null>(null);
+  const [statePickerOpen, setStatePickerOpen] = useState(false);
   // True once the farmer picks a district by hand - even the same one GPS found - until GPS is used again
   const [manual, setManual] = useState(false);
   // Optional taluk of a hand-picked Karnataka district (null = the whole district)
@@ -61,13 +67,19 @@ export default function HomeScreen() {
 
   const usingGps = detected !== null && !manual;
   const roughGps = usingGps && (detected.accuracy ?? 0) > ROUGH_ACCURACY_M;
+  const state = usingGps ? detected.state : manualState;
+  const listedState = pickedState ?? state; // the state whose districts the list shows
   const firstName = user?.full_name.split(' ')[0] ?? '';
 
   // "You are in Beltangady taluk, Dakshina Kannada district" / "You are in Ludhiana, Punjab" /
-  // "Mysuru district (chosen by you)" / "Hunsur taluk, Mysuru district (chosen by you)".
+  // "Mysuru district (chosen by you)" / "Hunsur taluk, Mysuru district (chosen by you)" /
+  // "Wayanad district, Kerala (chosen by you)".
   // Taluks are Karnataka only; one is left out when the taluk map cannot place the point.
   function locationLabel() {
     if (!usingGps) {
+      if (manualState && manualState !== 'Karnataka') {
+        return t.chosenDistrictState.replace('{district}', district ?? '').replace('{state}', stateName(manualState, language));
+      }
       const text = taluk ? t.chosenTaluk.replace('{taluk}', talukName(taluk.name)) : t.chosenDistrict;
       return text.replace('{district}', districtName(district ?? '', language));
     }
@@ -104,11 +116,18 @@ export default function HomeScreen() {
       setDistrict(location.district);
       setManual(false);
       setTaluk(null);
+      setPickedState(null);
     } catch (err) {
-      // Explain why. If it is not something a tap can fix, open the district list straight away.
+      // Explain why. If it is not something a tap can fix, open the list to pick the place by hand straight away.
       const code = errorCode(err);
       setLocationError(code);
-      setPickerOpen(!LOCATION_FIXES[code]);
+      if (!LOCATION_FIXES[code]) {
+        if (state) {
+          setPickerOpen(true);
+        } else {
+          setStatePickerOpen(true);
+        }
+      }
     }
     setDetecting(false);
   }
@@ -144,15 +163,26 @@ export default function HomeScreen() {
     return () => subscription.remove();
   }, [inSettings]);
 
+  // The state list closes first, then the district list opens: iPhones cannot open one full-screen sheet
+  // while another is closing
+  function chooseState(picked: string) {
+    setPickedState(picked);
+    setStatePickerOpen(false);
+    setTimeout(() => setPickerOpen(true), 450);
+  }
+
   function chooseDistrict(picked: string) {
     setDistrict(picked);
+    setManualState(listedState);
+    setPickedState(null);
     setManual(true);
     setTaluk(null); // a taluk belongs to one district
     setLocationError(null);
     setPickerOpen(false);
-    // Next, the district's taluks ("Whole district" first, so skipping is one tap). The district list
-    // must finish closing first: iPhones cannot open one full-screen sheet while another is closing.
-    setTimeout(() => setTalukPickerOpen(true), 450);
+    // Karnataka only: next, the district's taluks ("Whole district" first, so skipping is one tap)
+    if (listedState === 'Karnataka') {
+      setTimeout(() => setTalukPickerOpen(true), 450);
+    }
   }
 
   function chooseTaluk(picked: Taluk | null) {
@@ -168,10 +198,11 @@ export default function HomeScreen() {
     setAnalysing(true);
     setError(null);
     try {
-      // With GPS we check the exact spot; with a hand-picked district (or taluk), sample farms across all of it
+      // With GPS we check the exact spot; a hand-picked Karnataka district (or taluk): sample farms across all of it;
+      // a district of another state: one spot in its middle
       const place = usingGps
         ? { lat: detected.lat, lng: detected.lng, state: detected.state, district }
-        : { district, taluk: taluk?.key };
+        : { state: manualState, district, taluk: taluk?.key };
       const body = { ...place, season: forSeason, soil_test: soilTestBody(soilTest) };
       const data = await api<RecommendResponse>('/recommend', { method: 'POST', body, token });
       setResult(data);
@@ -246,13 +277,13 @@ export default function HomeScreen() {
                 </Text>
               )}
               <Text style={{ fontSize: 14, lineHeight: 20, color: colors.muted }}>
-                {usingGps ? t.isThisRight : taluk ? t.manualNoteTaluk : t.manualNote}
+                {usingGps ? t.isThisRight : manualState !== 'Karnataka' ? t.middleNote : taluk ? t.manualNoteTaluk : t.manualNote}
               </Text>
             </View>
           )}
 
-          {/* A hand-picked district can be narrowed to one of its taluks (Karnataka only, optional) */}
-          {!detecting && district && !usingGps && (
+          {/* A hand-picked Karnataka district can be narrowed to one of its taluks (optional) */}
+          {!detecting && district && !usingGps && manualState === 'Karnataka' && (
             <Button
               title={`${t.talukOptional}: ${taluk ? talukName(taluk.name) : t.wholeDistrict}`}
               onPress={() => setTalukPickerOpen(true)}
@@ -281,9 +312,22 @@ export default function HomeScreen() {
                 <Button title={t.useMyLocation} onPress={locateMe} variant={district ? 'outline' : 'primary'} />
               </View>
               <View style={{ flexGrow: 1 }}>
-                <Button title={district ? t.changeDistrict : t.chooseDistrict} onPress={() => setPickerOpen(true)} variant="outline" />
+                <Button
+                  title={district ? t.changeDistrict : t.chooseDistrict}
+                  onPress={() => (listedState ? setPickerOpen(true) : setStatePickerOpen(true))}
+                  variant="outline"
+                />
               </View>
             </View>
+          )}
+
+          {/* The state is optional too: the district list is that state's. Karnataka's are the default. */}
+          {!detecting && (
+            <Button
+              title={`${t.stateOptional}: ${listedState ? stateName(listedState, language) : t.chooseState}`}
+              onPress={() => setStatePickerOpen(true)}
+              variant="outline"
+            />
           )}
         </View>
 
@@ -372,13 +416,22 @@ export default function HomeScreen() {
 
         {result && !analysing && <Results data={result} waterSource={waterSource} />}
 
-        <DistrictPicker
-          visible={pickerOpen}
-          selected={district}
-          onSelect={chooseDistrict}
-          onClose={() => setPickerOpen(false)}
+        <StatePicker
+          visible={statePickerOpen}
+          selected={listedState}
+          onSelect={chooseState}
+          onClose={() => setStatePickerOpen(false)}
         />
-        {district && !usingGps && (
+        {listedState && (
+          <DistrictPicker
+            visible={pickerOpen}
+            state={listedState}
+            selected={usingGps ? null : district}
+            onSelect={chooseDistrict}
+            onClose={() => setPickerOpen(false)}
+          />
+        )}
+        {district && !usingGps && manualState === 'Karnataka' && (
           <TalukPicker
             visible={talukPickerOpen}
             district={district}

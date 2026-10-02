@@ -22,16 +22,27 @@ def read_csv(name):
     return pd.read_csv(path).to_dict(orient="records") if os.path.exists(path) else []
 
 
+# The union territories among the names in the crop statistics (India has 28 states and 8 union territories today).
+# The statistics are older than 2014-2020, so Telangana is inside "Andhra Pradesh", Ladakh inside "Jammu and Kashmir",
+# and "Dadra and Nagar Haveli" is not yet joined with Daman and Diu.
+UNION_TERRITORIES = {
+    "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli", "Daman and Diu", "Delhi",
+    "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry",
+}
+
+
 @lru_cache(maxsize=1)
 def dataset_summary():
     data = pd.read_csv("data/processed/india_dataset.csv")
     points = data.drop_duplicates(["Latitude", "Longitude"])
     karnataka = points[points["State"] == "Karnataka"]
+    names = set(points["State"])
     return {
         "training_rows": len(data),
         "sample_points": len(points),
         "karnataka_points": len(karnataka),
-        "states": int(points["State"].nunique()),
+        "states": len(names - UNION_TERRITORIES),
+        "union_territories": len(names & UNION_TERRITORIES),
         "districts": int((points["State"] + points["Stats_District"]).nunique()),
         "crops": int(data["Crop"].nunique()),
         "points_per_state": points.groupby("State").size().sort_values(ascending=False).to_dict(),

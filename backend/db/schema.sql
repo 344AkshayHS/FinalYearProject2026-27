@@ -32,12 +32,14 @@ CREATE TRIGGER users_updated_at BEFORE UPDATE ON users
     FOR EACH ROW EXECUTE FUNCTION set_updated_at();
 
 -- ---------------------------------------------------------------------------
--- sessions: one row per logged-in device. The app sends the token with each request.
+-- sessions: one row per logged-in device. The app sends the token with each request; only its
+-- SHA-256 hash is kept here. A session ends after 30 days.
 -- ---------------------------------------------------------------------------
 CREATE TABLE sessions (
-    token       TEXT        PRIMARY KEY,
+    token_hash  TEXT        PRIMARY KEY,
     user_id     BIGINT      NOT NULL REFERENCES users (id) ON DELETE CASCADE,
-    created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+    created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+    expires_at  TIMESTAMPTZ NOT NULL DEFAULT now() + interval '30 days'
 );
 
 -- ---------------------------------------------------------------------------
@@ -51,11 +53,12 @@ CREATE TABLE admins (
     created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
--- admin_sessions: an admin login lasts 12 hours (checked in src/auth.js)
+-- admin_sessions: an admin login lasts 12 hours; only the token's SHA-256 hash is kept
 CREATE TABLE admin_sessions (
-    token       TEXT        PRIMARY KEY,
+    token_hash  TEXT        PRIMARY KEY,
     admin_id    BIGINT      NOT NULL REFERENCES admins (id) ON DELETE CASCADE,
-    created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+    created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+    expires_at  TIMESTAMPTZ NOT NULL DEFAULT now() + interval '12 hours'
 );
 
 -- ---------------------------------------------------------------------------

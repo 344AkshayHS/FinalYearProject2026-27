@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node --env-file=.env src/server.js",
     "dev": "node --env-file=.env --watch src/server.js",
+    "test": "node --test \"test/*.test.js\"",
     "export-feedback": "node --env-file=.env scripts/export-feedback.js",
     "create-admin": "node --env-file=.env scripts/create-admin.js"
   },

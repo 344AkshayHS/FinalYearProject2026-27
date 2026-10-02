@@ -6,8 +6,11 @@ const { getTerrain } = require('../services/terrain');
 const { predictCrops, predictForArea } = require('../services/ml');
 const { cropFacts, seasonSowing } = require('../services/crop-facts');
 const { findTaluk, talukByKey } = require('../services/taluk');
+const { districtMiddle, isUntestedPlace } = require('../services/district');
 const { normaliseDistrict } = require('../districts');
 const { readSoilTest, rateSoilTest, toTotalCarbon } = require('../soil-test');
+const { requireUser } = require('../auth');
+const { limitRequests } = require('../rate-limit');
 
 const router = express.Router();
 
@@ -30,6 +33,8 @@ function cleanText(value, maxLength) {
 //    too, for the "what farmers grow here" card; state and district are saved for reference.
 //  - a Karnataka district picked by hand, and maybe one of its taluks -> that whole area ("taluk" or
 //    "district"): the model averaged over all its sample farm points.
+//  - a district of another state picked by hand -> the point in the middle of that district ("point" with
+//    inMiddle: true). We have sample farms only for Karnataka, so this is one spot, not the whole district.
 // Returns null when the location is not valid (also for a taluk that is not in the district).
 function readLocation(body) {
   const lat = Number(body.lat);
@@ -41,6 +46,11 @@ function readLocation(body) {
     const district = !state || state === 'Karnataka' ? normaliseDistrict(body.district) : cleanText(body.district, 80);
     const taluk = state === 'Karnataka' ? findTaluk(lat, lng, district) : null;
     return { area: 'point', lat, lng, state, district, taluk };
+  }
+
+  if (!hasGps && state && state !== 'Karnataka') {
+    const middle = districtMiddle(state, cleanText(body.district, 80));
+    return middle && { area: 'point', ...middle, state, district: cleanText(body.district, 80), taluk: null, inMiddle: true };
   }
 
   const district = normaliseDistrict(body.district);
@@ -114,9 +124,11 @@ async function predictForPickedArea(district, taluk, soilTest, season) {
 // POST /recommend
 // Body: { "lat": 12.76, "lng": 75.20, "state": "Karnataka", "district": "DAKSHIN KANNAD" }
 //   or a Karnataka district picked by hand: { "district": "MYSORE" }, optionally with a taluk key: "taluk": "26:3"
+//   or a district of another state picked by hand: { "state": "Kerala", "district": "Wayanad" }
 // Optional, the farmer's own soil test: "soil_test": { "ph": 6.5, "organic_carbon_pct": 0.6, "n": 250, "p": 12, "k": 180 }
 // Optional, the season to sow in: "season": "Kharif" | "Rabi" | "Summer" (default: the season of today's date)
-router.post('/', async (req, res) => {
+// A recommendation asks three outside services and the model, so it needs a login and is limited per farmer
+router.post('/', requireUser, limitRequests(30, 60, (req) => req.user.id), async (req, res) => {
   const place = readLocation(req.body);
   if (!place) {
     return res.status(400).json({ error: 'location_invalid' });
@@ -129,7 +141,7 @@ router.post('/', async (req, res) => {
   if (season !== undefined && !SEASONS.includes(season)) {
     return res.status(400).json({ error: 'season_invalid' });
   }
-  const { area, state, district, taluk } = place;
+  const { area, state, district, taluk, inMiddle } = place;
 
   try {
     // 1-4. Features and the model's answer, for the exact point or for the picked area
@@ -145,8 +157,7 @@ router.post('/', async (req, res) => {
     const seasonRain = getSeasonRain(lat, lng);
 
     // 5. Save everything so we can look at it later
-    // user is null when nobody is logged in
-    const userId = req.user ? req.user.id : null;
+    const userId = req.user.id;
 
     const location = await pool.query(
       `INSERT INTO locations (user_id, latitude, longitude, state, district)
@@ -189,6 +200,11 @@ router.post('/', async (req, res) => {
       recommendation_id: recommendationId,
       // area: 'point' (GPS), 'taluk' or 'district' (picked by hand)
       area,
+      // true when there are no crop statistics for this district: the answer comes from the soil and climate
+      // alone and could not be checked against what farmers grow there
+      untested_place: area === 'point' && isUntestedPlace(lat, lng),
+      // true when the farmer picked a district outside Karnataka: the answer is for one spot in its middle
+      district_middle: inMiddle === true,
       location: { lat, lng, state, district, taluk: taluk?.name ?? null },
       features,
       model_version: prediction.model_version,

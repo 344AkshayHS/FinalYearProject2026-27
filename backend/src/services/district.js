@@ -8,7 +8,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { normaliseDistrict, normaliseState } = require('../districts');
+const { currentState, normaliseDistrict, normaliseState } = require('../districts');
 
 // --- Boundaries, loaded once when the server starts ----------------------------
 
@@ -37,7 +37,8 @@ const karnataka = loadBoundaries('karnataka_districts.geojson', (p) => ({
   district: normaliseDistrict(p.district),
 }));
 const restOfIndia = loadBoundaries('india_districts.geojson', (p) => ({
-  state: normaliseState(p.NAME_1),
+  state: currentState(normaliseState(p.NAME_1), p.NAME_2), // today's state, not the one of the older map
+  mapState: normaliseState(p.NAME_1), // the state as the older map (and our crop data) names it
   district: p.NAME_2,
 })).filter((b) => b.state !== 'Karnataka');
 
@@ -155,4 +156,79 @@ async function findDistrict(lat, lon) {
   return { district: osm.district, state: osm.state, taluk: osm.taluk, source: 'nominatim' };
 }
 
-module.exports = { findDistrict, insidePolygon };
+// Districts where we have soil and climate but no crop statistics (data/untested_places.json, made by
+// ml-service/training/list_untested_places.py). The model still answers there, but it could not be tested.
+const untestedPlaces = new Set(
+  JSON.parse(fs.readFileSync(path.join(__dirname, '../../data/untested_places.json'), 'utf8')).map(
+    (place) => `${normaliseState(place.state)}|${place.district}`
+  )
+);
+
+// Is this GPS point in one of them? (Karnataka has crop statistics for all its districts.)
+function isUntestedPlace(lat, lon) {
+  const match = findInBoundaries(lat, lon);
+  return Boolean(match && match.mapState && untestedPlaces.has(`${match.mapState}|${match.district}`));
+}
+
+// --- The pickers: state -> district -> (Karnataka only) taluk -----------------------
+
+// Today's states and union territories, and the districts of each, from the boundary files.
+// Karnataka's districts are named as in our crop data (the app shows them in English or Kannada).
+const districtsByState = new Map();
+for (const { state, district } of boundaries) {
+  if (!districtsByState.has(state)) {
+    districtsByState.set(state, new Set());
+  }
+  districtsByState.get(state).add(district);
+}
+
+function listStates() {
+  return [...districtsByState.keys()].sort();
+}
+
+function listDistricts(state) {
+  return [...(districtsByState.get(state) ?? [])].sort();
+}
+
+// The corners of the biggest piece of a district (islands make districts of several pieces)
+function biggestPolygon(polygons) {
+  const size = ([ring]) => {
+    const lons = ring.map((c) => c[0]);
+    const lats = ring.map((c) => c[1]);
+    return (Math.max(...lons) - Math.min(...lons)) * (Math.max(...lats) - Math.min(...lats));
+  };
+  return polygons.reduce((best, polygon) => (size(polygon) > size(best) ? polygon : best));
+}
+
+// A point inside a picked district, for the soil and climate readings. Starts at the middle of the district's
+// biggest piece and, if that falls outside (a curved district, a hole), takes the nearest point inside on a grid.
+function districtMiddle(state, district) {
+  const match = boundaries.find((b) => b.state === state && b.district === district && b.mapState);
+  if (!match) {
+    return null;
+  }
+  const polygon = biggestPolygon(match.polygons);
+  const ring = polygon[0];
+  const lon = ring.reduce((sum, c) => sum + c[0], 0) / ring.length;
+  const lat = ring.reduce((sum, c) => sum + c[1], 0) / ring.length;
+  if (insidePolygon(lon, lat, polygon)) {
+    return { lat, lng: lon };
+  }
+  let best = null;
+  const lons = ring.map((c) => c[0]);
+  const lats = ring.map((c) => c[1]);
+  const steps = 40;
+  for (let i = 0; i <= steps; i++) {
+    for (let j = 0; j <= steps; j++) {
+      const x = Math.min(...lons) + ((Math.max(...lons) - Math.min(...lons)) * i) / steps;
+      const y = Math.min(...lats) + ((Math.max(...lats) - Math.min(...lats)) * j) / steps;
+      const away = (x - lon) ** 2 + (y - lat) ** 2;
+      if ((!best || away < best.away) && insidePolygon(x, y, polygon)) {
+        best = { away, lat: y, lng: x };
+      }
+    }
+  }
+  return best && { lat: best.lat, lng: best.lng };
+}
+
+module.exports = { findDistrict, findInBoundaries, insidePolygon, isUntestedPlace, listStates, listDistricts, districtMiddle };

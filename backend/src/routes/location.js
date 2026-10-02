@@ -1,7 +1,8 @@
 const express = require('express');
-const { findDistrict } = require('../services/district');
+const { findDistrict, listDistricts, listStates } = require('../services/district');
 const { findTaluk, taluksOf } = require('../services/taluk');
 const { normaliseDistrict } = require('../districts');
+const { limitRequests } = require('../rate-limit');
 
 const router = express.Router();
 
@@ -9,7 +10,8 @@ const router = express.Router();
 // -> { district: "DAKSHIN KANNAD", state: "Karnataka", taluk: "MANGALORE", taluk_key: "24:1", source: "boundary" }
 // Taluks are Karnataka only: they come from our taluk map (the taluks our crop figures and model use).
 // Outside Karnataka we have no taluk data, so taluk is null there.
-router.get('/district', async (req, res) => {
+// (It can ask Nominatim, a free outside service, so each address may ask at most 60 times a minute.)
+router.get('/district', limitRequests(60, 1), async (req, res) => {
   const lat = Number(req.query.lat);
   const lon = Number(req.query.lon);
 
@@ -32,6 +34,21 @@ router.get('/district', async (req, res) => {
     console.error(err);
     res.status(502).json({ error: 'district_lookup_failed' });
   }
+});
+
+// GET /location/states -> ["Andhra Pradesh", ..., "Karnataka", ...]  (today's states and union territories)
+router.get('/states', (req, res) => {
+  res.json(listStates());
+});
+
+// GET /location/districts?state=Kerala -> ["Alappuzha", "Ernakulam", ...]
+// (Karnataka's come as our crop-data names, e.g. "DAKSHIN KANNAD"; the app writes them nicely.)
+router.get('/districts', (req, res) => {
+  const districts = listDistricts(req.query.state);
+  if (districts.length === 0) {
+    return res.status(400).json({ error: 'state_invalid' });
+  }
+  res.json(districts);
 });
 
 // GET /location/taluks?district=MYSORE -> [{ key: "26:1", name: "H.D. KOTE" }, ...]

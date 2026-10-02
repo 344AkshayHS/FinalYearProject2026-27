@@ -2,8 +2,11 @@
 
 Location-based crop recommendation for Karnataka farmers. The farmer shares their GPS location, and GreenRoot
 reads the soil and long-term climate of that exact spot and recommends crops, with an explanation, in English or
-Kannada (one tap in the header switches the whole app). A farmer who picks a Karnataka district instead (and,
-optionally, one of its taluks) gets an answer for that whole area: the model averaged over its sample farms. Beside
+Kannada (one tap in the header switches the whole app). Instead of GPS a farmer can pick the place: a state, then
+one of its districts (`GET /location/states`, `GET /location/districts?state=`), then, for Karnataka, optionally one of
+its taluks. A Karnataka district or taluk gets an answer for that whole area: the model averaged over its sample farms.
+We have sample farms for Karnataka only, so a district of another state is answered for one spot in its middle
+(`district_middle` in the `/recommend` answer), and the app says so and points to GPS for an exact answer. Beside
 the recommendation the app shows what farmers really grow most in that taluk (Agriculture Census) or district
 (crop statistics). Taluks are Karnataka only: we have taluk data nowhere else.
 Answers change with the season: the farmer picks Kharif, Rabi or Summer (it starts at the season of today's date),
@@ -53,7 +56,9 @@ Phone app (Expo)  ──►  Backend (Node + Express + PostgreSQL)  ──►  M
   GPS / district         accounts, district lookup, history           soil (SoilGrids), climate (NASA POWER),
                                                                        terrain (Open-Meteo),
   results, Kannada,      saves every recommendation                   Random Forest, SHAP + LIME
-  crop helper chat
+  crop helper chat                  ▲
+                                    │
+Website (React, in a browser)  ─────┘   the same backend, the same answers, the same English and Kannada
 ```
 
 ## Folders
@@ -61,6 +66,7 @@ Phone app (Expo)  ──►  Backend (Node + Express + PostgreSQL)  ──►  M
 | Folder | What is inside |
 |---|---|
 | `frontend/` | Expo app: `src/app` (screens), `src/components`, `src/lib` (API, English/Kannada text, location, crop facts and the crop helper chat) |
+| `web/` | The website (React + Vite): `src/pages`, `src/components`, `src/lib`, `src/styles.css`. Read `web/README.md` |
 | `backend/` | Express API: `src/routes` (users, location, recommend, chat, weather, feedback), `scripts/` (feedback export), `src/services`, `db/schema.sql`, `data/` (district and taluk boundaries, district names, crops grown per taluk and district) |
 | `ml-service/` | `app/` (the running service), `training/` (scripts that build the data and train the model), `artifacts/` (trained model and results), `data/` |
 
@@ -87,7 +93,8 @@ psql -U postgres -p 5432 -d greenroot -f backend/db/schema.sql
 ```
 (`psql` is in `C:\Program Files\PostgreSQL\<version>\bin` if it is not found.)
 An older GreenRoot database only needs the later files: `backend/db/002_soil_test_and_feedback.sql`,
-`003_admin.sql`, `004_terrain_and_climate.sql` and `005_season.sql`.
+`003_admin.sql`, `004_terrain_and_climate.sql`, `005_season.sql` and `006_session_security.sql` (the last one signs
+everybody out once: see "Security" below).
 
 **3. Settings.** `.env` files are never on GitHub (they hold passwords and keys). Copy each example and fill it in:
 
@@ -95,6 +102,7 @@ An older GreenRoot database only needs the later files: `backend/db/002_soil_tes
 |---|---|
 | `backend/.env` (from `backend/.env.example`) | your PostgreSQL password and port in `DATABASE_URL`; optional `GROQ_API_KEY` and `GEMINI_API_KEY` for the chat |
 | `ml-service/.env` (from `ml-service/.env.example`) | nothing needed to run the app (the data.gov.in key is only for re-training) |
+| `web/.env` (from `web/.env.example`) | nothing, unless the backend is not at `http://localhost:4000` (then set `API_TARGET`) |
 | `frontend/.env` (from `frontend/.env.example`) | nothing: leave `EXPO_PUBLIC_API_URL` empty. The app finds the backend on the PC running `npx expo start`, so it survives a changed Wi-Fi address. Fill it in only for a built APK, or when the backend runs on another PC |
 
 **4. Install the libraries** (first time only)
@@ -108,6 +116,8 @@ npm install
 npm run create-admin -- <username> <password>     # optional: login for the ML dashboard
 cd ..\frontend
 npm install
+cd ..\web
+npm install     # only for the website
 cd ..
 ```
 
@@ -136,6 +146,44 @@ npx expo start
 **Installable app (APK, optional).** The app itself can be built with `eas build -p android --profile preview`
 (needs a free Expo account; a new developer first runs `npx eas-cli@latest init` to link their own project).
 The APK still needs the backend and ML service running on a PC it can reach.
+
+## Website
+
+The website has the same pages as the phone app (login, home with location, season and soil test, results, water
+plan, feedback, crop helper chat, profile with history, the admin ML dashboard) in English and Kannada. It lives in
+`web/` and does not change anything in `frontend/`: the phone app works exactly as before.
+
+With the ML service and the backend running (step 5), in a fourth terminal:
+```
+cd web
+npm run dev
+```
+Open **http://localhost:5173**. To serve it from the backend instead (one address, one port): `cd web`,
+`npm run build`, restart the backend, open **http://localhost:4000**.
+- The browser shares its position only on `localhost` or an https address. Opened by the PC's Wi-Fi address
+  (`http://192.168...`), location is refused and the farmer picks the district from the list instead.
+- The website reads the phone app's text, crop facts, chat rules and water formula straight from `frontend/src/lib`
+  (it never changes them), so a Kannada fix or a new crop fact shows in both. How it is built: `web/README.md`.
+
+## Security
+
+Both apps talk to the same backend, so most of it is done there (`backend/src/auth.js`, `rate-limit.js`, `server.js`):
+- **Logins.** Passwords are stored as scrypt hashes (at least 8 characters). A login token is stored only as a SHA-256
+  hash, so a copy of the database cannot be used to log in. Farmer logins end after 30 days, admin logins after 12 hours.
+  A wrong phone number takes as long to answer as a wrong password, so nobody can find out who has an account.
+- **Phone app:** the token is in SecureStore (the phone's keystore), and the app logs out by itself when the server says
+  the login has ended. It refuses plain `http://` to a public address (only localhost and your own Wi-Fi are allowed).
+- **Website:** the token is in an `httpOnly` cookie (`SameSite=Strict`, `Secure` on https), so JavaScript on the page
+  can never read it. A change made with that cookie must come from our own address (`Origin` check plus the
+  `X-Client: web` header), so another website cannot make the browser send one for the farmer.
+- **Limits.** 5 wrong passwords lock a name for 15 minutes; 20 logins or sign-ups per 15 minutes per address;
+  recommendations 30 an hour and chat questions 60 an hour per farmer. `/recommend` now needs a login.
+- **Headers** (`nosniff`, no framing, no referrer, a strict Content-Security-Policy for the website), request size limit.
+- **Known limit:** the chat takes the crop facts from the app (`frontend/src/lib/crop-info.ts`), so a logged-in user can
+  only change their own answers; the server still refuses figures not in those facts and any chemical dose.
+- **Settings for a real server:** `COOKIE_SECURE=true` (https), `WEB_ORIGIN` (the website's address), `TRUST_PROXY=1`
+  (behind nginx or a host's load balancer). See `backend/.env.example`. Keep keys and passwords in `.env` files only.
+- Tests: `cd backend; npm test`.
 
 ## ML dashboard (admin)
 
@@ -190,9 +238,38 @@ The Agriculture Census and DES count whole years, so a Karnataka taluk's crops a
 The app sends the season the farmer picks; without one the ML service uses the season of today's date
 (June-September Kharif, October-January Rabi, February-May Summer).
 
+**Training data size.** `data/processed/india_dataset.csv` has 423,012 rows: 143,253 Kharif, 144,468 Rabi and
+135,291 Summer. They are area-weighted copies, not 423,012 separate records. Each crop at a point is written once
+per 5% of its district's area (20 times for a crop that covers all of it), so the copies work as a weight and
+rice on 60% of a district counts more than cotton on 3%. Without the copies there are 82,771 distinct crop
+records (31,142 Kharif, 31,347 Rabi, 20,282 Summer) at 7,140 sample points, in 568 statistics districts, for 57
+crops. The soil and climate values of a point are the same in every season; only `Season`, the crops and their
+shares change. The crop labels come from district statistics, so points in one district share a label. That is
+why the accuracy check (`GroupKFold`, 5 folds) holds out whole districts: a copy of a row never sits in both
+the training and the test part. The final model is then trained on all rows.
+
 **Karnataka boundaries.** The data uses the Census 2011 boundaries: 30 districts (Vijayanagara, made in 2021, is
 part of Ballari) and 175 taluk shapes (the 176 Census 2011 taluks; Aland and Afzalpur share one). Together they
-cover all of Karnataka; today's 31 districts and about 240 taluks are later splits of the same land.
+cover all of Karnataka; today's 31 districts and about 240 taluks are later splits of the same land. Ramanagara
+district was renamed Bengaluru South on 23 May 2025 (the app shows "Bengaluru South (Ramanagara)"; its crop data is
+filed under the old name).
+
+**States and union territories.** India has 28 states and 8 union territories. The crop statistics and the model's
+training data are older than three changes, so they hold 25 states and 4 union territories (Chandigarh, Dadra and
+Nagar Haveli, Jammu and Kashmir, Puducherry): Telangana (2014) is inside Andhra Pradesh, Ladakh (2019) inside Jammu and
+Kashmir, and Dadra and Nagar Haveli is not yet joined with Daman and Diu (2020); Manipur and Mizoram have no figures.
+The model reads soil and climate at the farm's own GPS point, so this does not change its answers, but the
+dashboard says it. The place shown to the farmer is today's: `currentState` in `backend/src/districts.js` corrects the
+older map, so a farm in Hyderabad reads "Telangana" and one in Leh "Ladakh". Fixing the training data itself would
+mean rebuilding the dataset and retraining, which has not been done.
+
+**Places with no crop statistics.** 28 districts have soil and climate sample points but no crop figures: all of
+Manipur (9) and Mizoram (8), Delhi, Daman and Diu, the Andaman and Nicobar Islands, and the city districts Hyderabad,
+Greater Bombay, Chennai, Kolkata, Kanpur and Upper Dibang Valley. The model still answers there from the soil and
+climate of the exact spot, but the answer could not be tested, so a GPS answer in one of them carries a warning
+(`untested_place` in the `/recommend` answer, `noStatsHere` in the texts). The list comes from
+`training/list_untested_places.py` (run from `ml-service/`; it only compares two files, no training) and is saved in
+`backend/data/untested_places.json`. Karnataka has figures for all 30 of its districts.
 
 **Karnataka taluk labels.** Each taluk's crop mix averages every year that reports a crop: the Agriculture
 Census 2010-11 and 2015-16 and Karnataka DES 2019-22 (coffee and the spices census only; cowpea and avare DES

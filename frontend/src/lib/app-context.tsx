@@ -5,7 +5,7 @@
 import * as SecureStore from 'expo-secure-store';
 import { createContext, use, useEffect, useState, type ReactNode } from 'react';
 
-import { api } from '@/lib/api';
+import { api, whenLoginExpires } from '@/lib/api';
 import type { FarmSummary } from '@/lib/chatbot';
 import { translations, type Language } from '@/lib/translations';
 
@@ -42,6 +42,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   // On app start: load the saved language and token, and check the token is still valid
   useEffect(() => {
+    // If the server ever says the login has run out (they last 30 days), go back to the login screen
+    whenLoginExpires(() => {
+      SecureStore.deleteItemAsync('token');
+      setToken(null);
+      setUser(null);
+      setFarm(null);
+    });
+
     async function start() {
       const savedLanguage = await SecureStore.getItemAsync('language');
       if (savedLanguage === 'en' || savedLanguage === 'kn') {
@@ -64,7 +72,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, []);
 
   async function saveLogin(data: { token: string; user: User }) {
-    await SecureStore.setItemAsync('token', data.token);
+    // On an iPhone the token stays on this phone: it is not copied to a new phone from a backup
+    await SecureStore.setItemAsync('token', data.token, { keychainAccessible: SecureStore.WHEN_UNLOCKED_THIS_DEVICE_ONLY });
     await SecureStore.setItemAsync('language', data.user.preferred_language);
     setToken(data.token);
     setUser(data.user);

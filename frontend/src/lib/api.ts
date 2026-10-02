@@ -27,7 +27,32 @@ function backendUrl() {
   return `http://${reachableHost}:${BACKEND_PORT}`;
 }
 
-const API_URL = backendUrl();
+// Plain http is only safe on this PC or your own Wi-Fi (development and the demo APK). Anywhere else the
+// password and login token would travel readable, so the app refuses to talk to such an address:
+// use an https address there.
+function isPrivateAddress(host: string) {
+  return (
+    host === 'localhost' ||
+    host === '10.0.2.2' || // an Android emulator's name for the PC
+    /^(127|10)\./.test(host) ||
+    /^192\.168\./.test(host) ||
+    /^172\.(1[6-9]|2\d|3[01])\./.test(host)
+  );
+}
+
+function safeUrl(url: string | undefined) {
+  if (!url || url.startsWith('https://')) {
+    return url;
+  }
+  const host = url.replace(/^http:\/\//, '').split(/[:/]/)[0];
+  if (isPrivateAddress(host)) {
+    return url;
+  }
+  console.warn(`GreenRoot: ${url} is plain http on a public address, so it is not used. Use an https address.`);
+  return undefined;
+}
+
+const API_URL = safeUrl(backendUrl());
 
 export class ApiError extends Error {
   code: string;
@@ -37,8 +62,17 @@ export class ApiError extends Error {
   }
 }
 
+// The app sets this: what to do when the server says the login has run out (logins last 30 days)
+let onLoginExpired = () => {};
+export function whenLoginExpires(handler: () => void) {
+  onLoginExpired = handler;
+}
+
 export async function api<T>(path: string, options: { method?: string; body?: object; token?: string | null } = {}) {
   let response: Response;
+  if (API_URL === undefined) {
+    throw new ApiError('network'); // no usable address (see safeUrl)
+  }
   try {
     response = await fetch(API_URL + path, {
       method: options.method ?? 'GET',
@@ -56,6 +90,9 @@ export async function api<T>(path: string, options: { method?: string; body?: ob
 
   const data = await response.json().catch(() => ({}));
   if (!response.ok) {
+    if (data.error === 'login_required') {
+      onLoginExpired();
+    }
     throw new ApiError(data.error ?? 'server_error');
   }
   return data as T;

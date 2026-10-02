@@ -67,6 +67,7 @@ type Overview = {
       sample_points: number;
       karnataka_points: number;
       states: number;
+      union_territories: number;
       districts: number;
       crops: number;
       points_per_state: Record<string, number>;
@@ -220,13 +221,14 @@ export default function AdminScreen() {
         <>
           <Section
             title="Training data"
-            note="Labels: crop area per district — ICRISAT 2015–2019 where it reports, data.gov.in 2010–2014 elsewhere, plus the Coffee Board for coffee and Horticultural Statistics at a Glance 2018 for fruit and vegetables. Features: SoilGrids soil, NASA POWER climate and Open-Meteo terrain at random points inside each district.">
+            note="Labels: crop area per district — ICRISAT 2015–2019 where it reports, data.gov.in 2010–2014 elsewhere, plus the Coffee Board for coffee and Horticultural Statistics at a Glance 2018 for fruit and vegetables. Features: SoilGrids soil, NASA POWER climate and Open-Meteo terrain at random points inside each district. The statistics are older than the 2014–2020 boundary changes, so they hold 25 states and 4 union territories, not today’s 28 states and 8 union territories: Telangana is inside Andhra Pradesh, Ladakh inside Jammu and Kashmir, and Manipur and Mizoram have no figures.">
             <Stats
               items={[
                 ['Training rows', report.dataset.training_rows],
                 ['Sample points', report.dataset.sample_points],
                 ['Karnataka points', report.dataset.karnataka_points],
                 ['States', report.dataset.states],
+                ['Union territories', report.dataset.union_territories],
                 ['Districts', report.dataset.districts],
                 ['Crops', report.dataset.crops],
               ]}

@@ -1,5 +1,6 @@
 const express = require('express');
 const { requireUser } = require('../auth');
+const { limitRequests } = require('../rate-limit');
 const { askGemini } = require('../services/gemini');
 const { askGroq } = require('../services/groq');
 
@@ -185,7 +186,7 @@ function readHistory(history) {
 //         "not_available": "We do not have checked information about this. ..." }
 // -> { "answer": "...", "crop": "rice" | null, "source": "facts" | "general" }
 // Any problem -> 503 llm_unavailable, and the app shows its own rule-based answer instead.
-router.post('/', requireUser, async (req, res) => {
+router.post('/', requireUser, limitRequests(60, 60, (req) => req.user.id), async (req, res) => {
   const { question, language, facts, farm, current_crop: currentCrop, not_available: notAvailable, read_as: readAs } =
     req.body;
   const history = readHistory(req.body.history ?? []);

@@ -13,7 +13,7 @@ const en = {
   fullName: 'Full name',
   phone: 'Mobile number',
   password: 'Password',
-  passwordHint: 'At least 6 characters',
+  passwordHint: 'At least 8 characters',
   noAccount: 'New here? Create an account',
   haveAccount: 'Already have an account? Log in',
   hello: 'Hello, {name}',
@@ -110,6 +110,8 @@ const en = {
   rainfedChoices: 'On rain-fed land, crops farmers here mostly grow on rain: {crops}.',
   rainfedNoChoices: 'Farmers here mostly irrigate all of these crops. Please talk to your agriculture officer about rain-fed options.',
   irrigatedNote: 'You said this land is irrigated, so no crop is marked for needing more water than the rain gives.',
+  noStatsHere:
+    'We have no crop figures for this district, so this answer comes from the soil and climate alone and could not be checked against what farmers grow here. Use it as a guide and ask your local agriculture office.',
   talukUsesDistrict:
     'We have no census crop figures for this taluk yet, so the crops below are the answer for the whole {district} district.',
   talukPartlyDistrict:
@@ -159,6 +161,14 @@ const en = {
   chooseTaluk: 'Choose taluk',
   wholeDistrict: 'Whole district',
   talukListError: 'Could not load the taluks. You can still check the whole district.',
+  stateOptional: 'State (optional)',
+  chooseState: 'Choose state',
+  searchState: 'Search state',
+  noStateMatch: 'No state matches your search',
+  chosenDistrictState: '{district} district, {state} (chosen by you)',
+  placesListError: 'Could not load the states and districts. Use your location instead.',
+  middleNote:
+    'The answer is for one spot in the middle of this district. Fields differ within a district, so for your own field use your location.',
   manualNoteTaluk: 'We will check sample farms across this taluk and combine them.',
   manualNote: 'We will check sample farms across the whole district and combine them.',
   close: 'Close',
@@ -274,7 +284,10 @@ const en = {
     login_failed: 'Wrong mobile number or password',
     phone_taken: 'This mobile number already has an account',
     phone_invalid: 'Enter a valid 10-digit mobile number',
-    password_short: 'Password must be at least 6 characters',
+    password_short: 'Password must be at least 8 characters',
+    password_long: 'Password can be at most 128 characters',
+    rate_limited: 'Too many requests. Please wait a few minutes and try again.',
+    csrf_blocked: 'This request was blocked for your safety. Reload the page and try again.',
     name_required: 'Please enter your name',
     no_soil_data: 'No soil data for this spot (it may be a road, town or water). Move onto farmland and try again.',
     login_required: 'Please log in again',
@@ -325,7 +338,7 @@ const kn: typeof en = {
   fullName: 'ಪೂರ್ಣ ಹೆಸರು',
   phone: 'ಮೊಬೈಲ್ ಸಂಖ್ಯೆ',
   password: 'ಪಾಸ್‌ವರ್ಡ್',
-  passwordHint: 'ಕನಿಷ್ಠ 6 ಅಕ್ಷರಗಳು',
+  passwordHint: 'ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳು',
   noAccount: 'ಹೊಸಬರೇ? ಖಾತೆ ತೆರೆಯಿರಿ',
   haveAccount: 'ಈಗಾಗಲೇ ಖಾತೆ ಇದೆಯೇ? ಲಾಗಿನ್ ಮಾಡಿ',
   hello: 'ನಮಸ್ಕಾರ, {name}',
@@ -422,6 +435,8 @@ const kn: typeof en = {
   rainfedChoices: 'ಮಳೆಯಾಶ್ರಿತ ಜಮೀನಿನಲ್ಲಿ ಇಲ್ಲಿನ ರೈತರು ಹೆಚ್ಚಾಗಿ ಮಳೆಯಲ್ಲೇ ಬೆಳೆಯುವ ಬೆಳೆಗಳು: {crops}.',
   rainfedNoChoices: 'ಇಲ್ಲಿನ ರೈತರು ಈ ಎಲ್ಲಾ ಬೆಳೆಗಳಿಗೂ ಹೆಚ್ಚಾಗಿ ನೀರಾವರಿ ಮಾಡುತ್ತಾರೆ. ಮಳೆಯಾಶ್ರಿತ ಆಯ್ಕೆಗಳ ಬಗ್ಗೆ ದಯವಿಟ್ಟು ನಿಮ್ಮ ಕೃಷಿ ಅಧಿಕಾರಿಯನ್ನು ಕೇಳಿ.',
   irrigatedNote: 'ಈ ಜಮೀನಿಗೆ ನೀರಾವರಿ ಇದೆ ಎಂದು ನೀವು ಹೇಳಿದ್ದೀರಿ, ಆದ್ದರಿಂದ ಮಳೆಗಿಂತ ಹೆಚ್ಚು ನೀರು ಬೇಕಾದ ಬೆಳೆಗಳನ್ನು ಗುರುತಿಸಿಲ್ಲ.',
+  noStatsHere:
+    'ಈ ಜಿಲ್ಲೆಯ ಬೆಳೆ ಅಂಕಿಅಂಶಗಳು ನಮ್ಮಲ್ಲಿಲ್ಲ, ಆದ್ದರಿಂದ ಈ ಉತ್ತರ ಮಣ್ಣು ಮತ್ತು ಹವಾಮಾನದಿಂದ ಮಾತ್ರ ಬಂದಿದೆ; ಇಲ್ಲಿನ ರೈತರು ಬೆಳೆಯುವ ಬೆಳೆಗಳೊಂದಿಗೆ ಹೋಲಿಸಿ ಪರಿಶೀಲಿಸಲು ಆಗಿಲ್ಲ. ಇದನ್ನು ಮಾರ್ಗದರ್ಶಿಯಾಗಿ ಬಳಸಿ ಮತ್ತು ನಿಮ್ಮ ಸ್ಥಳೀಯ ಕೃಷಿ ಕಚೇರಿಯನ್ನು ಕೇಳಿ.',
   talukUsesDistrict:
     'ಈ ತಾಲ್ಲೂಕಿಗೆ ಇನ್ನೂ ಗಣತಿಯ ಬೆಳೆ ಅಂಕಿಅಂಶಗಳು ನಮ್ಮಲ್ಲಿಲ್ಲ, ಆದ್ದರಿಂದ ಕೆಳಗಿನ ಬೆಳೆಗಳು ಇಡೀ {district} ಜಿಲ್ಲೆಯ ಉತ್ತರ.',
   talukPartlyDistrict:
@@ -471,6 +486,14 @@ const kn: typeof en = {
   chooseTaluk: 'ತಾಲ್ಲೂಕು ಆಯ್ಕೆಮಾಡಿ',
   wholeDistrict: 'ಇಡೀ ಜಿಲ್ಲೆ',
   talukListError: 'ತಾಲ್ಲೂಕುಗಳ ಪಟ್ಟಿ ತೆರೆಯಲಾಗಲಿಲ್ಲ. ನೀವು ಇಡೀ ಜಿಲ್ಲೆಯನ್ನು ಪರಿಶೀಲಿಸಬಹುದು.',
+  stateOptional: 'ರಾಜ್ಯ (ಐಚ್ಛಿಕ)',
+  chooseState: 'ರಾಜ್ಯ ಆಯ್ಕೆಮಾಡಿ',
+  searchState: 'ರಾಜ್ಯ ಹುಡುಕಿ',
+  noStateMatch: 'ನಿಮ್ಮ ಹುಡುಕಾಟಕ್ಕೆ ಯಾವುದೇ ರಾಜ್ಯ ಹೊಂದುತ್ತಿಲ್ಲ',
+  chosenDistrictState: '{state}ದ {district} ಜಿಲ್ಲೆ (ನೀವು ಆಯ್ಕೆ ಮಾಡಿದ್ದು)',
+  placesListError: 'ರಾಜ್ಯಗಳು ಮತ್ತು ಜಿಲ್ಲೆಗಳ ಪಟ್ಟಿ ತೆರೆಯಲಾಗಲಿಲ್ಲ. ಬದಲಿಗೆ ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಬಳಸಿ.',
+  middleNote:
+    'ಉತ್ತರ ಈ ಜಿಲ್ಲೆಯ ಮಧ್ಯದ ಒಂದು ಸ್ಥಳಕ್ಕೆ ಸಂಬಂಧಿಸಿದ್ದು. ಜಿಲ್ಲೆಯೊಳಗೆ ಜಮೀನುಗಳು ಬೇರೆ ಬೇರೆಯಾಗಿರುತ್ತವೆ, ಆದ್ದರಿಂದ ನಿಮ್ಮ ಜಮೀನಿಗೆ ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಬಳಸಿ.',
   manualNoteTaluk: 'ಈ ತಾಲ್ಲೂಕಿನಾದ್ಯಂತ ಇರುವ ಮಾದರಿ ಜಮೀನುಗಳನ್ನು ಪರಿಶೀಲಿಸಿ ಒಟ್ಟುಗೂಡಿಸುತ್ತೇವೆ.',
   manualNote: 'ಇಡೀ ಜಿಲ್ಲೆಯಾದ್ಯಂತ ಇರುವ ಮಾದರಿ ಜಮೀನುಗಳನ್ನು ಪರಿಶೀಲಿಸಿ ಒಟ್ಟುಗೂಡಿಸುತ್ತೇವೆ.',
   close: 'ಮುಚ್ಚಿ',
@@ -586,7 +609,10 @@ const kn: typeof en = {
     login_failed: 'ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಥವಾ ಪಾಸ್‌ವರ್ಡ್ ತಪ್ಪಾಗಿದೆ',
     phone_taken: 'ಈ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಗೆ ಈಗಾಗಲೇ ಖಾತೆ ಇದೆ',
     phone_invalid: 'ಸರಿಯಾದ 10 ಅಂಕಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ',
-    password_short: 'ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 6 ಅಕ್ಷರಗಳಿರಬೇಕು',
+    password_short: 'ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳಿರಬೇಕು',
+    password_long: 'ಪಾಸ್‌ವರ್ಡ್ ಗರಿಷ್ಠ 128 ಅಕ್ಷರಗಳಿರಬೇಕು',
+    rate_limited: 'ಹಲವು ವಿನಂತಿಗಳು ಬಂದಿವೆ. ಕೆಲವು ನಿಮಿಷ ಕಾದು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+    csrf_blocked: 'ನಿಮ್ಮ ಸುರಕ್ಷತೆಗಾಗಿ ಈ ವಿನಂತಿಯನ್ನು ತಡೆಯಲಾಗಿದೆ. ಪುಟವನ್ನು ಮತ್ತೆ ತೆರೆದು ಪ್ರಯತ್ನಿಸಿ.',
     name_required: 'ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೆಸರನ್ನು ನಮೂದಿಸಿ',
     no_soil_data: 'ಈ ಸ್ಥಳಕ್ಕೆ ಮಣ್ಣಿನ ಮಾಹಿತಿ ಇಲ್ಲ (ರಸ್ತೆ, ಪಟ್ಟಣ ಅಥವಾ ನೀರು ಇರಬಹುದು). ಹೊಲಕ್ಕೆ ಹೋಗಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
     login_required: 'ದಯವಿಟ್ಟು ಮತ್ತೆ ಲಾಗಿನ್ ಮಾಡಿ',
@@ -758,13 +784,58 @@ export const DISTRICT_NAMES: Record<string, { en: string; kn: string }> = {
   'MANDYA': { en: 'Mandya', kn: 'ಮಂಡ್ಯ' },
   'MYSORE': { en: 'Mysuru', kn: 'ಮೈಸೂರು' },
   'RAICHUR': { en: 'Raichur', kn: 'ರಾಯಚೂರು' },
-  'RAMANAGARA': { en: 'Ramanagara (Bengaluru South)', kn: 'ರಾಮನಗರ (ಬೆಂಗಳೂರು ದಕ್ಷಿಣ)' },
+  // Renamed Bengaluru South on 23 May 2025 (Ramanagara is still its headquarters)
+  'RAMANAGARA': { en: 'Bengaluru South (Ramanagara)', kn: 'ಬೆಂಗಳೂರು ದಕ್ಷಿಣ (ರಾಮನಗರ)' },
   'SHIMOGA': { en: 'Shivamogga', kn: 'ಶಿವಮೊಗ್ಗ' },
   'TUMKUR': { en: 'Tumakuru', kn: 'ತುಮಕೂರು' },
   'UDUPI': { en: 'Udupi', kn: 'ಉಡುಪಿ' },
   'UTTAR KANNAD': { en: 'Uttara Kannada', kn: 'ಉತ್ತರ ಕನ್ನಡ' },
   'YADGIR': { en: 'Yadgir', kn: 'ಯಾದಗಿರಿ' },
 };
+
+// India's states and union territories in Kannada (English names come from the backend's list)
+const STATE_NAMES_KN: Record<string, string> = {
+  'Andaman and Nicobar Islands': 'ಅಂಡಮಾನ್ ಮತ್ತು ನಿಕೋಬಾರ್ ದ್ವೀಪಗಳು',
+  'Andhra Pradesh': 'ಆಂಧ್ರ ಪ್ರದೇಶ',
+  'Arunachal Pradesh': 'ಅರುಣಾಚಲ ಪ್ರದೇಶ',
+  'Assam': 'ಅಸ್ಸಾಂ',
+  'Bihar': 'ಬಿಹಾರ',
+  'Chandigarh': 'ಚಂಡೀಗಢ',
+  'Chhattisgarh': 'ಛತ್ತೀಸ್‌ಗಢ',
+  'Dadra and Nagar Haveli and Daman and Diu': 'ದಾದ್ರಾ ಮತ್ತು ನಗರ ಹವೇಲಿ ಹಾಗೂ ದಮನ್ ಮತ್ತು ದಿಯು',
+  'Delhi': 'ದೆಹಲಿ',
+  'Goa': 'ಗೋವಾ',
+  'Gujarat': 'ಗುಜರಾತ್',
+  'Haryana': 'ಹರಿಯಾಣ',
+  'Himachal Pradesh': 'ಹಿಮಾಚಲ ಪ್ರದೇಶ',
+  'Jammu and Kashmir': 'ಜಮ್ಮು ಮತ್ತು ಕಾಶ್ಮೀರ',
+  'Jharkhand': 'ಜಾರ್ಖಂಡ್',
+  'Karnataka': 'ಕರ್ನಾಟಕ',
+  'Kerala': 'ಕೇರಳ',
+  'Ladakh': 'ಲಡಾಖ್',
+  'Lakshadweep': 'ಲಕ್ಷದ್ವೀಪ',
+  'Madhya Pradesh': 'ಮಧ್ಯ ಪ್ರದೇಶ',
+  'Maharashtra': 'ಮಹಾರಾಷ್ಟ್ರ',
+  'Manipur': 'ಮಣಿಪುರ',
+  'Meghalaya': 'ಮೇಘಾಲಯ',
+  'Mizoram': 'ಮಿಜೋರಾಂ',
+  'Nagaland': 'ನಾಗಾಲ್ಯಾಂಡ್',
+  'Odisha': 'ಒಡಿಶಾ',
+  'Puducherry': 'ಪುದುಚೇರಿ',
+  'Punjab': 'ಪಂಜಾಬ್',
+  'Rajasthan': 'ರಾಜಸ್ಥಾನ',
+  'Sikkim': 'ಸಿಕ್ಕಿಂ',
+  'Tamil Nadu': 'ತಮಿಳುನಾಡು',
+  'Telangana': 'ತೆಲಂಗಾಣ',
+  'Tripura': 'ತ್ರಿಪುರ',
+  'Uttar Pradesh': 'ಉತ್ತರ ಪ್ರದೇಶ',
+  'Uttarakhand': 'ಉತ್ತರಾಖಂಡ',
+  'West Bengal': 'ಪಶ್ಚಿಮ ಬಂಗಾಳ',
+};
+
+export function stateName(state: string, language: Language) {
+  return (language === 'kn' && STATE_NAMES_KN[state]) || state;
+}
 
 export function districtName(key: string, language: Language) {
   return DISTRICT_NAMES[key]?.[language] ?? key;

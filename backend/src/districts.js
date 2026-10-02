@@ -41,4 +41,29 @@ function normaliseState(name) {
   return STATE_RENAMES[trimmed] || trimmed;
 }
 
-module.exports = { DISTRICTS, normaliseDistrict, normaliseState };
+// The all-India boundary file is older than three changes, so some places carry a state that no longer exists:
+//   2014: Telangana was made out of ten districts of Andhra Pradesh
+//   2019: Ladakh (Leh and Kargil) was made a union territory apart from Jammu and Kashmir
+//   2020: Dadra and Nagar Haveli and Daman and Diu were joined into one union territory
+// India has 28 states and 8 union territories today. This gives the current name of a place in that file.
+const TELANGANA_DISTRICTS = ['Adilabad', 'Hyderabad', 'Karimnagar', 'Khammam', 'Mahbubnagar', 'Medak', 'Nalgonda', 'Nizamabad', 'Rangareddi', 'Warangal'];
+const LADAKH_DISTRICTS = ['Kargil', 'Ladakh (Leh)'];
+const MERGED_UNION_TERRITORY = 'Dadra and Nagar Haveli and Daman and Diu';
+
+function currentState(state, district) {
+  if (state === 'Andhra Pradesh' && TELANGANA_DISTRICTS.includes(district)) {
+    return 'Telangana';
+  }
+  if (state === 'Jammu and Kashmir' && LADAKH_DISTRICTS.includes(district)) {
+    return 'Ladakh';
+  }
+  if (state === 'Dadra and Nagar Haveli' || state === 'Daman and Diu') {
+    return MERGED_UNION_TERRITORY;
+  }
+  if (state === 'Andaman and Nicobar') {
+    return 'Andaman and Nicobar Islands';
+  }
+  return state;
+}
+
+module.exports = { DISTRICTS, normaliseDistrict, normaliseState, currentState };
