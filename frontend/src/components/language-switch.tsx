@@ -1,5 +1,6 @@
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
+import { Text } from '@/components/text';
 import { useApp } from '@/lib/app-context';
 import type { Language } from '@/lib/translations';
 import { colors } from '@/theme';

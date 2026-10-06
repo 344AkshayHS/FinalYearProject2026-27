@@ -200,10 +200,11 @@ function biggestPolygon(polygons) {
   return polygons.reduce((best, polygon) => (size(polygon) > size(best) ? polygon : best));
 }
 
-// A point inside a picked district, for the soil and climate readings. Starts at the middle of the district's
-// biggest piece and, if that falls outside (a curved district, a hole), takes the nearest point inside on a grid.
+// A point inside a picked district, for the soil and climate readings (other states) and the weather (any state).
+// Starts at the middle of the district's biggest piece and, if that falls outside (a curved district, a hole),
+// takes the nearest point inside on a grid.
 function districtMiddle(state, district) {
-  const match = boundaries.find((b) => b.state === state && b.district === district && b.mapState);
+  const match = boundaries.find((b) => b.state === state && b.district === district);
   if (!match) {
     return null;
   }

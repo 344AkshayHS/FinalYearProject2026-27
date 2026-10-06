@@ -1,6 +1,7 @@
 // The smaller cards of a result. The main page of a result (which crop is the headline, the lists, the
 // details) is in Results.tsx. Ported from frontend/src/components/results.tsx of the phone app.
 
+import { CropRowLink } from '~/components/CropPhoto';
 import { Card, Note, ScoreBar } from '~/components/ui';
 import { useApp } from '~/lib/app-context';
 import type { CropFacts, CropGroup, RecommendResponse, SeasonSowing, Suits } from '~/lib/types';
@@ -60,7 +61,7 @@ const PER_GROUP = 4; // crops listed per group in the card
 
 // Herbs, spices and plantation crops the model does not know, that suit the land by their needs
 export function OtherCropsCard({ data, land }: { data: RecommendResponse; land: Land }) {
-  const { t, language } = useApp();
+  const { t } = useApp();
   // On rain-fed land, only those the normal rain can grow; with irrigation, all of them
   const crops = data.other_crops.filter((item) => !land.rainfed || item.suits.rain === 'good' || item.suits.rain === 'possible');
   if (crops.length === 0) {
@@ -77,10 +78,9 @@ export function OtherCropsCard({ data, land }: { data: RecommendResponse; land: 
         <div key={group} className="stack-small">
           <p className="bold primary-text">{t.cropGroups[group]}</p>
           {items.map((item) => (
-            <div key={item.crop} className="stack-tiny">
-              <p className="bold">{cropName(item.crop, language)}</p>
+            <CropRowLink key={item.crop} crop={item.crop}>
               <SuitNotes suits={item.suits} land={land} />
-            </div>
+            </CropRowLink>
           ))}
         </div>
       ))}
@@ -117,7 +117,7 @@ export function SeasonSowingCard({ sowing }: { sowing: SeasonSowing }) {
 // What is really grown here (Agriculture Census / crop statistics), to compare with the model
 export function CropFactsCard({ facts }: { facts: CropFacts }) {
   const { t, language } = useApp();
-  const place = facts.level === 'taluk' ? talukName(facts.name) : districtName(facts.name, language);
+  const place = facts.level === 'taluk' ? talukName(facts.name, language) : districtName(facts.name, language);
   const biggest = Math.max(...facts.crops.map((item) => item.share), 0.01);
   return (
     <Card>

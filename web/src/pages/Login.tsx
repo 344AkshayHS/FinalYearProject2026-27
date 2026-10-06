@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AdminLogin } from '~/components/AdminLogin';
 import { AuthPage } from '~/components/AuthPage';
 import { Button, ErrorBox, TextField } from '~/components/ui';
 import { ApiError } from '~/lib/api';
@@ -39,6 +40,7 @@ export function Login() {
           {t.noAccount}
         </Link>
       </form>
+      <AdminLogin />
     </AuthPage>
   );
 }

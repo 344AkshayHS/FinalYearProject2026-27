@@ -138,7 +138,9 @@ router.get('/recommendations/:id', requireAdmin, async (req, res) => {
       [id]
     );
     const feedback = await pool.query('SELECT crop, outcome, note, created_at FROM crop_feedback WHERE recommendation_id = $1', [id]);
-    res.json({ recommendation: found.rows[0], items: items.rows, feedback: feedback.rows });
+    // Which farmer asked is not shown, even to the admin: the dashboard explains the model, not the people
+    const { user_id, ...recommendation } = found.rows[0];
+    res.json({ recommendation, items: items.rows, feedback: feedback.rows });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'server_error' });

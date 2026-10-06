@@ -3,6 +3,9 @@
 // (button.tsx, card.tsx, chip.tsx, text-field.tsx, bar-chart.tsx).
 
 import type { InputHTMLAttributes, ReactNode } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import { useApp } from '~/lib/app-context';
 
 // White rounded box used for every section. accent = the warm yellow one for the best crop.
 export function Card({ children, accent = false }: { children: ReactNode; accent?: boolean }) {
@@ -104,5 +107,18 @@ export function BarChart({ bars, format = (value) => value.toFixed(2), max }: { 
         </div>
       ))}
     </div>
+  );
+}
+
+// "‹ Back" at the top of a page that opens over the tabs: back to the page before, or Home when the page was
+// opened straight from its address
+export function BackLink() {
+  const { t } = useApp();
+  const navigate = useNavigate();
+  const location = useLocation();
+  return (
+    <button type="button" className="link-button back-link" onClick={() => (location.key !== 'default' ? navigate(-1) : navigate('/'))}>
+      ‹ {t.back}
+    </button>
   );
 }

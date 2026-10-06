@@ -10,7 +10,7 @@ const { districtMiddle, isUntestedPlace } = require('../services/district');
 const { normaliseDistrict } = require('../districts');
 const { readSoilTest, rateSoilTest, toTotalCarbon } = require('../soil-test');
 const { requireUser } = require('../auth');
-const { limitRequests } = require('../rate-limit');
+const { LIMITS, limitRequests } = require('../rate-limit');
 
 const router = express.Router();
 
@@ -128,7 +128,7 @@ async function predictForPickedArea(district, taluk, soilTest, season) {
 // Optional, the farmer's own soil test: "soil_test": { "ph": 6.5, "organic_carbon_pct": 0.6, "n": 250, "p": 12, "k": 180 }
 // Optional, the season to sow in: "season": "Kharif" | "Rabi" | "Summer" (default: the season of today's date)
 // A recommendation asks three outside services and the model, so it needs a login and is limited per farmer
-router.post('/', requireUser, limitRequests(30, 60, (req) => req.user.id), async (req, res) => {
+router.post('/', requireUser, limitRequests(LIMITS.recommendationsPerHour, 60, (req) => req.user.id), async (req, res) => {
   const place = readLocation(req.body);
   if (!place) {
     return res.status(400).json({ error: 'location_invalid' });
@@ -143,15 +143,24 @@ router.post('/', requireUser, limitRequests(30, 60, (req) => req.user.id), async
   }
   const { area, state, district, taluk, inMiddle } = place;
 
+  // 1-4. Features and the model's answer, for the exact point or for the picked area
+  let result;
   try {
-    // 1-4. Features and the model's answer, for the exact point or for the picked area
-    const result =
+    result =
       area === 'point'
         ? await predictForPoint(place.lat, place.lng, soilTest, season, taluk?.key)
         : await predictForPickedArea(district, taluk, soilTest, season);
-    if (!result) {
-      return res.status(404).json({ error: 'no_soil_data' });
-    }
+  } catch (err) {
+    // The soil map, the climate data or our ML service did not answer (down, too slow or failing): the farmer is
+    // told to try again later, not that something is wrong with their land
+    console.error(err);
+    return res.status(503).json({ error: 'service_unavailable' });
+  }
+  if (!result) {
+    return res.status(404).json({ error: 'no_soil_data' });
+  }
+
+  try {
     const { lat, lng, features, prediction } = result;
     // This season's rain, asked for now so it arrives while the result is being saved
     const seasonRain = getSeasonRain(lat, lng);

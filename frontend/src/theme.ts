@@ -8,6 +8,7 @@ export const colors = {
   primarySoft: '#E6F2E4',
   accent: '#F2A900',
   accentSoft: '#FFF4D6',
+  warningText: '#8A6100', // dark amber, for text on the yellow boxes
   text: '#1B2A1D',
   muted: '#5E6E61',
   border: '#DDE6D9',
@@ -19,3 +20,5 @@ export const colors = {
 export const radius = { small: 10, medium: 16, large: 24 };
 
 export const cardShadow = '0 2px 10px rgba(27, 77, 32, 0.08)';
+export const tabBarShadow = '0 -2px 12px rgba(27, 77, 32, 0.08)'; // above the bar at the bottom
+export const buttonShadow = '0 2px 8px rgba(0, 0, 0, 0.18)'; // a round button on a photo (the heart)

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Button, Card, Spinner } from '~/components/ui';
-import { api } from '~/lib/api';
+import { apiWithRetry } from '~/lib/api';
 import { useApp } from '~/lib/app-context';
 import type { FarmLocation } from '~/lib/use-farm-location';
 import type { Taluk } from '~/lib/types';
@@ -20,11 +20,11 @@ function useLocationLabel(location: FarmLocation) {
     if (state && state !== 'Karnataka') {
       return t.chosenDistrictState.replace('{district}', district ?? '').replace('{state}', stateName(state, language));
     }
-    const text = taluk ? t.chosenTaluk.replace('{taluk}', talukName(taluk.name)) : t.chosenDistrict;
+    const text = taluk ? t.chosenTaluk.replace('{taluk}', talukName(taluk.name, language)) : t.chosenDistrict;
     return text.replace('{district}', districtName(district ?? '', language));
   }
   if (gps.state === 'Karnataka') {
-    const gpsTaluk = gps.taluk ? talukName(gps.taluk) : null;
+    const gpsTaluk = gps.taluk ? talukName(gps.taluk, language) : null;
     const text = gps.place && gpsTaluk
       ? t.detectedPlace.replace('{place}', gps.place).replace('{taluk}', gpsTaluk)
       : gpsTaluk
@@ -41,14 +41,15 @@ export function LocationCard({ location }: { location: FarmLocation }) {
   const { detecting, error, state, district, taluk, gps, roughGps, locateMe, chooseDistrict, setTaluk } = location;
   const label = useLocationLabel(location);
 
-  // The lists to pick from. Each is loaded once and kept with what it belongs to, so a list is never shown
-  // for another state or district. failed = it could not be loaded.
+  // The lists to pick from. Each is kept with what it belongs to, so a list is never shown for another state or
+  // district. failed = it could not be loaded even after asking again; "Try again" (attempt + 1) loads them again.
+  const [attempt, setAttempt] = useState(0);
   const [states, setStates] = useState<string[] | null | 'failed'>(null);
   useEffect(() => {
-    api<string[]>('/location/states')
+    apiWithRetry<string[]>('/location/states')
       .then(setStates)
       .catch(() => setStates('failed'));
-  }, []);
+  }, [attempt]);
 
   // The state whose districts are listed: the one just picked, else the state of the current place
   const [pickedState, setPickedState] = useState<string | null>(null);
@@ -59,13 +60,13 @@ export function LocationCard({ location }: { location: FarmLocation }) {
       return;
     }
     let current = true;
-    api<string[]>(`/location/districts?state=${encodeURIComponent(listedState)}`)
+    apiWithRetry<string[]>(`/location/districts?state=${encodeURIComponent(listedState)}`)
       .then((list) => current && setDistrictList({ state: listedState, list }))
       .catch(() => current && setDistrictList({ state: listedState, list: null }));
     return () => {
       current = false;
     };
-  }, [listedState]);
+  }, [listedState, attempt]);
   const districts = districtList?.state === listedState ? districtList.list : null;
   const districtsFailed = districtList?.state === listedState && districtList.list === null;
 
@@ -76,15 +77,25 @@ export function LocationCard({ location }: { location: FarmLocation }) {
       return;
     }
     let current = true;
-    api<Taluk[]>(`/location/taluks?district=${encodeURIComponent(district)}`)
+    apiWithRetry<Taluk[]>(`/location/taluks?district=${encodeURIComponent(district)}`)
       .then((list) => current && setTaluks({ district, list }))
       .catch(() => current && setTaluks({ district, list: null }));
     return () => {
       current = false;
     };
-  }, [district, gps, state]);
+  }, [district, gps, state, attempt]);
   const talukList = taluks?.district === district ? taluks.list : null;
   const talukListFailed = taluks?.district === district && taluks.list === null;
+
+  function tryAgain() {
+    setStates(null); // shows the State box again while it loads
+    setAttempt((n) => n + 1);
+  }
+  const tryAgainButton = (
+    <button type="button" className="link-button" onClick={tryAgain}>
+      {t.tryAgain}
+    </button>
+  );
 
   // Why the position could not be found, and what to do. A browser is not told to "open Settings" like a phone.
   const help =
@@ -167,7 +178,12 @@ export function LocationCard({ location }: { location: FarmLocation }) {
           </select>
         </label>
       )}
-      {!detecting && states === 'failed' && <p className="error-text">{t.placesListError}</p>}
+      {!detecting && states === 'failed' && (
+        <div className="callout callout-danger">
+          <p className="error-text">{t.placesListError}</p>
+          {tryAgainButton}
+        </div>
+      )}
 
       {!detecting && listedState && (
         <label className="field">
@@ -192,7 +208,11 @@ export function LocationCard({ location }: { location: FarmLocation }) {
                 </option>
               ))}
           </select>
-          {districtsFailed && <span className="error-text">{t.placesListError}</span>}
+          {districtsFailed && (
+            <span className="error-text">
+              {t.placesListError} {tryAgainButton}
+            </span>
+          )}
         </label>
       )}
 
@@ -206,11 +226,15 @@ export function LocationCard({ location }: { location: FarmLocation }) {
             <option value="">{t.wholeDistrict}</option>
             {talukList?.map((item) => (
               <option key={item.key} value={item.key}>
-                {talukName(item.name)}
+                {talukName(item.name, language)}
               </option>
             ))}
           </select>
-          {talukListFailed && <span className="error-text">{t.talukListError}</span>}
+          {talukListFailed && (
+            <span className="error-text">
+              {t.talukListError} {tryAgainButton}
+            </span>
+          )}
         </label>
       )}
     </Card>

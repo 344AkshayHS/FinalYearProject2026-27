@@ -5,6 +5,7 @@
 #   GET  /terrain?lat=..&lng=..  -> height above sea level and steepness (Open-Meteo elevation)
 #   GET  /season_rain?lat=..&lng=.. -> this monsoon's rain so far against normal (NASA POWER), IMD category
 #   GET  /report                 -> training results for the admin dashboard (app/report.py)
+#   GET  /crop_needs             -> every crop's FAO EcoCrop optimal pH, rain and temperature (app/suitability.py)
 #   POST /predict                -> top 5 crops, the 90% confident set, SHAP + LIME for the top crop,
 #                                   and how often a top crop with this probability was right in testing
 #                                   ("season": Kharif, Rabi or Summer; the season of today's date if left out),
@@ -17,6 +18,7 @@
 # Run from the ml-service folder:  uvicorn app.main:app --env-file .env --port 8000
 
 import json
+from pathlib import Path
 from datetime import date
 from typing import Literal
 
@@ -31,11 +33,11 @@ from pydantic import BaseModel
 from app.climate import get_climate, get_season_rain
 from app.report import build_report
 from app.soilgrids import get_soil
-from app.suitability import check, moved_down, other_crops
+from app.suitability import all_needs, check, moved_down, other_crops
 from app.terrain import get_terrain
 
 model = joblib.load("artifacts/crop_model.joblib")
-model_info = json.load(open("artifacts/crop_model_info.json"))
+model_info = json.loads(Path("artifacts/crop_model_info.json").read_text(encoding="utf-8"))
 FEATURES = model_info["features"]
 SEASONS = model_info["seasons"]   # the model's "Season" input: {"Kharif": 1, "Rabi": 2, "Summer": 3}
 LAND_FEATURES = [f for f in FEATURES if f != "Season"]
@@ -44,12 +46,12 @@ YEAR_ROUND = set(model_info["year_round"])
 crops = list(model.classes_)
 confident_threshold = model_info["conformal"]["threshold"]
 # How often the top crop was really the area's main crop, per range of its probability (training/calibration.py)
-top_crop_reliability = json.load(open("artifacts/calibration.json"))["top_crop_reliability"]
+top_crop_reliability = json.loads(Path("artifacts/calibration.json").read_text(encoding="utf-8"))["top_crop_reliability"]
 # Every Karnataka sample point with its features, for district answers (training/make_district_points.py)
 district_points = pd.read_csv("artifacts/karnataka_district_points.csv", keep_default_na=False)
 # How much a picked taluk's own points count against its district's, measured on held-out districts
 # (training/compare_taluk_labels.py). A taluk sits inside its district, so the district backs it up.
-TALUK_WEIGHT = json.load(open("artifacts/taluk_weight.json"))["taluk_weight"]
+TALUK_WEIGHT = json.loads(Path("artifacts/taluk_weight.json").read_text(encoding="utf-8"))["taluk_weight"]
 # How each sample point's district divides its field crops between the seasons (training/build_dataset.py):
 # where a season sows little (summer in most districts), the app says so beside the model's crops
 sown_share = pd.read_csv("artifacts/season_sown_share.csv")
@@ -136,6 +138,11 @@ def climate(lat: float, lng: float):
 @app.get("/terrain")
 def terrain(lat: float, lng: float):
     return get_terrain(lat, lng)
+
+
+@app.get("/crop_needs")
+def crop_needs():
+    return all_needs()
 
 
 @app.get("/season_rain")

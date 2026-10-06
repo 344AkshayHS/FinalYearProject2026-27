@@ -10,12 +10,13 @@
 # so is the optimal range (a third of real crops grow outside their optimal pH).
 
 import json
+from pathlib import Path
 import math
 
 import pandas as pd
 
 requirements = pd.read_csv("artifacts/crop_requirements.csv").set_index("Crop")
-YEAR_ROUND = set(json.load(open("artifacts/crop_model_info.json"))["year_round"])
+YEAR_ROUND = set(json.loads(Path("artifacts/crop_model_info.json").read_text(encoding="utf-8"))["year_round"])
 
 RABI = "Rabi"
 
@@ -103,3 +104,19 @@ def other_crops(land, season):
             continue
         suited.append({"crop": crop, "group": row.Group, "good": values.count("good"), "suits": suits})
     return sorted(suited, key=lambda item: -item["good"])
+
+
+def all_needs():
+    """Every crop's optimal ranges and how it is grown, for the app's crop pages and its compare table:
+    {crop: {"seasonal": .., "fertility": .., "needs": {"ph": [low, high], "rain_mm": .., "temperature_c": ..}}}.
+    rain_mm is for the crop's growing season when seasonal is true, else for a whole year."""
+    return {
+        crop: {
+            "seasonal": bool(seasonal(crop)),
+            "fertility": r.Fertility if isinstance(r.Fertility, str) else None,
+            "needs": {"ph": [number(r.pH_opt_min), number(r.pH_opt_max)],
+                      "rain_mm": [number(r.Rain_opt_min), number(r.Rain_opt_max)],
+                      "temperature_c": [number(r.Temp_opt_min), number(r.Temp_opt_max)]},
+        }
+        for crop, r in requirements.iterrows()
+    }

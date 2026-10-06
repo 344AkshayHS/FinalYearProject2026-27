@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { App } from '~/App';
 import { AppProvider } from '~/lib/app-context';
-import { cardShadow, colors, radius } from '@/theme';
+import { buttonShadow, cardShadow, colors, radius, tabBarShadow } from '@/theme';
 import '~/styles.css';
 
 // The colours and corner sizes come from the phone app's theme file, so both look the same. They become
@@ -17,6 +17,8 @@ for (const [name, value] of Object.entries(radius)) {
   root.style.setProperty(`--radius-${name}`, `${value}px`);
 }
 root.style.setProperty('--card-shadow', cardShadow);
+root.style.setProperty('--tab-bar-shadow', tabBarShadow);
+root.style.setProperty('--button-shadow', buttonShadow);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -44,6 +44,25 @@ function rightPassword(req, name) {
   tries.delete(key(req, name));
 }
 
+// --- How many requests are allowed --------------------------------------------
+// Each limit can be changed in backend/.env without touching the code (for example LIMIT_RECOMMENDATIONS_PER_HOUR=200
+// for a day of testing), and restarting the backend sets every count back to 0. These are the defaults: a farmer,
+// or a team testing the app together, never reaches them; a script hammering the server does.
+
+function fromEnv(name, fallback) {
+  const value = Number(process.env[name]);
+  return Number.isInteger(value) && value > 0 ? value : fallback;
+}
+
+const LIMITS = {
+  apiPerMinute: fromEnv('LIMIT_API_PER_MINUTE', 600), // per address; the website's files and photos do not count
+  loginsPer15Minutes: fromEnv('LIMIT_LOGINS_PER_15_MINUTES', 50), // logins and sign-ups per address (one Wi-Fi)
+  recommendationsPerHour: fromEnv('LIMIT_RECOMMENDATIONS_PER_HOUR', 100), // per farmer; a season change is one too
+  chatPerHour: fromEnv('LIMIT_CHAT_PER_HOUR', 100), // per farmer
+  weatherPerHour: fromEnv('LIMIT_WEATHER_PER_HOUR', 200), // per farmer
+  districtLookupsPerMinute: fromEnv('LIMIT_DISTRICT_LOOKUPS_PER_MINUTE', 60), // per address (it may ask OpenStreetMap)
+};
+
 // --- Too many requests --------------------------------------------------------
 // The lock above is per name, so someone could try a new name every time. This limits how many requests one
 // address (or one user) may send in a period, for logins and for the routes that cost something
@@ -79,4 +98,4 @@ function limitRequests(max, minutes, whoIs = (req) => req.ip) {
   };
 }
 
-module.exports = { lockedOut, wrongPassword, rightPassword, limitRequests, MAX_TRIES, LOCK_MINUTES };
+module.exports = { lockedOut, wrongPassword, rightPassword, limitRequests, LIMITS, MAX_TRIES, LOCK_MINUTES };

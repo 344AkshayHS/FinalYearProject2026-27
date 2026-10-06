@@ -3,13 +3,13 @@ import { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 
 import { Button } from '@/components/button';
-import { Card } from '@/components/card';
 import { TextField } from '@/components/text-field';
 import { ApiError } from '@/lib/api';
 import { useApp } from '@/lib/app-context';
 import { colors } from '@/theme';
 
-// Folded "Admin login" box on the profile screen; opens the ML dashboard
+// Folded "Admin login" at the bottom of the login screen, for the project team; opens the ML dashboard.
+// The password is checked by the server, which also locks the name after 5 wrong tries (backend/src/routes/admin.js).
 export function AdminLogin() {
   const { t, adminToken, adminLogin, adminLogout } = useApp();
   const router = useRouter();
@@ -34,15 +34,15 @@ export function AdminLogin() {
 
   if (adminToken) {
     return (
-      <Card>
+      <View style={{ gap: 12, paddingTop: 16, borderTopWidth: 1, borderTopColor: colors.border }}>
         <Button title={t.admin.openDashboard} onPress={() => router.push('/admin')} />
         <Button title={t.admin.logout} onPress={adminLogout} variant="outline" />
-      </Card>
+      </View>
     );
   }
 
   return (
-    <Card>
+    <View style={{ gap: 14, paddingTop: 16, borderTopWidth: 1, borderTopColor: colors.border }}>
       <Pressable onPress={() => setOpen(!open)} accessibilityRole="button" hitSlop={8}>
         <Text style={{ fontSize: 17, fontWeight: '700', color: colors.primary }}>
           {open ? '▾ ' : '▸ '}
@@ -62,6 +62,6 @@ export function AdminLogin() {
           <Button title={t.admin.login} onPress={submit} loading={loading} />
         </View>
       )}
-    </Card>
+    </View>
   );
 }

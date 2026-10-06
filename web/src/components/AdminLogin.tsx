@@ -1,11 +1,12 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Button, Card, ErrorBox, TextField } from '~/components/ui';
+import { Button, ErrorBox, TextField } from '~/components/ui';
 import { ApiError } from '~/lib/api';
 import { useApp } from '~/lib/app-context';
 
-// Folded "Admin login" box on the profile page; opens the ML dashboard
+// Folded "Admin login" at the bottom of the login page, for the project team; opens the ML dashboard.
+// The password is checked by the server, which also locks the name after 5 wrong tries (backend/src/routes/admin.js).
 export function AdminLogin() {
   const { t, adminLoggedIn, adminLogin, adminLogout } = useApp();
   const navigate = useNavigate();
@@ -31,15 +32,15 @@ export function AdminLogin() {
 
   if (adminLoggedIn) {
     return (
-      <Card>
+      <div className="admin-login stack">
         <Button title={t.admin.openDashboard} onClick={() => navigate('/ml-dashboard')} />
         <Button title={t.admin.logout} onClick={adminLogout} variant="outline" />
-      </Card>
+      </div>
     );
   }
 
   return (
-    <Card>
+    <div className="admin-login stack">
       <button type="button" className="link-button big-link" aria-expanded={open} onClick={() => setOpen(!open)}>
         {open ? '▾ ' : '▸ '}
         {t.admin.open}
@@ -53,6 +54,6 @@ export function AdminLogin() {
           <Button title={t.admin.login} loading={loading} submit />
         </form>
       )}
-    </Card>
+    </div>
   );
 }

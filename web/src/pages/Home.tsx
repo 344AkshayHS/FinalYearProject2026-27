@@ -3,24 +3,24 @@
 
 import { useState } from 'react';
 
-import { Chat } from '~/components/Chat';
 import { LocationCard } from '~/components/LocationCard';
 import { Results } from '~/components/Results';
 import { EMPTY_SOIL_TEST, SoilTestForm, soilTestBody } from '~/components/SoilTestForm';
 import { Button, Card, Chip, Note } from '~/components/ui';
+import { WeatherCard, type WeatherPlace } from '~/components/WeatherCard';
 import { api, ApiError } from '~/lib/api';
 import { useApp } from '~/lib/app-context';
 import type { RecommendResponse, WaterSource } from '~/lib/types';
 import { useFarmLocation } from '~/lib/use-farm-location';
-import { farmSummary } from '@/lib/chatbot';
 import { SEASONS, seasonNow, type Season } from '@/lib/season';
+import { districtName } from '@/lib/translations';
 
 function errorCode(err: unknown) {
   return err instanceof ApiError ? err.code : 'server_error';
 }
 
 export function Home() {
-  const { t, user, setFarm } = useApp();
+  const { t, user, language, setLastResult } = useApp();
   const location = useFarmLocation();
   const { state, district, taluk, gps, detecting } = location;
 
@@ -37,6 +37,12 @@ export function Home() {
   const [result, setResult] = useState<RecommendResponse | null>(null);
 
   const firstName = user?.full_name.split(' ')[0] ?? '';
+  // The weather card follows the same place: the browser's position, or the middle of the district picked by hand
+  const weatherPlace: WeatherPlace | null = gps
+    ? { lat: gps.lat, lng: gps.lng }
+    : district && state
+      ? { state, district }
+      : null;
 
   // forSeason: a season chip clicked after a result is shown asks again at once, before the state updates
   async function findCrops(forSeason: Season = season) {
@@ -54,7 +60,7 @@ export function Home() {
       const body = { ...place, season: forSeason, soil_test: soilTestBody(soilTest) };
       const data = await api<RecommendResponse>('/recommend', { method: 'POST', body });
       setResult(data);
-      setFarm(farmSummary(data, waterSource)); // so the crop helper chat can answer "can I grow rice here?"
+      setLastResult({ data, waterSource }); // for the crop pages, and the crop helper chat ("can I grow rice here?")
     } catch (err) {
       setError(errorCode(err));
     }
@@ -72,6 +78,13 @@ export function Home() {
         <LocationCard location={location} />
 
         <div className="stack-large">
+          {!detecting && weatherPlace && (
+            <WeatherCard
+              place={weatherPlace}
+              districtLabel={state === 'Karnataka' ? districtName(district ?? '', language) : (district ?? '')}
+            />
+          )}
+
           {/* Season to sow in: the model answers for this season */}
           <Card>
             <h3>{t.seasonTitle}</h3>
@@ -108,7 +121,7 @@ export function Home() {
                   onClick={() => {
                     setWaterSource(source);
                     if (result) {
-                      setFarm(farmSummary(result, source)); // keep the chat's summary in step
+                      setLastResult({ data: result, waterSource: source }); // keep the crop pages and the chat in step
                     }
                   }}
                 />
@@ -140,9 +153,6 @@ export function Home() {
       )}
 
       {result && !analysing && <Results data={result} waterSource={waterSource} />}
-
-      {/* Crop helper chat, about the best crop if we have a result */}
-      <Chat crop={result?.recommendations[0].crop} />
     </div>
   );
 }

@@ -22,25 +22,35 @@ src/
   App.tsx             the pages, and who may open which (logged out / logged in / admin)
   styles.css          all the styling, in one file
   pages/              one file per page
-    Login, Register, Home, Profile, Dashboard (admin), DashboardRecommendation (admin)
+    Login, Register, Home, Chat, Profile, CropPage, Compare, History, Saved, About,
+    Dashboard (admin), DashboardRecommendation (admin)
   components/         pieces of pages
     ui.tsx            Card, Button, Chip, TextField, bars: the small building blocks
-    LocationCard, SoilTestForm, Results (+ ResultCards), WaterPlan, FeedbackForm, Chat, AdminLogin, Layout, AuthPage
+    Layout.tsx        top bar, the bar at the bottom (Home, Chatbot, Profile) and the three tab pages
+    CropPhoto.tsx     a crop photo (a seedling box while it loads or if it cannot load), a crop row with its photo
+    LocationCard, WeatherCard, SoilTestForm, Results (+ ResultCards), WaterPlan, FeedbackForm, AdminLogin, AuthPage
   lib/
     api.ts            calls the backend: fetch("/api/...")
-    app-context.tsx   who is logged in, the language, the last result
+    app-context.tsx   who is logged in, the language, the last result, the crop list and the saved crops
     use-farm-location.ts   where the land is: browser position or a picked district
     detect-location.ts, types.ts, web-text.ts
 ```
 
-The pages follow the phone app's screens one for one (`pages/Home.tsx` is `frontend/src/app/index.tsx`,
+The pages follow the phone app's screens one for one (`pages/Home.tsx` is `frontend/src/app/(tabs)/index.tsx`,
 `components/Results.tsx` is `frontend/src/components/results.tsx`, ...), so reading one next to the other is the
 easiest way to understand either.
+
+**Tabs.** Like the phone, Home, Chatbot and Profile stay open while the farmer moves between them: `Layout.tsx`
+draws all three and hides the ones not chosen (`/`, `/chat`, `/profile`), so a result or a chat is not lost. Other
+pages (a crop, compare, history, saved crops, about, the ML dashboard) show in its `<Outlet />`, under the same bars,
+with "‹ Back" at the top. The tab icons are small SVG outlines in `Layout.tsx` (no icon library);
+the chosen tab's icon is filled and sits on a light green pill, as in WhatsApp's bottom bar (the `.tab` rules in `styles.css`).
 
 **Reused from the phone app, read only.** `vite.config.ts` gives two short names to imports: `~/` is this folder's
 `src`, and `@/` is `frontend/src`. The website imports only plain TypeScript from there: the English and Kannada texts
 (`translations.ts`), crop facts (`crop-info.ts`), the chat rules (`chatbot.ts`, `farmer-words.ts`), the water formula
-(`crop-water.ts`), the seasons (`season.ts`) and the colours (`theme.ts`). Nothing React Native is used. If one of those
+(`crop-water.ts`), the seasons (`season.ts`), the weather codes (`weather.ts`), the crop page and compare rows
+(`crops.ts`), the past results (`past-results.ts`) and the colours (`theme.ts`). Nothing React Native is used. If one of those
 files starts to import something React Native, `npm run check` fails here.
 `chatbot.ts` imports two types from a phone screen; `tsconfig.json` points that import to `src/lib/types.ts`.
 
@@ -61,5 +71,4 @@ address. So the site uses CSS files (no inline `<style>`), no external fonts or 
 - Location comes from the browser: it needs `localhost` or https, and a laptop has no GPS, so it is often rough
   (the page warns, as the phone does). The village name the phone adds is not available in a browser.
 - District and taluk are drop-down lists instead of full-screen lists.
-- The chat opens as a box at the bottom left instead of a screen (and the button is not draggable).
 - The admin login is remembered only while the page stays open, like the phone app.

@@ -8,6 +8,11 @@
 // while the first time for a place. After this the page stops waiting and offers "try again".
 const TIMEOUT_MS = 150_000;
 
+// The address of a file the backend serves, such as a crop photo ("crop-images/rice/4-seeds.jpg")
+export function fileUrl(path: string) {
+  return '/api/' + path;
+}
+
 export class ApiError extends Error {
   code: string;
   constructor(code: string) {
@@ -49,4 +54,21 @@ export async function api<T>(path: string, options: { method?: string; body?: ob
     throw new ApiError(data.error ?? 'server_error');
   }
   return data as T;
+}
+
+// For lists the page needs to work (states, districts, taluks): if the backend cannot be reached or fails, ask
+// again after 2 and then 4 seconds before giving up. The backend may still be starting when the page opens.
+// A clear "no" from the backend (such as state_invalid) is not asked again.
+export async function apiWithRetry<T>(path: string) {
+  for (const wait of [2000, 4000]) {
+    try {
+      return await api<T>(path);
+    } catch (err) {
+      if (!(err instanceof ApiError) || !['network', 'server_error'].includes(err.code)) {
+        throw err;
+      }
+      await new Promise((resolve) => setTimeout(resolve, wait));
+    }
+  }
+  return api<T>(path); // last try: its error is the one shown
 }

@@ -152,7 +152,7 @@ async function readUser(req, res, next) {
 
   if (token) {
     const result = await pool.query(
-      `SELECT users.id, users.full_name, users.phone, users.preferred_language
+      `SELECT users.id, users.full_name, users.phone, users.preferred_language, users.created_at
        FROM sessions JOIN users ON users.id = sessions.user_id
        WHERE sessions.token_hash = $1 AND sessions.expires_at > now()`,
       [hashToken(token)]

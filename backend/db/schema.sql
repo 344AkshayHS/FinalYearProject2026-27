@@ -169,4 +169,14 @@ CREATE TABLE crop_feedback (
     UNIQUE (recommendation_id, crop)
 );
 
+-- ---------------------------------------------------------------------------
+-- saved_crops: the crops a farmer marks with the heart on a crop's page
+-- ---------------------------------------------------------------------------
+CREATE TABLE saved_crops (
+    user_id     BIGINT      NOT NULL REFERENCES users (id) ON DELETE CASCADE,
+    crop        TEXT        NOT NULL,   -- as the model and the app name it, e.g. "pigeonpea (tur)"
+    created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (user_id, crop)
+);
+
 COMMIT;

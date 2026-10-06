@@ -1,9 +1,10 @@
 import { Link } from 'expo-router';
 import { useState } from 'react';
-import { Text } from 'react-native';
 
+import { AdminLogin } from '@/components/admin-login';
 import { AuthScreen, FormError } from '@/components/auth-screen';
 import { Button } from '@/components/button';
+import { Text } from '@/components/text';
 import { TextField } from '@/components/text-field';
 import { ApiError } from '@/lib/api';
 import { useApp } from '@/lib/app-context';
@@ -55,6 +56,7 @@ export default function LoginScreen() {
       <Link href="/register" replace style={{ alignSelf: 'center', padding: 6 }}>
         <Text style={{ fontSize: 15, fontWeight: '600', color: colors.primary }}>{t.noAccount}</Text>
       </Link>
+      <AdminLogin />
     </AuthScreen>
   );
 }

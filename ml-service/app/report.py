@@ -9,6 +9,7 @@
 #   feedback_retraining_log.csv   retrain_with_feedback.py (only after feedback retraining)
 
 import json
+from pathlib import Path
 import os
 from functools import lru_cache
 
@@ -50,8 +51,8 @@ def dataset_summary():
 
 
 def build_report(model, features):
-    info = json.load(open(os.path.join(ARTIFACTS, "crop_model_info.json")))
-    calibration = json.load(open(os.path.join(ARTIFACTS, "calibration.json")))
+    info = json.loads(Path(os.path.join(ARTIFACTS, "crop_model_info.json")).read_text(encoding="utf-8"))
+    calibration = json.loads(Path(os.path.join(ARTIFACTS, "calibration.json")).read_text(encoding="utf-8"))
     agreement = pd.read_csv(os.path.join(ARTIFACTS, "shap_lime_agreement.csv"))
     karnataka_crops = agreement[agreement["grown_in_karnataka"]]
 

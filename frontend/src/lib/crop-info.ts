@@ -28,6 +28,8 @@ export type CropInfo = {
   seedRate?: string;     // seed needed per hectare
   spacing?: string;      // gap between rows and plants
   fertiliser?: string;   // N : P2O5 : K2O per hectare when no soil test is available
+  // The same four in Kannada, with the same numbers, so a Kannada answer is all in Kannada
+  kn?: { season?: string; seedRate?: string; spacing?: string; fertiliser?: string };
   source: string;
 };
 
@@ -57,6 +59,12 @@ export const CROP_INFO: Record<string, CropInfo> = {
     seedRate: '5 kg per hectare',
     spacing: '45 cm between rows, 15 cm between plants',
     fertiliser: '70 : 35 : 35 kg N : P2O5 : K2O per hectare',
+    kn: {
+      season: 'ಜೂನ್‌ನಿಂದ ಸೆಪ್ಟೆಂಬರ್, ಅಥವಾ ಅಕ್ಟೋಬರ್‌ನಿಂದ ಡಿಸೆಂಬರ್',
+      seedRate: 'ಹೆಕ್ಟೇರ್‌ಗೆ 5 ಕೆ.ಜಿ.',
+      spacing: 'ಸಾಲುಗಳ ನಡುವೆ 45 ಸೆಂ.ಮೀ., ಗಿಡಗಳ ನಡುವೆ 15 ಸೆಂ.ಮೀ.',
+      fertiliser: 'ಹೆಕ್ಟೇರ್‌ಗೆ 70 : 35 : 35 ಕೆ.ಜಿ. ಸಾರಜನಕ : ರಂಜಕ : ಪೊಟ್ಯಾಷ್ (N : P2O5 : K2O)',
+    },
     source: 'TNAU (duration), FAO (water)',
   },
   'black gram': {
@@ -144,6 +152,9 @@ export const CROP_INFO: Record<string, CropInfo> = {
         + 'ವರ್ಷಕ್ಕೆ 1600 ರಿಂದ 2500 ಮಿ.ಮೀ ಮಳೆ, ರೊಬಸ್ಟಾಗೆ 500 ರಿಂದ 1000 ಮೀ ಎತ್ತರದಲ್ಲಿ 1000 ರಿಂದ 2000 ಮಿ.ಮೀ ಬೇಕು. '
         + 'ಮಾರ್ಚ್ ಮತ್ತು ಏಪ್ರಿಲ್‌ನಲ್ಲಿ ತುಂತುರು ನೀರಾವರಿ ನೀಡಿದರೆ ಹೂ ಹೆಚ್ಚು ಬಿಟ್ಟು ಇಳುವರಿ ಹೆಚ್ಚಾಗುತ್ತದೆ.',
     },
+    kn: {
+      spacing: 'ಅರೇಬಿಕಾ ಎರಡೂ ದಿಕ್ಕಿನಲ್ಲಿ 1.5 ರಿಂದ 2.0 ಮೀ., ರೋಬಸ್ಟಾ ಎರಡೂ ದಿಕ್ಕಿನಲ್ಲಿ 2.5 ಮೀ.',
+    },
     source: 'TNAU',
   },
   cotton: {
@@ -206,6 +217,11 @@ export const CROP_INFO: Record<string, CropInfo> = {
     seedRate: '10 kg per hectare',
     spacing: '45 cm between rows, 15 cm between plants',
     fertiliser: '90 : 45 : 45 kg N : P2O5 : K2O per hectare',
+    kn: {
+      seedRate: 'ಹೆಕ್ಟೇರ್‌ಗೆ 10 ಕೆ.ಜಿ.',
+      spacing: 'ಸಾಲುಗಳ ನಡುವೆ 45 ಸೆಂ.ಮೀ., ಗಿಡಗಳ ನಡುವೆ 15 ಸೆಂ.ಮೀ.',
+      fertiliser: 'ಹೆಕ್ಟೇರ್‌ಗೆ 90 : 45 : 45 ಕೆ.ಜಿ. ಸಾರಜನಕ : ರಂಜಕ : ಪೊಟ್ಯಾಷ್ (N : P2O5 : K2O)',
+    },
     source: 'TNAU',
   },
   maize: {
@@ -218,6 +234,12 @@ export const CROP_INFO: Record<string, CropInfo> = {
     seedRate: '20 kg per hectare for hybrids, 25 kg for varieties',
     spacing: '60 cm between rows, 25 cm between plants',
     fertiliser: '60 : 30 : 30 kg N : P2O5 : K2O per hectare on red soils, 40 : 20 : 0 on black soils',
+    kn: {
+      season: 'ಜೂನ್‌ನಿಂದ ಸೆಪ್ಟೆಂಬರ್, ಅಥವಾ ನವೆಂಬರ್‌ನಿಂದ ಫೆಬ್ರವರಿ',
+      seedRate: 'ಹೈಬ್ರಿಡ್‌ಗಳಿಗೆ ಹೆಕ್ಟೇರ್‌ಗೆ 20 ಕೆ.ಜಿ., ತಳಿಗಳಿಗೆ 25 ಕೆ.ಜಿ.',
+      spacing: 'ಸಾಲುಗಳ ನಡುವೆ 60 ಸೆಂ.ಮೀ., ಗಿಡಗಳ ನಡುವೆ 25 ಸೆಂ.ಮೀ.',
+      fertiliser: 'ಕೆಂಪು ಮಣ್ಣಿನಲ್ಲಿ ಹೆಕ್ಟೇರ್‌ಗೆ 60 : 30 : 30 ಕೆ.ಜಿ. ಸಾರಜನಕ : ರಂಜಕ : ಪೊಟ್ಯಾಷ್ (N : P2O5 : K2O), ಕಪ್ಪು ಮಣ್ಣಿನಲ್ಲಿ 40 : 20 : 0',
+    },
     source: 'TNAU',
   },
   mango: {
@@ -279,6 +301,12 @@ export const CROP_INFO: Record<string, CropInfo> = {
     seedRate: '10 kg per hectare',
     spacing: '30 cm between rows, 10 cm between plants when transplanted; 22.5 x 10 cm when sown directly',
     fertiliser: '60 : 30 : 30 kg N : P2O5 : K2O per hectare',
+    kn: {
+      season: 'ಮಳೆಯಾಶ್ರಿತ ಬೆಳೆಯಾಗಿ ಜೂನ್‌ನಿಂದ ಜುಲೈ',
+      seedRate: 'ಹೆಕ್ಟೇರ್‌ಗೆ 10 ಕೆ.ಜಿ.',
+      spacing: 'ನಾಟಿ ಮಾಡಿದಾಗ ಸಾಲುಗಳ ನಡುವೆ 30 ಸೆಂ.ಮೀ., ಗಿಡಗಳ ನಡುವೆ 10 ಸೆಂ.ಮೀ.; ನೇರ ಬಿತ್ತನೆಯಲ್ಲಿ 22.5 × 10 ಸೆಂ.ಮೀ.',
+      fertiliser: 'ಹೆಕ್ಟೇರ್‌ಗೆ 60 : 30 : 30 ಕೆ.ಜಿ. ಸಾರಜನಕ : ರಂಜಕ : ಪೊಟ್ಯಾಷ್ (N : P2O5 : K2O)',
+    },
     source: 'TNAU',
   },
   rice: {
@@ -290,6 +318,11 @@ export const CROP_INFO: Record<string, CropInfo> = {
     seedRate: '30 kg per hectare for long duration, 40 kg for medium, 60 kg for short duration, 20 kg for hybrids',
     spacing: 'at least 20 cm between rows',
     fertiliser: '150 : 50 : 50 kg N : P2O5 : K2O per hectare',
+    kn: {
+      seedRate: 'ದೀರ್ಘಾವಧಿ ತಳಿಗಳಿಗೆ ಹೆಕ್ಟೇರ್‌ಗೆ 30 ಕೆ.ಜಿ., ಮಧ್ಯಮಾವಧಿಗೆ 40 ಕೆ.ಜಿ., ಅಲ್ಪಾವಧಿಗೆ 60 ಕೆ.ಜಿ., ಹೈಬ್ರಿಡ್‌ಗಳಿಗೆ 20 ಕೆ.ಜಿ.',
+      spacing: 'ಸಾಲುಗಳ ನಡುವೆ ಕನಿಷ್ಠ 20 ಸೆಂ.ಮೀ.',
+      fertiliser: 'ಹೆಕ್ಟೇರ್‌ಗೆ 150 : 50 : 50 ಕೆ.ಜಿ. ಸಾರಜನಕ : ರಂಜಕ : ಪೊಟ್ಯಾಷ್ (N : P2O5 : K2O)',
+    },
     source: 'TNAU',
   },
   sesame: {
@@ -473,6 +506,9 @@ export const CROP_INFO: Record<string, CropInfo> = {
         + 'ಚಾಟನಿಗಿಂತ 15 ದಿನ ಮುಂಚೆ ಮತ್ತು ಕೊಯ್ಲಿಗಿಂತ 15 ದಿನ ಮುಂಚೆ ನೀರು ನಿಲ್ಲಿಸಿ. '
         + 'ದ್ರಾಕ್ಷಿಗೆ ಆಳವಾದ, ನೀರು ಬಸಿದು ಹೋಗುವ ಗೋಡು ಮಣ್ಣು (pH 6.5 ರಿಂದ 7.0) ಬೇಕು.',
     },
+    kn: {
+      spacing: 'ಮಸ್ಕಟ್ ತಳಿಗೆ 3 × 2 ಮೀ., ಇತರ ತಳಿಗಳಿಗೆ 4 × 3 ಮೀ.',
+    },
     source: 'TNAU',
   },
   papaya: {
@@ -487,6 +523,10 @@ export const CROP_INFO: Record<string, CropInfo> = {
       kn: 'ವಾರಕ್ಕೊಮ್ಮೆ ನೀರು ಕೊಡಿ. ಒಮ್ಮೆ ನಾಟಿದ ಬೆಳೆ 24 ರಿಂದ 30 ತಿಂಗಳು ಫಲ ಕೊಡುತ್ತದೆ. '
         + 'ಸಮುದ್ರ ಮಟ್ಟದಿಂದ 1200 ಮೀವರೆಗೆ ಬೆಳೆಯುತ್ತದೆ; ನೀರು ಬಸಿದು ಹೋಗುವ ಸಮ ಮಣ್ಣು ಬೇಕು.',
     },
+    kn: {
+      seedRate: 'ಹೆಕ್ಟೇರ್‌ಗೆ 500 ಗ್ರಾಂ',
+      spacing: 'ಎರಡೂ ದಿಕ್ಕಿನಲ್ಲಿ 1.8 ಮೀ., 45 × 45 × 45 ಸೆಂ.ಮೀ. ಗುಂಡಿಗಳಲ್ಲಿ',
+    },
     source: 'TNAU',
   },
   pomegranate: {
@@ -499,6 +539,9 @@ export const CROP_INFO: Record<string, CropInfo> = {
         + 'Cool winters and a dry summer give the best fruit.',
       kn: 'ಸುಮಾರು 4 ದಿನಕ್ಕೊಮ್ಮೆ ನೀರು ಕೊಡಿ. ಬರ, ಉಪ್ಪು ಮತ್ತು ಕ್ಷಾರ ಮಣ್ಣನ್ನೂ ಸಹಿಸುತ್ತದೆ, '
         + '1800 ಮೀವರೆಗೆ ಬೆಳೆಯುತ್ತದೆ. ತಂಪಾದ ಚಳಿಗಾಲ ಮತ್ತು ಒಣಗಿದ ಬೇಸಿಗೆ ಉತ್ತಮ ಫಲ ನೀಡುತ್ತವೆ.',
+    },
+    kn: {
+      spacing: 'ಎರಡೂ ದಿಕ್ಕಿನಲ್ಲಿ 2.5 ರಿಂದ 3 ಮೀ.',
     },
     source: 'TNAU',
   },
@@ -513,6 +556,9 @@ export const CROP_INFO: Record<string, CropInfo> = {
       kn: 'ನೆಟ್ಟ ತಕ್ಷಣ ಮತ್ತು ಮೂರನೇ ದಿನ ಚೆನ್ನಾಗಿ ನೀರು ಕೊಡಿ, ನಂತರ ಕಸಿ ಗಿಡ ಬೇರೂರುವವರೆಗೆ '
         + '10 ದಿನಕ್ಕೊಮ್ಮೆ ಕೊಡಿ. ಎಲ್ಲಾ ತರಹದ ಮಣ್ಣಿನಲ್ಲಿ, 1000 ಮೀವರೆಗೆ ಬೆಳೆಯುತ್ತದೆ.',
     },
+    kn: {
+      spacing: '8 × 8 ಮೀ. (ಹೆಕ್ಟೇರ್‌ಗೆ 156 ಮರಗಳು), ಅಥವಾ ಹೆಚ್ಚು ಸಾಂದ್ರತೆಯ ನಾಟಿಗೆ 8 × 4 ಮೀ. (312 ಮರಗಳು)',
+    },
     source: 'TNAU',
   },
   tomato: {
@@ -524,6 +570,11 @@ export const CROP_INFO: Record<string, CropInfo> = {
     seedRate: '300 g per hectare',
     spacing: '60 x 45 cm (60 x 30 cm for CO 3), planted out after 25 to 30 days in the nursery',
     fertiliser: '200 : 250 : 250 kg N : P2O5 : K2O per hectare for hybrids',
+    kn: {
+      seedRate: 'ಹೆಕ್ಟೇರ್‌ಗೆ 300 ಗ್ರಾಂ',
+      spacing: '60 × 45 ಸೆಂ.ಮೀ. (CO 3 ತಳಿಗೆ 60 × 30 ಸೆಂ.ಮೀ.), ನರ್ಸರಿಯಲ್ಲಿ 25 ರಿಂದ 30 ದಿನಗಳ ನಂತರ ನಾಟಿ',
+      fertiliser: 'ಹೈಬ್ರಿಡ್‌ಗಳಿಗೆ ಹೆಕ್ಟೇರ್‌ಗೆ 200 : 250 : 250 ಕೆ.ಜಿ. ಸಾರಜನಕ : ರಂಜಕ : ಪೊಟ್ಯಾಷ್ (N : P2O5 : K2O)',
+    },
     source: 'TNAU, FAO (duration, water)',
   },
 };

@@ -2,7 +2,7 @@ const express = require('express');
 const { findDistrict, listDistricts, listStates } = require('../services/district');
 const { findTaluk, taluksOf } = require('../services/taluk');
 const { normaliseDistrict } = require('../districts');
-const { limitRequests } = require('../rate-limit');
+const { LIMITS, limitRequests } = require('../rate-limit');
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ const router = express.Router();
 // Taluks are Karnataka only: they come from our taluk map (the taluks our crop figures and model use).
 // Outside Karnataka we have no taluk data, so taluk is null there.
 // (It can ask Nominatim, a free outside service, so each address may ask at most 60 times a minute.)
-router.get('/district', limitRequests(60, 1), async (req, res) => {
+router.get('/district', limitRequests(LIMITS.districtLookupsPerMinute, 1), async (req, res) => {
   const lat = Number(req.query.lat);
   const lon = Number(req.query.lon);
 

@@ -63,9 +63,11 @@ test('the state list uses today\'s states and every state has districts', () => 
   assert.deepStrictEqual(listDistricts('Nowhere'), []);
 });
 
-test('a picked district outside Karnataka gets a point that lies inside it', () => {
+// Used for the soil and climate of a district outside Karnataka (Karnataka's are answered from its sample farms)
+// and for the weather card of any picked district
+test('every picked district gets a point that lies inside it', () => {
   const { districtMiddle, findInBoundaries, listDistricts, listStates } = require('../src/services/district');
-  for (const state of listStates().filter((name) => name !== 'Karnataka')) {
+  for (const state of listStates()) {
     for (const district of listDistricts(state)) {
       const middle = districtMiddle(state, district);
       assert.ok(middle, `${district}, ${state} has no middle point`);
@@ -73,5 +75,5 @@ test('a picked district outside Karnataka gets a point that lies inside it', () 
       assert.strictEqual(findInBoundaries(middle.lat, middle.lng)?.state, state, `${district}, ${state}`);
     }
   }
-  assert.strictEqual(districtMiddle('Karnataka', 'MYSORE'), null); // Karnataka is answered from its sample farms
+  assert.strictEqual(districtMiddle('Kerala', 'Nowhere'), null);
 });

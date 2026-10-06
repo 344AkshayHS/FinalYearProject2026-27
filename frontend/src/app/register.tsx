@@ -1,9 +1,9 @@
 import { Link } from 'expo-router';
 import { useState } from 'react';
-import { Text } from 'react-native';
 
 import { AuthScreen, FormError } from '@/components/auth-screen';
 import { Button } from '@/components/button';
+import { Text } from '@/components/text';
 import { TextField } from '@/components/text-field';
 import { ApiError } from '@/lib/api';
 import { useApp } from '@/lib/app-context';

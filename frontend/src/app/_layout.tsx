@@ -1,8 +1,8 @@
-import { Link, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
+import { Pressable, Text } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
-import { Pressable, Text, View } from 'react-native';
 
 import { AppProvider, useApp } from '@/lib/app-context';
 import { colors } from '@/theme';
@@ -10,7 +10,7 @@ import { colors } from '@/theme';
 SplashScreen.preventAutoHideAsync();
 
 function Screens() {
-  const { ready, user, t, language, setLanguage, adminToken } = useApp();
+  const { t, ready, user, adminToken, adminLogout } = useApp();
 
   // Keep the splash screen until we know if the user is logged in
   useEffect(() => {
@@ -40,37 +40,33 @@ function Screens() {
 
       {/* Only for logged-in users */}
       <Stack.Protected guard={!!user}>
+        {/* Home, Chatbot and Profile, with the bar at the bottom: see app/(tabs)/_layout.tsx */}
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+
+        {/* Pages that open over the tabs, with a back arrow: a crop (it sets its own title, the crop's name),
+            the compare table, and the profile's history, saved crops and about pages */}
+        <Stack.Screen name="crop/[name]" options={{ title: '' }} />
+        <Stack.Screen name="compare" options={{ title: t.compare.title }} />
+        <Stack.Screen name="history" options={{ title: t.profileMenu.history }} />
+        <Stack.Screen name="saved" options={{ title: t.profileMenu.saved }} />
+        <Stack.Screen name="about" options={{ title: t.profileMenu.about }} />
+      </Stack.Protected>
+
+      {/* Only after the admin login on the login screen (no farmer account needed). English only. "Log out"
+          ends the admin session and goes back to the login screen (or Home for a logged-in farmer). */}
+      <Stack.Protected guard={!!adminToken}>
         <Stack.Screen
-          name="index"
+          name="admin"
           options={{
-            title: t.appName,
+            title: 'ML dashboard',
             headerRight: () => (
-              <View style={{ flexDirection: 'row', gap: 18 }}>
-                {/* One tap switches every screen between English and Kannada */}
-                <Pressable
-                  onPress={() => setLanguage(language === 'en' ? 'kn' : 'en')}
-                  accessibilityRole="button"
-                  accessibilityLabel={t.switchLanguage}
-                  hitSlop={10}>
-                  <Text style={{ fontSize: 16, fontWeight: '600', color: colors.primary }}>{t.otherLanguage}</Text>
-                </Pressable>
-                <Link href="/profile" asChild>
-                  <Pressable accessibilityRole="button" hitSlop={10}>
-                    <Text style={{ fontSize: 16, fontWeight: '600', color: colors.primary }}>{t.profile}</Text>
-                  </Pressable>
-                </Link>
-              </View>
+              <Pressable onPress={adminLogout} accessibilityRole="button" hitSlop={10}>
+                <Text style={{ fontSize: 16, fontWeight: '600', color: colors.primary }}>Log out</Text>
+              </Pressable>
             ),
           }}
         />
-        <Stack.Screen name="profile" options={{ title: t.profile }} />
-        <Stack.Screen name="chat" options={{ title: t.chat.title, presentation: 'modal' }} />
-
-        {/* Only after the admin login on the profile screen */}
-        <Stack.Protected guard={!!adminToken}>
-          <Stack.Screen name="admin" options={{ title: 'ML dashboard' }} />
-          <Stack.Screen name="admin-recommendation" options={{ title: 'One recommendation, step by step' }} />
-        </Stack.Protected>
+        <Stack.Screen name="admin-recommendation" options={{ title: 'One recommendation, step by step' }} />
       </Stack.Protected>
     </Stack>
   );

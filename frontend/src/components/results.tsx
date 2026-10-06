@@ -1,11 +1,16 @@
+import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
+import { Button } from '@/components/button';
 import { Card } from '@/components/card';
+import { CropRowLink, PhotoBox } from '@/components/crop-photo';
 import { FeedbackForm } from '@/components/feedback-form';
+import { Text } from '@/components/text';
 import { WaterPlan } from '@/components/water-plan';
 import { useApp } from '@/lib/app-context';
 import { mostlyIrrigatedShare, type SeasonRain } from '@/lib/crop-water';
+import { findCrop, mainPhoto, MAX_COMPARE } from '@/lib/crops';
 import { YEAR_ROUND_CROPS, type Season } from '@/lib/season';
 import { cropName, districtName, talukName } from '@/lib/translations';
 import { colors, radius } from '@/theme';
@@ -228,7 +233,7 @@ function ConfidentBadge({ label }: { label: string }) {
 }
 
 function OtherCropsCard({ data, land }: { data: RecommendResponse; land: Land }) {
-  const { t, language } = useApp();
+  const { t } = useApp();
   // On rain-fed land, only those the normal rain can grow; with irrigation, all of them
   const crops = data.other_crops.filter((item) => !land.rainfed || item.suits.rain === 'good' || item.suits.rain === 'possible');
   if (crops.length === 0) {
@@ -244,10 +249,9 @@ function OtherCropsCard({ data, land }: { data: RecommendResponse; land: Land })
         <View key={group} style={{ gap: 8 }}>
           <Text style={{ fontSize: 15, fontWeight: '700', color: colors.primary }}>{t.cropGroups[group]}</Text>
           {items.map((item) => (
-            <View key={item.crop} style={{ gap: 2 }}>
-              <Text style={{ fontSize: 16, fontWeight: '600', color: colors.text }}>{cropName(item.crop, language)}</Text>
+            <CropRowLink key={item.crop} crop={item.crop}>
               <SuitNotes suits={item.suits} land={land} />
-            </View>
+            </CropRowLink>
           ))}
         </View>
       ))}
@@ -286,7 +290,7 @@ function SeasonSowingCard({ sowing }: { sowing: SeasonSowing }) {
 
 function CropFactsCard({ facts }: { facts: CropFacts }) {
   const { t, language } = useApp();
-  const place = facts.level === 'taluk' ? talukName(facts.name) : districtName(facts.name, language);
+  const place = facts.level === 'taluk' ? talukName(facts.name, language) : districtName(facts.name, language);
   const biggest = Math.max(...facts.crops.map((item) => item.share), 0.01);
   return (
     <Card>
@@ -343,7 +347,7 @@ function IrrigationBadge({ label }: { label: string }) {
         overflow: 'hidden',
         fontSize: 12,
         fontWeight: '700',
-        color: '#8A6100',
+        color: colors.warningText,
         backgroundColor: colors.accentSoft,
       }}>
       💧 {label}
@@ -364,7 +368,7 @@ function SeasonRainCard({ season, rainfed }: { season: SeasonRain; rainfed: bool
   return (
     <Card color={dry ? colors.accentSoft : undefined}>
       <Text style={{ fontSize: 20, fontWeight: '800', color: colors.text }}>🌧️ {t.seasonRainTitle}</Text>
-      <Text style={{ fontSize: 18, fontWeight: '700', color: dry ? '#8A6100' : colors.primaryDark }}>
+      <Text style={{ fontSize: 18, fontWeight: '700', color: dry ? colors.warningText : colors.primaryDark }}>
         {versusNormal} · {t.rainCategory[season.imd_category]}
       </Text>
       <Text style={{ fontSize: 15, lineHeight: 21, color: colors.text }}>
@@ -379,8 +383,25 @@ function SeasonRainCard({ season, rainfed }: { season: SeasonRain; rainfed: bool
   );
 }
 
+// A crop's big photo (the harvested crop) with "Photos and details", both opening the crop's page
+function CropPhotoLink({ crop, height }: { crop: string; height: number }) {
+  const { t, crops } = useApp();
+  const router = useRouter();
+  return (
+    <Pressable
+      onPress={() => router.push({ pathname: '/crop/[name]', params: { name: crop } })}
+      accessibilityRole="button"
+      accessibilityLabel={t.cropPage.details}
+      style={({ pressed }) => ({ gap: 8, opacity: pressed ? 0.8 : 1 })}>
+      <PhotoBox photo={mainPhoto(findCrop(crops, crop))} width="100%" height={height} radius={radius.medium} />
+      <Text style={{ fontSize: 16, fontWeight: '700', color: colors.primary }}>{t.cropPage.details} ›</Text>
+    </Pressable>
+  );
+}
+
 export function Results({ data, waterSource }: { data: RecommendResponse; waterSource: WaterSource }) {
   const { t, language } = useApp();
+  const router = useRouter();
   // Two questions: what to sow this season (the headline) and what grows best on this land. They differ when
   // the model's top crop stands all year (it gets its own card below the headline) or when the crops the
   // place really sows put another crop first (it stays in the list below).
@@ -424,7 +445,7 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
   const bestNeed = needOf(best.crop);
   const place =
     data.crop_facts?.level === 'taluk'
-      ? talukName(data.crop_facts.name)
+      ? talukName(data.crop_facts.name, language)
       : districtName(data.crop_facts?.name ?? '', language);
   const rainCanGrow = data.recommendations.filter((item) => needOf(item.crop) === null).map((item) => cropName(item.crop, language));
 
@@ -481,12 +502,13 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
 
       {/* Best crop (to sow this season) */}
       <Card color={colors.accentSoft}>
-        <Text style={{ fontSize: 14, fontWeight: '700', color: '#8A6100', textTransform: 'uppercase' }}>
+        <Text style={{ fontSize: 14, fontWeight: '700', color: colors.warningText, textTransform: 'uppercase' }}>
           ⭐ {(data.season_best ? t.bestToSow : t.bestCropFor).replace('{season}', t.seasonNames[data.season])}
         </Text>
         <Text selectable style={{ fontSize: 34, fontWeight: '800', color: colors.text }}>
           {cropName(best.crop, language)}
         </Text>
+        <CropPhotoLink crop={best.crop} height={190} />
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
           {best.confident && <ConfidentBadge label={t.confident} />}
           <SuitNotes suits={best.suits} land={land} />
@@ -528,12 +550,11 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
           {data.sow_this_season.map((item) => {
             const sown = item.taluk_share ?? item.district_share;
             return (
-              <View key={item.crop} style={{ flexDirection: 'row', justifyContent: 'space-between', gap: 8 }}>
-                <Text style={{ fontSize: 17, fontWeight: '600', color: colors.text }}>{cropName(item.crop, language)}</Text>
-                <Text style={{ fontSize: 15, color: colors.muted, fontVariant: ['tabular-nums'] }}>
-                  {sown !== null ? t.sowShare.replace('{n}', String(Math.max(Math.round(sown * 100), 1))) : shareLabel(item.probability, t)}
-                </Text>
-              </View>
+              <CropRowLink
+                key={item.crop}
+                crop={item.crop}
+                right={sown !== null ? t.sowShare.replace('{n}', String(Math.max(Math.round(sown * 100), 1))) : shareLabel(item.probability, t)}
+              />
             );
           })}
           <Text style={{ fontSize: 13, lineHeight: 19, color: colors.muted }}>{t.sowNote}</Text>
@@ -549,6 +570,7 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
           <Text selectable style={{ fontSize: 26, fontWeight: '800', color: colors.text }}>
             {cropName(yearRoundBest.crop, language)}
           </Text>
+          <CropPhotoLink crop={yearRoundBest.crop} height={150} />
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
             {yearRoundBest.confident && <ConfidentBadge label={t.confident} />}
             {needOf(yearRoundBest.crop) !== null && <IrrigationBadge label={t.needsIrrigation} />}
@@ -564,14 +586,10 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
             <View style={{ gap: 8, paddingTop: 4 }}>
               <Text style={{ fontSize: 15, fontWeight: '700', color: colors.primary }}>{t.yearRoundMore}</Text>
               {yearRoundMore.map((item) => (
-                <View key={item.crop} style={{ gap: 2 }}>
-                  <View style={{ flexDirection: 'row', justifyContent: 'space-between', gap: 8 }}>
-                    <Text style={{ fontSize: 16, fontWeight: '600', color: colors.text }}>{cropName(item.crop, language)}</Text>
-                    <Text style={{ fontSize: 14, color: colors.muted, fontVariant: ['tabular-nums'] }}>{shareLabel(item.probability, t)}</Text>
-                  </View>
+                <CropRowLink key={item.crop} crop={item.crop} right={shareLabel(item.probability, t)}>
                   {needOf(item.crop) !== null && <IrrigationBadge label={t.needsIrrigation} />}
                   <SuitNotes suits={item.suits} land={land} />
-                </View>
+                </CropRowLink>
               ))}
             </View>
           )}
@@ -584,15 +602,7 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
         <Card>
           <Text style={{ fontSize: 20, fontWeight: '800', color: colors.text }}>{t.otherCrops}</Text>
           {others.map((item) => (
-            <View key={item.crop} style={{ gap: 6 }}>
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                <Text style={{ fontSize: 17, fontWeight: '600', color: colors.text }}>
-                  {cropName(item.crop, language)}
-                </Text>
-                <Text style={{ fontSize: 15, color: colors.muted, fontVariant: ['tabular-nums'] }}>
-                  {shareLabel(item.probability, t)}
-                </Text>
-              </View>
+            <CropRowLink key={item.crop} crop={item.crop} right={shareLabel(item.probability, t)}>
               <ScoreBar score={item.score} color={colors.primary} />
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
                 {item.confident && <ConfidentBadge label={t.confident} />}
@@ -600,7 +610,7 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
                 {needOf(item.crop) !== null && <IrrigationBadge label={t.needsIrrigation} />}
               </View>
               <SuitNotes suits={item.suits} land={land} />
-            </View>
+            </CropRowLink>
           ))}
 
           {/* Every other crop the model knows, for a farmer who wants to see beyond the top 5 */}
@@ -615,18 +625,23 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
             <View style={{ gap: 12 }}>
               <Text style={{ fontSize: 13, lineHeight: 19, color: colors.muted }}>{t.allCropsNote}</Text>
               {rest.map((item) => (
-                <View key={item.crop} style={{ gap: 4 }}>
-                  <View style={{ flexDirection: 'row', justifyContent: 'space-between', gap: 8 }}>
-                    <Text style={{ fontSize: 16, fontWeight: '600', color: colors.text }}>{cropName(item.crop, language)}</Text>
-                    <Text style={{ fontSize: 14, color: colors.muted, fontVariant: ['tabular-nums'] }}>{shareLabel(item.probability, t)}</Text>
-                  </View>
+                <CropRowLink key={item.crop} crop={item.crop} right={shareLabel(item.probability, t)}>
                   {YEAR_ROUND_CROPS.includes(item.crop) && <YearRoundBadge label={t.yearRound} />}
                   <SuitNotes suits={item.suits} land={land} />
-                </View>
+                </CropRowLink>
               ))}
             </View>
           )}
         </Card>
+      )}
+
+      {/* The best crop and the next ones side by side */}
+      {shown.size >= 2 && (
+        <Button
+          title={t.compare.compareThese}
+          onPress={() => router.push({ pathname: '/compare', params: { crops: answered.slice(0, MAX_COMPARE).join(',') } })}
+          variant="outline"
+        />
       )}
 
       {/* Herbs, spices and plantation crops the model does not know, that suit the land by their needs */}
@@ -683,7 +698,7 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
           <Text style={{ fontSize: 13, lineHeight: 19, color: colors.muted }}>
             {data.area === 'taluk'
               ? t.talukTypical
-                  .replace('{taluk}', talukName(data.location.taluk ?? ''))
+                  .replace('{taluk}', talukName(data.location.taluk ?? '', language))
                   .replace('{n}', String(data.sample_points))
               : data.area === 'district'
                 ? t.districtTypical

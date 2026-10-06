@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { Card } from '@/components/card';
+import { Text } from '@/components/text';
 import { TextField } from '@/components/text-field';
 import { useApp } from '@/lib/app-context';
 import { colors } from '@/theme';

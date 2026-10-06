@@ -8,6 +8,7 @@
     "scheme": "greenroot",
     "userInterfaceStyle": "light",
     "android": {
+      "package": "com.sololvls.greenroot",
       "adaptiveIcon": {
         "backgroundColor": "#2E7D32",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -37,7 +38,8 @@
         {
           "locationWhenInUsePermission": "GreenRoot uses your location to read the soil and climate of your field."
         }
-      ]
+      ],
+      "./plugins/allow-local-http"
     ],
     "experiments": {
       "typedRoutes": true,

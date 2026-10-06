@@ -54,6 +54,12 @@ function safeUrl(url: string | undefined) {
 
 const API_URL = safeUrl(backendUrl());
 
+// The address of a file the backend serves, such as a crop photo ("crop-images/rice/4-seeds.jpg").
+// Undefined when there is no usable backend address: the photo then shows its placeholder.
+export function fileUrl(path: string) {
+  return API_URL === undefined ? undefined : `${API_URL}/${path}`;
+}
+
 export class ApiError extends Error {
   code: string;
   constructor(code: string) {

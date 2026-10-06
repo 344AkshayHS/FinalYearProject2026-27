@@ -2,9 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const { deleteOldSessions, readUser, stopForgedRequests } = require('./auth');
-const { limitRequests } = require('./rate-limit');
+const { LIMITS, limitRequests } = require('./rate-limit');
+const cropPhotos = require('./services/crop-photos');
 const adminRoute = require('./routes/admin');
 const chatRoute = require('./routes/chat');
+const cropsRoute = require('./routes/crops');
 const feedbackRoute = require('./routes/feedback');
 const locationRoute = require('./routes/location');
 const recommendRoute = require('./routes/recommend');
@@ -39,15 +41,26 @@ function securityHeaders(req, res, next) {
 }
 app.use(securityHeaders);
 
-// Anyone sending more than this many requests a minute from one address is stopped
-app.use(limitRequests(600, 1));
-
 // The website, if it has been built (cd web; npm run build). Then one address serves both the site and the API.
 const websiteFolder = path.join(__dirname, '../../web/dist');
 const hasWebsite = fs.existsSync(path.join(websiteFolder, 'index.html'));
 if (hasWebsite) {
   app.use(express.static(websiteFolder));
 }
+
+// The crop photos, for the phone app ("/crop-images/rice/4-seeds.jpg") and the website ("/api/crop-images/...").
+// They are the same for everyone and do not change, so the phone and the browser may keep them for a week.
+// A photo that is not there is "not found" (404), never the website's page.
+app.use(
+  ['/crop-images', '/api/crop-images'],
+  express.static(cropPhotos.FOLDER, { maxAge: '7d', index: false }),
+  (req, res) => res.status(404).end()
+);
+
+// Anyone sending more than this many API requests a minute from one address is stopped. The files above (the
+// website and the photos) do not count: they cost the server almost nothing and the browser keeps them, while a
+// whole class or village on one Wi-Fi shares one address.
+app.use(limitRequests(LIMITS.apiPerMinute, 1));
 
 app.use(express.json({ limit: '250kb' }));
 app.use(stopForgedRequests);
@@ -66,7 +79,7 @@ api.get('/', (req, res) => {
 });
 
 // Passwords can be guessed one name at a time, so logins and new accounts are limited per address as well
-api.use(['/users/login', '/users/register', '/admin/login'], limitRequests(20, 15));
+api.use(['/users/login', '/users/register', '/admin/login'], limitRequests(LIMITS.loginsPer15Minutes, 15));
 
 api.use('/users', usersRoute);
 api.use('/admin', adminRoute);
@@ -75,8 +88,10 @@ api.use('/recommend', recommendRoute);
 api.use('/chat', chatRoute);
 api.use('/feedback', feedbackRoute);
 api.use('/weather', weatherRoute);
+api.use('/crops', cropsRoute);
 
-app.use('/api', api);
+// An /api address that does not exist gets a short answer the website understands, not an HTML error page
+app.use('/api', api, (req, res) => res.status(404).json({ error: 'not_found' }));
 app.use(api);
 
 // Any other address the browser asks for is a page of the website: it works out the page itself

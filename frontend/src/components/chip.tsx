@@ -1,5 +1,6 @@
-import { Pressable, Text } from 'react-native';
+import { Pressable } from 'react-native';
 
+import { Text } from '@/components/text';
 import { colors } from '@/theme';
 
 // Small round button for picking one option (a crop, an answer, a question)

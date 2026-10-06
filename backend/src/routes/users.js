@@ -11,6 +11,7 @@ const {
   requireUser,
 } = require('../auth');
 const { lockedOut, wrongPassword, rightPassword } = require('../rate-limit');
+const { KNOWN_CROPS } = require('../services/crop-photos');
 
 const router = express.Router();
 
@@ -46,7 +47,7 @@ router.post('/register', async (req, res) => {
   const result = await pool.query(
     `INSERT INTO users (full_name, phone, password_hash, preferred_language)
      VALUES ($1, $2, $3, $4)
-     RETURNING id, full_name, phone, preferred_language`,
+     RETURNING id, full_name, phone, preferred_language, created_at`,
     [full_name.trim(), phone, await hashPassword(password), language]
   );
   const user = result.rows[0];
@@ -74,7 +75,13 @@ router.post('/login', async (req, res) => {
 
   rightPassword(req, phone);
   const body = {
-    user: { id: user.id, full_name: user.full_name, phone: user.phone, preferred_language: user.preferred_language },
+    user: {
+      id: user.id,
+      full_name: user.full_name,
+      phone: user.phone,
+      preferred_language: user.preferred_language,
+      created_at: user.created_at, // the profile shows it as "member since"
+    },
   };
   sendSession(req, res, USER_COOKIE, await createSession(user.id), body);
 });
@@ -100,10 +107,11 @@ router.patch('/me/language', requireUser, async (req, res) => {
   res.json({ language });
 });
 
-// GET /users/me/recommendations  -> the user's last 20 results, newest first
+// GET /users/me/recommendations  -> { recommendations: the user's last 20 results, newest first, total: how many in all }
+// Each result has the place it was asked for (state and district as saved) and its crops, best first.
 router.get('/me/recommendations', requireUser, async (req, res) => {
   const result = await pool.query(
-    `SELECT r.id, r.created_at, r.season, l.latitude, l.longitude,
+    `SELECT r.id, r.created_at, r.season, l.latitude, l.longitude, l.state, l.district,
             (SELECT json_agg(json_build_object('crop', i.crop, 'score', i.score) ORDER BY i.rank)
              FROM recommendation_items i WHERE i.recommendation_id = r.id) AS crops
      FROM recommendations r JOIN locations l ON l.id = r.location_id
@@ -112,7 +120,31 @@ router.get('/me/recommendations', requireUser, async (req, res) => {
      LIMIT 20`,
     [req.user.id]
   );
-  res.json({ recommendations: result.rows });
+  const total = await pool.query('SELECT count(*)::int AS n FROM recommendations WHERE user_id = $1', [req.user.id]);
+  res.json({ recommendations: result.rows, total: total.rows[0].n });
+});
+
+// GET /users/me/saved -> { saved: [{ crop, created_at }] }, the crops the farmer saved with the heart, latest first
+router.get('/me/saved', requireUser, async (req, res) => {
+  const result = await pool.query('SELECT crop, created_at FROM saved_crops WHERE user_id = $1 ORDER BY created_at DESC', [
+    req.user.id,
+  ]);
+  res.json({ saved: result.rows });
+});
+
+// PUT /users/me/saved/rice     saves a crop (saving it twice changes nothing)
+// DELETE /users/me/saved/rice  takes it off the list
+router.put('/me/saved/:crop', requireUser, async (req, res) => {
+  if (!KNOWN_CROPS.has(req.params.crop)) {
+    return res.status(400).json({ error: 'crop_invalid' });
+  }
+  await pool.query('INSERT INTO saved_crops (user_id, crop) VALUES ($1, $2) ON CONFLICT DO NOTHING', [req.user.id, req.params.crop]);
+  res.json({ ok: true });
+});
+
+router.delete('/me/saved/:crop', requireUser, async (req, res) => {
+  await pool.query('DELETE FROM saved_crops WHERE user_id = $1 AND crop = $2', [req.user.id, req.params.crop]);
+  res.json({ ok: true });
 });
 
 module.exports = router;

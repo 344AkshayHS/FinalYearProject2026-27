@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { Chip } from '@/components/chip';
+import { Text } from '@/components/text';
 import { TextField } from '@/components/text-field';
 import { api, ApiError } from '@/lib/api';
 import { useApp } from '@/lib/app-context';

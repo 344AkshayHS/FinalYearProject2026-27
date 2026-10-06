@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
+import { ActivityIndicator, ScrollView, View } from 'react-native';
 
 import { Card } from '@/components/card';
 import { Chip } from '@/components/chip';
+import { Text } from '@/components/text';
 import { TextField } from '@/components/text-field';
 import { api } from '@/lib/api';
 import { useApp } from '@/lib/app-context';

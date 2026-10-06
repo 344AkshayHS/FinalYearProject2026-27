@@ -18,8 +18,9 @@ const ACRE_SQUARE_METRES = 4047; // 1 mm of water on 1 m² = 1 litre
 // Questions that are not about one crop's facts: "what should I grow?" and "show me other crops"
 const ADVICE_WORDS =
   /what (should|can|do) i (grow|plant|sow)|can i (grow|plant|sow)|which crop should|best crop for|suggest|recommend|ಯಾವ ಬೆಳೆ|ಬೆಳೆಯಬಹುದೇ|ಬೆಳೆಯಬೇಕು|ಶಿಫಾರಸು/;
+// (?![a-z]) ends the word: \b does not work after Kannada letters, so "ನಮಸ್ಕಾರ" was not seen as a greeting
 const GREETING_WORDS =
-  /^\s*(hi+|hello+|helo|hey+|hai|namaste|namaskara|namaskar|namskara|good (morning|afternoon|evening)|thanks?|thank you|thanku|thanx|dhanyavada|dhanyavadagalu|ok(ay)?|ನಮಸ್ಕಾರ|ಹಾಯ್|ಧನ್ಯವಾದ)\b(\s+(sir|madam|anna|akka|ji|bro|guru|swamy))?[\s!.]*$/;
+  /^\s*(hi+|hello+|helo|hey+|hai|namaste|namaskara|namaskar|namskara|good (morning|afternoon|evening)|thanks?|thank you|thanku|thanx|dhanyavada|dhanyavadagalu|ok(ay)?|ನಮಸ್ಕಾರ|ಹಾಯ್|ಧನ್ಯವಾದಗಳು|ಧನ್ಯವಾದ)(?![a-z])(\s+(sir|madam|anna|akka|ji|bro|guru|swamy))?[\s!.]*$/;
 // Pests, diseases, prices, loans: nothing checked in the app, so the farmer is sent to people who know
 const OUTSIDE_WORDS =
   /pest|insect|disease|infect|fung|virus|rot\b|wilt|blight|spray|pesticide|price|(?<!seed )rate\b|market|loan|subsidy|insurance|ಕೀಟ|ರೋಗ|ಬೆಲೆ|ಸಾಲ|ಸಬ್ಸಿಡಿ/;
@@ -27,6 +28,17 @@ const OUTSIDE_WORDS =
 // prices and loans do not: no AI knows today's price, so the app's own answer sends the farmer to the market
 const PEST_WORDS = /pest|insect|disease|infect|fung|virus|rot\b|wilt|blight|spray|pesticide|ಕೀಟ|ರೋಗ/;
 const MONEY_WORDS = /price|(?<!seed )rate\b|market|loan|subsidy|insurance|ಬೆಲೆ|ಸಾಲ|ಸಬ್ಸಿಡಿ/;
+
+// "Today's weather?", "will it rain tomorrow?", "ಇಂದು ಮಳೆ ಬರುತ್ತಾ?": the app answers from the forecast (the same as
+// the weather card), never the AI, which has no weather data. "How much rain does ragi need?" is not about the
+// weather: rain, heat or wind count only together with a day (today, tomorrow, now).
+const WEATHER_WORDS = /\bweather\b|\bforecast\b|\bhavamana\b|ಹವಾಮಾನ|ಮುನ್ಸೂಚನೆ/;
+const WEATHER_PARTS = /\brain(s|ing|y)?\b|\bmale\b|\btemperature\b|\bhot\b|\bheat\b|\bcold\b|\bhumid(ity)?\b|\bwindy?\b|\bclouds?\b|ಮಳೆ|ತಾಪಮಾನ|ಬಿಸಿಲು|ಗಾಳಿ|ಮೋಡ/;
+const DAY_WORDS = /\btoday'?s?\b|\btomorrow\b|\bnow\b|\btonight\b|\bthis week\b|\bindu\b|\bivattu\b|\bnaale\b|\bnale\b|ಇಂದು|ಇವತ್ತು|ನಾಳೆ|ಈಗ/;
+
+export function isWeatherQuestion(text: string) {
+  return WEATHER_WORDS.test(text) || (WEATHER_PARTS.test(text) && DAY_WORDS.test(text));
+}
 
 // Official help the LLM may point to (the only phone number it is allowed to write)
 export const HELP_CONTACTS = {
@@ -62,10 +74,11 @@ const EVERYDAY_WORDS = new Set([
 
 
 // Every word that points to a crop, longest first, so "green gram" wins over "gram"
-// and "ಮೆಕ್ಕೆಜೋಳ" wins over "ಜೋಳ"
+// and "ಮೆಕ್ಕೆಜೋಳ" wins over "ಜೋಳ". The Kannada name the app itself shows is always one of them (a farmer
+// copies what the screen says: "ಟೊಮೆಟೊ", while the facts know "ಟೋಮೆಟೋ").
 const CROP_WORDS = Object.entries(CROP_INFO)
   .flatMap(([crop, info]) =>
-    [crop, ...info.otherNames, ...info.kannadaNames, ...(CROP_SPELLINGS[crop] ?? [])].map((word) => ({ word, crop })))
+    [crop, cropName(crop, 'kn'), ...info.otherNames, ...info.kannadaNames, ...(CROP_SPELLINGS[crop] ?? [])].map((word) => ({ word, crop })))
   .sort((a, b) => b.word.length - a.word.length);
 
 function isLatin(word: string) {
@@ -150,8 +163,12 @@ function nameAnswer(crop: string, info: CropInfo, language: Language) {
     kn: cropName(crop, 'kn'),
     scientific: info.scientific,
   });
-  // Skip names already in the title, e.g. "tur" in "Pigeonpea (tur)"
-  const others = info.otherNames.filter((name) => !crop.includes(name));
+  // Skip names already in the title, e.g. "tur" in "Pigeonpea (tur)". In Kannada, the crop's other Kannada names
+  // (the English and Hindi ones, such as "kali mirch", are in English letters)
+  const others =
+    language === 'kn'
+      ? info.kannadaNames.filter((name) => name !== cropName(crop, 'kn'))
+      : info.otherNames.filter((name) => !crop.includes(name));
   if (others.length > 0) {
     answer += ' ' + fill(t.otherNames, { names: others.join(', ') });
   }
@@ -205,11 +222,15 @@ function waterAnswer(crop: string, info: CropInfo, language: Language) {
 function growAnswer(crop: string, info: CropInfo, language: Language) {
   const t = translations[language].chat;
   const name = cropName(crop, language);
+  // A Kannada answer uses the Kannada text of each detail (crop-info.ts `kn`)
+  const text = language === 'kn' ? { ...info, ...info.kn } : info;
+  // "5 kg." not "5 ಕೆ.ಜಿ..": a detail ending in a full stop (an abbreviation) gets no second one from the sentence
+  const end = (value: string) => value.replace(/\.$/, '');
   const parts = [
-    info.season && fill(t.growSeason, { crop: name, season: info.season }),
-    info.seedRate && fill(t.growSeed, { seed: info.seedRate }),
-    info.spacing && fill(t.growSpacing, { spacing: info.spacing }),
-    info.fertiliser && fill(t.growFertiliser, { fertiliser: info.fertiliser }),
+    text.season && fill(t.growSeason, { crop: name, season: end(text.season) }),
+    text.seedRate && fill(t.growSeed, { seed: end(text.seedRate) }),
+    text.spacing && fill(t.growSpacing, { spacing: end(text.spacing) }),
+    text.fertiliser && fill(t.growFertiliser, { fertiliser: end(text.fertiliser) }),
   ].filter(Boolean);
   return parts.length > 0 ? parts.join(' ') : fill(t.noGrow, { crop: name });
 }
@@ -221,9 +242,28 @@ export function waterFacts(crop: string, language: Language) {
   return info ? waterAnswer(crop, info, language) : notAvailable(crop, language);
 }
 
+// The sources of crop-info.ts in Kannada: each one's name, with the short name farmers may see on its papers
+const SOURCES_KN: [RegExp, string][] = [
+  [/TNAU notes/g, 'ತಮಿಳುನಾಡು ಕೃಷಿ ವಿಶ್ವವಿದ್ಯಾಲಯದ ಪಾಠ ಟಿಪ್ಪಣಿ (TNAU)'],
+  [/TNAU(?! notes)/g, 'ತಮಿಳುನಾಡು ಕೃಷಿ ವಿಶ್ವವಿದ್ಯಾಲಯ (TNAU)'],
+  [/FAO/g, 'ವಿಶ್ವಸಂಸ್ಥೆಯ ಆಹಾರ ಮತ್ತು ಕೃಷಿ ಸಂಸ್ಥೆ (FAO)'],
+  [/PAU/g, 'ಪಂಜಾಬ್ ಕೃಷಿ ವಿಶ್ವವಿದ್ಯಾಲಯ (PAU)'],
+  [/ICRISAT/g, 'ಇಕ್ರಿಸ್ಯಾಟ್ (ICRISAT)'],
+  [/ICAR-(\w+)/g, 'ಭಾರತೀಯ ಕೃಷಿ ಸಂಶೋಧನಾ ಮಂಡಳಿ (ICAR-$1)'],
+  [/Kenaf harvest study/g, 'ಕೆನಾಫ್ ಕೊಯ್ಲಿನ ಅಧ್ಯಯನ'],
+  [/\(duration, water\)/g, '(ಕಾಲಾವಧಿ, ನೀರು)'],
+  [/\(duration\)/g, '(ಕಾಲಾವಧಿ)'],
+  [/\(water\)/g, '(ನೀರು)'],
+  [/\(drip\)/g, '(ಹನಿ ನೀರಾವರಿ)'],
+];
+
 export function sourceLine(crop: string, language: Language) {
   const info = CROP_INFO[crop];
-  return info ? `${translations[language].chat.source}: ${info.source}` : '';
+  if (!info) {
+    return '';
+  }
+  const source = language === 'kn' ? SOURCES_KN.reduce((text, [pattern, kannada]) => text.replace(pattern, kannada), info.source) : info.source;
+  return `${translations[language].chat.source}: ${source}`;
 }
 
 // What the LLM may use for one crop: the checked facts plus the same averages the rule-based answer
@@ -237,6 +277,7 @@ export function cropFacts(crop: string) {
     scientific_name: info.scientific,
     other_names: info.otherNames,
     kannada_names: info.kannadaNames,
+    sowing_in_kannada: info.kn, // the same sowing details in Kannada, for a Kannada answer
     days_sowing_to_harvest: info.days,
     months_sowing_to_harvest: info.days && [months(info.days[0]), months(info.days[1])],
     years_from_planting_to_first_harvest: info.bearingYears,
@@ -351,10 +392,35 @@ export function notAvailable(crop: string, language: Language) {
 
 // `askLlm` is false for answers only this app can give (which screen to use, the crop list),
 // so the chat screen does not send those to the LLM.
-export type BotReply = { text: string; crop: string | null; askLlm: boolean };
+// `weather` is true for a weather question: the chat screen then asks the forecast for the farmer's place.
+export type BotReply = { text: string; crop: string | null; askLlm: boolean; weather?: boolean };
 
 // `currentCrop` is the crop being talked about, so "how much water?" works without naming it again.
 // `farm` is the farmer's last result, if any, for "what should I grow here?".
+type Suggestion = keyof (typeof translations)['en']['chat']['suggest'];
+
+// Up to 3 questions to offer under an answer: about the crop being talked about (water, growing time, sowing -
+// sowing only when the checked facts have it), "which crop for my land?" once the land is checked, and today's
+// weather. Not what was just asked. The app answers every one of them itself.
+export function followUpQuestions(lastQuestion: string, crop: string | null, language: Language, farm?: FarmSummary | null) {
+  const t = translations[language].chat.suggest;
+  const asked = normaliseQuestion(lastQuestion);
+  const info = crop ? CROP_INFO[crop] : undefined;
+  // Only what the checked facts cover (the same rule as `covered` in answerQuestion)
+  const offers: [Suggestion, boolean][] = [
+    ['water', Boolean(info?.waterMm || info?.litresPerPlant) && !TOPIC_WORDS.water.test(asked)],
+    ['time', Boolean(info?.days || info?.bearingYears) && !TOPIC_WORDS.time.test(asked)],
+    ['sow', Boolean(info && (info.season || info.seedRate || info.spacing)) && !TOPIC_WORDS.grow.test(asked)],
+    ['myLand', Boolean(farm) && !ADVICE_WORDS.test(asked)],
+    ['weather', !isWeatherQuestion(asked)],
+    ['crops', !info && !LIST_WORDS.test(asked)],
+  ];
+  return offers
+    .filter(([, offer]) => offer)
+    .slice(0, 3)
+    .map(([key]) => fill(t[key], { crop: crop ? cropName(crop, language) : '' }));
+}
+
 export function answerQuestion(question: string, currentCrop: string | null, language: Language, farm?: FarmSummary | null): BotReply {
   const t = translations[language].chat;
   // In the plain words the checks below look for: "togari ge eshtu neeru beku" -> "togari how much water need"
@@ -364,6 +430,9 @@ export function answerQuestion(question: string, currentCrop: string | null, lan
   // when they do not - a detail or crop they lack, a question the app cannot read
   if (GREETING_WORDS.test(question.toLowerCase())) {
     return { text: t.greeting, crop: currentCrop, askLlm: false };
+  }
+  if (isWeatherQuestion(text)) {
+    return { text: translations[language].weatherNow.chatNoPlace, crop: currentCrop, askLlm: false, weather: true };
   }
 
   const match = findCrop(text);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Modal, Pressable, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, FlatList, Modal, Pressable, TextInput, View } from 'react-native';
 
+import { Text } from '@/components/text';
 import { api } from '@/lib/api';
 import { useApp } from '@/lib/app-context';
 import { DISTRICT_NAMES, districtName, stateName } from '@/lib/translations';
@@ -21,6 +22,7 @@ export function DistrictPicker({ visible, state, selected, onSelect, onClose }: 
   const [search, setSearch] = useState('');
   // The list is kept with the state it belongs to, so a list for another state is never shown
   const [loaded, setLoaded] = useState<{ state: string; districts: string[] | null } | null>(null);
+  const [attempt, setAttempt] = useState(0); // "Try again" loads the list again
 
   useEffect(() => {
     if (!visible) {
@@ -33,7 +35,7 @@ export function DistrictPicker({ visible, state, selected, onSelect, onClose }: 
     return () => {
       current = false;
     };
-  }, [visible, state]);
+  }, [visible, state, attempt]);
 
   const ready = loaded?.state === state ? loaded : null;
   const failed = ready !== null && ready.districts === null;
@@ -86,7 +88,15 @@ export function DistrictPicker({ visible, state, selected, onSelect, onClose }: 
 
         {!ready && <ActivityIndicator color={colors.primary} style={{ padding: 20 }} />}
         {failed && (
-          <Text style={{ fontSize: 15, lineHeight: 21, color: colors.danger, paddingHorizontal: 20 }}>{t.placesListError}</Text>
+          <View>
+            <Text style={{ fontSize: 15, lineHeight: 21, color: colors.danger, paddingHorizontal: 20 }}>{t.placesListError}</Text>
+            <Pressable onPress={() => {
+                setLoaded(null);
+                setAttempt((n) => n + 1);
+              }} accessibilityRole="button" style={{ paddingHorizontal: 20, paddingVertical: 10 }}>
+              <Text style={{ fontSize: 16, fontWeight: '700', color: colors.primary }}>{t.tryAgain}</Text>
+            </Pressable>
+          </View>
         )}
 
         <FlatList

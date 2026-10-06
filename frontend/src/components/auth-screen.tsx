@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
-import { KeyboardAvoidingView, ScrollView, Text, View } from 'react-native';
+import { KeyboardAvoidingView, ScrollView, View } from 'react-native';
 
 import { LanguageSwitch } from '@/components/language-switch';
+import { Text } from '@/components/text';
 import { useApp } from '@/lib/app-context';
 import { cardShadow, colors, radius } from '@/theme';
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Modal, Pressable, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Modal, Pressable, View } from 'react-native';
 
+import { Text } from '@/components/text';
 import { api } from '@/lib/api';
 import { useApp } from '@/lib/app-context';
 import { districtName, talukName } from '@/lib/translations';
@@ -22,6 +23,7 @@ export function TalukPicker({ visible, district, selected, onSelect, onClose }: 
   const { t, language } = useApp();
   // The list is kept with the district it belongs to, so a list for another district is never shown
   const [loaded, setLoaded] = useState<{ district: string; taluks: Taluk[] | null } | null>(null);
+  const [attempt, setAttempt] = useState(0); // "Try again" loads the list again
 
   useEffect(() => {
     if (!visible) {
@@ -34,7 +36,7 @@ export function TalukPicker({ visible, district, selected, onSelect, onClose }: 
     return () => {
       current = false;
     };
-  }, [visible, district]);
+  }, [visible, district, attempt]);
 
   const ready = loaded?.district === district ? loaded : null;
   const taluks = ready?.taluks ?? null;
@@ -57,7 +59,15 @@ export function TalukPicker({ visible, district, selected, onSelect, onClose }: 
 
         {!taluks && !failed && <ActivityIndicator color={colors.primary} style={{ padding: 20 }} />}
         {failed && (
-          <Text style={{ fontSize: 15, lineHeight: 21, color: colors.danger, paddingHorizontal: 20 }}>{t.talukListError}</Text>
+          <View>
+            <Text style={{ fontSize: 15, lineHeight: 21, color: colors.danger, paddingHorizontal: 20 }}>{t.talukListError}</Text>
+            <Pressable onPress={() => {
+                setLoaded(null);
+                setAttempt((n) => n + 1);
+              }} accessibilityRole="button" style={{ paddingHorizontal: 20, paddingVertical: 10 }}>
+              <Text style={{ fontSize: 16, fontWeight: '700', color: colors.primary }}>{t.tryAgain}</Text>
+            </Pressable>
+          </View>
         )}
 
         <FlatList
@@ -81,7 +91,7 @@ export function TalukPicker({ visible, district, selected, onSelect, onClose }: 
                   opacity: pressed ? 0.7 : 1,
                 })}>
                 <Text style={{ fontSize: 17, fontWeight: '600', color: colors.text }}>
-                  {item ? talukName(item.name) : t.wholeDistrict}
+                  {item ? talukName(item.name, language) : t.wholeDistrict}
                 </Text>
               </Pressable>
             );

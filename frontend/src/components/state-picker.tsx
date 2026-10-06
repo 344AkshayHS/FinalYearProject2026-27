@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Modal, Pressable, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, FlatList, Modal, Pressable, TextInput, View } from 'react-native';
 
+import { Text } from '@/components/text';
 import { api } from '@/lib/api';
 import { useApp } from '@/lib/app-context';
 import { stateName } from '@/lib/translations';
@@ -72,7 +73,12 @@ export function StatePicker({ visible, selected, onSelect, onClose }: Props) {
 
         {states === null && <ActivityIndicator color={colors.primary} style={{ padding: 20 }} />}
         {states === 'failed' && (
-          <Text style={{ fontSize: 15, lineHeight: 21, color: colors.danger, paddingHorizontal: 20 }}>{t.placesListError}</Text>
+          <View>
+            <Text style={{ fontSize: 15, lineHeight: 21, color: colors.danger, paddingHorizontal: 20 }}>{t.placesListError}</Text>
+            <Pressable onPress={() => setStates(null)} accessibilityRole="button" style={{ paddingHorizontal: 20, paddingVertical: 10 }}>
+              <Text style={{ fontSize: 16, fontWeight: '700', color: colors.primary }}>{t.tryAgain}</Text>
+            </Pressable>
+          </View>
         )}
 
         <FlatList
