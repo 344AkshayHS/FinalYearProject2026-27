@@ -5,9 +5,11 @@ import assert from 'node:assert';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
+import { toBase64 } from '@/lib/base64';
 import { mostlyIrrigatedShare, pastHarvest, waterToday } from '@/lib/crop-water';
 import { seasonNow } from '@/lib/season';
 import { cropName, translations } from '@/lib/translations';
+import { waterChoiceLines, type WaterFacts } from '@/lib/water-choice';
 import { rainLikelySoon, weatherAnswer, weatherIcon, weatherKind, type WeatherNow } from '@/lib/weather';
 
 test('the season of a date: kharif June-September, rabi October-January, summer February-May', () => {
@@ -73,6 +75,35 @@ function texts(value: unknown, path = ''): [string, string][] {
 }
 const placeholders = (text: string) => [...text.matchAll(/\{[a-z]+\}/gi)].map((match) => match[0]).sort().join(' ');
 
+test('Rain only / Irrigated says what changes, with the real figures and no blanks left', () => {
+  // Rice in a Rabi season with less rain than it needs, 2 crops irrigated by most farmers here, 3 herbs left out
+  const facts: WaterFacts = { crop: 'rice', need: [1000, 2000], rain: 820, rainIsSeason: true, marked: 2, leftOut: 3 };
+  const rain = waterChoiceLines(facts, 'rain', 'en');
+  assert.match(rain[0], /1000–2000 mm/);
+  assert.match(rain[0], /820 mm/);
+  assert.match(rain[1], /180 mm less/); // 1000 - 820
+  assert.ok(rain.some((line) => line.includes('2 crops')));
+  assert.ok(rain.some((line) => line.includes('3 herbs')));
+  const irrigated = waterChoiceLines(facts, 'irrigated', 'en');
+  assert.match(irrigated[1], /at least 180 mm more/);
+  assert.ok(irrigated.some((line) => line.includes('all crops that suit')));
+  assert.notDeepStrictEqual(rain, irrigated); // a tap always changes what the farmer reads
+
+  // Enough rain; no census figures (outside Karnataka); no FAO need known
+  assert.match(waterChoiceLines({ ...facts, rain: 1500 }, 'rain', 'en')[1], /enough/);
+  assert.ok(!waterChoiceLines({ ...facts, marked: null }, 'rain', 'en').some((line) => line.includes('marked')));
+  assert.ok(!waterChoiceLines({ ...facts, need: [null, null] }, 'rain', 'en').some((line) => line.includes('mm of water')));
+
+  for (const language of ['en', 'kn'] as const) {
+    for (const source of ['rain', 'irrigated'] as const) {
+      for (const line of waterChoiceLines(facts, source, language)) {
+        assert.ok(!/[{}]/.test(line), line);
+      }
+    }
+  }
+  assert.ok(waterChoiceLines(facts, 'rain', 'kn').every((line) => !/[a-z]{3,}/.test(line.replace('mm', ''))), 'no English in Kannada');
+});
+
 test('every English text has a Kannada text with the same {placeholders}', () => {
   const kn = new Map(texts(translations.kn));
   for (const [key, english] of texts(translations.en)) {
@@ -95,4 +126,11 @@ test('Kannada numerals: numbers change, names with digits do not', async () => {
   assert.strictEqual(toKannadaDigits('13,000 ಲೀಟರ್, 3.3 ಮಿ.ಮೀ., 31°C'), '೧೩,೦೦೦ ಲೀಟರ್, ೩.೩ ಮಿ.ಮೀ., ೩೧°C');
   assert.strictEqual(toKannadaDigits('60 : 30 : 30 (N : P2O5 : K2O)'), '೬೦ : ೩೦ : ೩೦ (N : P2O5 : K2O)');
   assert.strictEqual(toWesternDigits(toKannadaDigits('22.5 × 10, 15:30')), '22.5 × 10, 15:30');
+});
+
+test('photo bytes become the same base64 text as Node makes, for every length of the last group', () => {
+  const photo = readFileSync(new URL('../assets/images/chatbot.png', import.meta.url));
+  for (const bytes of [photo, photo.subarray(0, 1), photo.subarray(0, 2), photo.subarray(0, 3), new Uint8Array(0)]) {
+    assert.strictEqual(toBase64(new Uint8Array(bytes)), Buffer.from(bytes).toString('base64'));
+  }
 });

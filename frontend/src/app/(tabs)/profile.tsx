@@ -4,10 +4,12 @@ import { SymbolView, type AndroidSymbol, type SFSymbol } from 'expo-symbols';
 import { useCallback, useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 
+import { Avatar } from '@/components/avatar';
 import { Button } from '@/components/button';
 import { LanguageSwitch } from '@/components/language-switch';
 import { NumeralsSwitch } from '@/components/numerals-switch';
 import { Text } from '@/components/text';
+import { TextSizeSwitch } from '@/components/text-size-switch';
 import { api } from '@/lib/api';
 import { useApp } from '@/lib/app-context';
 import { placeOf, type PastResult } from '@/lib/past-results';
@@ -45,6 +47,7 @@ function MenuRow({ item, first }: { item: MenuItem; first: boolean }) {
 // login and log out
 export default function ProfileScreen() {
   const { t, user, token, language, logout, crops } = useApp();
+  const router = useRouter();
   const [latest, setLatest] = useState<PastResult | null>(null);
   const [total, setTotal] = useState<number | null>(null);
 
@@ -101,17 +104,7 @@ export default function ProfileScreen() {
       {/* Who is logged in */}
       <View style={{ ...cardStyle, backgroundColor: colors.primarySoft }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
-          <View
-            style={{
-              width: 60,
-              height: 60,
-              borderRadius: 30,
-              backgroundColor: colors.primary,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <Text style={{ fontSize: 26, fontWeight: '800', color: colors.white }}>{user?.full_name.charAt(0).toUpperCase()}</Text>
-          </View>
+          <Avatar size={64} />
           <View style={{ gap: 2, flexShrink: 1 }}>
             <Text style={{ fontSize: 20, fontWeight: '800', color: colors.text }}>{user?.full_name}</Text>
             <Text selectable style={{ fontSize: 15, color: colors.muted }}>
@@ -129,6 +122,7 @@ export default function ProfileScreen() {
             {t.memberSince.replace('{date}', new Date(user.created_at).toLocaleDateString(locale, { dateStyle: 'medium' }))}
           </Text>
         )}
+        <Button title={t.editProfile.title} onPress={() => router.push('/edit-profile')} variant="outline" />
       </View>
 
       {/* History, saved crops, compare, about */}
@@ -136,6 +130,13 @@ export default function ProfileScreen() {
         {menu.map((item, index) => (
           <MenuRow key={item.title} item={item} first={index === 0} />
         ))}
+      </View>
+
+      {/* Text size: bigger letters for people who cannot read small text */}
+      <View style={cardStyle}>
+        <Text style={{ fontSize: 18, fontWeight: '800', color: colors.text }}>{t.textSize.title}</Text>
+        <TextSizeSwitch />
+        <Text style={{ fontSize: 16, color: colors.muted }}>{t.textSize.sample}</Text>
       </View>
 
       {/* Language */}

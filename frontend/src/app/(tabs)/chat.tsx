@@ -1,11 +1,15 @@
-import { useHeaderHeight } from 'expo-router/react-navigation';
-import { useRef, useState } from 'react';
-import { ActivityIndicator, FlatList, KeyboardAvoidingView, Pressable, ScrollView, TextInput, View } from 'react-native';
+import { useNavigation, type ErrorBoundaryProps } from 'expo-router';
+import { useLayoutEffect, useRef, useState } from 'react';
+import { ActivityIndicator, Alert, FlatList, Pressable, ScrollView, TextInput, View } from 'react-native';
 
+import { Button } from '@/components/button';
 import { Chip } from '@/components/chip';
+import { KeyboardView } from '@/components/keyboard-view';
+import { LanguageButton } from '@/components/language-button';
 import { Text } from '@/components/text';
 import { api } from '@/lib/api';
 import { useApp } from '@/lib/app-context';
+import { inputFontSize } from '@/lib/text-size';
 import { allCropFacts, answerQuestion, followUpQuestions, HELP_CONTACTS, replyLanguage } from '@/lib/chatbot';
 import { CROP_INFO } from '@/lib/crop-info';
 import { normaliseQuestion } from '@/lib/farmer-words';
@@ -18,9 +22,14 @@ type Message = { id: number; from: 'user' | 'bot'; text: string };
 const CROPS = Object.keys(CROP_INFO);
 const HISTORY = 6; // earlier messages sent along, so "and how much water?" follows the conversation
 
+// The first message of every chat: what the helper can answer
+function introMessage(t: (typeof translations)['en']): Message {
+  return { id: 0, from: 'bot', text: t.chat.intro.replace('{count}', String(CROPS.length)) };
+}
+
 export default function ChatScreen() {
-  const { t, language, token, farm, forecastPlace } = useApp();
-  const headerHeight = useHeaderHeight();
+  const { t, language, token, farm, forecastPlace, textSize } = useApp();
+  const navigation = useNavigation();
   // After "Find crops" on Home, the chat is about the best crop of that result
   const bestCrop = farm?.model_top_crops_for_this_land[0]?.crop ?? null;
 
@@ -32,19 +41,50 @@ export default function ChatScreen() {
     setCrop(bestCrop && CROP_INFO[bestCrop] ? bestCrop : null);
   }
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<Message[]>([
-    { id: 0, from: 'bot', text: t.chat.intro.replace('{count}', String(CROPS.length)) },
-  ]);
+  const [messages, setMessages] = useState<Message[]>(() => [introMessage(t)]);
   const [waiting, setWaiting] = useState(false);
   // The farmer's last question ('' before the first), for the questions offered under the answer
   const lastQuestion = [...messages].reverse().find((message) => message.from === 'user')?.text ?? '';
   const list = useRef<FlatList<Message>>(null);
   const nextId = useRef(1);
+  // Goes up with each new chat, so an answer still on its way from an old chat is not added to the new one
+  const conversation = useRef(0);
 
   function addMessage(from: Message['from'], text: string) {
     const id = nextId.current++;
     setMessages((old) => [...old, { id, from, text }]);
   }
+
+  // "New chat" at the top right, next to the language, once something has been asked. It asks first, then
+  // empties the chat (the crop goes back to the best crop of the last result).
+  const hasQuestions = messages.length > 1;
+  useLayoutEffect(() => {
+    function newChat() {
+      conversation.current += 1;
+      setMessages([introMessage(t)]);
+      setInput('');
+      setWaiting(false);
+      setCrop(bestCrop && CROP_INFO[bestCrop] ? bestCrop : null);
+    }
+    function confirmNewChat() {
+      Alert.alert(t.chat.newChatTitle, t.chat.newChatMessage, [
+        { text: t.chat.cancel, style: 'cancel' },
+        { text: t.chat.newChat, style: 'destructive', onPress: newChat },
+      ]);
+    }
+    navigation.setOptions({
+      headerRight: () => (
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+          {hasQuestions && (
+            <Pressable onPress={confirmNewChat} accessibilityRole="button" hitSlop={10}>
+              <Text style={{ fontSize: 16, fontWeight: '600', color: colors.primary }}>{t.chat.newChat}</Text>
+            </Pressable>
+          )}
+          <LanguageButton />
+        </View>
+      ),
+    });
+  }, [navigation, hasQuestions, t, bestCrop]);
 
   async function ask(typed: string, aboutCrop = crop) {
     const question = typed.trim();
@@ -55,8 +95,10 @@ export default function ChatScreen() {
     const replyIn = replyLanguage(question, language);
     const reply = answerQuestion(question, aboutCrop, replyIn, farm);
     const history = messages.slice(1).slice(-HISTORY).map(({ from, text }) => ({ from, text }));
+    const thisChat = conversation.current;
     setInput('');
     addMessage('user', question);
+    list.current?.scrollToOffset({ offset: 0, animated: true }); // the newest message is at the bottom
 
     // The app's own checked answer comes first. Only when it cannot answer (a detail or crop its facts do not
     // cover, a question it cannot read) is the LLM on our server asked. It gets every crop's checked facts,
@@ -102,25 +144,28 @@ export default function ChatScreen() {
       }
       setWaiting(false);
     }
+    if (thisChat !== conversation.current) {
+      return; // "New chat" was pressed while waiting
+    }
     setCrop(answerCrop);
     addMessage('bot', answer);
   }
 
   return (
-    // On an iPhone the typing box moves up above the keyboard (Android does this by itself)
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}
-      keyboardVerticalOffset={headerHeight}>
+    // The typing box stays above the keyboard
+    <KeyboardView>
+      {/* Upside down (inverted), as chat apps do: the newest message sits at the bottom by itself, and the farmer
+          can scroll up through the whole chat without the list jumping back down. Data and header are flipped too:
+          the questions offered next (ListHeaderComponent) show under the last answer. A short chat starts at the
+          top (justifyContent flex-end, flipped). */}
       <FlatList
         ref={list}
-        data={messages}
+        inverted
+        data={[...messages].reverse()}
         keyExtractor={(message) => String(message.id)}
-        contentInsetAdjustmentBehavior="automatic"
         keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{ padding: 16, gap: 10 }}
-        onContentSizeChange={() => list.current?.scrollToEnd({ animated: true })}
-        ListFooterComponent={
+        contentContainerStyle={{ padding: 16, gap: 10, flexGrow: 1, justifyContent: 'flex-end' }}
+        ListHeaderComponent={
           waiting ? (
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 6 }}>
               <ActivityIndicator color={colors.primary} />
@@ -161,7 +206,7 @@ export default function ChatScreen() {
                 borderCurve: 'continuous',
                 backgroundColor: mine ? colors.primary : colors.card,
               }}>
-              <Text selectable style={{ fontSize: 16, lineHeight: 23, color: mine ? colors.white : colors.text }}>
+              <Text style={{ fontSize: 16, lineHeight: 23, color: mine ? colors.white : colors.text }}>
                 {item.text}
               </Text>
             </View>
@@ -202,11 +247,12 @@ export default function ChatScreen() {
             placeholder={t.chat.placeholder}
             placeholderTextColor={colors.muted}
             returnKeyType="send"
+            submitBehavior="submit" // the keyboard stays open for the next question
             style={{
               flex: 1,
               minHeight: 50,
               paddingHorizontal: 16,
-              fontSize: 17,
+              fontSize: inputFontSize(textSize),
               color: colors.text,
               backgroundColor: colors.card,
               borderRadius: radius.small,
@@ -228,6 +274,17 @@ export default function ChatScreen() {
           </Pressable>
         </View>
       </View>
-    </KeyboardAvoidingView>
+    </KeyboardView>
+  );
+}
+
+// If the chat screen ever fails, this shows instead of closing the app, with a button to start a new chat
+export function ErrorBoundary({ retry }: ErrorBoundaryProps) {
+  const { t } = useApp();
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', padding: 24, gap: 16 }}>
+      <Text style={{ fontSize: 17, lineHeight: 24, color: colors.text, textAlign: 'center' }}>{t.chat.broken}</Text>
+      <Button title={t.chat.newChat} onPress={retry} />
+    </View>
   );
 }

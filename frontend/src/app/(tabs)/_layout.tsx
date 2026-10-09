@@ -1,11 +1,13 @@
 import { SymbolView, type SFSymbol } from 'expo-symbols';
 import { Tabs } from 'expo-router/js-tabs';
 import { useEffect, useState } from 'react';
-import { Animated, Image, Pressable, View } from 'react-native';
+import { Animated, Image, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { LanguageButton } from '@/components/language-button';
 import { Text } from '@/components/text';
 import { useApp } from '@/lib/app-context';
+import { TEXT_SCALE } from '@/lib/text-size';
 import { colors, tabBarShadow } from '@/theme';
 
 // One tab's icon, in the style of WhatsApp and other Android apps (Google's Material 3 bottom bar):
@@ -48,34 +50,26 @@ function TabLabel({ text, focused, color }: { text: string; focused: boolean; co
 // The three screens stay open while the farmer moves between them, so a result on Home or a chat is still
 // there when they come back.
 export default function TabsLayout() {
-  const { t, language, setLanguage } = useApp();
+  const { t, textSize } = useApp();
   const insets = useSafeAreaInsets();
+  const scale = TEXT_SCALE[textSize]; // bigger letters (Profile → Text size) need a taller bar and title
 
   return (
     <Tabs
       screenOptions={{
         headerStyle: { backgroundColor: colors.background },
         headerTintColor: colors.primaryDark,
-        headerTitleStyle: { fontWeight: '700' },
+        headerTitleStyle: { fontWeight: '700', fontSize: Math.round(20 * scale) },
         headerShadowVisible: false,
         // One tap switches every screen between English and Kannada
-        headerRight: () => (
-          <Pressable
-            onPress={() => setLanguage(language === 'en' ? 'kn' : 'en')}
-            accessibilityRole="button"
-            accessibilityLabel={t.switchLanguage}
-            hitSlop={10}
-            style={{ marginRight: 18 }}>
-            <Text style={{ fontSize: 16, fontWeight: '600', color: colors.primary }}>{t.otherLanguage}</Text>
-          </Pressable>
-        ),
+        headerRight: () => <LanguageButton />,
         sceneStyle: { backgroundColor: colors.background },
         // Chosen tab: dark green and a bold label. The others: grey.
         tabBarActiveTintColor: colors.primaryDark,
         tabBarInactiveTintColor: colors.muted,
         // A white bar with a soft shadow above it instead of a grey line
         tabBarStyle: {
-          height: 72 + insets.bottom,
+          height: Math.round(52 + 20 * scale) + insets.bottom,
           paddingTop: 8,
           backgroundColor: colors.card,
           borderTopWidth: 0,

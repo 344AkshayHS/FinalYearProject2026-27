@@ -5,12 +5,13 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 
 import { AppProvider, useApp } from '@/lib/app-context';
+import { TEXT_SCALE } from '@/lib/text-size';
 import { colors } from '@/theme';
 
 SplashScreen.preventAutoHideAsync();
 
 function Screens() {
-  const { t, ready, user, adminToken, adminLogout } = useApp();
+  const { t, ready, user, adminToken, adminLogout, textSize } = useApp();
 
   // Keep the splash screen until we know if the user is logged in
   useEffect(() => {
@@ -28,7 +29,7 @@ function Screens() {
       screenOptions={{
         headerStyle: { backgroundColor: colors.background },
         headerTintColor: colors.primaryDark,
-        headerTitleStyle: { fontWeight: '700' },
+        headerTitleStyle: { fontWeight: '700', fontSize: Math.round(20 * TEXT_SCALE[textSize]) },
         headerShadowVisible: false,
         contentStyle: { backgroundColor: colors.background },
       }}>
@@ -44,12 +45,14 @@ function Screens() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 
         {/* Pages that open over the tabs, with a back arrow: a crop (it sets its own title, the crop's name),
-            the compare table, and the profile's history, saved crops and about pages */}
+            the compare table, and the profile's history, saved crops, about and edit profile pages */}
         <Stack.Screen name="crop/[name]" options={{ title: '' }} />
         <Stack.Screen name="compare" options={{ title: t.compare.title }} />
         <Stack.Screen name="history" options={{ title: t.profileMenu.history }} />
         <Stack.Screen name="saved" options={{ title: t.profileMenu.saved }} />
         <Stack.Screen name="about" options={{ title: t.profileMenu.about }} />
+        <Stack.Screen name="edit-profile" options={{ title: t.editProfile.title }} />
+        <Stack.Screen name="change-password" options={{ title: t.changePassword.title }} />
       </Stack.Protected>
 
       {/* Only after the admin login on the login screen (no farmer account needed). English only. "Log out"

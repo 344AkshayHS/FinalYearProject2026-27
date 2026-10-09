@@ -7,8 +7,10 @@ import { Chip } from '@/components/chip';
 import { Results, type RecommendResponse, type WaterSource } from '@/components/results';
 import { StatePicker } from '@/components/state-picker';
 import { EMPTY_SOIL_TEST, SoilTestForm, soilTestBody } from '@/components/soil-test-form';
+import { KeyboardView } from '@/components/keyboard-view';
 import { TalukPicker, type Taluk } from '@/components/taluk-picker';
 import { Text } from '@/components/text';
+import { WaterSourceCard } from '@/components/water-source-card';
 import { WeatherCard, type WeatherPlace } from '@/components/weather-card';
 import { api, ApiError } from '@/lib/api';
 import { useApp } from '@/lib/app-context';
@@ -64,6 +66,8 @@ export default function HomeScreen() {
   const [analysing, setAnalysing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<RecommendResponse | null>(null);
+  // What the shown result was asked for (place and soil test), to notice when the farmer changes either
+  const [checkedFor, setCheckedFor] = useState<string | null>(null);
 
   const usingGps = detected !== null && !manual;
   const roughGps = usingGps && (detected.accuracy ?? 0) > ROUGH_ACCURACY_M;
@@ -196,6 +200,23 @@ export default function HomeScreen() {
     setTalukPickerOpen(false);
   }
 
+  // Rain only / Irrigated: the crop pages and the chat follow the choice too
+  function changeWaterSource(source: WaterSource) {
+    setWaterSource(source);
+    if (result) {
+      setLastResult({ data: result, waterSource: source });
+    }
+  }
+
+  // With GPS we check the exact spot; a hand-picked Karnataka district (or taluk): sample farms across all of it;
+  // a district of another state: one spot in its middle
+  const place = usingGps
+    ? { lat: detected.lat, lng: detected.lng, state: detected.state, district }
+    : { state: manualState, district, taluk: taluk?.key };
+  const askingFor = JSON.stringify({ place, soil: soilTestBody(soilTest) });
+  // The place or the soil test changed since the crops below were found: a note above "Check again" says so
+  const outdated = result !== null && checkedFor !== askingFor;
+
   // forSeason: a season chip tapped after a result is shown asks again at once, before the state updates
   async function findCrops(forSeason: Season = season) {
     if (!district) {
@@ -204,14 +225,10 @@ export default function HomeScreen() {
     setAnalysing(true);
     setError(null);
     try {
-      // With GPS we check the exact spot; a hand-picked Karnataka district (or taluk): sample farms across all of it;
-      // a district of another state: one spot in its middle
-      const place = usingGps
-        ? { lat: detected.lat, lng: detected.lng, state: detected.state, district }
-        : { state: manualState, district, taluk: taluk?.key };
       const body = { ...place, season: forSeason, soil_test: soilTestBody(soilTest) };
       const data = await api<RecommendResponse>('/recommend', { method: 'POST', body, token });
       setResult(data);
+      setCheckedFor(askingFor);
       setLastResult({ data, waterSource }); // for the crop pages, and the crop helper chat ("can I grow rice here?")
     } catch (err) {
       setError(errorCode(err));
@@ -220,9 +237,10 @@ export default function HomeScreen() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <KeyboardView>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
+        keyboardShouldPersistTaps="handled"
         contentContainerStyle={{ padding: 20, gap: 20, paddingBottom: 48 }}>
         {/* Welcome */}
         <View
@@ -376,40 +394,25 @@ export default function HomeScreen() {
           <Text style={{ fontSize: 14, lineHeight: 20, color: colors.muted }}>{t.seasonHelp}</Text>
         </View>
 
-        {/* Water for this land: decides whether crops the rain can't support are marked */}
-        <View
-          style={{
-            padding: 20,
-            gap: 12,
-            borderRadius: radius.large,
-            borderCurve: 'continuous',
-            backgroundColor: colors.card,
-            boxShadow: cardShadow,
-          }}>
-          <Text style={{ fontSize: 18, fontWeight: '800', color: colors.text }}>{t.waterSourceTitle}</Text>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
-            {(['rain', 'irrigated'] as const).map((source) => (
-              <Chip
-                key={source}
-                label={source === 'rain' ? t.rainOnly : t.irrigated}
-                selected={waterSource === source}
-                onPress={() => {
-                  setWaterSource(source);
-                  if (result) {
-                    setLastResult({ data: result, waterSource: source }); // keep the crop pages and the chat in step
-                  }
-                }}
-              />
-            ))}
-          </View>
-          <Text style={{ fontSize: 14, lineHeight: 20, color: colors.muted }}>{t.waterSourceHelp}</Text>
-        </View>
+        {/* Water for this land: decides whether crops the rain can't support are marked. Once crops are shown it
+            moves under the best crop (in Results), where the farmer sees what the choice changes. */}
+        {!result && <WaterSourceCard value={waterSource} onChange={changeWaterSource} />}
 
         <SoilTestForm values={soilTest} onChange={setSoilTest} />
 
         {/* Find crops */}
+        {outdated && !analysing && (
+          <Text style={{ fontSize: 15, lineHeight: 21, color: colors.warningText, padding: 14, borderRadius: radius.medium, backgroundColor: colors.accentSoft }}>
+            📍 {t.placeChanged.replace('{button}', t.checkAgain)}
+          </Text>
+        )}
         {district && !detecting && (
-          <Button title={result ? t.checkAgain : t.findCrops} onPress={() => findCrops()} loading={analysing} />
+          <Button
+            title={result ? t.checkAgain : t.findCrops}
+            onPress={() => findCrops()}
+            loading={analysing}
+            icon={result ? { ios: 'arrow.clockwise', android: 'refresh' } : undefined}
+          />
         )}
 
         {analysing && (
@@ -427,7 +430,7 @@ export default function HomeScreen() {
           </View>
         )}
 
-        {result && !analysing && <Results data={result} waterSource={waterSource} />}
+        {result && !analysing && <Results data={result} waterSource={waterSource} onWaterSourceChange={changeWaterSource} />}
 
         <StatePicker
           visible={statePickerOpen}
@@ -454,6 +457,6 @@ export default function HomeScreen() {
           />
         )}
       </ScrollView>
-    </View>
+    </KeyboardView>
   );
 }

@@ -8,14 +8,16 @@ import { CropRowLink, PhotoBox } from '@/components/crop-photo';
 import { FeedbackForm } from '@/components/feedback-form';
 import { Text } from '@/components/text';
 import { WaterPlan } from '@/components/water-plan';
+import { WaterSourceCard } from '@/components/water-source-card';
 import { useApp } from '@/lib/app-context';
 import { mostlyIrrigatedShare, type SeasonRain } from '@/lib/crop-water';
 import { findCrop, mainPhoto, MAX_COMPARE } from '@/lib/crops';
 import { YEAR_ROUND_CROPS, type Season } from '@/lib/season';
 import { cropName, districtName, talukName } from '@/lib/translations';
+import { waterChoiceLines, type WaterSource } from '@/lib/water-choice';
 import { colors, radius } from '@/theme';
 
-export type WaterSource = 'rain' | 'irrigated';
+export type { WaterSource };
 
 // How the land suits a crop by its FAO EcoCrop needs: inside its optimal range, inside its absolute range, or not
 type Fit = 'good' | 'possible' | 'unsuited' | null;
@@ -232,10 +234,13 @@ function ConfidentBadge({ label }: { label: string }) {
   );
 }
 
+// The normal rain alone can grow it (inside the crop's optimal or absolute range)
+const rainSuits = (suits: Suits) => suits.rain === 'good' || suits.rain === 'possible';
+
 function OtherCropsCard({ data, land }: { data: RecommendResponse; land: Land }) {
   const { t } = useApp();
   // On rain-fed land, only those the normal rain can grow; with irrigation, all of them
-  const crops = data.other_crops.filter((item) => !land.rainfed || item.suits.rain === 'good' || item.suits.rain === 'possible');
+  const crops = data.other_crops.filter((item) => !land.rainfed || rainSuits(item.suits));
   if (crops.length === 0) {
     return null;
   }
@@ -399,7 +404,13 @@ function CropPhotoLink({ crop, height }: { crop: string; height: number }) {
   );
 }
 
-export function Results({ data, waterSource }: { data: RecommendResponse; waterSource: WaterSource }) {
+type ResultsProps = {
+  data: RecommendResponse;
+  waterSource: WaterSource;
+  onWaterSourceChange: (source: WaterSource) => void; // the Rain only / Irrigated buttons under the best crop
+};
+
+export function Results({ data, waterSource, onWaterSourceChange }: ResultsProps) {
   const { t, language } = useApp();
   const router = useRouter();
   // Two questions: what to sow this season (the headline) and what grows best on this land. They differ when
@@ -448,6 +459,21 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
       ? talukName(data.crop_facts.name, language)
       : districtName(data.crop_facts?.name ?? '', language);
   const rainCanGrow = data.recommendations.filter((item) => needOf(item.crop) === null).map((item) => cropName(item.crop, language));
+  // What Rain only / Irrigated means for this result, shown under the two buttons
+  const waterLines = waterChoiceLines(
+    {
+      crop: best.crop,
+      need: best.suits?.needs.rain_mm ?? [null, null],
+      rain: best.suits?.rain_mm ?? null,
+      rainIsSeason: best.suits?.rain_is_season ?? false,
+      marked: data.crop_facts?.irrigated
+        ? [...shown].filter((crop) => mostlyIrrigatedShare(data.crop_facts?.irrigated, crop) !== null).length
+        : null,
+      leftOut: data.other_crops.filter((item) => !rainSuits(item.suits)).length,
+    },
+    waterSource,
+    language,
+  );
 
   // Shown when a year-round crop is in the top 3, so the crops sown this season are not hidden below it
   const showSowList =
@@ -540,6 +566,9 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
           </View>
         )}
       </Card>
+
+      {/* Rain only or irrigated: right under the best crop, with what the choice changes in the lists below */}
+      <WaterSourceCard value={waterSource} onChange={onWaterSourceChange} lines={waterLines} />
 
       {/* Year-round crops at the top (plantations, fruit trees): the season's field crops, listed apart */}
       {showSowList && (

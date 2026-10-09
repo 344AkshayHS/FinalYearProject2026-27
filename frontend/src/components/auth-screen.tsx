@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react';
-import { KeyboardAvoidingView, ScrollView, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
+import { KeyboardView } from '@/components/keyboard-view';
 import { LanguageSwitch } from '@/components/language-switch';
+import { TextSizeSwitch } from '@/components/text-size-switch';
 import { Text } from '@/components/text';
 import { useApp } from '@/lib/app-context';
 import { cardShadow, colors, radius } from '@/theme';
@@ -11,7 +13,8 @@ export function AuthScreen({ children }: { children: ReactNode }) {
   const { t } = useApp();
 
   return (
-    <KeyboardAvoidingView behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined} style={{ flex: 1 }}>
+    // The keyboard never covers the box being typed in (the screen scrolls it into view)
+    <KeyboardView>
       <ScrollView
         style={{ backgroundColor: colors.background }}
         contentInsetAdjustmentBehavior="automatic"
@@ -56,11 +59,13 @@ export function AuthScreen({ children }: { children: ReactNode }) {
           {children}
         </View>
 
-        <View style={{ padding: 28 }}>
+        {/* Language and text size, before logging in too */}
+        <View style={{ padding: 28, gap: 14 }}>
           <LanguageSwitch />
+          <TextSizeSwitch />
         </View>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </KeyboardView>
   );
 }
 

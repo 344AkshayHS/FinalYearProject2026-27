@@ -1,3 +1,4 @@
+import { SymbolView, type AndroidSymbol, type SFSymbol } from 'expo-symbols';
 import { ActivityIndicator, Pressable } from 'react-native';
 
 import { Text } from '@/components/text';
@@ -7,17 +8,22 @@ type Props = {
   title: string;
   onPress: () => void;
   loading?: boolean;
-  variant?: 'primary' | 'outline';
+  disabled?: boolean; // greyed out and cannot be pressed (for example while a photo is being saved)
+  variant?: 'primary' | 'outline' | 'danger'; // danger: red, for "Delete"
+  icon?: { ios: SFSymbol; android: AndroidSymbol }; // shown before the title, e.g. the reload arrows of "Check again"
 };
 
-export function Button({ title, onPress, loading = false, variant = 'primary' }: Props) {
-  const primary = variant === 'primary';
+export function Button({ title, onPress, loading = false, disabled = false, variant = 'primary', icon }: Props) {
+  const filled = variant !== 'outline';
+  const off = loading || disabled;
+  const color = filled ? colors.white : colors.primary;
 
   return (
     <Pressable
       onPress={onPress}
-      disabled={loading}
+      disabled={off}
       accessibilityRole="button"
+      accessibilityState={{ disabled: off, busy: loading }}
       style={({ pressed }) => ({
         minHeight: 54,
         paddingHorizontal: 20,
@@ -27,13 +33,14 @@ export function Button({ title, onPress, loading = false, variant = 'primary' }:
         justifyContent: 'center',
         flexDirection: 'row',
         gap: 10,
-        backgroundColor: primary ? colors.primary : 'transparent',
-        borderWidth: primary ? 0 : 1.5,
+        backgroundColor: variant === 'danger' ? colors.danger : filled ? colors.primary : 'transparent',
+        borderWidth: filled ? 0 : 1.5,
         borderColor: colors.primary,
-        opacity: pressed || loading ? 0.8 : 1,
+        opacity: disabled ? 0.5 : pressed || loading ? 0.8 : 1,
       })}>
-      {loading && <ActivityIndicator color={primary ? colors.white : colors.primary} />}
-      <Text style={{ fontSize: 17, fontWeight: '700', color: primary ? colors.white : colors.primary }}>{title}</Text>
+      {loading && <ActivityIndicator color={color} />}
+      {!loading && icon && <SymbolView name={{ ios: icon.ios, android: icon.android, web: icon.android }} tintColor={color} size={22} />}
+      <Text style={{ fontSize: 17, fontWeight: '700', color }}>{title}</Text>
     </Pressable>
   );
 }

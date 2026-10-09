@@ -34,6 +34,14 @@
       ],
       "expo-secure-store",
       [
+        "expo-image-picker",
+        {
+          "photosPermission": "GreenRoot uses a photo you choose as your profile picture.",
+          "cameraPermission": "GreenRoot uses the camera only when you take a profile photo.",
+          "microphonePermission": false
+        }
+      ],
+      [
         "expo-location",
         {
           "locationWhenInUsePermission": "GreenRoot uses your location to read the soil and climate of your field."

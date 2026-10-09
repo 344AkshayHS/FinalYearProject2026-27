@@ -31,6 +31,7 @@ type Overview = {
     recommendations: number;
     feedback: number;
     soil_places_cached: number;
+    hidden_by_farmers: number;
     top_crops: { crop: string; times: number }[];
     feedback_by_outcome: { outcome: string; times: number }[];
     recent: {
@@ -43,6 +44,7 @@ type Overview = {
       crop: string | null;
       probability: string | null;
       used_soil_test: boolean;
+      hidden_by_farmer: boolean;
     }[];
   };
   report: {
@@ -377,6 +379,7 @@ export default function AdminScreen() {
             ['Farmers', activity.users],
             ['Recommendations', activity.recommendations],
             ['Feedback', activity.feedback],
+            ['Deleted by farmers (still kept)', activity.hidden_by_farmers],
             ['Soil points cached', activity.soil_places_cached],
           ]}
         />
@@ -403,6 +406,7 @@ export default function AdminScreen() {
               #{row.id} · {new Date(row.created_at).toLocaleString('en-IN')} · {row.model_version}
               {row.season ? ' · ' + row.season : ''}
               {row.used_soil_test ? ' · soil test' : ''}
+              {row.hidden_by_farmer ? ' · deleted by the farmer' : ''}
             </Text>
             <Text style={{ fontSize: 16, fontWeight: '700', color: colors.text }}>
               {row.district ?? '?'}, {row.state ?? '?'} → {row.crop ?? '?'}

@@ -6,14 +6,23 @@
 import * as SecureStore from 'expo-secure-store';
 import { createContext, use, useEffect, useState, type ReactNode } from 'react';
 
-import { api, whenLoginExpires } from '@/lib/api';
+import { api, fileUrl, whenLoginExpires } from '@/lib/api';
+import { toBase64 } from '@/lib/base64';
 import type { Numerals } from '@/lib/digits';
 import { farmSummary, type FarmSummary } from '@/lib/chatbot';
 import type { CropData, LastResult } from '@/lib/crops';
+import { isTextSize, type TextSize } from '@/lib/text-size';
 import type { ForecastPlace } from '@/lib/weather';
 import { translations, type Language } from '@/lib/translations';
 
-export type User = { id: string; full_name: string; phone: string; preferred_language: Language; created_at: string };
+export type User = {
+  id: string;
+  full_name: string;
+  phone: string;
+  preferred_language: Language;
+  created_at: string;
+  photo_updated_at: string | null; // when the profile photo last changed; null: no photo
+};
 
 type AppState = {
   ready: boolean;
@@ -24,10 +33,19 @@ type AppState = {
   login: (phone: string, password: string) => Promise<void>;
   register: (fullName: string, phone: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  updateUser: (user: User) => void; // after "Edit profile" saves the details or the photo
+  // The profile photo as a "data:" picture for every screen (components/avatar.tsx); null: none, or still loading.
+  // Edit profile gives it at once after saving a new photo (with the photo's new photo_updated_at), so all screens
+  // change together.
+  photo: string | null;
+  showPhoto: (photoUpdatedAt: string, picture: string) => void;
   setLanguage: (language: Language) => Promise<void>;
   // In Kannada: numbers as 0-9 ('western', the default) or as ೦-೯ ('kannada'). Remembered on this device.
   numerals: Numerals;
   setNumerals: (numerals: Numerals) => void;
+  // Normal, big or bigger letters everywhere (components/text.tsx). Remembered on this device.
+  textSize: TextSize;
+  setTextSize: (size: TextSize) => void;
   // Admin (ML dashboard) login. Kept in memory only, so closing the app logs the admin out.
   adminToken: string | null;
   adminLogin: (username: string, password: string) => Promise<void>;
@@ -53,6 +71,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [token, setToken] = useState<string | null>(null);
   const [language, setLanguageState] = useState<Language>('en');
   const [numerals, setNumeralsState] = useState<Numerals>('western');
+  const [textSize, setTextSizeState] = useState<TextSize>('normal');
+  // The last photo loaded, with the photo_updated_at it belongs to: a photo of an older version (or of another
+  // account) is never shown
+  const [photoLoaded, setPhotoLoaded] = useState<{ version: string; picture: string } | null>(null);
   const [adminToken, setAdminToken] = useState<string | null>(null);
   const [lastResult, setLastResult] = useState<LastResult | null>(null);
   const [forecastPlace, setForecastPlace] = useState<ForecastPlace | null>(null);
@@ -79,6 +101,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
       if ((await SecureStore.getItemAsync('numerals')) === 'kannada') {
         setNumeralsState('kannada');
       }
+      const savedSize = await SecureStore.getItemAsync('textSize');
+      if (isTextSize(savedSize)) {
+        setTextSizeState(savedSize);
+      }
 
       const savedToken = await SecureStore.getItemAsync('token');
       if (savedToken) {
@@ -94,6 +120,25 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
     start();
   }, []);
+
+  // The profile photo, each time it changes ("?v=" is the time it changed, so an old copy is never used). Only its
+  // owner may see it, so the login token goes along. Read as plain bytes: React Native's Blob reader is slow.
+  const photoVersion = user?.photo_updated_at ?? null;
+  const photo = photoVersion && photoLoaded?.version === photoVersion ? photoLoaded.picture : null;
+  useEffect(() => {
+    const url = token && photoVersion ? fileUrl(`users/me/photo?v=${encodeURIComponent(photoVersion)}`) : undefined;
+    if (!url || !photoVersion) {
+      return;
+    }
+    let current = true;
+    fetch(url, { headers: { Authorization: `Bearer ${token}` } })
+      .then((response) => (response.ok ? response.arrayBuffer() : Promise.reject(new Error(`photo answer ${response.status}`))))
+      .then((bytes) => current && setPhotoLoaded({ version: photoVersion, picture: `data:image/jpeg;base64,${toBase64(new Uint8Array(bytes))}` }))
+      .catch(() => {}); // not loaded: the first letter of the name shows instead
+    return () => {
+      current = false;
+    };
+  }, [token, photoVersion]);
 
   // After login: every crop and the farmer's saved crops, once
   useEffect(() => {
@@ -181,6 +226,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     SecureStore.setItemAsync('numerals', newNumerals).catch(() => {});
   }
 
+  function setTextSize(size: TextSize) {
+    setTextSizeState(size);
+    SecureStore.setItemAsync('textSize', size).catch(() => {});
+  }
+
   async function setLanguage(newLanguage: Language) {
     setLanguageState(newLanguage);
     await SecureStore.setItemAsync('language', newLanguage);
@@ -200,9 +250,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
         login,
         register,
         logout,
+        updateUser: setUser,
+        photo,
+        showPhoto: (version, picture) => setPhotoLoaded({ version, picture }),
         setLanguage,
         numerals,
         setNumerals,
+        textSize,
+        setTextSize,
         adminToken,
         adminLogin,
         adminLogout,
