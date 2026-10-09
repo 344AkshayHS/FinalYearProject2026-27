@@ -4,11 +4,11 @@ GreenRoot tells a farmer which crops suit their land. The farmer shares their lo
 and chooses the season. GreenRoot then reads the soil and the long-term climate of that place and recommends crops,
 with the reasons. It works in English and Kannada, as an Android app and as a website.
 
-Final-year B.E. (CSE – AI & ML) project, Mangalore Institute of Technology & Engineering.
+Final-year B.E - project, Mangalore Institute of Technology & Engineering.
 
 | | |
 |---|---|
-| **Download the Android app (APK)** | https://expo.dev/artifacts/eas/kWQ5NnnTTgBO2udZOhNAz9er4teQiFdWCLh5Fm8VUM8.apk |
+| **Download the Android app (APK)** | https://expo.dev/artifacts/eas/qfcY2xYGiJprLkptQonLf3UrYXQBi8ugXJ7z32Gn714.apk |
 | **Short description of the project** | [SHORT-DESCRIPTION.md](SHORT-DESCRIPTION.md) |
 | **How to install the app** | [Installing the Android app](#installing-the-android-app-apk) |
 
@@ -35,7 +35,13 @@ The app needs the GreenRoot server (the model and the database) to be running on
 - **Enter a soil test** (Soil Health Card) to use their own pH and organic carbon.
 - **See past results** (My crops history) and **delete** any of them with the bin at the top right. A deleted
   result only disappears for the farmer: the project still keeps it (see "Where the data is kept" below).
-- **Change the language** at any time, including numbers as 0-9 or ೦-೯.
+- **Change the language** at any time with the English / ಕನ್ನಡ button at the top right. In Kannada, Profile → Numbers
+  shows numbers as 0-9 or ೦-೯.
+- **See messages under the bell** (top right, phone app): rain expected today or tomorrow at their place, a sowing
+  season that has just started or starts in the next two weeks, and "How are your crops?" a month after a result,
+  which opens the feedback form. A red number shows new messages. Every message comes from the forecast, the season
+  calendar or the farmer's own results; nothing is made up.
+- **Switch to dark colours** (Profile → Change theme: Light or Dark, phone app). Light is the original look.
 - **Make the text bigger** (Profile → Text size: Normal, Big, Bigger), also on the sign-in page, for people who
   cannot read small letters. No text in either app is smaller than 15 px, and all texts use simple words.
 - **Edit their profile:** name and a profile photo (camera or gallery). The mobile number is the login ID, so it is
@@ -127,7 +133,7 @@ An **APK** is Android's installer file, like an `.exe` on Windows. It holds the 
 stay on the PC (above).
 
 **Download link** (the latest build, Android 7.0 or newer):
-https://expo.dev/artifacts/eas/kWQ5NnnTTgBO2udZOhNAz9er4teQiFdWCLh5Fm8VUM8.apk
+https://expo.dev/artifacts/eas/qfcY2xYGiJprLkptQonLf3UrYXQBi8ugXJ7z32Gn714.apk
 
 **On each phone** (yours or a friend's):
 1. Open the APK download link above (or as sent on WhatsApp, e-mail, ...) in the phone's browser and download the file.

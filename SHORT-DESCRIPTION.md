@@ -7,7 +7,7 @@ Kannada**.
 Final-year B.E. project, CSE (AI & ML), Mangalore Institute of Technology & Engineering, 2026-27.
 
 **Download the Android app (APK):**
-https://expo.dev/artifacts/eas/kWQ5NnnTTgBO2udZOhNAz9er4teQiFdWCLh5Fm8VUM8.apk
+https://expo.dev/artifacts/eas/qfcY2xYGiJprLkptQonLf3UrYXQBi8ugXJ7z32Gn714.apk
 
 ## The problem
 
@@ -34,6 +34,8 @@ statistics), but it is scattered and hard for a farmer to read.
 - A crop helper chat that answers questions in English or Kannada.
 - The farmer can enter their own soil test (Soil Health Card) values.
 - A history of past results, a profile with photo, and a secure password change.
+- A notification bell in the phone app: rain warnings, sowing-season reminders and "How are your crops?".
+- Light and dark colour themes in the phone app.
 - Big-text option and simple words, for older farmers with weak eyesight.
 - Farmer feedback on how a crop did, used to improve the model.
 - Admin pages that show how a recommendation was made and how accurate the model is.
