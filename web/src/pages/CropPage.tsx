@@ -53,7 +53,7 @@ export function CropPage() {
 
   if (crops === null || crops === 'failed' || !entry) {
     return (
-      <div className="stack-large narrow">
+      <div className="stack-large page-narrow">
         <BackLink />
         {crops === null && <Spinner />}
         {crops === 'failed' && (
@@ -70,11 +70,12 @@ export function CropPage() {
   }
 
   return (
-    <div className="stack-large narrow">
+    <div className="stack-large">
       <BackLink />
 
+      <div className="crop-layout">
       {/* Photos */}
-      <div className="stack-small">
+      <div className="stack-small crop-photos">
         <div className="gallery">
           <PhotoBox key={photo?.path} photo={photo} className="photo-large" />
           {photos.length > 1 && (
@@ -132,6 +133,7 @@ export function CropPage() {
         )}
       </div>
 
+      <div className="stack-large">
       {/* Name */}
       <div className="stack-tiny">
         <h1>{cropName(name, language)}</h1>
@@ -167,6 +169,8 @@ export function CropPage() {
       <Link to={`/compare?crops=${encodeURIComponent(name)}`} className="button button-primary">
         {t.cropPage.compare}
       </Link>
+      </div>
+      </div>
     </div>
   );
 }

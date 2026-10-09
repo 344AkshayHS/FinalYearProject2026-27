@@ -10,11 +10,19 @@ import { createContext, use, useEffect, useState, type ReactNode } from 'react';
 import { api, apiWithRetry, whenLoginExpires } from '~/lib/api';
 import { farmSummary, type FarmSummary } from '@/lib/chatbot';
 import { toKannadaDigits, toWesternDigits, type Numerals } from '@/lib/digits';
+import { isTextSize, TEXT_SCALE, type TextSize } from '@/lib/text-size';
 import type { CropData, LastResult } from '@/lib/crops';
 import type { ForecastPlace } from '@/lib/weather';
 import { translations, type Language } from '@/lib/translations';
 
-export type User = { id: string; full_name: string; phone: string; preferred_language: Language; created_at: string };
+export type User = {
+  id: string;
+  full_name: string;
+  phone: string;
+  preferred_language: Language;
+  created_at: string;
+  photo_updated_at: string | null; // when the profile photo last changed; null: no photo
+};
 
 type AppState = {
   ready: boolean;
@@ -24,10 +32,14 @@ type AppState = {
   login: (phone: string, password: string) => Promise<void>;
   register: (fullName: string, phone: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  updateUser: (user: User) => void; // after "Edit profile" saves the details or the photo
   setLanguage: (language: Language) => Promise<void>;
   // In Kannada: numbers as 0-9 ('western', the default) or as ೦-೯ ('kannada'). Remembered on this device.
   numerals: Numerals;
   setNumerals: (numerals: Numerals) => void;
+  // Normal, big or bigger letters on every page (the CSS multiplies each font size by --text-scale)
+  textSize: TextSize;
+  setTextSize: (size: TextSize) => void;
   // Admin (ML dashboard) login. Only remembered while this page stays open, like on the phone.
   adminLoggedIn: boolean;
   adminLogin: (username: string, password: string) => Promise<void>;
@@ -53,6 +65,15 @@ function savedLanguage(): Language {
     return localStorage.getItem('language') === 'kn' ? 'kn' : 'en';
   } catch {
     return 'en'; // private window with storage blocked
+  }
+}
+
+function savedTextSize(): TextSize {
+  try {
+    const saved = localStorage.getItem('textSize');
+    return isTextSize(saved) ? saved : 'normal';
+  } catch {
+    return 'normal';
   }
 }
 
@@ -84,6 +105,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [language, setLanguageState] = useState<Language>(savedLanguage);
   const [numerals, setNumeralsState] = useState<Numerals>(savedNumerals);
+  const [textSize, setTextSizeState] = useState<TextSize>(savedTextSize);
   const [adminLoggedIn, setAdminLoggedIn] = useState(false);
   const [lastResult, setLastResult] = useState<LastResult | null>(null);
   const [forecastPlace, setForecastPlace] = useState<ForecastPlace | null>(null);
@@ -94,6 +116,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = language;
   }, [language]);
+
+  // Bigger letters: styles.css multiplies every font size by --text-scale
+  useEffect(() => {
+    document.documentElement.style.setProperty('--text-scale', String(TEXT_SCALE[textSize]));
+  }, [textSize]);
 
   // Kannada numerals chosen: every number on the page is written ೦-೯, also those of texts and data that appear
   // later (a result, the weather, a chat answer), which the watcher converts as they arrive. Otherwise 0-9.
@@ -220,6 +247,15 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  function setTextSize(size: TextSize) {
+    setTextSizeState(size);
+    try {
+      localStorage.setItem('textSize', size);
+    } catch {
+      // storage blocked: the choice is just not remembered
+    }
+  }
+
   async function setLanguage(newLanguage: Language) {
     saveLanguage(newLanguage);
     if (user) {
@@ -237,9 +273,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
         login,
         register,
         logout,
+        updateUser: setUser,
         setLanguage,
         numerals,
         setNumerals,
+        textSize,
+        setTextSize,
         adminLoggedIn,
         adminLogin,
         adminLogout,

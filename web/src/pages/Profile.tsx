@@ -1,13 +1,15 @@
-// The Profile tab: who is logged in, a menu (history, saved crops, compare, about), the language, the admin
-// login and log out. Same as frontend/src/app/(tabs)/profile.tsx on the phone.
+// The profile page: on a wide screen the account on the left (who is logged in, the language, log out) and the
+// farmer's pages as tiles on the right (history, saved crops, compare, about). The phone app has the same in one
+// column (frontend/src/app/(tabs)/profile.tsx).
 
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
-import { LanguageSwitch } from '~/components/AuthPage';
-import { Button, Card } from '~/components/ui';
+import { LanguageSwitch, TextSizeSwitch } from '~/components/AuthPage';
+import { Avatar, Button, Card } from '~/components/ui';
 import { api } from '~/lib/api';
 import { useApp } from '~/lib/app-context';
+import { webText } from '~/lib/web-text';
 import { placeOf, type PastResult } from '@/lib/past-results';
 import { version } from '../../package.json';
 
@@ -36,20 +38,17 @@ const ICONS: Record<string, ReactNode> = {
   ),
 };
 
-// One line of the menu: icon, title, a short line under it, and an arrow
-function MenuRow({ to, icon, title, subtitle }: { to: string; icon: string; title: string; subtitle: string }) {
+// One of the farmer's pages: icon, title and a short line under it
+function Tile({ to, icon, title, subtitle }: { to: string; icon: string; title: string; subtitle: string }) {
   return (
-    <Link to={to} className="menu-row">
-      <svg viewBox="0 0 24 24" className="menu-icon" aria-hidden="true">
-        {ICONS[icon]}
-      </svg>
-      <span className="menu-text">
-        <span className="big-text bold">{title}</span>
-        <span className="note">{subtitle}</span>
+    <Link to={to} className="tile">
+      <span className="tile-icon">
+        <svg viewBox="0 0 24 24" className="menu-icon" aria-hidden="true">
+          {ICONS[icon]}
+        </svg>
       </span>
-      <span className="crop-row-arrow" aria-hidden="true">
-        ›
-      </span>
+      <span className="big-text bold">{title}</span>
+      <span className="note">{subtitle}</span>
     </Link>
   );
 }
@@ -77,11 +76,12 @@ export function Profile({ active }: { active: boolean }) {
   const savedCount = crops && crops !== 'failed' ? crops.saved.length : null;
 
   return (
-    <div className="stack-large narrow">
+    <div className="profile-layout">
+      <div className="stack-large">
       {/* Who is logged in */}
       <section className="card profile-card">
         <div className="row">
-          <div className="avatar">{user?.full_name.charAt(0).toUpperCase()}</div>
+          <Avatar />
           <div className="stack-tiny">
             <h2>{user?.full_name}</h2>
             <p className="note">+91 {user?.phone}</p>
@@ -91,25 +91,18 @@ export function Profile({ active }: { active: boolean }) {
         {user?.created_at && (
           <p className="note">{t.memberSince.replace('{date}', new Date(user.created_at).toLocaleDateString(locale, { dateStyle: 'medium' }))}</p>
         )}
+        <Link to="/profile/edit" className="button button-outline">
+          {t.editProfile.title}
+        </Link>
       </section>
 
-      {/* History, saved crops, compare, about */}
-      <nav className="card menu-card" aria-label={t.profile}>
-        <MenuRow
-          to="/history"
-          icon="history"
-          title={t.profileMenu.history}
-          subtitle={!total ? t.profileMenu.historyNone : total === 1 ? t.profileMenu.historyOne : t.profileMenu.historyCount.replace('{n}', String(total))}
-        />
-        <MenuRow
-          to="/saved"
-          icon="saved"
-          title={t.profileMenu.saved}
-          subtitle={!savedCount ? t.profileMenu.savedNone : savedCount === 1 ? t.profileMenu.savedOne : t.profileMenu.savedCount.replace('{n}', String(savedCount))}
-        />
-        <MenuRow to="/compare" icon="compare" title={t.profileMenu.compare} subtitle={t.profileMenu.compareSub} />
-        <MenuRow to="/about" icon="about" title={t.profileMenu.about} subtitle={t.profileMenu.aboutSub.replace('{v}', version)} />
-      </nav>
+
+      {/* Text size: bigger letters for people who cannot read small text */}
+      <Card>
+        <h3>{t.textSize.title}</h3>
+        <TextSizeSwitch />
+        <p className="note">{t.textSize.sample}</p>
+      </Card>
 
       {/* Language */}
       <Card>
@@ -136,6 +129,28 @@ export function Profile({ active }: { active: boolean }) {
       </Card>
 
       <Button title={t.logout} onClick={logout} variant="outline" />
+      </div>
+
+      <div className="stack">
+        <h2>{webText[language].nav.profile}</h2>
+      {/* History, saved crops, compare, about */}
+      <nav className="tile-grid" aria-label={t.profile}>
+        <Tile
+          to="/history"
+          icon="history"
+          title={t.profileMenu.history}
+          subtitle={!total ? t.profileMenu.historyNone : total === 1 ? t.profileMenu.historyOne : t.profileMenu.historyCount.replace('{n}', String(total))}
+        />
+        <Tile
+          to="/saved"
+          icon="saved"
+          title={t.profileMenu.saved}
+          subtitle={!savedCount ? t.profileMenu.savedNone : savedCount === 1 ? t.profileMenu.savedOne : t.profileMenu.savedCount.replace('{n}', String(savedCount))}
+        />
+        <Tile to="/compare" icon="compare" title={t.profileMenu.compare} subtitle={t.profileMenu.compareSub} />
+        <Tile to="/about" icon="about" title={t.profileMenu.about} subtitle={t.profileMenu.aboutSub.replace('{v}', version)} />
+      </nav>
+      </div>
     </div>
   );
 }

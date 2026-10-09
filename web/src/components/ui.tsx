@@ -2,9 +2,10 @@
 // the look of each class is in src/styles.css. The phone app has the same pieces as separate files
 // (button.tsx, card.tsx, chip.tsx, text-field.tsx, bar-chart.tsx).
 
-import type { InputHTMLAttributes, ReactNode } from 'react';
+import { useState, type InputHTMLAttributes, type ReactNode } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { fileUrl } from '~/lib/api';
 import { useApp } from '~/lib/app-context';
 
 // White rounded box used for every section. accent = the warm yellow one for the best crop.
@@ -20,14 +21,16 @@ type ButtonProps = {
   title: string;
   onClick?: () => void;
   loading?: boolean;
-  variant?: 'primary' | 'outline';
+  variant?: 'primary' | 'outline' | 'danger'; // danger: red, for "Delete"
   submit?: boolean; // the button of a form
+  disabled?: boolean; // greyed out, cannot be clicked
+  icon?: ReactNode; // shown before the title, e.g. <ReloadIcon /> on "Check again"
 };
 
-export function Button({ title, onClick, loading = false, variant = 'primary', submit = false }: ButtonProps) {
+export function Button({ title, onClick, loading = false, variant = 'primary', submit = false, icon, disabled = false }: ButtonProps) {
   return (
-    <button type={submit ? 'submit' : 'button'} className={`button button-${variant}`} onClick={onClick} disabled={loading}>
-      {loading && <Spinner />}
+    <button type={submit ? 'submit' : 'button'} className={`button button-${variant}`} onClick={onClick} disabled={loading || disabled}>
+      {loading ? <Spinner /> : icon}
       {title}
     </button>
   );
@@ -44,14 +47,62 @@ export function Chip({ label, onClick, selected = false }: { label: string; onCl
 
 type FieldProps = InputHTMLAttributes<HTMLInputElement> & { label: string; hint?: string };
 
-export function TextField({ label, hint, ...inputProps }: FieldProps) {
+// A labelled text box. A password box (type="password") gets an eye button: click it to see what you typed,
+// click again to hide it.
+export function TextField({ label, hint, type, ...inputProps }: FieldProps) {
+  const { t } = useApp();
+  const [shown, setShown] = useState(false);
+  const password = type === 'password';
   return (
     <label className="field">
       <span className="field-label">{label}</span>
-      <input {...inputProps} />
+      {password ? (
+        <span className="password-box">
+          <input type={shown ? 'text' : 'password'} {...inputProps} />
+          <button
+            type="button"
+            className="eye-button"
+            aria-label={shown ? t.hidePassword : t.showPassword}
+            aria-pressed={shown}
+            onClick={() => setShown(!shown)}>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" />
+              <circle cx="12" cy="12" r="3" />
+              {shown && <path d="M4 4l16 16" />}
+            </svg>
+          </button>
+        </span>
+      ) : (
+        <input type={type} {...inputProps} />
+      )}
       {hint && <span className="note">{hint}</span>}
     </label>
   );
+}
+
+// Two turning arrows, for "Check again"
+export function ReloadIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="button-icon" aria-hidden="true">
+      <path d="M20 12a8 8 0 0 1-13.7 5.7" />
+      <path d="M4 12a8 8 0 0 1 13.7-5.7" />
+      <path d="M17.5 2.5v4h-4" />
+      <path d="M6.5 21.5v-4h4" />
+    </svg>
+  );
+}
+
+// The farmer's profile photo in a circle, or the first letter of their name when there is none (or it fails to
+// load). The browser sends the login cookie with it. "?v=" changes with each new photo, so no old one is shown.
+export function Avatar({ small = false, large = false }: { small?: boolean; large?: boolean }) {
+  const { user } = useApp();
+  const [failedUrl, setFailedUrl] = useState<string | null>(null);
+  const url = user?.photo_updated_at ? fileUrl(`users/me/photo?v=${encodeURIComponent(user.photo_updated_at)}`) : null;
+  const className = small ? 'avatar avatar-small' : large ? 'avatar avatar-large' : 'avatar';
+  if (url && url !== failedUrl) {
+    return <img src={url} alt="" className={className + ' avatar-photo'} onError={() => setFailedUrl(url)} />;
+  }
+  return <span className={className}>{user?.full_name.charAt(0).toUpperCase()}</span>;
 }
 
 export function Note({ children }: { children: ReactNode }) {

@@ -60,10 +60,13 @@ const GROUP_ORDER: CropGroup[] = ['vegetable', 'herb', 'spice', 'plantation'];
 const PER_GROUP = 4; // crops listed per group in the card
 
 // Herbs, spices and plantation crops the model does not know, that suit the land by their needs
+// The normal rain alone can grow it (inside the crop's optimal or absolute range)
+export const rainSuits = (suits: Suits) => suits.rain === 'good' || suits.rain === 'possible';
+
 export function OtherCropsCard({ data, land }: { data: RecommendResponse; land: Land }) {
   const { t } = useApp();
   // On rain-fed land, only those the normal rain can grow; with irrigation, all of them
-  const crops = data.other_crops.filter((item) => !land.rainfed || item.suits.rain === 'good' || item.suits.rain === 'possible');
+  const crops = data.other_crops.filter((item) => !land.rainfed || rainSuits(item.suits));
   if (crops.length === 0) {
     return null;
   }

@@ -13,6 +13,8 @@ import { Compare } from '~/pages/Compare';
 import { CropPage } from '~/pages/CropPage';
 import { Dashboard } from '~/pages/Dashboard';
 import { DashboardRecommendation } from '~/pages/DashboardRecommendation';
+import { ChangePassword } from '~/pages/ChangePassword';
+import { EditProfile } from '~/pages/EditProfile';
 import { History } from '~/pages/History';
 import { Login } from '~/pages/Login';
 import { Register } from '~/pages/Register';
@@ -36,13 +38,16 @@ function OnlyAdmin() {
     return <Navigate to="/login" replace />;
   }
   return (
-    <>
-      <header className="header">
-        <div className="header-inner">
+    <div className="site">
+      <header className="site-header">
+        <div className="site-header-inner">
           <Link to="/ml-dashboard" className="brand">
-            🌱 GreenRoot · ML dashboard
+            <span className="brand-mark" aria-hidden="true">
+              🌱
+            </span>
+            GreenRoot · ML dashboard
           </Link>
-          <button type="button" className="link-button" onClick={adminLogout}>
+          <button type="button" className="button button-outline button-small" onClick={adminLogout}>
             Log out
           </button>
         </div>
@@ -50,7 +55,7 @@ function OnlyAdmin() {
       <main className="page admin-page">
         <Outlet />
       </main>
-    </>
+    </div>
   );
 }
 
@@ -80,6 +85,8 @@ export function App() {
         <Route path="/history" element={<History />} />
         <Route path="/saved" element={<Saved />} />
         <Route path="/about" element={<About />} />
+        <Route path="/profile/edit" element={<EditProfile />} />
+        <Route path="/profile/password" element={<ChangePassword />} />
       </Route>
 
       <Route element={<OnlyAdmin />}>

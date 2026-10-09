@@ -7,15 +7,17 @@ import { Link } from 'react-router-dom';
 
 import { cropPath, CropRowLink, CropThumb } from '~/components/CropPhoto';
 import { FeedbackForm } from '~/components/FeedbackForm';
-import { CropFactsCard, OtherCropsCard, SeasonRainCard, SeasonSowingCard, SuitNotes, type Land } from '~/components/ResultCards';
+import { CropFactsCard, OtherCropsCard, rainSuits, SeasonRainCard, SeasonSowingCard, SuitNotes, type Land } from '~/components/ResultCards';
 import { Badge, Card, Note, ScoreBar } from '~/components/ui';
 import { WaterPlan } from '~/components/WaterPlan';
+import { WaterSourceCard } from '~/components/WaterSourceCard';
 import { useApp } from '~/lib/app-context';
 import type { RatedValue, RecommendResponse, Suits, WaterSource } from '~/lib/types';
 import { mostlyIrrigatedShare } from '@/lib/crop-water';
 import { MAX_COMPARE } from '@/lib/crops';
 import { YEAR_ROUND_CROPS } from '@/lib/season';
 import { cropName, districtName, talukName } from '@/lib/translations';
+import { waterChoiceLines } from '@/lib/water-choice';
 
 // Soil test values that get a Low / Medium / High rating, in the order they are shown
 const RATED_VALUES: RatedValue[] = ['organic_carbon_pct', 'n', 'p', 'k'];
@@ -92,7 +94,13 @@ function CropPhotoLink({ crop, className }: { crop: string; className: string })
   );
 }
 
-export function Results({ data, waterSource }: { data: RecommendResponse; waterSource: WaterSource }) {
+type ResultsProps = {
+  data: RecommendResponse;
+  waterSource: WaterSource;
+  onWaterSourceChange: (source: WaterSource) => void; // the Rain only / Irrigated buttons under the best crop
+};
+
+export function Results({ data, waterSource, onWaterSourceChange }: ResultsProps) {
   const { t, language } = useApp();
   // Two questions: what to sow this season (the headline) and what grows best on this land. They differ when
   // the model's top crop stands all year (it gets its own card below the headline) or when the crops the
@@ -134,6 +142,21 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
   const bestNeed = needOf(best.crop);
   const place = data.crop_facts?.level === 'taluk' ? talukName(data.crop_facts.name, language) : districtName(data.crop_facts?.name ?? '', language);
   const rainCanGrow = data.recommendations.filter((item) => needOf(item.crop) === null).map((item) => cropName(item.crop, language));
+  // What Rain only / Irrigated means for this result, shown under the two buttons
+  const waterLines = waterChoiceLines(
+    {
+      crop: best.crop,
+      need: best.suits?.needs.rain_mm ?? [null, null],
+      rain: best.suits?.rain_mm ?? null,
+      rainIsSeason: best.suits?.rain_is_season ?? false,
+      marked: data.crop_facts?.irrigated
+        ? [...shown].filter((crop) => mostlyIrrigatedShare(data.crop_facts?.irrigated, crop) !== null).length
+        : null,
+      leftOut: data.other_crops.filter((item) => !rainSuits(item.suits)).length,
+    },
+    waterSource,
+    language,
+  );
 
   // Shown when a year-round crop is in the top 3, so the crops sown this season are not hidden below it
   const showSowList = data.sow_this_season.length > 0 && data.recommendations.slice(0, 3).some((item) => YEAR_ROUND_CROPS.includes(item.crop));
@@ -173,18 +196,22 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
 
       {/* Best crop (to sow this season) */}
       <Card accent>
-        <p className="label-small warning-text">⭐ {(data.season_best ? t.bestToSow : t.bestCropFor).replace('{season}', t.seasonNames[data.season])}</p>
-        <p className="crop-title">{cropName(best.crop, language)}</p>
-        <CropPhotoLink crop={best.crop} className="photo-wide" />
-        <div className="badges">
-          {best.confident && <Badge kind="confident" label={t.confident} />}
-          {YEAR_ROUND_CROPS.includes(best.crop) && <Badge kind="yearRound" label={t.yearRound} />}
+        <div className="best-crop">
+          <div className="stack">
+            <p className="label-small warning-text">⭐ {(data.season_best ? t.bestToSow : t.bestCropFor).replace('{season}', t.seasonNames[data.season])}</p>
+            <p className="crop-title">{cropName(best.crop, language)}</p>
+            <div className="badges">
+              {best.confident && <Badge kind="confident" label={t.confident} />}
+              {YEAR_ROUND_CROPS.includes(best.crop) && <Badge kind="yearRound" label={t.yearRound} />}
+            </div>
+            <SuitNotes suits={best.suits} land={land} />
+            <p className="big-text bold dark-text">{strength(bestReliability, t)}</p>
+            <ScoreBar score={best.score} tone="accent" />
+            <p className="big-text">{tenths(best.probability) >= 1 ? t.shareOfLand.replace('{n}', String(tenths(best.probability))) : t.shareRare}</p>
+            <Note>{t.reliabilityNote.replace('{n}', String(tenths(bestReliability)))}</Note>
+          </div>
+          <CropPhotoLink crop={best.crop} className="photo-wide" />
         </div>
-        <SuitNotes suits={best.suits} land={land} />
-        <p className="big-text bold dark-text">{strength(bestReliability, t)}</p>
-        <ScoreBar score={best.score} tone="accent" />
-        <p className="big-text">{tenths(best.probability) >= 1 ? t.shareOfLand.replace('{n}', String(tenths(best.probability))) : t.shareRare}</p>
-        <Note>{t.reliabilityNote.replace('{n}', String(tenths(bestReliability)))}</Note>
         {/* Rain-fed land where rain alone can't grow the best crop this year: say so, and what it can grow */}
         {bestNeed !== null && (
           <div className="callout callout-white">
@@ -199,6 +226,9 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
           </div>
         )}
       </Card>
+
+      {/* Rain only or irrigated: right under the best crop, with what the choice changes in the lists below */}
+      <WaterSourceCard value={waterSource} onChange={onWaterSourceChange} lines={waterLines} />
 
       {/* Year-round crops at the top (plantations, fruit trees): the season's field crops, listed apart */}
       {showSowList && (
@@ -250,6 +280,7 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
       {others.length > 0 && (
         <Card>
           <h2>{t.otherCrops}</h2>
+          <div className="crop-grid">
           {others.map((item) => (
             <CropRowLink key={item.crop} crop={item.crop} right={shareLabel(item.probability, t)}>
               <ScoreBar score={item.score} />
@@ -261,6 +292,7 @@ export function Results({ data, waterSource }: { data: RecommendResponse; waterS
               <SuitNotes suits={item.suits} land={land} />
             </CropRowLink>
           ))}
+          </div>
 
           {/* Every other crop the model knows, for a farmer who wants to see beyond the top 5 */}
           {rest.length > 0 && (

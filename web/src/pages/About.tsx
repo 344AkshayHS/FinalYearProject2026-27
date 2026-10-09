@@ -8,7 +8,7 @@ import { version } from '../../package.json';
 export function About() {
   const { t } = useApp();
   return (
-    <div className="stack-large narrow">
+    <div className="stack-large page-medium">
       <BackLink />
       <div className="about-top">
         <img src="/favicon.png" alt="" className="about-logo" />

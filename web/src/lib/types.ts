@@ -6,7 +6,7 @@
 import type { SeasonRain } from '@/lib/crop-water';
 import type { Season } from '@/lib/season';
 
-export type WaterSource = 'rain' | 'irrigated';
+export type { WaterSource } from '@/lib/water-choice';
 
 // How the land suits a crop by its FAO EcoCrop needs: inside its optimal range, inside its absolute range, or not
 export type Fit = 'good' | 'possible' | 'unsuited' | null;

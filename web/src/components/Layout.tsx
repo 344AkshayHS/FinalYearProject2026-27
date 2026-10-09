@@ -1,73 +1,102 @@
-// The frame around every page a logged-in farmer sees: the top bar (name, language switch) and the bar at the
-// bottom with three tabs, Home, Chatbot and Profile, the same as the phone app (frontend/src/app/(tabs)/_layout.tsx).
+// The frame around every page a logged-in farmer sees: the site's top bar (logo, the main pages, the language and
+// the farmer's own menu) and the footer. On a narrow screen the pages fold into a "Menu" button.
 //
-// Like the phone, the three tab pages stay open while the farmer moves between them; the others are only hidden.
-// So a result on Home, or a chat, is still there when they come back. The ML dashboard pages show in <Outlet />.
+// Home, the crop helper and the profile stay open while the farmer moves between pages; the others are only
+// hidden. So a result on Home, or a chat, is still there when they come back. The other pages show in <Outlet />.
 
-import type { ReactNode } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 
+import { Avatar } from '~/components/ui';
 import { useApp } from '~/lib/app-context';
+import { webText } from '~/lib/web-text';
 import { Chat } from '~/pages/Chat';
 import { Home } from '~/pages/Home';
 import { Profile } from '~/pages/Profile';
 
-const TAB_PAGES = ['/', '/chat', '/profile'];
+const KEPT_OPEN = ['/', '/chat', '/profile'];
 
-// The tab icons (24 x 24), in the colour of the text. Outlines; the chosen tab's icon is filled (see styles.css).
-function HomeIcon() {
+// The site's logo: a seedling on a green square
+export function Brand() {
+  const { t } = useApp();
   return (
-    <svg viewBox="0 0 24 24" className="tab-icon" aria-hidden="true">
-      <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />
-    </svg>
-  );
-}
-
-function ChatIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="tab-icon" aria-hidden="true">
-      <path d="M6 4h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4V6a2 2 0 0 1 2-2z" />
-      <circle className="tab-icon-dot" cx="8.5" cy="10.5" r="1.3" />
-      <circle className="tab-icon-dot" cx="12" cy="10.5" r="1.3" />
-      <circle className="tab-icon-dot" cx="15.5" cy="10.5" r="1.3" />
-    </svg>
-  );
-}
-
-function ProfileIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="tab-icon" aria-hidden="true">
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z" />
-    </svg>
-  );
-}
-
-// One tab: the icon on its pill (shown on the chosen tab), the name under it
-function Tab({ to, label, icon }: { to: string; label: string; icon: ReactNode }) {
-  return (
-    <NavLink to={to} end className={({ isActive }) => (isActive ? 'tab tab-active' : 'tab')}>
-      <span className="tab-pill">{icon}</span>
-      {label}
-    </NavLink>
+    <Link to="/" className="brand">
+      <span className="brand-mark" aria-hidden="true">
+        🌱
+      </span>
+      {t.appName}
+    </Link>
   );
 }
 
 export function Layout() {
-  const { t, language, setLanguage } = useApp();
+  const { t, user, language, setLanguage, logout } = useApp();
+  const text = webText[language];
   const { pathname } = useLocation();
+  const menu = useRef<HTMLDetailsElement>(null);
+  const account = useRef<HTMLDetailsElement>(null);
+
+  // A new page closes the open menus
+  useEffect(() => {
+    if (menu.current) menu.current.open = false;
+    if (account.current) account.current.open = false;
+  }, [pathname]);
+
+  const pages = [
+    { to: '/', label: text.nav.home },
+    { to: '/chat', label: text.nav.chat },
+    { to: '/compare', label: text.nav.compare },
+    { to: '/saved', label: text.nav.saved },
+    { to: '/history', label: text.nav.history },
+  ];
+  const links = pages.map((page) => (
+    <NavLink key={page.to} to={page.to} end className={({ isActive }) => (isActive ? 'nav-link nav-link-active' : 'nav-link')}>
+      {page.label}
+    </NavLink>
+  ));
 
   return (
-    <>
-      <header className="header">
-        <div className="header-inner">
-          <Link to="/" className="brand">
-            🌱 {t.appName}
-          </Link>
-          {/* One click switches every page between English and Kannada */}
-          <button type="button" className="link-button" onClick={() => setLanguage(language === 'en' ? 'kn' : 'en')} aria-label={t.switchLanguage}>
-            {t.otherLanguage}
-          </button>
+    <div className="site">
+      <header className="site-header">
+        <div className="site-header-inner">
+          <Brand />
+          <nav className="site-nav" aria-label={t.appName}>
+            {links}
+          </nav>
+
+          <div className="site-header-end">
+            {/* One click switches every page between English and Kannada */}
+            <button type="button" className="language-button" onClick={() => setLanguage(language === 'en' ? 'kn' : 'en')} aria-label={t.switchLanguage}>
+              {t.otherLanguage}
+            </button>
+
+            {/* The farmer's own menu */}
+            <details className="dropdown" ref={account}>
+              <summary className="account-button" aria-label={text.nav.profile}>
+                <Avatar small />
+                <span className="account-name">{user?.full_name.split(' ')[0]}</span>
+              </summary>
+              <div className="dropdown-panel">
+                <Link to="/profile" className="dropdown-item">
+                  {text.nav.profile}
+                </Link>
+                <Link to="/about" className="dropdown-item">
+                  {t.profileMenu.about}
+                </Link>
+                <button type="button" className="dropdown-item" onClick={logout}>
+                  {t.logout}
+                </button>
+              </div>
+            </details>
+
+            {/* Narrow screens: the pages fold into this menu */}
+            <details className="dropdown site-menu" ref={menu}>
+              <summary className="menu-button" aria-label={text.nav.menu}>
+                ☰ <span className="menu-label">{text.nav.menu}</span>
+              </summary>
+              <div className="dropdown-panel">{links}</div>
+            </details>
+          </div>
         </div>
       </header>
 
@@ -81,16 +110,33 @@ export function Layout() {
         <div hidden={pathname !== '/profile'}>
           <Profile active={pathname === '/profile'} />
         </div>
-        {!TAB_PAGES.includes(pathname) && <Outlet />}
+        {!KEPT_OPEN.includes(pathname) && <Outlet />}
       </main>
 
-      <nav className="tab-bar" aria-label={t.appName}>
-        <div className="tab-bar-inner">
-          <Tab to="/" label={t.tabs.home} icon={<HomeIcon />} />
-          <Tab to="/chat" label={t.tabs.chat} icon={<ChatIcon />} />
-          <Tab to="/profile" label={t.tabs.profile} icon={<ProfileIcon />} />
+      <footer className="site-footer">
+        <div className="site-footer-inner">
+          <div className="stack-small">
+            <Brand />
+            <p className="note">{t.about.intro}</p>
+          </div>
+          <div className="stack-small">
+            <p className="footer-title">{text.footer.pages}</p>
+            {pages.map((page) => (
+              <Link key={page.to} to={page.to} className="footer-link">
+                {page.label}
+              </Link>
+            ))}
+            <Link to="/about" className="footer-link">
+              {t.profileMenu.about}
+            </Link>
+          </div>
+          <div className="stack-small">
+            <p className="footer-title">{text.footer.data}</p>
+            <p className="note">{text.footer.sources}</p>
+            <p className="note">{text.footer.project}</p>
+          </div>
         </div>
-      </nav>
-    </>
+      </footer>
+    </div>
   );
 }

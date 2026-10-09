@@ -1,6 +1,7 @@
 # GreenRoot website
 
-The browser version of the GreenRoot phone app: same pages, same backend, English and Kannada.
+The browser version of GreenRoot: the same features, backend and English and Kannada texts as the phone app,
+laid out as a website (a top bar with the pages, wide two-column pages, a footer).
 It is React + TypeScript, built with Vite. It never changes anything in `frontend/` (the phone app).
 
 ## Run it
@@ -26,7 +27,7 @@ src/
     Dashboard (admin), DashboardRecommendation (admin)
   components/         pieces of pages
     ui.tsx            Card, Button, Chip, TextField, bars: the small building blocks
-    Layout.tsx        top bar, the bar at the bottom (Home, Chatbot, Profile) and the three tab pages
+    Layout.tsx        the site's top bar (pages, language, the farmer's menu), the footer, and the pages kept open
     CropPhoto.tsx     a crop photo (a seedling box while it loads or if it cannot load), a crop row with its photo
     LocationCard, WeatherCard, SoilTestForm, Results (+ ResultCards), WaterPlan, FeedbackForm, AdminLogin, AuthPage
   lib/
@@ -36,15 +37,20 @@ src/
     detect-location.ts, types.ts, web-text.ts
 ```
 
-The pages follow the phone app's screens one for one (`pages/Home.tsx` is `frontend/src/app/(tabs)/index.tsx`,
-`components/Results.tsx` is `frontend/src/components/results.tsx`, ...), so reading one next to the other is the
-easiest way to understand either.
+The pages do what the phone app's screens do (`pages/Home.tsx` is `frontend/src/app/(tabs)/index.tsx`,
+`components/Results.tsx` is `frontend/src/components/results.tsx`, ...), but are laid out for a wide screen:
 
-**Tabs.** Like the phone, Home, Chatbot and Profile stay open while the farmer moves between them: `Layout.tsx`
-draws all three and hides the ones not chosen (`/`, `/chat`, `/profile`), so a result or a chat is not lost. Other
-pages (a crop, compare, history, saved crops, about, the ML dashboard) show in its `<Outlet />`, under the same bars,
-with "‹ Back" at the top. The tab icons are small SVG outlines in `Layout.tsx` (no icon library);
-the chosen tab's icon is filled and sits on a light green pill, as in WhatsApp's bottom bar (the `.tab` rules in `styles.css`).
+- **Top bar:** the logo, the pages (Find crops, Crop helper, Compare, Saved crops, History), the language, and the
+  farmer's menu (profile, about, log out). On a narrow screen the pages fold into "Menu" (a `<details>` element, no
+  script library). There is no bar at the bottom: that is the phone app's way.
+- **Home:** "Your land" on the left (place, season, water, soil test, Find crops), the weather and the answer on the
+  right; the best crop shows its photo beside the details and the other crops are in two columns.
+- **Crop page:** the photos on the left, the facts on the right. **Crop helper:** the crops in a side panel.
+  **Profile:** the account on the left and the farmer's pages as tiles. **Saved crops** and **History:** card grids.
+- **Login:** GreenRoot's introduction on the left half, the form on the right.
+- Home, the crop helper and the profile stay open while the farmer moves between pages (`Layout.tsx` hides the
+  ones not shown), so a result or a chat is not lost; the other pages show in its `<Outlet />`.
+- Below 1000 px wide the columns stack, so the same pages work on a phone's browser.
 
 **Reused from the phone app, read only.** `vite.config.ts` gives two short names to imports: `~/` is this folder's
 `src`, and `@/` is `frontend/src`. The website imports only plain TypeScript from there: the English and Kannada texts

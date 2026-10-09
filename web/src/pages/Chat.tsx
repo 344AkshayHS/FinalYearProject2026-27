@@ -3,9 +3,10 @@
 
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 
-import { Chip, Spinner } from '~/components/ui';
+import { Spinner } from '~/components/ui';
 import { api } from '~/lib/api';
 import { useApp } from '~/lib/app-context';
+import { webText } from '~/lib/web-text';
 import { allCropFacts, answerQuestion, followUpQuestions, HELP_CONTACTS, replyLanguage } from '@/lib/chatbot';
 import { CROP_INFO } from '@/lib/crop-info';
 import { normaliseQuestion } from '@/lib/farmer-words';
@@ -39,6 +40,8 @@ export function Chat() {
   const lastQuestion = [...messages].reverse().find((message) => message.from === 'user')?.text ?? '';
   const nextId = useRef(1);
   const list = useRef<HTMLDivElement>(null);
+  // Goes up with each new chat, so an answer still on its way from an old chat is not added to the new one
+  const conversation = useRef(0);
 
   // Always show the newest message
   useEffect(() => {
@@ -50,6 +53,18 @@ export function Chat() {
     setMessages((old) => [...old, { id, from, text }]);
   }
 
+  // "New chat": asks first, then empties the chat (the crop goes back to the best crop of the last result)
+  function newChat() {
+    if (!window.confirm(`${t.chat.newChatTitle}\n${t.chat.newChatMessage}`)) {
+      return;
+    }
+    conversation.current += 1;
+    setMessages([{ id: 0, from: 'bot', text: t.chat.intro.replace('{count}', String(CROPS.length)) }]);
+    setInput('');
+    setWaiting(false);
+    setCrop(bestCrop && CROP_INFO[bestCrop] ? bestCrop : null);
+  }
+
   async function ask(typed: string, aboutCrop = crop) {
     const question = typed.trim();
     if (!question || waiting) {
@@ -59,6 +74,7 @@ export function Chat() {
     const replyIn = replyLanguage(question, language);
     const reply = answerQuestion(question, aboutCrop, replyIn, farm);
     const history = messages.slice(1).slice(-HISTORY).map(({ from, text }) => ({ from, text }));
+    const thisChat = conversation.current;
     setInput('');
     addMessage('user', question);
 
@@ -102,6 +118,9 @@ export function Chat() {
       }
       setWaiting(false);
     }
+    if (thisChat !== conversation.current) {
+      return; // "New chat" was pressed while waiting
+    }
     setCrop(answerCrop);
     addMessage('bot', answer);
   }
@@ -111,11 +130,34 @@ export function Chat() {
     ask(input);
   }
 
+  // On a wide screen: the crops on the left, the conversation on the right. On a phone the crops are a row above it.
   return (
+    <div className="chat-layout">
+      <aside className="chat-side" aria-label={webText[language].chat.cropsTitle}>
+        <p className="chat-side-title">{webText[language].chat.cropsTitle}</p>
+        <div className="chat-crops">
+          {CROPS.map((name) => (
+            <button
+              key={name}
+              type="button"
+              className={name === crop ? 'chat-crop chat-crop-selected' : 'chat-crop'}
+              aria-pressed={name === crop}
+              onClick={() => ask(cropName(name, language), name)}>
+              {cropName(name, language)}
+            </button>
+          ))}
+        </div>
+      </aside>
+
     <section className="chat-page" aria-label={t.chat.title}>
       <div className="chat-title">
         <img src="/chatbot.png" alt="" className="chat-logo" />
         <strong>{t.chat.title}</strong>
+        {messages.length > 1 && (
+          <button type="button" className="link-button" onClick={newChat}>
+            {t.chat.newChat}
+          </button>
+        )}
       </div>
 
       <div className="chat-messages" ref={list} aria-live="polite">
@@ -141,13 +183,6 @@ export function Chat() {
       </div>
 
       <div className="chat-bottom">
-        {/* The crops to pick from */}
-        <div className="chips chips-scroll">
-          {CROPS.map((name) => (
-            <Chip key={name} label={cropName(name, language)} selected={name === crop} onClick={() => ask(cropName(name, language), name)} />
-          ))}
-        </div>
-
         <form className="chat-form" onSubmit={onSubmit}>
           <input value={input} onChange={(e) => setInput(e.target.value)} placeholder={t.chat.placeholder} maxLength={500} aria-label={t.chat.placeholder} />
           <button type="submit" className="button button-primary">
@@ -156,5 +191,6 @@ export function Chat() {
         </form>
       </div>
     </section>
+    </div>
   );
 }

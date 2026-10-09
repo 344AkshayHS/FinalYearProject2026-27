@@ -112,7 +112,7 @@ export function Compare() {
 
   if (crops === null || crops === 'failed') {
     return (
-      <div className="stack-large narrow">
+      <div className="stack-large page-medium">
         <BackLink />
         {crops === null ? (
           <Spinner />
@@ -131,7 +131,7 @@ export function Compare() {
   const full = known.length >= MAX_COMPARE;
 
   return (
-    <div className="stack-large narrow">
+    <div className="stack-large page-medium">
       <BackLink />
       <div className="stack-small">
         <h1>{t.compare.title}</h1>
