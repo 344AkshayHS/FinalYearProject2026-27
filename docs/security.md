@@ -4,6 +4,16 @@ Both apps talk to the same backend, so most of it is done there (`backend/src/au
 - **Logins.** Passwords are stored as scrypt hashes (at least 8 characters). A login token is stored only as a SHA-256
   hash, so a copy of the database cannot be used to log in. Farmer logins end after 30 days, admin logins after 12 hours.
   A wrong phone number takes as long to answer as a wrong password, so nobody can find out who has an account.
+  Nobody can read a password back, not even from the database (`users.password_hash` holds only the hash).
+- **Edit profile** (`PATCH /users/me`): the name and the password can change; the mobile number cannot (it is the
+  login ID). The apps change the password on its own "Change password" page: the old password, then the new one two
+  times. The server checks the old password (5 wrong tries lock it for 15 minutes, like a login), and a new password
+  logs the account out on every other phone and browser.
+- **Deleting history** (`DELETE /users/me/recommendations`, body `{ ids }`): a farmer can only delete their own
+  results (at most 100 at a time, ids must be numbers). They are only hidden from the farmer (`hidden_at`, migration
+  009); the admin dashboard counts them as "Deleted by farmers (still kept)".
+  The profile photo (`PUT /users/me/photo`) must be a JPEG of at most 150 KB (the apps shrink it to about 30 KB first);
+  only its owner can load it (`GET /users/me/photo` needs the login).
 - **Phone app:** the token is in SecureStore (the phone's keystore), and the app logs out by itself when the server says
   the login has ended. It refuses plain `http://` to a public address (only localhost and your own Wi-Fi are allowed).
 - **Website:** the token is in an `httpOnly` cookie (`SameSite=Strict`, `Secure` on https), so JavaScript on the page
