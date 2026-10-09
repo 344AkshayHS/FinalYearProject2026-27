@@ -68,6 +68,26 @@ test('requests that use the login cookie and change data must come from our webs
   assert.strictEqual(run(stopForgedRequests, fakeRequest({ method: 'POST', headers: { 'x-client': 'web' } })).passed, false);
 });
 
+test('the website opened at the tunnel address (PUBLIC_URL) is our website too', () => {
+  const cookie = { cookie: 'gr_session=token123' };
+  const fromTunnel = { ...cookie, 'x-client': 'web', origin: 'https://greenroot-demo.ngrok-free.app' };
+  process.env.PUBLIC_URL = 'https://greenroot-demo.ngrok-free.app/';
+  try {
+    assert.strictEqual(run(stopForgedRequests, fakeRequest({ method: 'POST', headers: fromTunnel })).passed, true);
+    // this PC's own addresses still work
+    const local = { ...cookie, 'x-client': 'web', origin: 'http://localhost:4000' };
+    assert.strictEqual(run(stopForgedRequests, fakeRequest({ method: 'POST', headers: local })).passed, true);
+    // any other site is still refused
+    const evil = { ...cookie, 'x-client': 'web', origin: 'https://evil.ngrok-free.app' };
+    // written without https:// in .env, it still means the https address
+    process.env.PUBLIC_URL = 'greenroot-demo.ngrok-free.app';
+    assert.strictEqual(run(stopForgedRequests, fakeRequest({ method: 'POST', headers: fromTunnel })).passed, true);
+    assert.strictEqual(run(stopForgedRequests, fakeRequest({ method: 'POST', headers: evil })).passed, false);
+  } finally {
+    delete process.env.PUBLIC_URL;
+  }
+});
+
 test('an address is stopped after too many requests, and others are not', () => {
   const limit = limitRequests(3, 1);
   for (let i = 0; i < 3; i++) {

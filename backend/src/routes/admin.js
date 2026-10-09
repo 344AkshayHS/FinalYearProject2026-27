@@ -80,7 +80,7 @@ async function activity() {
   const feedback = await pool.query('SELECT outcome, count(*)::int AS times FROM crop_feedback GROUP BY outcome');
   const recent = await pool.query(
     `SELECT r.id, r.created_at, r.model_version, r.season, l.state, l.district, i.crop, i.probability,
-            r.farmer_soil IS NOT NULL AS used_soil_test
+            r.farmer_soil IS NOT NULL AS used_soil_test, r.hidden_at IS NOT NULL AS hidden_by_farmer
      FROM recommendations r
      JOIN locations l ON l.id = r.location_id
      LEFT JOIN recommendation_items i ON i.recommendation_id = r.id AND i.rank = 1
@@ -89,6 +89,8 @@ async function activity() {
   return {
     users: await count('users'),
     recommendations: await count('recommendations'),
+    // results farmers deleted from their own history: still here, only hidden from them
+    hidden_by_farmers: Number((await pool.query('SELECT count(*) FROM recommendations WHERE hidden_at IS NOT NULL')).rows[0].count),
     feedback: await count('crop_feedback'),
     soil_places_cached: await count('soil_profiles'),
     top_crops: topCrops.rows,

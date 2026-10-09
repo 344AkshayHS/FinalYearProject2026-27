@@ -123,13 +123,20 @@ function clearSessionCookie(res, cookie) {
 // that uses a cookie and changes something must come from our own web page: the browser fills in
 // "Origin" (a page cannot fake it) and our page adds "X-Client: web" (another site cannot add it
 // without our permission). Requests with a Bearer token (the phone) use no cookie and need neither.
-// WEB_ORIGIN lists the addresses the website is opened at (comma separated).
+// WEB_ORIGIN lists the addresses the website is opened at (comma separated). Without it: this PC's own
+// addresses, and PUBLIC_URL, the fixed internet address of the tunnel (see start-greenroot.ps1).
 function webOrigins() {
   if (process.env.WEB_ORIGIN) {
     return process.env.WEB_ORIGIN.split(',').map((origin) => origin.trim());
   }
   const port = process.env.PORT || 4000;
-  return ['localhost', '127.0.0.1'].flatMap((host) => [`http://${host}:5173`, `http://${host}:${port}`]);
+  const local = ['localhost', '127.0.0.1'].flatMap((host) => [`http://${host}:5173`, `http://${host}:${port}`]);
+  if (!process.env.PUBLIC_URL) {
+    return local;
+  }
+  // "greenroot-abc.ngrok-free.app" written without https:// still means the https address
+  const publicUrl = process.env.PUBLIC_URL.trim().replace(/\/+$/, '');
+  return [...local, /^https?:\/\//.test(publicUrl) ? publicUrl : `https://${publicUrl}`];
 }
 
 function stopForgedRequests(req, res, next) {
@@ -152,7 +159,7 @@ async function readUser(req, res, next) {
 
   if (token) {
     const result = await pool.query(
-      `SELECT users.id, users.full_name, users.phone, users.preferred_language, users.created_at
+      `SELECT users.id, users.full_name, users.phone, users.preferred_language, users.created_at, users.photo_updated_at
        FROM sessions JOIN users ON users.id = sessions.user_id
        WHERE sessions.token_hash = $1 AND sessions.expires_at > now()`,
       [hashToken(token)]

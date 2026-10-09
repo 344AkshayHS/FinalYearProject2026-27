@@ -24,6 +24,8 @@ CREATE TABLE users (
     password_hash       TEXT        NOT NULL,                 -- scrypt: "salt:hash"
     preferred_language  TEXT        NOT NULL DEFAULT 'en'
                         CHECK (preferred_language IN ('en', 'kn')),
+    photo               BYTEA,                                -- small square JPEG from "Edit profile"
+    photo_updated_at    TIMESTAMPTZ,                          -- null: no photo
     created_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at          TIMESTAMPTZ NOT NULL DEFAULT now()
 );
@@ -131,6 +133,7 @@ CREATE TABLE recommendations (
     model_version        TEXT          NOT NULL,   -- e.g. 'rf-india-2.0'
     season               TEXT          CHECK (season IN ('Kharif', 'Rabi', 'Summer')),   -- NULL for yearly models (1.x)
     farmer_soil          JSONB,        -- the farmer's own soil test values, if given
+    hidden_at            TIMESTAMPTZ,  -- the farmer deleted it from their history (still kept here)
     created_at           TIMESTAMPTZ   NOT NULL DEFAULT now()
 );
 
