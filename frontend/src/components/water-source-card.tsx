@@ -3,9 +3,9 @@ import { View } from 'react-native';
 import { Card } from '@/components/card';
 import { Chip } from '@/components/chip';
 import { Text } from '@/components/text';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import type { WaterSource } from '@/lib/water-choice';
-import { colors, radius } from '@/theme';
+import { radius } from '@/theme';
 
 type Props = {
   value: WaterSource;
@@ -16,6 +16,7 @@ type Props = {
 // "Water for this land": Rain only or Irrigated. Before a result it is part of the form on Home; once crops are
 // shown it sits under the best crop, with what the choice changed, so the farmer sees the effect of a tap.
 export function WaterSourceCard({ value, onChange, lines }: Props) {
+  const colors = useColors();
   const { t } = useApp();
   return (
     <Card>

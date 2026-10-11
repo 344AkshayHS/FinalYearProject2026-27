@@ -1,9 +1,8 @@
 import { Pressable, View } from 'react-native';
 
 import { Text } from '@/components/text';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import type { Language } from '@/lib/translations';
-import { colors } from '@/theme';
 
 const OPTIONS: { value: Language; label: string }[] = [
   { value: 'en', label: 'English' },
@@ -12,6 +11,7 @@ const OPTIONS: { value: Language; label: string }[] = [
 
 // Two-option pill to switch the whole app between English and Kannada
 export function LanguageSwitch() {
+  const colors = useColors();
   const { language, setLanguage } = useApp();
 
   return (
@@ -37,7 +37,7 @@ export function LanguageSwitch() {
               borderRadius: 999,
               backgroundColor: selected ? colors.primary : 'transparent',
             }}>
-            <Text style={{ fontSize: 15, fontWeight: '700', color: selected ? colors.white : colors.primaryDark }}>
+            <Text style={{ fontSize: 15, fontWeight: '700', color: selected ? colors.onPrimary : colors.primaryDark }}>
               {option.label}
             </Text>
           </Pressable>

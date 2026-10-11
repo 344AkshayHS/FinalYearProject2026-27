@@ -1,8 +1,7 @@
 import { Text as NativeText, Pressable, View } from 'react-native';
 
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { TEXT_SIZES, type TextSize } from '@/lib/text-size';
-import { colors } from '@/theme';
 
 // How big the "A" of each choice is drawn, so the farmer sees the difference before pressing
 const LETTER_SIZE: Record<TextSize, number> = { normal: 18, large: 24, larger: 30 };
@@ -10,6 +9,7 @@ const LETTER_SIZE: Record<TextSize, number> = { normal: 18, large: 24, larger: 3
 // Normal, big or bigger letters for the whole app. The choices are drawn at a fixed size (React Native's own Text),
 // so they never grow out of their buttons.
 export function TextSizeSwitch() {
+  const colors = useColors();
   const { t, textSize, setTextSize } = useApp();
 
   return (

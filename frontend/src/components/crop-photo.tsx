@@ -4,14 +4,15 @@ import { useRouter } from 'expo-router';
 
 import { Text } from '@/components/text';
 import { fileUrl } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { findCrop, mainPhoto, type CropPhoto } from '@/lib/crops';
 import { cropName } from '@/lib/translations';
-import { colors, radius as radii } from '@/theme';
+import { radius as radii } from '@/theme';
 
 // A crop photo from the backend (crop-images/). Under it a light green box with a seedling shows while the
 // photo loads, and stays if it cannot load (no internet, backend off): the farmer never sees a broken picture.
 export function PhotoBox({ photo, width, height, radius = radii.small }: { photo: CropPhoto | null; width: DimensionValue; height: number; radius?: number }) {
+  const colors = useColors();
   const [failedPath, setFailedPath] = useState<string | null>(null);
   const uri = photo && failedPath !== photo.path ? fileUrl(photo.path) : undefined;
   return (
@@ -47,6 +48,7 @@ export function CropThumb({ crop, size = 52 }: { crop: string; size?: number }) 
 
 // One crop in a list: its photo, its name and a figure on the right. A tap opens the crop's page.
 export function CropRowLink({ crop, right, children }: { crop: string; right?: string; children?: React.ReactNode }) {
+  const colors = useColors();
   const { language } = useApp();
   const router = useRouter();
   return (

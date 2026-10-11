@@ -4,8 +4,7 @@ import { Pressable, View } from 'react-native';
 import { Card } from '@/components/card';
 import { Text } from '@/components/text';
 import { TextField } from '@/components/text-field';
-import { useApp } from '@/lib/app-context';
-import { colors } from '@/theme';
+import { useApp, useColors } from '@/lib/app-context';
 
 export const SOIL_TEST_KEYS = ['ph', 'organic_carbon_pct', 'n', 'p', 'k'] as const;
 export type SoilTestKey = (typeof SOIL_TEST_KEYS)[number];
@@ -24,6 +23,7 @@ export function soilTestBody(values: SoilTestValues) {
 
 // Optional values from the farmer's own soil test (Soil Health Card)
 export function SoilTestForm({ values, onChange }: { values: SoilTestValues; onChange: (values: SoilTestValues) => void }) {
+  const colors = useColors();
   const { t } = useApp();
   const [open, setOpen] = useState(false);
 

@@ -5,11 +5,12 @@ import { KeyboardView } from '@/components/keyboard-view';
 import { LanguageSwitch } from '@/components/language-switch';
 import { TextSizeSwitch } from '@/components/text-size-switch';
 import { Text } from '@/components/text';
-import { useApp } from '@/lib/app-context';
-import { cardShadow, colors, radius } from '@/theme';
+import { useApp, useColors } from '@/lib/app-context';
+import { cardShadow, radius } from '@/theme';
 
 // Shared look for the login and register screens: green header, logo, and a white form card
 export function AuthScreen({ children }: { children: ReactNode }) {
+  const colors = useColors();
   const { t } = useApp();
 
   return (
@@ -22,7 +23,7 @@ export function AuthScreen({ children }: { children: ReactNode }) {
         contentContainerStyle={{ flexGrow: 1 }}>
         <View
           style={{
-            backgroundColor: colors.primary,
+            backgroundColor: colors.hero,
             paddingTop: 90,
             paddingBottom: 70,
             alignItems: 'center',
@@ -35,14 +36,14 @@ export function AuthScreen({ children }: { children: ReactNode }) {
               width: 76,
               height: 76,
               borderRadius: 38,
-              backgroundColor: colors.white,
+              backgroundColor: colors.card,
               alignItems: 'center',
               justifyContent: 'center',
             }}>
             <Text style={{ fontSize: 40 }}>🌱</Text>
           </View>
-          <Text style={{ fontSize: 32, fontWeight: '800', color: colors.white }}>{t.appName}</Text>
-          <Text style={{ fontSize: 16, color: colors.primarySoft }}>{t.tagline}</Text>
+          <Text style={{ fontSize: 32, fontWeight: '800', color: colors.heroText }}>{t.appName}</Text>
+          <Text style={{ fontSize: 16, color: colors.heroSubtext }}>{t.tagline}</Text>
         </View>
 
         <View
@@ -70,6 +71,7 @@ export function AuthScreen({ children }: { children: ReactNode }) {
 }
 
 export function FormError({ message }: { message: string | null }) {
+  const colors = useColors();
   if (!message) {
     return null;
   }

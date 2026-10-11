@@ -6,16 +6,17 @@ import { Chip } from '@/components/chip';
 import { Text } from '@/components/text';
 import { TextField } from '@/components/text-field';
 import { api } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { sourceLine, waterFacts } from '@/lib/chatbot';
 import { hasCropFactor, pastHarvest, waterToday, type Weather } from '@/lib/crop-water';
 import { cropName } from '@/lib/translations';
-import { colors, radius } from '@/theme';
+import { radius } from '@/theme';
 
 type Props = { crops: string[]; lat: number; lng: number };
 
 // "How much water today?" for one of the recommended crops, from today's forecast (FAO method)
 export function WaterPlan({ crops, lat, lng }: Props) {
+  const colors = useColors();
   const { t, language, token } = useApp();
   const [crop, setCrop] = useState(crops[0]);
   const [days, setDays] = useState('');

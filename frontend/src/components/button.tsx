@@ -2,7 +2,8 @@ import { SymbolView, type AndroidSymbol, type SFSymbol } from 'expo-symbols';
 import { ActivityIndicator, Pressable } from 'react-native';
 
 import { Text } from '@/components/text';
-import { colors, radius } from '@/theme';
+import { radius } from '@/theme';
+import { useColors } from '@/lib/app-context';
 
 type Props = {
   title: string;
@@ -14,9 +15,10 @@ type Props = {
 };
 
 export function Button({ title, onPress, loading = false, disabled = false, variant = 'primary', icon }: Props) {
+  const colors = useColors();
   const filled = variant !== 'outline';
   const off = loading || disabled;
-  const color = filled ? colors.white : colors.primary;
+  const color = filled ? colors.onPrimary : colors.primary;
 
   return (
     <Pressable

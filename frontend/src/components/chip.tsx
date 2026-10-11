@@ -1,10 +1,11 @@
 import { Pressable } from 'react-native';
 
 import { Text } from '@/components/text';
-import { colors } from '@/theme';
+import { useColors } from '@/lib/app-context';
 
 // Small round button for picking one option (a crop, an answer, a question)
 export function Chip({ label, onPress, selected = false }: { label: string; onPress: () => void; selected?: boolean }) {
+  const colors = useColors();
   return (
     <Pressable
       onPress={onPress}
@@ -18,7 +19,7 @@ export function Chip({ label, onPress, selected = false }: { label: string; onPr
         borderColor: colors.primary,
         backgroundColor: selected ? colors.primary : colors.card,
       }}>
-      <Text style={{ fontSize: 15, fontWeight: '600', color: selected ? colors.white : colors.primary }}>{label}</Text>
+      <Text style={{ fontSize: 15, fontWeight: '600', color: selected ? colors.onPrimary : colors.primary }}>{label}</Text>
     </Pressable>
   );
 }

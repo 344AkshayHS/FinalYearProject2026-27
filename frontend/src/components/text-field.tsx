@@ -3,15 +3,16 @@ import { useState } from 'react';
 import { Pressable, TextInput, View, type TextInputProps } from 'react-native';
 
 import { Text } from '@/components/text';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { inputFontSize } from '@/lib/text-size';
-import { colors, radius } from '@/theme';
+import { radius } from '@/theme';
 
 type Props = TextInputProps & { label: string; hint?: string };
 
 // A labelled text box. A password box (secureTextEntry) gets an eye button: press it to see what you typed,
 // press again to hide it.
 export function TextField({ label, hint, secureTextEntry, ...inputProps }: Props) {
+  const colors = useColors();
   const { t, textSize } = useApp();
   const [shown, setShown] = useState(false);
   const password = secureTextEntry === true;

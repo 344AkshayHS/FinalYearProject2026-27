@@ -7,16 +7,19 @@ import { Chip } from '@/components/chip';
 import { Text } from '@/components/text';
 import { TextField } from '@/components/text-field';
 import { api, ApiError } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { CROP_INFO } from '@/lib/crop-info';
 import { cropName } from '@/lib/translations';
-import { colors } from '@/theme';
 
 const OUTCOMES = ['good', 'average', 'poor'] as const;
 
 // "I grew this crop here and it went good / average / poor" - saved for retraining the model.
-// The recommended crops come first, then every other crop the model knows.
-export function FeedbackForm({ recommendationId, recommended }: { recommendationId: string; recommended: string[] }) {
+// The recommended crops come first, then every other crop the model knows. onSaved: after it is sent (the bell's
+// feedback page then stops asking about this result).
+type Props = { recommendationId: string; recommended: string[]; onSaved?: () => void };
+
+export function FeedbackForm({ recommendationId, recommended, onSaved }: Props) {
+  const colors = useColors();
   const { t, language, token } = useApp();
   const [crop, setCrop] = useState<string | null>(null);
   const [outcome, setOutcome] = useState<(typeof OUTCOMES)[number] | null>(null);
@@ -41,6 +44,7 @@ export function FeedbackForm({ recommendationId, recommended }: { recommendation
         body: { recommendation_id: Number(recommendationId), crop, outcome, note: note.trim() || null },
       });
       setSaved(true);
+      onSaved?.();
     } catch (err) {
       setError(err instanceof ApiError ? err.code : 'server_error');
     }

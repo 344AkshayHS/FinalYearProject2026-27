@@ -1,9 +1,11 @@
 import { View } from 'react-native';
 
-import { cardShadow, colors, radius } from '@/theme';
+import { useColors } from '@/lib/app-context';
+import { cardShadow, radius } from '@/theme';
 
-// White rounded box used for every section of the results
-export function Card({ children, color = colors.card }: { children: React.ReactNode; color?: string }) {
+// White rounded box used for every section of the results (color: another background, for example a yellow box)
+export function Card({ children, color }: { children: React.ReactNode; color?: string }) {
+  const colors = useColors();
   return (
     <View
       style={{
@@ -11,7 +13,7 @@ export function Card({ children, color = colors.card }: { children: React.ReactN
         gap: 14,
         borderRadius: radius.large,
         borderCurve: 'continuous',
-        backgroundColor: color,
+        backgroundColor: color ?? colors.card,
         boxShadow: cardShadow,
       }}>
       {children}

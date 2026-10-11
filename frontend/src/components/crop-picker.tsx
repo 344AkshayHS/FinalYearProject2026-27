@@ -4,11 +4,11 @@ import { Modal, Pressable, SectionList, TextInput, View } from 'react-native';
 import { CropThumb } from '@/components/crop-photo';
 import { KeyboardView } from '@/components/keyboard-view';
 import { Text } from '@/components/text';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { inputFontSize } from '@/lib/text-size';
 import { suggestedCrops } from '@/lib/crops';
 import { cropName } from '@/lib/translations';
-import { colors, radius } from '@/theme';
+import { radius } from '@/theme';
 
 type Props = {
   visible: boolean;
@@ -20,6 +20,7 @@ type Props = {
 // Full-screen list to add a crop to the compare table: the last result's crops and the saved crops first,
 // then every crop, with a search box (English or Kannada names)
 export function CropPicker({ visible, chosen, onSelect, onClose }: Props) {
+  const colors = useColors();
   const { t, language, crops, lastResult, textSize } = useApp();
   const [search, setSearch] = useState('');
 

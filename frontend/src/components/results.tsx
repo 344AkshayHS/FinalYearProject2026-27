@@ -9,13 +9,13 @@ import { FeedbackForm } from '@/components/feedback-form';
 import { Text } from '@/components/text';
 import { WaterPlan } from '@/components/water-plan';
 import { WaterSourceCard } from '@/components/water-source-card';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { mostlyIrrigatedShare, type SeasonRain } from '@/lib/crop-water';
 import { findCrop, mainPhoto, MAX_COMPARE } from '@/lib/crops';
 import { YEAR_ROUND_CROPS, type Season } from '@/lib/season';
 import { cropName, districtName, talukName } from '@/lib/translations';
 import { waterChoiceLines, type WaterSource } from '@/lib/water-choice';
-import { colors, radius } from '@/theme';
+import { radius } from '@/theme';
 
 export type { WaterSource };
 
@@ -109,6 +109,7 @@ function fill(text: string, values: Record<string, string | number>) {
 }
 
 function SuitNotes({ suits, land }: { suits: Suits | null; land: Land }) {
+  const colors = useColors();
   const { t } = useApp();
   if (!suits) {
     return null;
@@ -154,7 +155,8 @@ const TOP_LIST = 10;
 
 // Below this share of the district's field crops, a season "sows little" and the app says so
 const LITTLE_SOWN = 0.1;
-const RATING_COLORS: Record<Rating, string> = { low: colors.danger, medium: colors.accent, high: colors.primary };
+// The colour name of each rating, looked up while drawing so it follows the light or dark theme
+const RATING_COLORS: Record<Rating, 'danger' | 'accent' | 'primary'> = { low: 'danger', medium: 'accent', high: 'primary' };
 
 const UNITS: Record<string, string> = {
   pH: '',
@@ -182,6 +184,7 @@ const CLIMATE = [
 ];
 
 function ScoreBar({ score, color }: { score: number; color: string }) {
+  const colors = useColors();
   return (
     <View style={{ height: 10, borderRadius: 5, backgroundColor: colors.border, overflow: 'hidden' }}>
       <View style={{ width: `${Math.max(score, 3)}%`, height: '100%', borderRadius: 5, backgroundColor: color }} />
@@ -216,6 +219,7 @@ function showValue(key: string, value: number) {
 
 // Small green tag for crops inside the model's 90% confidence set (Rule 3 of our paper)
 function ConfidentBadge({ label }: { label: string }) {
+  const colors = useColors();
   return (
     <Text
       style={{
@@ -226,7 +230,7 @@ function ConfidentBadge({ label }: { label: string }) {
         overflow: 'hidden',
         fontSize: 12,
         fontWeight: '700',
-        color: colors.white,
+        color: colors.onPrimary,
         backgroundColor: colors.primary,
       }}>
       ✓ {label}
@@ -238,6 +242,7 @@ function ConfidentBadge({ label }: { label: string }) {
 const rainSuits = (suits: Suits) => suits.rain === 'good' || suits.rain === 'possible';
 
 function OtherCropsCard({ data, land }: { data: RecommendResponse; land: Land }) {
+  const colors = useColors();
   const { t } = useApp();
   // On rain-fed land, only those the normal rain can grow; with irrigation, all of them
   const crops = data.other_crops.filter((item) => !land.rainfed || rainSuits(item.suits));
@@ -268,6 +273,7 @@ function OtherCropsCard({ data, land }: { data: RecommendResponse; land: Land })
 }
 
 function SeasonSowingCard({ sowing }: { sowing: SeasonSowing }) {
+  const colors = useColors();
   const { t, language } = useApp();
   const biggest = Math.max(...sowing.crops.map((item) => item.share), 0.01);
   return (
@@ -294,6 +300,7 @@ function SeasonSowingCard({ sowing }: { sowing: SeasonSowing }) {
 }
 
 function CropFactsCard({ facts }: { facts: CropFacts }) {
+  const colors = useColors();
   const { t, language } = useApp();
   const place = facts.level === 'taluk' ? talukName(facts.name, language) : districtName(facts.name, language);
   const biggest = Math.max(...facts.crops.map((item) => item.share), 0.01);
@@ -323,6 +330,7 @@ function CropFactsCard({ facts }: { facts: CropFacts }) {
 // Amber tag for a crop that rain alone cannot grow here this year (rain-fed land only)
 // A plantation crop, fruit tree or sugarcane: it stands in the field through every season
 function YearRoundBadge({ label }: { label: string }) {
+  const colors = useColors();
   return (
     <Text
       style={{
@@ -342,6 +350,7 @@ function YearRoundBadge({ label }: { label: string }) {
 }
 
 function IrrigationBadge({ label }: { label: string }) {
+  const colors = useColors();
   return (
     <Text
       style={{
@@ -361,6 +370,7 @@ function IrrigationBadge({ label }: { label: string }) {
 }
 
 function SeasonRainCard({ season, rainfed }: { season: SeasonRain; rainfed: boolean }) {
+  const colors = useColors();
   const { t } = useApp();
   const percent = season.percent_from_normal;
   const versusNormal =
@@ -390,6 +400,7 @@ function SeasonRainCard({ season, rainfed }: { season: SeasonRain; rainfed: bool
 
 // A crop's big photo (the harvested crop) with "Photos and details", both opening the crop's page
 function CropPhotoLink({ crop, height }: { crop: string; height: number }) {
+  const colors = useColors();
   const { t, crops } = useApp();
   const router = useRouter();
   return (
@@ -411,6 +422,7 @@ type ResultsProps = {
 };
 
 export function Results({ data, waterSource, onWaterSourceChange }: ResultsProps) {
+  const colors = useColors();
   const { t, language } = useApp();
   const router = useRouter();
   // Two questions: what to sow this season (the headline) and what grows best on this land. They differ when
@@ -802,7 +814,7 @@ export function Results({ data, waterSource, onWaterSourceChange }: ResultsProps
                 <Text style={{ fontSize: 15, color: colors.text, flexShrink: 1 }}>
                   {t.soilTest[key]}: {data.soil_test?.[key]}
                 </Text>
-                <Text style={{ fontSize: 15, fontWeight: '700', color: RATING_COLORS[rating] }}>{t.soilTest[rating]}</Text>
+                <Text style={{ fontSize: 15, fontWeight: '700', color: colors[RATING_COLORS[rating]] }}>{t.soilTest[rating]}</Text>
               </View>
             );
           })}

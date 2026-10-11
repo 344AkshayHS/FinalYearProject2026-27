@@ -3,9 +3,9 @@ import { ActivityIndicator, FlatList, Modal, Pressable, View } from 'react-nativ
 
 import { Text } from '@/components/text';
 import { api } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { districtName, talukName } from '@/lib/translations';
-import { colors, radius } from '@/theme';
+import { radius } from '@/theme';
 
 export type Taluk = { key: string; name: string };
 
@@ -20,6 +20,7 @@ type Props = {
 // List of the chosen Karnataka district's taluks, with "Whole district" first.
 // Choosing a taluk is optional: without one the whole district is checked.
 export function TalukPicker({ visible, district, selected, onSelect, onClose }: Props) {
+  const colors = useColors();
   const { t, language } = useApp();
   // The list is kept with the district it belongs to, so a list for another district is never shown
   const [loaded, setLoaded] = useState<{ district: string; taluks: Taluk[] | null } | null>(null);

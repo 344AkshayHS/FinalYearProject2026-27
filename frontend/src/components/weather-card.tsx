@@ -4,9 +4,9 @@ import { ActivityIndicator, View } from 'react-native';
 import { Card } from '@/components/card';
 import { Text } from '@/components/text';
 import { api } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { rainLikelySoon, weatherIcon, weatherKind, type WeatherNow } from '@/lib/weather';
-import { colors, radius } from '@/theme';
+import { radius } from '@/theme';
 
 // Where to show the weather of: the farmer's GPS point, or a district picked by hand (the server takes its middle)
 export type WeatherPlace = { lat: number; lng: number } | { state: string; district: string };
@@ -15,7 +15,8 @@ type Props = { place: WeatherPlace; districtLabel: string };
 
 // "Weather now" on the home screen: the weather right now and the next three days (Open-Meteo forecast)
 export function WeatherCard({ place, districtLabel }: Props) {
-  const { t, language, token, setForecastPlace } = useApp();
+  const colors = useColors();
+  const { t, language, token, setForecastPlace, setForecast } = useApp();
   const query =
     'lat' in place
       ? `lat=${place.lat}&lng=${place.lng}`
@@ -28,14 +29,24 @@ export function WeatherCard({ place, districtLabel }: Props) {
   useEffect(() => {
     let stale = false;
     api<WeatherNow>(`/weather/now?${query}`, { token })
-      .then((weather) => !stale && setAnswer({ query, weather }))
-      .catch(() => !stale && setAnswer({ query, weather: null }))
+      .then((weather) => {
+        if (!stale) {
+          setAnswer({ query, weather });
+          setForecast({ label: districtLabel, weather }); // the bell warns when rain is coming
+        }
+      })
+      .catch(() => {
+        if (!stale) {
+          setAnswer({ query, weather: null });
+          setForecast(null);
+        }
+      })
       // the chat answers "today's weather?" for this same place
       .finally(() => !stale && setForecastPlace({ query, label: districtLabel }));
     return () => {
       stale = true;
     };
-  }, [query, token, districtLabel, setForecastPlace]);
+  }, [query, token, districtLabel, setForecastPlace, setForecast]);
 
   const current = answer?.query === query ? answer : null; // null while the new place is loading
   const weather = current?.weather ?? null;

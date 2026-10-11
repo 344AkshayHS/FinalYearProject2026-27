@@ -4,10 +4,10 @@ import { ActivityIndicator, FlatList, Modal, Pressable, TextInput, View } from '
 import { KeyboardView } from '@/components/keyboard-view';
 import { Text } from '@/components/text';
 import { api } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { inputFontSize } from '@/lib/text-size';
 import { stateName } from '@/lib/translations';
-import { colors, radius } from '@/theme';
+import { radius } from '@/theme';
 
 type Props = {
   visible: boolean;
@@ -19,6 +19,7 @@ type Props = {
 // Full-screen list of the states and union territories of India (from the backend) with a search box.
 // Search matches both the English and the Kannada name.
 export function StatePicker({ visible, selected, onSelect, onClose }: Props) {
+  const colors = useColors();
   const { t, language, textSize } = useApp();
   const [search, setSearch] = useState('');
   const [states, setStates] = useState<string[] | null | 'failed'>(null);

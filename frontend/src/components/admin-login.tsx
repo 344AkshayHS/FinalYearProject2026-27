@@ -5,12 +5,12 @@ import { Pressable, Text, View } from 'react-native';
 import { Button } from '@/components/button';
 import { TextField } from '@/components/text-field';
 import { ApiError } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
-import { colors } from '@/theme';
+import { useApp, useColors } from '@/lib/app-context';
 
 // Folded "Admin login" at the bottom of the login screen, for the project team; opens the ML dashboard.
 // The password is checked by the server, which also locks the name after 5 wrong tries (backend/src/routes/admin.js).
 export function AdminLogin() {
+  const colors = useColors();
   const { t, adminToken, adminLogin, adminLogout } = useApp();
   const router = useRouter();
   const [open, setOpen] = useState(false);

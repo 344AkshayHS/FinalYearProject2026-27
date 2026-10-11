@@ -1,6 +1,6 @@
+import { useColors } from '@/lib/app-context';
 import { Text, View } from 'react-native';
 
-import { colors } from '@/theme';
 
 export type Bar = { label: string; value: number; highlight?: boolean };
 
@@ -13,6 +13,7 @@ type Props = {
 // Simple horizontal bar chart built from Views (no chart library).
 // Negative values (e.g. SHAP) are drawn in red, positive in green.
 export function BarChart({ bars, format = (value) => value.toFixed(2), max }: Props) {
+  const colors = useColors();
   const biggest = max ?? Math.max(...bars.map((bar) => Math.abs(bar.value)), 0.0001);
 
   return (
