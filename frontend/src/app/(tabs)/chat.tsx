@@ -5,17 +5,17 @@ import { ActivityIndicator, Alert, FlatList, Pressable, ScrollView, TextInput, V
 import { Button } from '@/components/button';
 import { Chip } from '@/components/chip';
 import { KeyboardView } from '@/components/keyboard-view';
-import { LanguageButton } from '@/components/language-button';
+import { HeaderActions } from '@/components/header-actions';
 import { Text } from '@/components/text';
 import { api } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { inputFontSize } from '@/lib/text-size';
 import { allCropFacts, answerQuestion, followUpQuestions, HELP_CONTACTS, replyLanguage } from '@/lib/chatbot';
 import { CROP_INFO } from '@/lib/crop-info';
 import { normaliseQuestion } from '@/lib/farmer-words';
 import { cropName, translations } from '@/lib/translations';
 import { weatherAnswer, type WeatherNow } from '@/lib/weather';
-import { colors, radius } from '@/theme';
+import { radius } from '@/theme';
 
 type Message = { id: number; from: 'user' | 'bot'; text: string };
 
@@ -28,6 +28,7 @@ function introMessage(t: (typeof translations)['en']): Message {
 }
 
 export default function ChatScreen() {
+  const colors = useColors();
   const { t, language, token, farm, forecastPlace, textSize } = useApp();
   const navigation = useNavigation();
   // After "Find crops" on Home, the chat is about the best crop of that result
@@ -74,17 +75,16 @@ export default function ChatScreen() {
     }
     navigation.setOptions({
       headerRight: () => (
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 18 }}>
+        <HeaderActions>
           {hasQuestions && (
             <Pressable onPress={confirmNewChat} accessibilityRole="button" hitSlop={10}>
               <Text style={{ fontSize: 16, fontWeight: '600', color: colors.primary }}>{t.chat.newChat}</Text>
             </Pressable>
           )}
-          <LanguageButton />
-        </View>
+        </HeaderActions>
       ),
     });
-  }, [navigation, hasQuestions, t, bestCrop]);
+  }, [navigation, hasQuestions, t, bestCrop, colors]);
 
   async function ask(typed: string, aboutCrop = crop) {
     const question = typed.trim();
@@ -206,7 +206,7 @@ export default function ChatScreen() {
                 borderCurve: 'continuous',
                 backgroundColor: mine ? colors.primary : colors.card,
               }}>
-              <Text style={{ fontSize: 16, lineHeight: 23, color: mine ? colors.white : colors.text }}>
+              <Text style={{ fontSize: 16, lineHeight: 23, color: mine ? colors.onPrimary : colors.text }}>
                 {item.text}
               </Text>
             </View>
@@ -270,7 +270,7 @@ export default function ChatScreen() {
               borderRadius: radius.small,
               backgroundColor: colors.primary,
             }}>
-            <Text style={{ fontSize: 16, fontWeight: '700', color: colors.white }}>{t.chat.send}</Text>
+            <Text style={{ fontSize: 16, fontWeight: '700', color: colors.onPrimary }}>{t.chat.send}</Text>
           </Pressable>
         </View>
       </View>
@@ -280,6 +280,7 @@ export default function ChatScreen() {
 
 // If the chat screen ever fails, this shows instead of closing the app, with a button to start a new chat
 export function ErrorBoundary({ retry }: ErrorBoundaryProps) {
+  const colors = useColors();
   const { t } = useApp();
   return (
     <View style={{ flex: 1, justifyContent: 'center', padding: 24, gap: 16 }}>
