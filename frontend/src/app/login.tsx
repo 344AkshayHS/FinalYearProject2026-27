@@ -7,10 +7,10 @@ import { Button } from '@/components/button';
 import { Text } from '@/components/text';
 import { TextField } from '@/components/text-field';
 import { ApiError } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
-import { colors } from '@/theme';
+import { useApp, useColors } from '@/lib/app-context';
 
 export default function LoginScreen() {
+  const colors = useColors();
   const { t, login } = useApp();
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');

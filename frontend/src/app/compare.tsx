@@ -7,14 +7,14 @@ import { Card } from '@/components/card';
 import { CropPicker } from '@/components/crop-picker';
 import { CropThumb } from '@/components/crop-photo';
 import { Text } from '@/components/text';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { cropRows, findCrop, landRows, MAX_COMPARE, resultPlace, type CropRow } from '@/lib/crops';
 import { cropName } from '@/lib/translations';
-import { colors } from '@/theme';
 
 // One fact for every chosen crop: the fact's name across the top, each crop's value below it in its column
 // (no sideways scrolling on a phone)
 function CompareRow({ label, values }: { label: string; values: (string | null)[] }) {
+  const colors = useColors();
   return (
     <View style={{ gap: 6, paddingVertical: 10, borderTopWidth: 1, borderTopColor: colors.border }}>
       <Text style={{ fontSize: 14, fontWeight: '600', color: colors.muted }}>{label}</Text>
@@ -44,6 +44,7 @@ function CompareRows({ crops, rowsOf }: { crops: string[]; rowsOf: (crop: string
 // Compare crops side by side: the farmer picks up to 3 (the page can open with some already chosen, such as the
 // crops of a result). Every figure is from the same sources as a crop's page.
 export default function CompareScreen() {
+  const colors = useColors();
   const params = useLocalSearchParams<{ crops?: string }>();
   const { t, language, crops, reloadCrops, lastResult } = useApp();
   const router = useRouter();

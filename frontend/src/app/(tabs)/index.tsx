@@ -13,11 +13,11 @@ import { Text } from '@/components/text';
 import { WaterSourceCard } from '@/components/water-source-card';
 import { WeatherCard, type WeatherPlace } from '@/components/weather-card';
 import { api, ApiError } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { detectLocation, ROUGH_ACCURACY_M, type DetectedLocation } from '@/lib/detect-location';
 import { SEASONS, seasonNow, type Season } from '@/lib/season';
 import { districtName, stateName, talukName } from '@/lib/translations';
-import { cardShadow, colors, radius } from '@/theme';
+import { cardShadow, radius } from '@/theme';
 
 function errorCode(err: unknown) {
   return err instanceof ApiError ? err.code : 'server_error';
@@ -35,6 +35,7 @@ const LOCATION_FIXES: Record<string, LocationFix> = {
 };
 
 export default function HomeScreen() {
+  const colors = useColors();
   const { t, user, token, language, setLastResult } = useApp();
 
   // Location: detected by GPS (asked for as soon as the screen opens), or picked by hand from the list.
@@ -249,13 +250,13 @@ export default function HomeScreen() {
             gap: 12,
             borderRadius: radius.large,
             borderCurve: 'continuous',
-            backgroundColor: colors.primary,
+            backgroundColor: colors.hero,
             boxShadow: cardShadow,
           }}>
-          <Text style={{ fontSize: 26, fontWeight: '800', color: colors.white }}>
+          <Text style={{ fontSize: 26, fontWeight: '800', color: colors.heroText }}>
             {t.hello.replace('{name}', firstName)} 👋
           </Text>
-          <Text style={{ fontSize: 16, lineHeight: 23, color: colors.primarySoft }}>{t.homeIntro}</Text>
+          <Text style={{ fontSize: 16, lineHeight: 23, color: colors.heroSubtext }}>{t.homeIntro}</Text>
         </View>
 
         {/* Location */}

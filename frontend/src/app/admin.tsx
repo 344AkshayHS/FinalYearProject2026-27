@@ -6,8 +6,8 @@ import { BarChart } from '@/components/bar-chart';
 import { Card } from '@/components/card';
 import { Chip } from '@/components/chip';
 import { api, ApiError } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
-import { colors, radius } from '@/theme';
+import { useApp, useColors } from '@/lib/app-context';
+import { radius } from '@/theme';
 
 // The ML dashboard for the project team (English only: it is for the presentation and the report).
 // Every number comes from GET /admin/overview: live service checks, the database, and the result
@@ -102,6 +102,7 @@ const METRICS: { key: keyof Comparison; label: string }[] = [
 const percent = (value: number) => `${(value * 100).toFixed(1)}%`;
 
 function Section({ title, note, children }: { title: string; note?: string; children: React.ReactNode }) {
+  const colors = useColors();
   return (
     <Card>
       <Text style={{ fontSize: 19, fontWeight: '800', color: colors.text }}>{title}</Text>
@@ -112,6 +113,7 @@ function Section({ title, note, children }: { title: string; note?: string; chil
 }
 
 function Stat({ label, value }: { label: string; value: string | number }) {
+  const colors = useColors();
   return (
     <View style={{ flexGrow: 1, flexBasis: '45%', padding: 12, gap: 2, borderRadius: radius.small, backgroundColor: colors.primarySoft }}>
       <Text style={{ fontSize: 13, color: colors.muted }}>{label}</Text>
@@ -133,11 +135,13 @@ function Stats({ items }: { items: [string, string | number][] }) {
 }
 
 function Line({ children }: { children: React.ReactNode }) {
+  const colors = useColors();
   return <Text style={{ fontSize: 15, lineHeight: 22, color: colors.text }}>{children}</Text>;
 }
 
 // What happens when a farmer taps "Find crops", in order, with the real source of each step
 function Pipeline({ crops, features }: { crops: number; features: number }) {
+  const colors = useColors();
   const steps = [
     ['Location', 'Phone GPS with expo-location: live position updates, kept until a reading is within 100 m or 30 s pass. Or a district picked from the list.'],
     ['District', 'Backend finds the district polygon the point is in (Karnataka Census 2011 and India district GeoJSON maps). OpenStreetMap Nominatim adds the taluk, and corrects the district near a border.'],
@@ -154,7 +158,7 @@ function Pipeline({ crops, features }: { crops: number; features: number }) {
       {steps.map(([title, text], index) => (
         <View key={title} style={{ flexDirection: 'row', gap: 12 }}>
           <View style={{ width: 28, height: 28, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.primary }}>
-            <Text style={{ fontSize: 14, fontWeight: '800', color: colors.white }}>{index + 1}</Text>
+            <Text style={{ fontSize: 14, fontWeight: '800', color: colors.onPrimary }}>{index + 1}</Text>
           </View>
           <View style={{ flex: 1, gap: 2 }}>
             <Text style={{ fontSize: 15, fontWeight: '800', color: colors.text }}>{title}</Text>
@@ -167,6 +171,7 @@ function Pipeline({ crops, features }: { crops: number; features: number }) {
 }
 
 export default function AdminScreen() {
+  const colors = useColors();
   const { adminToken, adminLogout } = useApp();
   const router = useRouter();
   const [data, setData] = useState<Overview | null>(null);

@@ -12,8 +12,7 @@ import { KeyboardView } from '@/components/keyboard-view';
 import { Text } from '@/components/text';
 import { TextField } from '@/components/text-field';
 import { api, ApiError } from '@/lib/api';
-import { useApp, type User } from '@/lib/app-context';
-import { colors } from '@/theme';
+import { useApp, type User, useColors } from '@/lib/app-context';
 
 // The photo is saved as a small square JPEG: enough for the profile circle, and about 30 KB to send
 const PHOTO_SIZE = 320;
@@ -22,6 +21,7 @@ const PICK_OPTIONS: ImagePicker.ImagePickerOptions = { mediaTypes: ['images'], a
 // "Edit profile": the photo (camera or gallery) and the name. The mobile number is shown but never changes: it is
 // the account's login ID. "Change password" opens its own page (change-password.tsx), as in most apps.
 export default function EditProfileScreen() {
+  const colors = useColors();
   const { t, user, token, updateUser, showPhoto } = useApp();
   const router = useRouter();
   const [name, setName] = useState(user?.full_name ?? '');

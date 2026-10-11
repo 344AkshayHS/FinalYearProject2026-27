@@ -6,15 +6,16 @@ import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { PhotoBox } from '@/components/crop-photo';
 import { Text } from '@/components/text';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { cropRows, findCrop, landRows, orderedPhotos, resultPlace, type CropRow } from '@/lib/crops';
 import { cropName } from '@/lib/translations';
-import { buttonShadow, colors, radius } from '@/theme';
+import { buttonShadow, radius } from '@/theme';
 
 const PAGE_PADDING = 20;
 
 // Label on the left, value on the right; "—" when our sources have no figure
 function FactRows({ rows }: { rows: CropRow[] }) {
+  const colors = useColors();
   return (
     <View>
       {rows.map((row, index) => (
@@ -41,6 +42,7 @@ function FactRows({ rows }: { rows: CropRow[] }) {
 // One crop's page: its photos (the harvested crop first; swipe or tap a small photo for the others), the heart
 // to save it, what it means for the farmer's land (last result) and what the crop is like
 export default function CropScreen() {
+  const colors = useColors();
   const { name } = useLocalSearchParams<{ name: string }>();
   const { t, language, crops, reloadCrops, lastResult, toggleSaved } = useApp();
   const router = useRouter();

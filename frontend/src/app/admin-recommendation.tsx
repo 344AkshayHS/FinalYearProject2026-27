@@ -5,8 +5,7 @@ import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { BarChart } from '@/components/bar-chart';
 import { Card } from '@/components/card';
 import { api, ApiError } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
-import { colors } from '@/theme';
+import { useApp, useColors } from '@/lib/app-context';
 
 // Every step of one saved recommendation, exactly as stored in PostgreSQL:
 // where it was, the soil and climate values the model got, what it answered and why.
@@ -50,6 +49,7 @@ const CLIMATE = [
 ];
 
 function Step({ number, title, children }: { number: number; title: string; children: React.ReactNode }) {
+  const colors = useColors();
   return (
     <Card>
       <Text style={{ fontSize: 19, fontWeight: '800', color: colors.text }}>
@@ -61,6 +61,7 @@ function Step({ number, title, children }: { number: number; title: string; chil
 }
 
 function Row({ label, value }: { label: string; value: string }) {
+  const colors = useColors();
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'space-between', gap: 8 }}>
       <Text style={{ fontSize: 15, color: colors.muted, flexShrink: 1 }}>{label}</Text>
@@ -72,10 +73,12 @@ function Row({ label, value }: { label: string; value: string }) {
 }
 
 function Note({ children }: { children: React.ReactNode }) {
+  const colors = useColors();
   return <Text style={{ fontSize: 13, lineHeight: 19, color: colors.muted }}>{children}</Text>;
 }
 
 export default function AdminRecommendationScreen() {
+  const colors = useColors();
   const { adminToken } = useApp();
   const { id } = useLocalSearchParams<{ id: string }>();
   const [trace, setTrace] = useState<Trace | null>(null);

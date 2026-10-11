@@ -3,11 +3,11 @@ import { Image, ScrollView, View } from 'react-native';
 
 import { Card } from '@/components/card';
 import { Text } from '@/components/text';
-import { useApp } from '@/lib/app-context';
-import { colors } from '@/theme';
+import { useApp, useColors } from '@/lib/app-context';
 
 // What GreenRoot is, its version, and where its data and photos come from
 export default function AboutScreen() {
+  const colors = useColors();
   const { t } = useApp();
   const version = Constants.expoConfig?.version ?? '';
 

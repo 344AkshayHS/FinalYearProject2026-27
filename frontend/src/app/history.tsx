@@ -8,15 +8,16 @@ import { Button } from '@/components/button';
 import { CropThumb } from '@/components/crop-photo';
 import { Text } from '@/components/text';
 import { api } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { placeOf, type PastResult } from '@/lib/past-results';
 import { cropName } from '@/lib/translations';
-import { cardShadow, colors, radius } from '@/theme';
+import { cardShadow, radius } from '@/theme';
 
 // The farmer's past results, newest first. Each crop opens its page.
 // The bin at the top right lets the farmer pick results and delete them from this list. The server only hides
 // them from the farmer: the project keeps every result (backend DELETE /users/me/recommendations).
 export default function HistoryScreen() {
+  const colors = useColors();
   const { t, token, language } = useApp();
   const router = useRouter();
   const navigation = useNavigation();
@@ -68,7 +69,7 @@ export default function HistoryScreen() {
           </Pressable>
         ) : null,
     });
-  }, [navigation, choosing, hasHistory, t]);
+  }, [navigation, choosing, hasHistory, t, colors]);
 
   function toggle(id: string) {
     setChosen((old) => (old.includes(id) ? old.filter((other) => other !== id) : [...old, id]));
@@ -160,7 +161,7 @@ export default function HistoryScreen() {
                       alignItems: 'center',
                       justifyContent: 'center',
                     }}>
-                    {picked && <SymbolView name={{ ios: 'checkmark', android: 'check', web: 'check' }} tintColor={colors.white} size={20} />}
+                    {picked && <SymbolView name={{ ios: 'checkmark', android: 'check', web: 'check' }} tintColor={colors.onPrimary} size={20} />}
                   </View>
                 )}
               </View>

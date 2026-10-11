@@ -9,14 +9,14 @@ import { KeyboardView } from '@/components/keyboard-view';
 import { Text } from '@/components/text';
 import { TextField } from '@/components/text-field';
 import { api, ApiError } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
-import { colors } from '@/theme';
+import { useApp, useColors } from '@/lib/app-context';
 
 const MIN_PASSWORD = 8; // the same rule as the server (backend/src/routes/users.js)
 
 // "Change password", opened from Edit profile: the old password, then the new one two times (like most apps).
 // The server checks the old password and logs the account out on every other phone.
 export default function ChangePasswordScreen() {
+  const colors = useColors();
   const { t, token } = useApp();
   const router = useRouter();
   const [oldPassword, setOldPassword] = useState('');

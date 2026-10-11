@@ -5,12 +5,12 @@ import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { CropRowLink } from '@/components/crop-photo';
 import { Text } from '@/components/text';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { MAX_COMPARE } from '@/lib/crops';
-import { colors } from '@/theme';
 
 // The crops the farmer saved with the heart on a crop's page, the latest first
 export default function SavedScreen() {
+  const colors = useColors();
   const { t, language, crops, reloadCrops } = useApp();
   const router = useRouter();
   const locale = language === 'kn' ? 'kn-IN' : 'en-IN';
