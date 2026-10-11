@@ -9,6 +9,8 @@
   /* Profile → Text size: 1, 1.2 or 1.4. Every font size is multiplied by it, and none is under 15px */
   --text-scale: 1;
   --page-width: 1200px;
+  /* Plain white (the other colours come from the phone app's theme file, see main.tsx) */
+  --white: #ffffff;
   --corner: 14px; /* boxes */
   --corner-small: 10px; /* buttons, fields */
   --line: 1px solid var(--border);

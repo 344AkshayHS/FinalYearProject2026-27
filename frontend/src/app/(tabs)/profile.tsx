@@ -6,19 +6,20 @@ import { Pressable, ScrollView, View } from 'react-native';
 
 import { Avatar } from '@/components/avatar';
 import { Button } from '@/components/button';
-import { LanguageSwitch } from '@/components/language-switch';
 import { NumeralsSwitch } from '@/components/numerals-switch';
 import { Text } from '@/components/text';
 import { TextSizeSwitch } from '@/components/text-size-switch';
+import { ThemeSetting } from '@/components/theme-setting';
 import { api } from '@/lib/api';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { placeOf, type PastResult } from '@/lib/past-results';
-import { cardShadow, colors, radius } from '@/theme';
+import { cardShadow, radius } from '@/theme';
 
 type MenuItem = { title: string; subtitle: string; href: Href; ios: SFSymbol; android: AndroidSymbol };
 
 // One line of the profile menu: icon, title, a short line under it, and an arrow. A tap opens the page.
 function MenuRow({ item, first }: { item: MenuItem; first: boolean }) {
+  const colors = useColors();
   const router = useRouter();
   return (
     <Pressable
@@ -43,9 +44,10 @@ function MenuRow({ item, first }: { item: MenuItem; first: boolean }) {
   );
 }
 
-// The Profile tab: who is logged in, a menu (history, saved crops, compare, about), the language, the admin
-// login and log out
+// The Profile tab: who is logged in, a menu (history, saved crops, compare, about), the theme, the text size, the
+// numbers (in Kannada) and log out
 export default function ProfileScreen() {
+  const colors = useColors();
   const { t, user, token, language, logout, crops } = useApp();
   const router = useRouter();
   const [latest, setLatest] = useState<PastResult | null>(null);
@@ -132,6 +134,9 @@ export default function ProfileScreen() {
         ))}
       </View>
 
+      {/* Light or dark colours */}
+      <ThemeSetting />
+
       {/* Text size: bigger letters for people who cannot read small text */}
       <View style={cardStyle}>
         <Text style={{ fontSize: 18, fontWeight: '800', color: colors.text }}>{t.textSize.title}</Text>
@@ -139,18 +144,13 @@ export default function ProfileScreen() {
         <Text style={{ fontSize: 16, color: colors.muted }}>{t.textSize.sample}</Text>
       </View>
 
-      {/* Language */}
-      <View style={cardStyle}>
-        <Text style={{ fontSize: 18, fontWeight: '800', color: colors.text }}>{t.language}</Text>
-        <LanguageSwitch />
-        {/* In Kannada: numbers as 0-9 or as Kannada numerals */}
-        {language === 'kn' && (
-          <>
-            <Text style={{ fontSize: 16, fontWeight: '700', color: colors.text }}>{t.numbers}</Text>
-            <NumeralsSwitch />
-          </>
-        )}
-      </View>
+      {/* In Kannada: numbers as 0-9 or as Kannada numerals. The language itself is switched at the top right. */}
+      {language === 'kn' && (
+        <View style={cardStyle}>
+          <Text style={{ fontSize: 18, fontWeight: '800', color: colors.text }}>{t.numbers}</Text>
+          <NumeralsSwitch />
+        </View>
+      )}
 
       <Button title={t.logout} onPress={logout} variant="outline" />
     </ScrollView>

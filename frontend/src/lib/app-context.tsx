@@ -12,8 +12,9 @@ import type { Numerals } from '@/lib/digits';
 import { farmSummary, type FarmSummary } from '@/lib/chatbot';
 import type { CropData, LastResult } from '@/lib/crops';
 import { isTextSize, type TextSize } from '@/lib/text-size';
-import type { ForecastPlace } from '@/lib/weather';
+import type { ForecastPlace, WeatherNow } from '@/lib/weather';
 import { translations, type Language } from '@/lib/translations';
+import { isTheme, THEME_COLORS, type Theme } from '@/theme';
 
 export type User = {
   id: string;
@@ -46,6 +47,9 @@ type AppState = {
   // Normal, big or bigger letters everywhere (components/text.tsx). Remembered on this device.
   textSize: TextSize;
   setTextSize: (size: TextSize) => void;
+  // Light (the original look) or dark colours (theme.ts). Remembered on this device.
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
   // Admin (ML dashboard) login. Kept in memory only, so closing the app logs the admin out.
   adminToken: string | null;
   adminLogin: (username: string, password: string) => Promise<void>;
@@ -55,6 +59,9 @@ type AppState = {
   // Where the weather card's forecast is for (set by the card), so the chat can answer "today's weather?" there
   forecastPlace: ForecastPlace | null;
   setForecastPlace: (place: ForecastPlace | null) => void;
+  // The weather card's last forecast and the place's name, for the bell's rain warning (lib/notices.ts)
+  forecast: { label: string; weather: WeatherNow } | null;
+  setForecast: (forecast: { label: string; weather: WeatherNow } | null) => void;
   setLastResult: (result: LastResult | null) => void;
   farm: FarmSummary | null;
   // Every crop (photos, FAO needs) and the farmer's saved crops: null while loading, 'failed' if it could not load
@@ -72,12 +79,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>('en');
   const [numerals, setNumeralsState] = useState<Numerals>('western');
   const [textSize, setTextSizeState] = useState<TextSize>('normal');
+  const [theme, setThemeState] = useState<Theme>('light');
   // The last photo loaded, with the photo_updated_at it belongs to: a photo of an older version (or of another
   // account) is never shown
   const [photoLoaded, setPhotoLoaded] = useState<{ version: string; picture: string } | null>(null);
   const [adminToken, setAdminToken] = useState<string | null>(null);
   const [lastResult, setLastResult] = useState<LastResult | null>(null);
   const [forecastPlace, setForecastPlace] = useState<ForecastPlace | null>(null);
+  const [forecast, setForecast] = useState<{ label: string; weather: WeatherNow } | null>(null);
   const [crops, setCrops] = useState<CropData | null | 'failed'>(null);
   const [cropsAttempt, setCropsAttempt] = useState(0); // "Try again" loads the crops again
 
@@ -90,6 +99,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setUser(null);
       setLastResult(null);
       setForecastPlace(null);
+      setForecast(null);
       setCrops(null);
     });
 
@@ -104,6 +114,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
       const savedSize = await SecureStore.getItemAsync('textSize');
       if (isTextSize(savedSize)) {
         setTextSizeState(savedSize);
+      }
+      const savedTheme = await SecureStore.getItemAsync('theme');
+      if (isTheme(savedTheme)) {
+        setThemeState(savedTheme); // before the first screen is drawn (ready), so it never flashes in the other colours
       }
 
       const savedToken = await SecureStore.getItemAsync('token');
@@ -218,6 +232,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setUser(null);
     setLastResult(null);
     setForecastPlace(null);
+    setForecast(null);
     setCrops(null);
   }
 
@@ -229,6 +244,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   function setTextSize(size: TextSize) {
     setTextSizeState(size);
     SecureStore.setItemAsync('textSize', size).catch(() => {});
+  }
+
+  function setTheme(newTheme: Theme) {
+    setThemeState(newTheme);
+    SecureStore.setItemAsync('theme', newTheme).catch(() => {});
   }
 
   async function setLanguage(newLanguage: Language) {
@@ -258,12 +278,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
         setNumerals,
         textSize,
         setTextSize,
+        theme,
+        setTheme,
         adminToken,
         adminLogin,
         adminLogout,
         lastResult,
         forecastPlace,
         setForecastPlace,
+        forecast,
+        setForecast,
         setLastResult,
         farm: lastResult ? farmSummary(lastResult.data, lastResult.waterSource) : null,
         crops,
@@ -273,6 +297,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
       {children}
     </AppContext>
   );
+}
+
+// The colours of the chosen theme (theme.ts), for drawing a screen
+export function useColors() {
+  return THEME_COLORS[useApp().theme];
 }
 
 export function useApp() {
