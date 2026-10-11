@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import { Animated, Image, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { LanguageButton } from '@/components/language-button';
+import { HeaderActions } from '@/components/header-actions';
 import { Text } from '@/components/text';
-import { useApp } from '@/lib/app-context';
+import { useApp, useColors } from '@/lib/app-context';
 import { TEXT_SCALE } from '@/lib/text-size';
-import { colors, tabBarShadow } from '@/theme';
+import { tabBarShadow } from '@/theme';
 
 // One tab's icon, in the style of WhatsApp and other Android apps (Google's Material 3 bottom bar):
 // the chosen tab gets a light green pill behind its icon, which grows in from the middle when it is tapped.
@@ -17,6 +17,7 @@ import { colors, tabBarShadow } from '@/theme';
 type TabIconProps = { focused: boolean; color: string; ios: [SFSymbol, SFSymbol]; android: 'home' | 'sms' | 'person' };
 
 function TabIcon({ focused, color, ios, android }: TabIconProps) {
+  const colors = useColors();
   const [grow] = useState(() => new Animated.Value(focused ? 1 : 0));
 
   useEffect(() => {
@@ -50,6 +51,7 @@ function TabLabel({ text, focused, color }: { text: string; focused: boolean; co
 // The three screens stay open while the farmer moves between them, so a result on Home or a chat is still
 // there when they come back.
 export default function TabsLayout() {
+  const colors = useColors();
   const { t, textSize } = useApp();
   const insets = useSafeAreaInsets();
   const scale = TEXT_SCALE[textSize]; // bigger letters (Profile → Text size) need a taller bar and title
@@ -61,8 +63,11 @@ export default function TabsLayout() {
         headerTintColor: colors.primaryDark,
         headerTitleStyle: { fontWeight: '700', fontSize: Math.round(20 * scale) },
         headerShadowVisible: false,
-        // One tap switches every screen between English and Kannada
-        headerRight: () => <LanguageButton />,
+        // Top right: the English/Kannada switch and the bell (rain, season and crop messages). With big letters on a
+        // narrow phone the title gets shorter ("Crop hel…") instead of running under these buttons.
+        headerRight: () => <HeaderActions />,
+        headerRightContainerStyle: { flexShrink: 0, flexBasis: 'auto' },
+        headerTitleContainerStyle: { flexShrink: 1, minWidth: 0 },
         sceneStyle: { backgroundColor: colors.background },
         // Chosen tab: dark green and a bold label. The others: grey.
         tabBarActiveTintColor: colors.primaryDark,
@@ -91,12 +96,14 @@ export default function TabsLayout() {
           title: t.chat.title,
           // The GreenRoot robot next to the title
           headerTitle: () => (
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, flexShrink: 1, minWidth: 0 }}>
               <Image
                 source={require('../../../assets/images/chatbot.png')}
                 style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: colors.primaryDark }}
               />
-              <Text style={{ fontSize: 17, fontWeight: '700', color: colors.primaryDark }}>{t.chat.title}</Text>
+              <Text numberOfLines={1} style={{ flexShrink: 1, minWidth: 0, fontSize: 17, fontWeight: '700', color: colors.primaryDark }}>
+                {t.chat.title}
+              </Text>
             </View>
           ),
           tabBarLabel: ({ focused, color }) => <TabLabel text={t.tabs.chat} focused={focused} color={String(color)} />,

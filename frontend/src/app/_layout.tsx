@@ -2,16 +2,18 @@ import { Stack } from 'expo-router';
 import { Pressable, Text } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
+import * as SystemUI from 'expo-system-ui';
 import { useEffect } from 'react';
 
-import { AppProvider, useApp } from '@/lib/app-context';
+import { AppProvider, useApp, useColors } from '@/lib/app-context';
+import { NoticesProvider } from '@/lib/notices-context';
 import { TEXT_SCALE } from '@/lib/text-size';
-import { colors } from '@/theme';
 
 SplashScreen.preventAutoHideAsync();
 
 function Screens() {
-  const { t, ready, user, adminToken, adminLogout, textSize } = useApp();
+  const colors = useColors();
+  const { t, ready, user, adminToken, adminLogout, textSize, theme } = useApp();
 
   // Keep the splash screen until we know if the user is logged in
   useEffect(() => {
@@ -20,66 +22,78 @@ function Screens() {
     }
   }, [ready]);
 
+  // The phone's own background behind the screens (seen while a page slides in) follows the theme
+  useEffect(() => {
+    SystemUI.setBackgroundColorAsync(colors.background).catch(() => {});
+  }, [colors.background]);
+
   if (!ready) {
     return null;
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: { backgroundColor: colors.background },
-        headerTintColor: colors.primaryDark,
-        headerTitleStyle: { fontWeight: '700', fontSize: Math.round(20 * TEXT_SCALE[textSize]) },
-        headerShadowVisible: false,
-        contentStyle: { backgroundColor: colors.background },
-      }}>
-      {/* Only for logged-out users */}
-      <Stack.Protected guard={!user}>
-        <Stack.Screen name="login" options={{ headerShown: false }} />
-        <Stack.Screen name="register" options={{ headerShown: false }} />
-      </Stack.Protected>
+    <>
+      {/* Dark clock and battery icons on the light theme, light ones on the dark theme */}
+      <StatusBar style={theme === 'dark' ? 'light' : 'dark'} />
+      <Stack
+        screenOptions={{
+          headerStyle: { backgroundColor: colors.background },
+          headerTintColor: colors.primaryDark,
+          headerTitleStyle: { fontWeight: '700', fontSize: Math.round(20 * TEXT_SCALE[textSize]) },
+          headerShadowVisible: false,
+          contentStyle: { backgroundColor: colors.background },
+        }}>
+        {/* Only for logged-out users */}
+        <Stack.Protected guard={!user}>
+          <Stack.Screen name="login" options={{ headerShown: false }} />
+          <Stack.Screen name="register" options={{ headerShown: false }} />
+        </Stack.Protected>
 
-      {/* Only for logged-in users */}
-      <Stack.Protected guard={!!user}>
-        {/* Home, Chatbot and Profile, with the bar at the bottom: see app/(tabs)/_layout.tsx */}
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        {/* Only for logged-in users */}
+        <Stack.Protected guard={!!user}>
+          {/* Home, Chatbot and Profile, with the bar at the bottom: see app/(tabs)/_layout.tsx */}
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 
-        {/* Pages that open over the tabs, with a back arrow: a crop (it sets its own title, the crop's name),
-            the compare table, and the profile's history, saved crops, about and edit profile pages */}
-        <Stack.Screen name="crop/[name]" options={{ title: '' }} />
-        <Stack.Screen name="compare" options={{ title: t.compare.title }} />
-        <Stack.Screen name="history" options={{ title: t.profileMenu.history }} />
-        <Stack.Screen name="saved" options={{ title: t.profileMenu.saved }} />
-        <Stack.Screen name="about" options={{ title: t.profileMenu.about }} />
-        <Stack.Screen name="edit-profile" options={{ title: t.editProfile.title }} />
-        <Stack.Screen name="change-password" options={{ title: t.changePassword.title }} />
-      </Stack.Protected>
+          {/* Pages that open over the tabs, with a back arrow: a crop (it sets its own title, the crop's name),
+              the compare table, and the profile's history, saved crops, about and edit profile pages */}
+          <Stack.Screen name="crop/[name]" options={{ title: '' }} />
+          <Stack.Screen name="compare" options={{ title: t.compare.title }} />
+          <Stack.Screen name="history" options={{ title: t.profileMenu.history }} />
+          <Stack.Screen name="saved" options={{ title: t.profileMenu.saved }} />
+          <Stack.Screen name="about" options={{ title: t.profileMenu.about }} />
+          <Stack.Screen name="edit-profile" options={{ title: t.editProfile.title }} />
+          <Stack.Screen name="change-password" options={{ title: t.changePassword.title }} />
+          <Stack.Screen name="notifications" options={{ title: t.notices.title }} />
+          <Stack.Screen name="feedback/[id]" options={{ title: t.feedbackPage.title }} />
+        </Stack.Protected>
 
-      {/* Only after the admin login on the login screen (no farmer account needed). English only. "Log out"
-          ends the admin session and goes back to the login screen (or Home for a logged-in farmer). */}
-      <Stack.Protected guard={!!adminToken}>
-        <Stack.Screen
-          name="admin"
-          options={{
-            title: 'ML dashboard',
-            headerRight: () => (
-              <Pressable onPress={adminLogout} accessibilityRole="button" hitSlop={10}>
-                <Text style={{ fontSize: 16, fontWeight: '600', color: colors.primary }}>Log out</Text>
-              </Pressable>
-            ),
-          }}
-        />
-        <Stack.Screen name="admin-recommendation" options={{ title: 'One recommendation, step by step' }} />
-      </Stack.Protected>
-    </Stack>
+        {/* Only after the admin login on the login screen (no farmer account needed). English only. "Log out"
+            ends the admin session and goes back to the login screen (or Home for a logged-in farmer). */}
+        <Stack.Protected guard={!!adminToken}>
+          <Stack.Screen
+            name="admin"
+            options={{
+              title: 'ML dashboard',
+              headerRight: () => (
+                <Pressable onPress={adminLogout} accessibilityRole="button" hitSlop={10}>
+                  <Text style={{ fontSize: 16, fontWeight: '600', color: colors.primary }}>Log out</Text>
+                </Pressable>
+              ),
+            }}
+          />
+          <Stack.Screen name="admin-recommendation" options={{ title: 'One recommendation, step by step' }} />
+        </Stack.Protected>
+      </Stack>
+    </>
   );
 }
 
 export default function RootLayout() {
   return (
     <AppProvider>
-      <StatusBar style="dark" />
-      <Screens />
+      <NoticesProvider>
+        <Screens />
+      </NoticesProvider>
     </AppProvider>
   );
 }
