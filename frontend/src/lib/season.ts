@@ -5,6 +5,9 @@ export type Season = 'Kharif' | 'Rabi' | 'Summer';
 
 export const SEASONS: Season[] = ['Kharif', 'Rabi', 'Summer'];
 
+// The month each season starts in (1 June, 1 October, 1 February), as seasonNow below counts them
+export const SEASON_START_MONTH: Record<Season, number> = { Kharif: 6, Rabi: 10, Summer: 2 };
+
 // Crops that stand in the field all year (plantation crops, fruit trees, sugarcane, tapioca). The model
 // counts them in every season, so the app marks them instead of calling them a crop of this season.
 // The same list as YEAR_ROUND in ml-service/training/forest.py.

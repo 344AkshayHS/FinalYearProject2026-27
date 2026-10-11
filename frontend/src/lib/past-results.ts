@@ -13,6 +13,7 @@ export type PastResult = {
   state: string | null;
   district: string | null;
   crops: { crop: string; score: string }[] | null;
+  feedback_given?: boolean; // the farmer already said how a crop went (missing from an older server)
 };
 
 // "Mysuru, Karnataka" (Karnataka districts are saved under our crop-data names, which districtName writes nicely).
