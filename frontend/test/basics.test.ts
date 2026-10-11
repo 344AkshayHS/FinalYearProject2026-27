@@ -134,3 +134,89 @@ test('photo bytes become the same base64 text as Node makes, for every length of
     assert.strictEqual(toBase64(new Uint8Array(bytes)), Buffer.from(bytes).toString('base64'));
   }
 });
+
+test('the bell: rain today or tomorrow from the forecast, from 2.5 mm, with the place', async () => {
+  const { buildNotices } = await import('@/lib/notices');
+  const forecast = (rain: number[]) => ({
+    label: 'Mysuru',
+    weather: {
+      in_middle: false,
+      now: { time: '2026-11-15T09:00', temperature_c: 25, feels_like_c: 26, humidity_pct: 70, wind_kmh: 8, rain_mm: 0, code: 3, is_day: true },
+      days: rain.map((mm, i) => ({ date: `2026-11-${15 + i}`, code: 61, max_c: 28, min_c: 19, rain_mm: mm, rain_chance_pct: 80 })),
+    },
+  });
+  const now = new Date('2026-11-15T09:00'); // no season message on this day
+  const rain = (rainMm: number[]) => buildNotices({ now, language: 'en', forecast: forecast(rainMm), results: null });
+
+  const tomorrow = rain([0, 12, 30]);
+  assert.strictEqual(tomorrow.length, 1);
+  assert.strictEqual(tomorrow[0].id, 'rain:2026-11-16');
+  assert.strictEqual(tomorrow[0].title, 'Rain expected tomorrow');
+  assert.match(tomorrow[0].text, /12 mm of rain in Mysuru/);
+  assert.strictEqual(rain([3, 0, 0])[0].title, 'Rain expected today');
+  assert.deepStrictEqual(rain([2.4, 0, 40]), []); // under 2.5 mm, and the day after tomorrow does not count
+  assert.deepStrictEqual(buildNotices({ now, language: 'en', forecast: null, results: null }), []);
+});
+
+test('the bell: a season has started (first 30 days) or starts in the next 14 days', async () => {
+  const { buildNotices } = await import('@/lib/notices');
+  const ids = (date: string) => buildNotices({ now: new Date(date + 'T10:00'), language: 'en', forecast: null, results: null }).map((n) => n.id);
+  assert.deepStrictEqual(ids('2026-10-09'), ['season:Rabi:2026']);
+  assert.deepStrictEqual(ids('2026-06-01'), ['season:Kharif:2026']);
+  assert.deepStrictEqual(ids('2026-11-15'), []);
+  assert.deepStrictEqual(ids('2026-05-20'), ['season-soon:Kharif:2026']);
+  assert.deepStrictEqual(ids('2026-09-25'), ['season-soon:Rabi:2026']);
+  assert.deepStrictEqual(ids('2027-01-25'), ['season-soon:Summer:2027']); // rabi started in October 2026, long ago
+  assert.deepStrictEqual(ids('2027-01-10'), []);
+  assert.deepStrictEqual(ids('2027-02-10'), ['season:Summer:2027']);
+});
+
+test('the bell: asks about the newest result 1-12 months old that has no feedback yet', async () => {
+  const { buildNotices } = await import('@/lib/notices');
+  const now = new Date('2026-11-15T10:00');
+  const result = (id: string, daysAgo: number, feedback_given?: boolean) => ({
+    id,
+    created_at: new Date(now.getTime() - daysAgo * 24 * 60 * 60 * 1000).toISOString(),
+    season: 'Rabi' as const,
+    latitude: '12.3',
+    longitude: '76.6',
+    state: 'Karnataka',
+    district: 'MYSORE',
+    crops: [{ crop: 'ragi', score: '0.4' }],
+    feedback_given,
+  });
+  const notices = (results: ReturnType<typeof result>[], language: 'en' | 'kn' = 'en') =>
+    buildNotices({ now, language, forecast: null, results });
+
+  const asked = notices([result('1', 10, false), result('2', 40, true), result('3', 50, false), result('4', 400, false)]);
+  assert.deepStrictEqual(asked.map((n) => n.id), ['feedback:3']);
+  assert.deepStrictEqual(asked[0].opens, { feedback: '3' });
+  assert.match(asked[0].text, /Mysuru/);
+  assert.deepStrictEqual(notices([result('5', 50)]), []); // an older server sends no feedback_given: no question
+  const kannada = notices([result('3', 50, false)], 'kn')[0];
+  assert.ok(!/[{}]/.test(kannada.title + kannada.text), 'every blank is filled');
+});
+
+test('dark and light themes have the same colour names and readable text', async () => {
+  const { THEME_COLORS } = await import('@/theme');
+  const luminance = (hex: string) => {
+    const [r, g, b] = (hex.match(/\w\w/g) ?? []).map((x) => parseInt(x, 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  };
+  const contrast = (a: string, b: string) => {
+    const [high, low] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+    return (high + 0.05) / (low + 0.05);
+  };
+  const { light, dark } = THEME_COLORS;
+  assert.deepStrictEqual(Object.keys(dark), Object.keys(light));
+  assert.notStrictEqual(dark.background, light.background);
+  for (const theme of [light, dark]) {
+    for (const [text, on] of [
+      ['text', 'background'], ['text', 'card'], ['muted', 'card'], ['primaryDark', 'card'], ['warningText', 'accentSoft'],
+      ['primary', 'background'], ['primary', 'card'], ['onPrimary', 'primary'], ['onPrimary', 'danger'],
+      ['heroText', 'hero'], ['heroSubtext', 'hero'], ['muted', 'primarySoft'], ['danger', 'card'],
+    ] as const) {
+      assert.ok(contrast(theme[text], theme[on]) >= 4.5, `${text} on ${on}: ${contrast(theme[text], theme[on]).toFixed(2)}`);
+    }
+  }
+});
