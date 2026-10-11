@@ -197,12 +197,14 @@ router.delete('/me/photo', requireUser, async (req, res) => {
 });
 
 // GET /users/me/recommendations  -> { recommendations: the user's last 20 results, newest first, total: how many in all }
-// Each result has the place it was asked for (state and district as saved) and its crops, best first.
+// Each result has the place it was asked for (state and district as saved), its crops, best first, and
+// feedback_given: whether the farmer already said how a crop went (the app then stops asking, see lib/notices.ts).
 router.get('/me/recommendations', requireUser, async (req, res) => {
   const result = await pool.query(
     `SELECT r.id, r.created_at, r.season, l.latitude, l.longitude, l.state, l.district,
             (SELECT json_agg(json_build_object('crop', i.crop, 'score', i.score) ORDER BY i.rank)
-             FROM recommendation_items i WHERE i.recommendation_id = r.id) AS crops
+             FROM recommendation_items i WHERE i.recommendation_id = r.id) AS crops,
+            EXISTS (SELECT 1 FROM crop_feedback f WHERE f.recommendation_id = r.id) AS feedback_given
      FROM recommendations r JOIN locations l ON l.id = r.location_id
      WHERE r.user_id = $1 AND r.hidden_at IS NULL
      ORDER BY r.created_at DESC
