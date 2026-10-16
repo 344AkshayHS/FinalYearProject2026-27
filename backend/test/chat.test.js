@@ -52,3 +52,40 @@ test('broken or empty AI replies are refused, and unknown crops are dropped', ()
   const result = checkReply(reply({ answer: 'Good choice.', crop: 'banana split', source: 'facts' }), FACTS, KNOWN, null, 'en');
   assert.strictEqual(result.crop, null);
 });
+
+// --- Asking the AIs: the first usable answer, without waiting for a slow AI (firstUsable in routes/chat.js)
+const { firstUsable } = require('../src/routes/chat');
+const later = (ms, value) => new Promise((resolve) => setTimeout(() => resolve(value), ms));
+
+test('the first AI answers: the second is not asked', async () => {
+  const asked = [];
+  const result = await firstUsable(
+    [['A', 'a'], ['B', 'b']],
+    (name) => {
+      asked.push(name);
+      return later(10, `answer ${name}`);
+    }
+  );
+  assert.strictEqual(result, 'answer A');
+  await later(20);
+  assert.deepStrictEqual(asked, ['A']);
+});
+
+test('the first AI cannot answer: the second is asked at once', async () => {
+  const start = Date.now();
+  const result = await firstUsable([['A'], ['B']], (name) => later(10, name === 'A' ? null : 'answer B'));
+  assert.strictEqual(result, 'answer B');
+  assert.ok(Date.now() - start < 1000);
+});
+
+test('the first AI is slow: the second is asked too, and the first usable answer is sent', async () => {
+  const start = Date.now();
+  const result = await firstUsable([['A'], ['B']], (name) => (name === 'A' ? later(6000, 'answer A') : later(10, 'answer B')));
+  assert.strictEqual(result, 'answer B');
+  assert.ok(Date.now() - start < 4500, `took ${Date.now() - start} ms`);
+});
+
+test('no AI can answer: null', async () => {
+  assert.strictEqual(await firstUsable([['A'], ['B']], () => later(5, null)), null);
+});
+
