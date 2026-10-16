@@ -133,7 +133,9 @@ CREATE TABLE recommendations (
     model_version        TEXT          NOT NULL,   -- e.g. 'rf-india-2.0'
     season               TEXT          CHECK (season IN ('Kharif', 'Rabi', 'Summer')),   -- NULL for yearly models (1.x)
     farmer_soil          JSONB,        -- the farmer's own soil test values, if given
-    hidden_at            TIMESTAMPTZ,  -- the farmer deleted it from their history (still kept here)
+    from_gps             BOOLEAN,      -- made from the phone's GPS (not a district picked by hand); Profile's "Last checked"
+    best_to_sow          TEXT,         -- the crop shown as "Best crop to sow this season" (NULL: saved before this was kept)
+    hidden_at            TIMESTAMPTZ,  -- the farmer deleted it from their history (still kept here, until it is one of the oldest past 100 per farmer)
     created_at           TIMESTAMPTZ   NOT NULL DEFAULT now()
 );
 
@@ -173,6 +175,17 @@ CREATE TABLE crop_feedback (
 );
 
 -- ---------------------------------------------------------------------------
+-- chosen_crops: "I will grow this" - the crops a farmer chose to grow from one result (several are allowed).
+-- My crops history and the bell ask how it went only about these.
+-- ---------------------------------------------------------------------------
+CREATE TABLE chosen_crops (
+    recommendation_id   BIGINT      NOT NULL REFERENCES recommendations (id) ON DELETE CASCADE,
+    crop                TEXT        NOT NULL,
+    created_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (recommendation_id, crop)
+);
+
+-- ---------------------------------------------------------------------------
 -- saved_crops: the crops a farmer marks with the heart on a crop's page
 -- ---------------------------------------------------------------------------
 CREATE TABLE saved_crops (
@@ -181,5 +194,80 @@ CREATE TABLE saved_crops (
     created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
     PRIMARY KEY (user_id, crop)
 );
+
+-- ---------------------------------------------------------------------------
+-- phone_codes: one-time codes sent by SMS for a new account ('register') or "Forgot password" ('reset').
+-- One row per number and purpose, only the code's hash is kept. How many codes a number may get is a token bucket:
+-- 3 at once, one more every 30 s, at most 5 times; 24 hours after first_sent_at it starts again (src/phone-codes.js).
+-- ---------------------------------------------------------------------------
+CREATE TABLE phone_codes (
+    phone           TEXT        NOT NULL,
+    purpose         TEXT        NOT NULL CHECK (purpose IN ('register', 'reset')),
+    code_hash       TEXT        NOT NULL,
+    tries           SMALLINT    NOT NULL DEFAULT 0,        -- codes typed in for it; 5 and it stops working
+    expires_at      TIMESTAMPTZ NOT NULL,                  -- set to now() once the code has been used
+    tokens          SMALLINT    NOT NULL DEFAULT 3,        -- codes that may be sent right now
+    refills         SMALLINT    NOT NULL DEFAULT 0,        -- codes added back since first_sent_at
+    refilled_at     TIMESTAMPTZ NOT NULL DEFAULT now(),    -- the next code is added 30 s after this
+    first_sent_at   TIMESTAMPTZ NOT NULL DEFAULT now(),    -- start of the 24 hours
+    last_sent_at    TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (phone, purpose)
+);
+
+-- ---------------------------------------------------------------------------
+-- deleted_accounts: "Delete account permanently" deletes the account and all its data; only this copy of the login
+-- details is kept (number, name, password hash). The number may make a new account later.
+-- ---------------------------------------------------------------------------
+CREATE TABLE deleted_accounts (
+    id                  BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_id             BIGINT      NOT NULL,              -- the id the account had in users
+    full_name           TEXT        NOT NULL,
+    phone               TEXT        NOT NULL,
+    password_hash       TEXT        NOT NULL,              -- scrypt "salt:hash", as it was in users
+    account_created_at  TIMESTAMPTZ NOT NULL,
+    deleted_at          TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX deleted_accounts_phone_idx ON deleted_accounts (phone);
+
+-- ---------------------------------------------------------------------------
+-- help_requests: "Send a request" in the app. The team answers by filling in reply (pgAdmin); the app shows it.
+-- ---------------------------------------------------------------------------
+CREATE TABLE help_requests (
+    id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_id     BIGINT      NOT NULL REFERENCES users (id) ON DELETE CASCADE,
+    topic       TEXT        NOT NULL CHECK (topic IN ('history', 'account', 'app', 'other')),
+    message     TEXT        NOT NULL CHECK (char_length(message) BETWEEN 1 AND 1000),
+    reply       TEXT,                                  -- the team's answer, typed in pgAdmin; null: not answered yet
+    replied_at  TIMESTAMPTZ,
+    created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX help_requests_user_idx ON help_requests (user_id);
+
+-- ---------------------------------------------------------------------------
+-- chats, chat_messages: the farmer's past chats with the crop helper (the list on the chat's side). At most 50
+-- chats per farmer, 200 messages per chat (routes/chats.js).
+-- ---------------------------------------------------------------------------
+CREATE TABLE chats (
+    id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_id     BIGINT      NOT NULL REFERENCES users (id) ON DELETE CASCADE,
+    title       TEXT        NOT NULL CHECK (char_length(title) BETWEEN 1 AND 80),   -- the first question
+    created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX chats_user_idx ON chats (user_id, updated_at DESC);
+
+CREATE TABLE chat_messages (
+    id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    chat_id     BIGINT      NOT NULL REFERENCES chats (id) ON DELETE CASCADE,
+    sender      TEXT        NOT NULL CHECK (sender IN ('user', 'bot')),
+    text        TEXT        NOT NULL CHECK (char_length(text) BETWEEN 1 AND 4000),
+    general     BOOLEAN     NOT NULL DEFAULT false,   -- a general AI answer (the app marks it "please confirm")
+    created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX chat_messages_chat_idx ON chat_messages (chat_id, id);
 
 COMMIT;
