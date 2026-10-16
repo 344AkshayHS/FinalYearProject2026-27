@@ -65,7 +65,8 @@ if (Listening $port) {
 } else {
   $behindTunnel = ''
   if ($tunnel) { $behindTunnel = "`$env:TRUST_PROXY = '1'; `$env:COOKIE_SECURE = 'true'; `$env:PUBLIC_URL = '$publicUrl'; " }
-  OpenWindow 'GreenRoot backend' 'backend' "$behindTunnel node --env-file=.env src/server.js"
+  # --watch: the backend restarts by itself when its code changes, so a change is never left waiting on an old copy
+  OpenWindow 'GreenRoot backend' 'backend' "$behindTunnel node --watch --env-file=.env src/server.js"
 }
 
 # 3. The tunnel

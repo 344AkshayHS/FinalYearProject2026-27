@@ -8,7 +8,7 @@ const path = require('path');
 const FOLDER = path.join(__dirname, '../../../crop-images');
 const LIST = JSON.parse(fs.readFileSync(path.join(FOLDER, 'crops.json'), 'utf8'));
 
-// Every crop of the app: the 93 crops of ml-service/artifacts/crop_requirements.csv, the same names
+// Every crop of the app: every crop of ml-service/artifacts/crop_requirements.csv, the same names
 const KNOWN_CROPS = new Set(Object.keys(LIST));
 
 // Each crop's photos that are really on disk (a slot with no good free photo has none), with the credit the
@@ -23,6 +23,8 @@ const PHOTOS = Object.fromEntries(
         .map((image) => ({
           slot: image.slot, // field, close_up, pods, seeds (the harvested crop) or mature
           path: 'crop-images/' + image.file,
+          // A 360 px copy for lists (crop-images/make_small.py), only for the photo a crop shows in lists
+          small: fs.existsSync(path.join(FOLDER, 'small', image.file)) ? 'crop-images/small/' + image.file : null,
           author: image.author,
           license: image.license,
           license_url: image.license_url,
