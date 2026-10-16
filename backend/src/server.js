@@ -2,10 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const { deleteOldSessions, readUser, stopForgedRequests } = require('./auth');
+const { deleteOldCodes } = require('./phone-codes');
 const { LIMITS, limitRequests } = require('./rate-limit');
 const cropPhotos = require('./services/crop-photos');
 const adminRoute = require('./routes/admin');
 const chatRoute = require('./routes/chat');
+const chatsRoute = require('./routes/chats');
 const cropsRoute = require('./routes/crops');
 const feedbackRoute = require('./routes/feedback');
 const locationRoute = require('./routes/location');
@@ -78,14 +80,17 @@ api.get('/', (req, res) => {
   res.send('GreenRoot backend is running');
 });
 
-// Passwords can be guessed one name at a time, so logins and new accounts are limited per address as well
-api.use(['/users/login', '/users/register', '/admin/login'], limitRequests(LIMITS.loginsPer15Minutes, 15));
+// Passwords and SMS codes can be guessed one name at a time, so logins, new accounts and new passwords are limited
+// per address as well. Each SMS code costs money, so asking for one is limited on its own too.
+api.use(['/users/login', '/users/register', '/users/forgot-password', '/admin/login'], limitRequests(LIMITS.loginsPer15Minutes, 15));
+api.use(['/users/register/code', '/users/forgot-password/code'], limitRequests(LIMITS.codesPerHour, 60));
 
 api.use('/users', usersRoute);
 api.use('/admin', adminRoute);
 api.use('/location', locationRoute);
 api.use('/recommend', recommendRoute);
 api.use('/chat', chatRoute);
+api.use('/chats', chatsRoute); // past chats (the list on the chat's side)
 api.use('/feedback', feedbackRoute);
 api.use('/weather', weatherRoute);
 api.use('/crops', cropsRoute);
@@ -97,12 +102,18 @@ app.use(api);
 // Any other address the browser asks for is a page of the website: it works out the page itself
 if (hasWebsite) {
   app.use((req, res, next) => {
-    if (req.method === 'GET' && !req.path.startsWith('/api/') && req.accepts('html')) {
+    // Only a browser opening a page (it asks for text/html); the phone app's calls ask for JSON and get the
+    // short "not found" answer below, never this page
+    if (req.method === 'GET' && !req.path.startsWith('/api/') && (req.headers.accept || '').includes('text/html')) {
       return res.sendFile(path.join(websiteFolder, 'index.html'));
     }
     next();
   });
 }
+
+// An address nobody answered (for example the phone app calling a route this backend does not have yet): a short
+// JSON answer the app understands, not an HTML page
+app.use((req, res) => res.status(404).json({ error: 'not_found' }));
 
 // Any error that a route didn't handle. A request whose body is not valid JSON is the sender's mistake (400).
 app.use((err, req, res, next) => {
@@ -116,9 +127,13 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'server_error' });
 });
 
-// Logins that have run out are deleted now and then
-deleteOldSessions().catch(console.error);
-setInterval(() => deleteOldSessions().catch(console.error), 60 * 60 * 1000).unref();
+// Logins that have run out, and SMS codes whose hour is over, are deleted now and then
+function deleteOldRows() {
+  deleteOldSessions().catch(console.error);
+  deleteOldCodes().catch(console.error);
+}
+deleteOldRows();
+setInterval(deleteOldRows, 60 * 60 * 1000).unref();
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {

@@ -16,6 +16,30 @@ const router = express.Router();
 
 // The season the farmer is planning for; without one the ML service uses the season of today's date
 const SEASONS = ['Kharif', 'Rabi', 'Summer'];
+const MAX_HISTORY = 100; // results kept per farmer, hidden ones included
+
+// The farmer's last result when the new one is the same answer: made within a day, still in their history, for
+// the same place (GPS within about 1 km, or the same district or taluk picked by hand), season and soil test, with
+// the same crops in the same order. "Check again" pressed again and again then keeps one result in the history,
+// not copies. A different place, season or soil test, or a changed answer, is saved as a new result.
+// Returns that result's id, or null.
+async function sameAsLastResult(userId, { lat, lng, state, district, season, soilTest, fromGps, modelVersion, crops }) {
+  const last = await pool.query(
+    `SELECT r.id
+     FROM recommendations r JOIN locations l ON l.id = r.location_id
+     WHERE r.id = (SELECT id FROM recommendations WHERE user_id = $1 ORDER BY created_at DESC, id DESC LIMIT 1)
+       AND r.hidden_at IS NULL
+       AND r.created_at > now() - interval '1 day'
+       AND l.state IS NOT DISTINCT FROM $2 AND l.district IS NOT DISTINCT FROM $3
+       AND abs(l.latitude - $4) < 0.01 AND abs(l.longitude - $5) < 0.01
+       AND r.season IS NOT DISTINCT FROM $6
+       AND r.farmer_soil IS NOT DISTINCT FROM $7::jsonb
+       AND r.from_gps = $8 AND r.model_version = $9
+       AND (SELECT array_agg(i.crop ORDER BY i.rank) FROM recommendation_items i WHERE i.recommendation_id = r.id) = $10::text[]`,
+    [userId, state, district, lat, lng, season, soilTest, fromGps, modelVersion, crops]
+  );
+  return last.rows[0]?.id ?? null;
+}
 
 // Straight-line distance in metres, rounded to 10 m (small distances, so flat-earth maths is fine)
 function metresBetween(lat1, lng1, lat2, lng2) {
@@ -165,48 +189,81 @@ router.post('/', requireUser, limitRequests(LIMITS.recommendationsPerHour, 60, (
     // This season's rain, asked for now so it arrives while the result is being saved
     const seasonRain = getSeasonRain(lat, lng);
 
-    // 5. Save everything so we can look at it later
+    // 5. Save everything so we can look at it later, unless it is the same answer as the farmer's last one
     const userId = req.user.id;
+    // GPS only: a district picked by hand (in Karnataka, or the middle of another state's district) is not
+    const fromGps = area === 'point' && !inMiddle;
+    let recommendationId = await sameAsLastResult(userId, {
+      lat,
+      lng,
+      state,
+      district,
+      season: prediction.season,
+      soilTest,
+      fromGps,
+      modelVersion: prediction.model_version,
+      crops: prediction.recommendations.map((item) => item.crop),
+    });
 
-    const location = await pool.query(
-      `INSERT INTO locations (user_id, latitude, longitude, state, district)
-       VALUES ($1, $2, $3, $4, $5) RETURNING id`,
-      [userId, lat, lng, state, district]
-    );
+    if (recommendationId === null) {
+      const location = await pool.query(
+        `INSERT INTO locations (user_id, latitude, longitude, state, district)
+         VALUES ($1, $2, $3, $4, $5) RETURNING id`,
+        [userId, lat, lng, state, district]
+      );
 
-    const recommendation = await pool.query(
-      `INSERT INTO recommendations
-         (user_id, location_id, soil_profile_id, ph, nitrogen, organic_carbon, clay, sand, cec,
-          temperature_c, winter_temperature_c, humidity_pct, rainfall_mm, monsoon_rain_share,
-          post_monsoon_rain_share, dry_months, max_temperature_c, solar_radiation,
-          elevation_m, slope_degrees,
-          climate_source, model_version, farmer_soil, season)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18,
-               $19, $20, $21, $22, $23, $24) RETURNING id`,
-      [
-        userId, location.rows[0].id, result.soilProfileId,
-        features.pH, features.Nitrogen, features.Organic_Carbon, features.Clay, features.Sand, features.CEC,
-        features.Temperature, features.Winter_Temperature, features.Humidity, features.Rainfall,
-        features.Monsoon_Rain_Share, features.Post_Monsoon_Rain_Share, features.Dry_Months,
-        features.Max_Temperature, features.Solar_Radiation, features.Elevation, features.Slope,
-        result.source, prediction.model_version, soilTest, prediction.season,
-      ]
-    );
-    const recommendationId = recommendation.rows[0].id;
+      const recommendation = await pool.query(
+        `INSERT INTO recommendations
+           (user_id, location_id, soil_profile_id, ph, nitrogen, organic_carbon, clay, sand, cec,
+            temperature_c, winter_temperature_c, humidity_pct, rainfall_mm, monsoon_rain_share,
+            post_monsoon_rain_share, dry_months, max_temperature_c, solar_radiation,
+            elevation_m, slope_degrees,
+            climate_source, model_version, farmer_soil, season, from_gps, best_to_sow)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18,
+                 $19, $20, $21, $22, $23, $24, $25, $26) RETURNING id`,
+        [
+          userId, location.rows[0].id, result.soilProfileId,
+          features.pH, features.Nitrogen, features.Organic_Carbon, features.Clay, features.Sand, features.CEC,
+          features.Temperature, features.Winter_Temperature, features.Humidity, features.Rainfall,
+          features.Monsoon_Rain_Share, features.Post_Monsoon_Rain_Share, features.Dry_Months,
+          features.Max_Temperature, features.Solar_Radiation, features.Elevation, features.Slope,
+          result.source, prediction.model_version, soilTest, prediction.season, fromGps,
+          // The headline on Home: the season's best crop to sow, or the top crop when that one is sown this season
+          prediction.season_best?.crop ?? prediction.recommendations[0]?.crop ?? null,
+        ]
+      );
+      recommendationId = recommendation.rows[0].id;
 
-    for (let i = 0; i < prediction.recommendations.length; i++) {
-      const item = prediction.recommendations[i];
+      for (let i = 0; i < prediction.recommendations.length; i++) {
+        const item = prediction.recommendations[i];
+        await pool.query(
+          `INSERT INTO recommendation_items
+             (recommendation_id, rank, crop, probability, score, confident, shap_values, lime_weights)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+          [recommendationId, i + 1, item.crop, item.probability, item.score, item.confident, item.shap, item.lime]
+        );
+      }
+
+      // Each farmer keeps at most MAX_HISTORY results in the database (the ones they deleted from their history count
+      // too, they are only hidden). Past that, the oldest are removed for good. Deleting a place removes its result,
+      // the crops of that result and any feedback on it with it.
       await pool.query(
-        `INSERT INTO recommendation_items
-           (recommendation_id, rank, crop, probability, score, confident, shap_values, lime_weights)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-        [recommendationId, i + 1, item.crop, item.probability, item.score, item.confident, item.shap, item.lime]
+        `DELETE FROM locations
+         WHERE id IN (SELECT location_id FROM recommendations WHERE user_id = $1
+                      ORDER BY created_at DESC, id DESC OFFSET $2)`,
+        [userId, MAX_HISTORY]
       );
     }
+
+    // The crops already chosen with "I will grow this", when the same result as last time was kept (none for a new one)
+    const chosen = await pool.query('SELECT crop FROM chosen_crops WHERE recommendation_id = $1 ORDER BY created_at', [
+      recommendationId,
+    ]);
 
     // 6. Send the result back to the app
     res.json({
       recommendation_id: recommendationId,
+      chosen_crops: chosen.rows.map((row) => row.crop),
       // area: 'point' (GPS), 'taluk' or 'district' (picked by hand)
       area,
       // true when there are no crop statistics for this district: the answer comes from the soil and climate

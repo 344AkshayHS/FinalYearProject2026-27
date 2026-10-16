@@ -116,6 +116,36 @@ router.get('/overview', requireAdmin, async (req, res) => {
 });
 
 // GET /admin/recommendations/12 -> every step of one recommendation: where, soil, climate, model output
+// "Send a request" from the farmers' app (help_requests). Waiting ones first, then the newest; with who sent them.
+// GET /admin/requests -> { requests: [{ id, topic, message, reply, replied_at, created_at, full_name, phone }] }
+router.get('/requests', requireAdmin, async (req, res) => {
+  const result = await pool.query(
+    `SELECT h.id, h.topic, h.message, h.reply, h.replied_at, h.created_at, u.full_name, u.phone
+     FROM help_requests h JOIN users u ON u.id = h.user_id
+     ORDER BY (h.reply IS NULL) DESC, h.created_at DESC
+     LIMIT 100`
+  );
+  res.json({ requests: result.rows });
+});
+
+// POST /admin/requests/:id/reply   Body: { "reply": "Done: your result is back." } -> { request }
+// The farmer sees the answer under their request in the app. Answering again replaces it.
+router.post('/requests/:id/reply', requireAdmin, async (req, res) => {
+  const reply = typeof req.body?.reply === 'string' ? req.body.reply.trim() : '';
+  if (!/^\d{1,18}$/.test(req.params.id) || !reply || reply.length > 1000) {
+    return res.status(400).json({ error: 'reply_invalid' });
+  }
+  const result = await pool.query(
+    `UPDATE help_requests SET reply = $1, replied_at = now() WHERE id = $2
+     RETURNING id, topic, message, reply, replied_at, created_at`,
+    [reply, req.params.id]
+  );
+  if (result.rows.length === 0) {
+    return res.status(404).json({ error: 'not_found' });
+  }
+  res.json({ request: result.rows[0] });
+});
+
 router.get('/recommendations/:id', requireAdmin, async (req, res) => {
   const id = Number(req.params.id);
   if (!Number.isInteger(id)) {

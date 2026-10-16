@@ -57,6 +57,7 @@ function fromEnv(name, fallback) {
 const LIMITS = {
   apiPerMinute: fromEnv('LIMIT_API_PER_MINUTE', 600), // per address; the website's files and photos do not count
   loginsPer15Minutes: fromEnv('LIMIT_LOGINS_PER_15_MINUTES', 50), // logins and sign-ups per address (one Wi-Fi)
+  codesPerHour: fromEnv('LIMIT_CODES_PER_HOUR', 30), // SMS codes asked for per address; each SMS costs money
   recommendationsPerHour: fromEnv('LIMIT_RECOMMENDATIONS_PER_HOUR', 100), // per farmer; a season change is one too
   chatPerHour: fromEnv('LIMIT_CHAT_PER_HOUR', 100), // per farmer
   weatherPerHour: fromEnv('LIMIT_WEATHER_PER_HOUR', 200), // per farmer
