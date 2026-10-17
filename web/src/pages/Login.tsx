@@ -33,10 +33,14 @@ export function Login() {
       <form onSubmit={onLogin} className="stack">
         <h2>{t.login}</h2>
         <ErrorBox message={error} />
-        <TextField label={t.phone} value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" inputMode="numeric" maxLength={10} autoComplete="tel" placeholder="98765 43210" required />
+        <TextField label={t.phone} value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" inputMode="numeric" maxLength={10} autoComplete="tel" placeholder="00000 00000" required />
         <TextField label={t.password} value={password} onChange={(e) => setPassword(e.target.value)} type="password" autoComplete="current-password" maxLength={128} required />
+        {/* The number typed above goes along, so it need not be typed again */}
+        <Link to="/forgot-password" state={{ phone: phone.trim() }} className="end-link">
+          {t.forgotPassword}
+        </Link>
         <Button title={t.login} loading={loading} submit />
-        <Link to="/register" className="center-link">
+        <Link to="/register" className="center-link danger-link">
           {t.noAccount}
         </Link>
       </form>

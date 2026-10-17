@@ -33,7 +33,7 @@ export type Recommendation = {
 
 export type Rating = 'low' | 'medium' | 'high';
 export type RatedValue = 'organic_carbon_pct' | 'n' | 'p' | 'k';
-export type CropGroup = 'vegetable' | 'herb' | 'spice' | 'plantation';
+export type CropGroup = 'fruit' | 'vegetable' | 'herb' | 'spice' | 'plantation';
 
 // What the district sowed most in the answered season, from Karnataka's crop survey (DES)
 export type SeasonSowing = {

@@ -30,7 +30,10 @@ type AppState = {
   language: Language;
   t: (typeof translations)['en'];
   login: (phone: string, password: string) => Promise<void>;
-  register: (fullName: string, phone: string, password: string) => Promise<void>;
+  // "code": the one sent by SMS to the number (POST /users/register/code), so only its owner can use it
+  register: (fullName: string, phone: string, password: string, code: string) => Promise<void>;
+  // "Forgot password": the code sent by SMS sets a new password and logs in (other logins of the account end)
+  resetPassword: (phone: string, code: string, newPassword: string) => Promise<void>;
   logout: () => Promise<void>;
   updateUser: (user: User) => void; // after "Edit profile" saves the details or the photo
   setLanguage: (language: Language) => Promise<void>;
@@ -211,10 +214,18 @@ export function AppProvider({ children }: { children: ReactNode }) {
     saveLogin(data.user);
   }
 
-  async function register(fullName: string, phone: string, password: string) {
+  async function register(fullName: string, phone: string, password: string, code: string) {
     const data = await api<{ user: User }>('/users/register', {
       method: 'POST',
-      body: { full_name: fullName, phone, password, language },
+      body: { full_name: fullName, phone, password, language, code },
+    });
+    saveLogin(data.user);
+  }
+
+  async function resetPassword(phone: string, code: string, newPassword: string) {
+    const data = await api<{ user: User }>('/users/forgot-password', {
+      method: 'POST',
+      body: { phone, code, new_password: newPassword },
     });
     saveLogin(data.user);
   }
@@ -272,6 +283,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         t: translations[language],
         login,
         register,
+        resetPassword,
         logout,
         updateUser: setUser,
         setLanguage,

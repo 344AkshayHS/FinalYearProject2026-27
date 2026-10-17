@@ -1,5 +1,5 @@
 // The pages of the website and who may open them. Same rules as frontend/src/app/_layout.tsx:
-//   logged out: only login and register
+//   logged out: only login, register and forgot password
 //   logged in:  the tabs Home, Chatbot and Profile and the pages that open over them (a crop, compare, history,
 //               saved crops, about)
 //   admin:      the ML dashboard, after the admin login on the login page (no farmer account needed)
@@ -15,6 +15,7 @@ import { Dashboard } from '~/pages/Dashboard';
 import { DashboardRecommendation } from '~/pages/DashboardRecommendation';
 import { ChangePassword } from '~/pages/ChangePassword';
 import { EditProfile } from '~/pages/EditProfile';
+import { ForgotPassword } from '~/pages/ForgotPassword';
 import { History } from '~/pages/History';
 import { Login } from '~/pages/Login';
 import { Register } from '~/pages/Register';
@@ -72,6 +73,7 @@ export function App() {
       <Route element={<OnlyLoggedOut />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Route>
 
       <Route element={<OnlyLoggedIn />}>

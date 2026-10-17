@@ -56,7 +56,7 @@ export function SuitNotes({ suits, land }: { suits: Suits | null; land: Land }) 
   );
 }
 
-const GROUP_ORDER: CropGroup[] = ['vegetable', 'herb', 'spice', 'plantation'];
+const GROUP_ORDER: CropGroup[] = ['fruit', 'vegetable', 'herb', 'spice', 'plantation'];
 const PER_GROUP = 4; // crops listed per group in the card
 
 // Herbs, spices and plantation crops the model does not know, that suit the land by their needs

@@ -367,6 +367,7 @@ a {
 .big-link { font-size: calc(16px * var(--text-scale)); font-weight: 700; }
 .danger-link { color: var(--danger); font-weight: 700; }
 .center-link { align-self: center; padding: 6px; text-decoration: none; }
+.end-link { align-self: flex-end; padding: 4px; font-weight: 600; text-decoration: none; }
 .back-link { align-self: flex-start; font-size: calc(15px * var(--text-scale)); color: var(--muted); }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
