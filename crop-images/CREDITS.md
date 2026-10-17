@@ -33,8 +33,8 @@ each crop name, as the app writes it, to them. The app shows the harvested produ
 
 | File | Author | Licence | Source |
 |---|---|---|---|
-| maize/1-field.jpg | Kolforn (Kolforn) I'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope. This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license. You are free: to share – to copy, distribute and transmit the work to remix – to adapt the work Under the following conditions: attribution – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. share alike – If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original.https://creativecommons.org/licenses/by-sa/4.0CC BY-SA 4.0 Creative Commons Attribution-Share Alike 4.0 truetrue | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [-2022-08-09 Sweet corn (Zea mays), Trimingham, Norfolk (4).JPG](https://commons.wikimedia.org/wiki/File:-2022-08-09_Sweet_corn_(Zea_mays),_Trimingham,_Norfolk_(4).JPG) |
-| maize/2-close-up.jpg | Kolforn (Kolforn) I'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope. This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license. You are free: to share – to copy, distribute and transmit the work to remix – to adapt the work Under the following conditions: attribution – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. share alike – If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original.https://creativecommons.org/licenses/by-sa/4.0CC BY-SA 4.0 Creative Commons Attribution-Share Alike 4.0 truetrue | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [-2020-08-04 Sweet corn (Zea mays), Trimingham, Norfolk.JPG](https://commons.wikimedia.org/wiki/File:-2020-08-04_Sweet_corn_(Zea_mays),_Trimingham,_Norfolk.JPG) |
+| maize/1-field.jpg | Kolforn | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [-2022-08-09 Sweet corn (Zea mays), Trimingham, Norfolk (4).JPG](https://commons.wikimedia.org/wiki/File:-2022-08-09_Sweet_corn_(Zea_mays),_Trimingham,_Norfolk_(4).JPG) |
+| maize/2-close-up.jpg | Kolforn | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [-2020-08-04 Sweet corn (Zea mays), Trimingham, Norfolk.JPG](https://commons.wikimedia.org/wiki/File:-2020-08-04_Sweet_corn_(Zea_mays),_Trimingham,_Norfolk.JPG) |
 | maize/3-pods.jpg | unknown | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | [Closeup corn cob plant](https://www.rawpixel.com/image/6026119/photo-image-public-domain-leaf-plant) |
 | maize/4-seeds.jpg | Alandmanson | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Premature germination maize 2014 05 15 10 35 37 7919.jpg](https://commons.wikimedia.org/w/index.php?curid=61295103) |
 | maize/5-mature.jpg | dankeck | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | [Walker Farm](https://www.flickr.com/photos/140641142@N05/38035146586) |
@@ -938,3 +938,283 @@ each crop name, as the app writes it, to them. The app shows the harvested produ
 | vegetable-cowpea/3-pods.jpg | Shijan Kaakkara | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Yardlong bean - പയർ 03.jpg](https://commons.wikimedia.org/w/index.php?curid=95675564) |
 | vegetable-cowpea/4-seeds.jpg | David | Public domain | [Long Bean.JPG](https://commons.wikimedia.org/wiki/File:Long_Bean.JPG) |
 | vegetable-cowpea/5-mature.jpg | Shijan Kaakkara | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Yardlong bean - പയർ 01.jpg](https://commons.wikimedia.org/w/index.php?curid=95675565) |
+
+## custard apple (Annona squamosa)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| custard-apple/1-field.jpg | Shanmugamp7 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Annona squamosa - Sugar Apple Tree 02.jpg](https://commons.wikimedia.org/wiki/File:Annona_squamosa_-_Sugar_Apple_Tree_02.jpg) |
+| custard-apple/2-close-up.jpg | Filo gèn' | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Annona squamosa ( Annonaceae ).jpg](https://commons.wikimedia.org/wiki/File:Annona_squamosa_(_Annonaceae_).jpg) |
+| custard-apple/3-pods.jpg | Sankuba Damasus Erasong | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Custard apple fruit in a garden.jpg](https://commons.wikimedia.org/wiki/File:Custard_apple_fruit_in_a_garden.jpg) |
+| custard-apple/4-seeds.jpg | Dr. Satish Upalkar | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Custard apple 20220722 174717.jpg](https://commons.wikimedia.org/wiki/File:Custard_apple_20220722_174717.jpg) |
+| custard-apple/5-mature.jpg | Vinay K L | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | [Sweetsop (observation 60405094)](https://www.inaturalist.org/observations/60405094) |
+
+## guava (Psidium guajava)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| guava/1-field.jpg | ProtoplasmaKid | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Huertos de guayaba en Calvillo 01.jpg](https://commons.wikimedia.org/wiki/File:Huertos_de_guayaba_en_Calvillo_01.jpg) |
+| guava/2-close-up.jpg | Joydeep | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Psidium guajava flower 26032014 01.jpg](https://commons.wikimedia.org/wiki/File:Psidium_guajava_flower_26032014_01.jpg) |
+| guava/3-pods.jpg | Forest and Kim Starr | [CC BY 3.0 us](https://creativecommons.org/licenses/by/3.0/us/deed.en) | [Starr-130201-1657-Psidium guajava-fruit and leaves-Hawea Pl Olinda-Maui (25087039462).jpg](https://commons.wikimedia.org/wiki/File:Starr-130201-1657-Psidium_guajava-fruit_and_leaves-Hawea_Pl_Olinda-Maui_(25087039462).jpg) |
+| guava/4-seeds.jpg | Hans Hillewaert | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Psidium guajava (fruit).jpg](https://commons.wikimedia.org/wiki/File:Psidium_guajava_(fruit).jpg) |
+| guava/5-mature.jpg | Daniel Dias | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Goiabeira (observation 150662253)](https://www.inaturalist.org/observations/150662253) |
+
+## jackfruit (Artocarpus heterophyllus)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| jackfruit/1-field.jpg | Carolina Leal | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Jaca (observation 26183702)](https://www.inaturalist.org/observations/26183702) |
+| jackfruit/2-close-up.jpg | Diana Studer | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Jackfruit (observation 228232928)](https://www.inaturalist.org/observations/228232928) |
+| jackfruit/3-pods.jpg | Suyash Dwivedi | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Jackfruit tree with fruit.jpg](https://commons.wikimedia.org/wiki/File:Jackfruit_tree_with_fruit.jpg) |
+| jackfruit/4-seeds.jpg | Avery Jensen | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Jackfruit in a Tijuana market 5474.jpg](https://commons.wikimedia.org/wiki/File:Jackfruit_in_a_Tijuana_market_5474.jpg) |
+| jackfruit/5-mature.jpg | Mirela | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | [Jackfruit (observation 156487931)](https://www.inaturalist.org/observations/156487931) |
+
+## lemon (Citrus limon)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| lemon/1-field.jpg | ליזי שאנן | [CC BY 2.5](https://creativecommons.org/licenses/by/2.5) | [103786 moshav tlamim - lemon orchard PikiWiki Israel.jpg](https://commons.wikimedia.org/wiki/File:103786_moshav_tlamim_-_lemon_orchard_PikiWiki_Israel.jpg) |
+| lemon/2-close-up.jpg | unmotivated_frog | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Lemon (observation 349184660)](https://www.inaturalist.org/observations/349184660) |
+| lemon/3-pods.jpg | ליזי שאנן | [CC BY 2.5](https://creativecommons.org/licenses/by/2.5) | [103784 moshav tlamim - lemon orchard PikiWiki Israel.jpg](https://commons.wikimedia.org/wiki/File:103784_moshav_tlamim_-_lemon_orchard_PikiWiki_Israel.jpg) |
+| lemon/4-seeds.jpg | HaJunkiyada | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Liat Portal for Foodie Disorder - Lemons from San Francisco Farmers Market.jpg](https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Lemons_from_San_Francisco_Farmers_Market.jpg) |
+| lemon/5-mature.jpg | ליזי שאנן | [CC BY 2.5](https://creativecommons.org/licenses/by/2.5) | [103790 moshav tlamim - lemon orchard PikiWiki Israel.jpg](https://commons.wikimedia.org/wiki/File:103790_moshav_tlamim_-_lemon_orchard_PikiWiki_Israel.jpg) |
+
+## ber (Ziziphus mauritiana)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| ber/1-field.jpg | elawrey | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Chinese Apple (observation 58578306)](https://www.inaturalist.org/observations/58578306) |
+| ber/2-close-up.jpg | Milan Chytrý | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Chinese Apple (observation 190821592)](https://www.inaturalist.org/observations/190821592) |
+| ber/3-pods.jpg | Siddarth Machado | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Chinese Apple (observation 38292222)](https://www.inaturalist.org/observations/38292222) |
+| ber/4-seeds.jpg | MGB CEE | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [बोर, रामपूर, शहादा, नंदुरबार Bor, Rampur,Shahada, Nandurbar (Indian jujube) fruit.jpg](https://commons.wikimedia.org/wiki/File:%E0%A4%AC%E0%A5%8B%E0%A4%B0,_%E0%A4%B0%E0%A4%BE%E0%A4%AE%E0%A4%AA%E0%A5%82%E0%A4%B0,_%E0%A4%B6%E0%A4%B9%E0%A4%BE%E0%A4%A6%E0%A4%BE,_%E0%A4%A8%E0%A4%82%E0%A4%A6%E0%A5%81%E0%A4%B0%E0%A4%AC%E0%A4%BE%E0%A4%B0_Bor,_Rampur,Shahada,_Nandurbar_(Indian_jujube)_fruit.jpg) |
+| ber/5-mature.jpg | Siddarth Machado | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Chinese Apple (observation 38292222)](https://www.inaturalist.org/observations/38292222) |
+
+## jamun (Syzygium cumini)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| jamun/1-field.jpg | Dev Jadiya | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Jamun Tree in India.jpg](https://commons.wikimedia.org/wiki/File:Jamun_Tree_in_India.jpg) |
+| jamun/2-close-up.jpg | Ton Rulkens | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [Syzygium cumini - fruits.jpg](https://commons.wikimedia.org/wiki/File:Syzygium_cumini_-_fruits.jpg) |
+| jamun/3-pods.jpg | Ben Machado | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Java plum (observation 96953326)](https://www.inaturalist.org/observations/96953326) |
+| jamun/4-seeds.jpg | Rajesh dangi at English Wikipedia | [CC BY 2.5](https://creativecommons.org/licenses/by/2.5) | [Ripe jamun fruits.jpg](https://commons.wikimedia.org/wiki/File:Ripe_jamun_fruits.jpg) |
+| jamun/5-mature.jpg | Danish Sualeh | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Ripe Jamun Fruits.JPG](https://commons.wikimedia.org/wiki/File:Ripe_Jamun_Fruits.JPG) |
+
+## amla (Emblica officinalis)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| amla/1-field.jpg | Raja Sekhar Chimirala | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Myrobalan (observation 336188324)](https://www.inaturalist.org/observations/336188324) |
+| amla/2-close-up.jpg | Lalithamba from India | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Fruits of Phyllanthus emblica L. - Flickr - lalithamba.jpg](https://commons.wikimedia.org/wiki/File:Fruits_of_Phyllanthus_emblica_L._-_Flickr_-_lalithamba.jpg) |
+| amla/3-pods.jpg | Afsar Nayakkan | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Myrobalan (observation 248245735)](https://www.inaturalist.org/observations/248245735) |
+| amla/4-seeds.jpg | Krish Dulal | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Phyllanthus emblica fruit 02.jpg](https://commons.wikimedia.org/wiki/File:Phyllanthus_emblica_fruit_02.jpg) |
+| amla/5-mature.jpg | Raja Sekhar Chimirala | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Myrobalan (observation 257094698)](https://www.inaturalist.org/observations/257094698) |
+
+## fig (Ficus carica)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| fig/1-field.jpg | Claude Kolwelter | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [common fig (observation 138617881)](https://www.inaturalist.org/observations/138617881) |
+| fig/2-close-up.jpg | Daniel Cahen | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [common fig (observation 57493297)](https://www.inaturalist.org/observations/57493297) |
+| fig/3-pods.jpg | Gerard Gaya Gas | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | [figuera (observation 204560754)](https://www.inaturalist.org/observations/204560754) |
+| fig/4-seeds.jpg | Fumikas Sagisavas | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Fresh figs.jpg](https://commons.wikimedia.org/wiki/File:Fresh_figs.jpg) |
+| fig/5-mature.jpg | Stefan Thiesen | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Ripe fig fruit on tree (Ficus Carica) in Southern France.JPG](https://commons.wikimedia.org/wiki/File:Ripe_fig_fruit_on_tree_(Ficus_Carica)_in_Southern_France.JPG) |
+
+## dragon fruit (Hylocereus undatus)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| dragon-fruit/1-field.jpg | USDAgov | Public domain | [FARMERS GOV- Dragon Fruit Farmer Leonardo Aguila (20181113-FPAC-LSC-0971).jpg](https://commons.wikimedia.org/wiki/File:FARMERS_GOV-_Dragon_Fruit_Farmer_Leonardo_Aguila_(20181113-FPAC-LSC-0971).jpg) |
+| dragon-fruit/2-close-up.jpg | Jean and Fred from Perth, Australia | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Dragon fruit flowers (49950874261).jpg](https://commons.wikimedia.org/wiki/File:Dragon_fruit_flowers_(49950874261).jpg) |
+| dragon-fruit/3-pods.jpg | Bff | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Hylocereus undatus-fruit20180201 118(07,24,36).jpg](https://commons.wikimedia.org/wiki/File:Hylocereus_undatus-fruit20180201_118(07,24,36).jpg) |
+| dragon-fruit/4-seeds.jpg | David Monniaux | [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/) | [Pitaya P1190424.jpg](https://commons.wikimedia.org/wiki/File:Pitaya_P1190424.jpg) |
+| dragon-fruit/5-mature.jpg | Yolanda M. Leon | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | [Pitahaya (observation 53363802)](https://www.inaturalist.org/observations/53363802) |
+
+## passion fruit (Passiflora edulis)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| passion-fruit/1-field.jpg | Nana Pearls | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Passion fruit farm, April season.jpg](https://commons.wikimedia.org/wiki/File:Passion_fruit_farm,_April_season.jpg) |
+| passion-fruit/2-close-up.jpg | Jhonatan Matheus | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Maracujá-azedo-amarelo (observation 343963293)](https://www.inaturalist.org/observations/343963293) |
+| passion-fruit/3-pods.jpg | Nicolás Baresch Uribe | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Passiflora edulis edulis (observation 124762620)](https://www.inaturalist.org/observations/124762620) |
+| passion-fruit/4-seeds.jpg | Ivar Leidus | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Passion fruits - whole and halved.jpg](https://commons.wikimedia.org/wiki/File:Passion_fruits_-_whole_and_halved.jpg) |
+| passion-fruit/5-mature.jpg | Thomas Mesaglio | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Common passionfruit (observation 96457043)](https://www.inaturalist.org/observations/96457043) |
+
+## avocado (Persea americana)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| avocado/1-field.jpg | B.navez | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Avocado orchard 02.JPG](https://commons.wikimedia.org/wiki/File:Avocado_orchard_02.JPG) |
+| avocado/2-close-up.jpg | Brian Oakes Haiti Hunter | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Avocado (observation 39967533)](https://www.inaturalist.org/observations/39967533) |
+| avocado/3-pods.jpg | vinicius_s_domingues | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Avocado (observation 149772667)](https://www.inaturalist.org/observations/149772667) |
+| avocado/4-seeds.jpg | Ivar Leidus | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Avocado Hass - single and halved.jpg](https://commons.wikimedia.org/wiki/File:Avocado_Hass_-_single_and_halved.jpg) |
+| avocado/5-mature.jpg | B.navez | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Persea americana fruit 2.JPG](https://commons.wikimedia.org/wiki/File:Persea_americana_fruit_2.JPG) |
+
+## watermelon (Citrullus lanatus)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| watermelon/1-field.jpg | Tulspal | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Watermelons field in punjab.jpg](https://commons.wikimedia.org/wiki/File:Watermelons_field_in_punjab.jpg) |
+| watermelon/2-close-up.jpg | Desiree L. Narango | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Watermelon (observation 189590268)](https://www.inaturalist.org/observations/189590268) |
+| watermelon/3-pods.jpg | Codrin Bucur | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Watermelon (observation 401545221)](https://www.inaturalist.org/observations/401545221) |
+| watermelon/4-seeds.jpg | McKay Savage from London, UK | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [India - Koyambedu Market - Watermelons 07 (3987063506).jpg](https://commons.wikimedia.org/wiki/File:India_-_Koyambedu_Market_-_Watermelons_07_(3987063506).jpg) |
+| watermelon/5-mature.jpg | Famartin | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [2023-09-17 16 16 25 Watermelons growing on a vine growing out of the crack in a concrete patio along Mercer County Route 526 (Robbinsville-Edinburg Road) in Robbinsville Township, Mercer County, New Jersey.jpg](https://commons.wikimedia.org/wiki/File:2023-09-17_16_16_25_Watermelons_growing_on_a_vine_growing_out_of_the_crack_in_a_concrete_patio_along_Mercer_County_Route_526_(Robbinsville-Edinburg_Road)_in_Robbinsville_Township,_Mercer_County,_New_Jersey.jpg) |
+
+## muskmelon (Cucumis melo)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| muskmelon/1-field.jpg | Judgefloro | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [05127jfMagumbali Fields Chen Wen-Yu Melon Paralaya Candaba Pampanga San Miguel roadsfvf 13.jpg](https://commons.wikimedia.org/wiki/File:05127jfMagumbali_Fields_Chen_Wen-Yu_Melon_Paralaya_Candaba_Pampanga_San_Miguel_roadsfvf_13.jpg) |
+| muskmelon/2-close-up.jpg | Forest & Kim Starr | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [Starr 080914-9943 Cucumis melo.jpg](https://commons.wikimedia.org/wiki/File:Starr_080914-9943_Cucumis_melo.jpg) |
+| muskmelon/3-pods.jpg | Judgefloro | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [05057jfMagumbali Fields Chen Wen-Yu Melon Paralaya Candaba Pampanga San Miguel roadsfvf 08.jpg](https://commons.wikimedia.org/wiki/File:05057jfMagumbali_Fields_Chen_Wen-Yu_Melon_Paralaya_Candaba_Pampanga_San_Miguel_roadsfvf_08.jpg) |
+| muskmelon/4-seeds.jpg | USDA photo by Scott Bauer. Image Number K7355-11. | Public domain | [Cucumis melo var. reticulatus (photo by Scott Bauer).jpg](https://commons.wikimedia.org/wiki/File:Cucumis_melo_var._reticulatus_(photo_by_Scott_Bauer).jpg) |
+| muskmelon/5-mature.jpg | Judgefloro | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [05157jfMagumbali Fields Chen Wen-Yu Melon Paralaya Candaba Pampanga San Miguel roadsfvf 22.jpg](https://commons.wikimedia.org/wiki/File:05157jfMagumbali_Fields_Chen_Wen-Yu_Melon_Paralaya_Candaba_Pampanga_San_Miguel_roadsfvf_22.jpg) |
+
+## oil palm (Elaeis guineensis)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| oil-palm/1-field.jpg | Chongkian | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Oil Palm Plantations in Melaka.jpg](https://commons.wikimedia.org/wiki/File:Oil_Palm_Plantations_in_Melaka.jpg) |
+| oil-palm/2-close-up.jpg | filipeprates | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | [Dendezeiro (observation 300814161)](https://www.inaturalist.org/observations/300814161) |
+| oil-palm/3-pods.jpg | Officialbernard1 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Oil Palm Fruit Bunch.jpg](https://commons.wikimedia.org/wiki/File:Oil_Palm_Fruit_Bunch.jpg) |
+| oil-palm/4-seeds.jpg | Geossegawa | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [A bunch of Oil palm after harvest.jpg](https://commons.wikimedia.org/wiki/File:A_bunch_of_Oil_palm_after_harvest.jpg) |
+| oil-palm/5-mature.jpg | Johnnybam | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Mature Oil Palm Bearing Fresh Fruit Bunch (Elaeis guineensis).jpg](https://commons.wikimedia.org/wiki/File:Mature_Oil_Palm_Bearing_Fresh_Fruit_Bunch_(Elaeis_guineensis).jpg) |
+
+## mulberry (Morus alba)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| mulberry/1-field.jpg | Gerigisanthoshreddy | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Mulberry Cultivation In KosuvariPalli.jpg](https://commons.wikimedia.org/wiki/File:Mulberry_Cultivation_In_KosuvariPalli.jpg) |
+| mulberry/2-close-up.jpg | M. Whitson | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [white mulberry (observation 165625608)](https://www.inaturalist.org/observations/165625608) |
+| mulberry/3-pods.jpg | SteveM4560 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [white mulberry (observation 166251133)](https://www.inaturalist.org/observations/166251133) |
+| mulberry/4-seeds.jpg | Andre Abrahami | [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5) | [Morus alba fruits and leaves.jpg](https://commons.wikimedia.org/wiki/File:Morus_alba_fruits_and_leaves.jpg) |
+| mulberry/5-mature.jpg | Aruna at Malayalam Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [MulberryCultivation.JPG](https://commons.wikimedia.org/wiki/File:MulberryCultivation.JPG) |
+
+## bamboo (Bambusa vulgaris)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| bamboo/1-field.jpg | Hans Hillewaert | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Bambusa vulgaris (Dominica).jpg](https://commons.wikimedia.org/wiki/File:Bambusa_vulgaris_(Dominica).jpg) |
+| bamboo/2-close-up.jpg | Quentin Groom | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | [golden bamboo (observation 225583393)](https://www.inaturalist.org/observations/225583393) |
+| bamboo/3-pods.jpg | Wibowo Djatmiko (Wie146) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Bambus vulga 160426-0195 tdp.JPG](https://commons.wikimedia.org/wiki/File:Bambus_vulga_160426-0195_tdp.JPG) |
+| bamboo/4-seeds.jpg | 氏子 | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [堆疊起的竹筒.jpg](https://commons.wikimedia.org/wiki/File:%E5%A0%86%E7%96%8A%E8%B5%B7%E7%9A%84%E7%AB%B9%E7%AD%92.jpg) |
+| bamboo/5-mature.jpg | Carlos Domínguez-Rodríguez | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Bambú asiático (observation 52963496)](https://www.inaturalist.org/observations/52963496) |
+
+## tamarind (Tamarindus indica)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| tamarind/1-field.jpg | FroyAgta | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Tamarind plantation 1.jpg](https://commons.wikimedia.org/wiki/File:Tamarind_plantation_1.jpg) |
+| tamarind/2-close-up.jpg | ritirene | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Tamarindo africano (observation 83780546)](https://www.inaturalist.org/observations/83780546) |
+| tamarind/3-pods.jpg | Lynn Harper | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | [Tamarind (observation 321030761)](https://www.inaturalist.org/observations/321030761) |
+| tamarind/4-seeds.jpg | Wicki | Public domain | [Tamarind pods.JPG](https://commons.wikimedia.org/wiki/File:Tamarind_pods.JPG) |
+| tamarind/5-mature.jpg | B.navez | [CC BY 2.5](https://creativecommons.org/licenses/by/2.5) | [Tamarindus indica pods.JPG](https://commons.wikimedia.org/wiki/File:Tamarindus_indica_pods.JPG) |
+
+## sarpagandha (Rauvolfia serpentina)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| sarpagandha/1-field.jpg | Vinayaraj | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Rauwolfia serpentina (1) - സര്‍പ്പഗന്ധി.jpg](https://commons.wikimedia.org/wiki/File:Rauwolfia_serpentina_(1)_-_%E0%B4%B8%E0%B4%B0%E0%B5%8D%E2%80%8D%E0%B4%AA%E0%B5%8D%E0%B4%AA%E0%B4%97%E0%B4%A8%E0%B5%8D%E0%B4%A7%E0%B4%BF.jpg) |
+| sarpagandha/2-close-up.jpg | Dinesh Valke from Thane, India | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [Indian Snakeroot (505583655).jpg](https://commons.wikimedia.org/wiki/File:Indian_Snakeroot_(505583655).jpg) |
+| sarpagandha/3-pods.jpg | Vinayaraj | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Rauvolfia serpentina 01.JPG](https://commons.wikimedia.org/wiki/File:Rauvolfia_serpentina_01.JPG) |
+| sarpagandha/4-seeds.jpg | H. Zell | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Rauvolfia serpentina 003.JPG](https://commons.wikimedia.org/wiki/File:Rauvolfia_serpentina_003.JPG) |
+| sarpagandha/5-mature.jpg | Dinesh Valke from Thane, India | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [Ichneumon Plant (6782553398).jpg](https://commons.wikimedia.org/wiki/File:Ichneumon_Plant_(6782553398).jpg) |
+
+## henna (Lawsonia inermis)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| henna/1-field.jpg | Chuck Wilson | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | [Henna (observation 406640936)](https://www.inaturalist.org/observations/406640936) |
+| henna/2-close-up.jpg | Jose Luis Leon de la Luz | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Alheña (observation 7144825)](https://www.inaturalist.org/observations/7144825) |
+| henna/3-pods.jpg | Vijayanrajapuram | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Lawsonia inermis henna Egyptian privet Vijayanrajapuram 07.jpg](https://commons.wikimedia.org/wiki/File:Lawsonia_inermis_henna_Egyptian_privet_Vijayanrajapuram_07.jpg) |
+| henna/4-seeds.jpg | DrRachT | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Feuilles de hénné Gabès Tunisie souk Jara 01.jpg](https://commons.wikimedia.org/wiki/File:Feuilles_de_h%C3%A9nn%C3%A9_Gab%C3%A8s_Tunisie_souk_Jara_01.jpg) |
+| henna/5-mature.jpg | Rajasekhar1961 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Lawsonia inermis with fruits and flowers at Viswanagar 03.jpg](https://commons.wikimedia.org/wiki/File:Lawsonia_inermis_with_fruits_and_flowers_at_Viswanagar_03.jpg) |
+
+## periwinkle (Catharanthus roseus)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| periwinkle/1-field.jpg | Joydeep | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Catharanthus roseus white and red 18042014 (1).jpg](https://commons.wikimedia.org/wiki/File:Catharanthus_roseus_white_and_red_18042014_(1).jpg) |
+| periwinkle/2-close-up.jpg | Pedro Henrique Maloso Ramos | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Madagascar Periwinkle (observation 14782279)](https://www.inaturalist.org/observations/14782279) |
+| periwinkle/3-pods.jpg | SAplants | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Catharanthus roseus 1DS-II 1-1497.jpg](https://commons.wikimedia.org/wiki/File:Catharanthus_roseus_1DS-II_1-1497.jpg) |
+| periwinkle/4-seeds.jpg | Didier Descouens | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Catharanthus roseus MHNT.BOT.2005.0962.jpg](https://commons.wikimedia.org/wiki/File:Catharanthus_roseus_MHNT.BOT.2005.0962.jpg) |
+| periwinkle/5-mature.jpg | Ethan | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Madagascar Periwinkle (observation 130414995)](https://www.inaturalist.org/observations/130414995) |
+
+## sweet basil (Ocimum basilicum)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| sweet-basil/1-field.jpg | Luwenn | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [L Basil.jpg](https://commons.wikimedia.org/wiki/File:L_Basil.jpg) |
+| sweet-basil/2-close-up.jpg | Cliff Hutson | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Basil (Ocimum basilicum).jpg](https://commons.wikimedia.org/wiki/File:Basil_(Ocimum_basilicum).jpg) |
+| sweet-basil/3-pods.jpg | Alan Rockefeller | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Albahaca blanca (observation 28348298)](https://www.inaturalist.org/observations/28348298) |
+| sweet-basil/4-seeds.jpg | Badagnani | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [Basilseeds.jpg](https://commons.wikimedia.org/wiki/File:Basilseeds.jpg) |
+| sweet-basil/5-mature.jpg | Andre Hosper | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Sweet basil (observation 15613799)](https://www.inaturalist.org/observations/15613799) |
+
+## peas (Pisum sativum)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| peas/1-field.jpg | Kolforn | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [-2022-06-13 Forming garden pea pods (Pisum sativum), Trimingham, Norfolk.JPG](https://commons.wikimedia.org/wiki/File:-2022-06-13_Forming_garden_pea_pods_(Pisum_sativum),_Trimingham,_Norfolk.JPG) |
+| peas/2-close-up.jpg | net_efekt | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [White pea flower.jpg](https://commons.wikimedia.org/wiki/File:White_pea_flower.jpg) |
+| peas/3-pods.jpg | Kolforn | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [-2020-06-24 Forming garden pea pods (Pisum sativum), Trimingham.JPG](https://commons.wikimedia.org/wiki/File:-2020-06-24_Forming_garden_pea_pods_(Pisum_sativum),_Trimingham.JPG) |
+| peas/4-seeds.jpg | George Chernilevsky | Public domain | [Peas in pods 2016 G1.jpg](https://commons.wikimedia.org/wiki/File:Peas_in_pods_2016_G1.jpg) |
+| peas/5-mature.jpg | Kolforn | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [-2019-07-29 Forming garden pea pods (Pisum sativum), Trimingham.JPG](https://commons.wikimedia.org/wiki/File:-2019-07-29_Forming_garden_pea_pods_(Pisum_sativum),_Trimingham.JPG) |
+
+## beetroot (Beta vulgaris)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| beetroot/1-field.jpg | Timothy A. Gonsalves | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Beetroot Plants Hullathy Nov24 A7CR 05174.jpg](https://commons.wikimedia.org/wiki/File:Beetroot_Plants_Hullathy_Nov24_A7CR_05174.jpg) |
+| beetroot/2-close-up.jpg | Kolforn | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [-2019-09-15 Beetroot plants, Trimingham.JPG](https://commons.wikimedia.org/wiki/File:-2019-09-15_Beetroot_plants,_Trimingham.JPG) |
+| beetroot/3-pods.jpg | Zenon Sych | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Beta vulgaris var conditiva Буряк столовий сорт Воєвода - розріз коренеплоду.jpg](https://commons.wikimedia.org/wiki/File:Beta_vulgaris_var_conditiva_%D0%91%D1%83%D1%80%D1%8F%D0%BA_%D1%81%D1%82%D0%BE%D0%BB%D0%BE%D0%B2%D0%B8%D0%B9_%D1%81%D0%BE%D1%80%D1%82_%D0%92%D0%BE%D1%94%D0%B2%D0%BE%D0%B4%D0%B0_-_%D1%80%D0%BE%D0%B7%D1%80%D1%96%D0%B7_%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%B5%D0%BF%D0%BB%D0%BE%D0%B4%D1%83.jpg) |
+| beetroot/4-seeds.jpg | Evan-Amos | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Beets-Bundle.jpg](https://commons.wikimedia.org/wiki/File:Beets-Bundle.jpg) |
+| beetroot/5-mature.jpg | Zenon Sych | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Beta vulgaris var conditiva Буряк столовий сорт Воєвода.jpg](https://commons.wikimedia.org/wiki/File:Beta_vulgaris_var_conditiva_%D0%91%D1%83%D1%80%D1%8F%D0%BA_%D1%81%D1%82%D0%BE%D0%BB%D0%BE%D0%B2%D0%B8%D0%B9_%D1%81%D0%BE%D1%80%D1%82_%D0%92%D0%BE%D1%94%D0%B2%D0%BE%D0%B4%D0%B0.jpg) |
+
+## ash gourd (Benincasa hispida)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| ash-gourd/1-field.jpg | Joseph Aubert | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Winter Melon (observation 194263231)](https://www.inaturalist.org/observations/194263231) |
+| ash-gourd/2-close-up.jpg | Richard Stovall | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Winter Melon (observation 29758793)](https://www.inaturalist.org/observations/29758793) |
+| ash-gourd/3-pods.jpg | Satyaji Wibowo | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Winter Melon (observation 361606403)](https://www.inaturalist.org/observations/361606403) |
+| ash-gourd/4-seeds.jpg | Yercaud-elango | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Benincasa hispida-1-selvapuram-coimbatore-India.jpg](https://commons.wikimedia.org/wiki/File:Benincasa_hispida-1-selvapuram-coimbatore-India.jpg) |
+| ash-gourd/5-mature.jpg | Katharine Khamhaengwong | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Winter Melon (observation 283154362)](https://www.inaturalist.org/observations/283154362) |
+
+## snake gourd (Trichosanthes cucumerina)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| snake-gourd/1-field.jpg | Augustus Binu : flickr : Instagram | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Trichosanthes cucumerina (snake gourd).jpg](https://commons.wikimedia.org/wiki/File:Trichosanthes_cucumerina_(snake_gourd).jpg) |
+| snake-gourd/2-close-up.jpg | Paulmathi Vinod | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Trichosanthes cucumerina (observation 84713645)](https://www.inaturalist.org/observations/84713645) |
+| snake-gourd/3-pods.jpg | Vinayaraj | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Trichosanthes cucumerina cultivation.jpg](https://commons.wikimedia.org/wiki/File:Trichosanthes_cucumerina_cultivation.jpg) |
+| snake-gourd/4-seeds.jpg | Leslie Seaton | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Trichosanthes cucumerina var. anguina - Snake Gourd in a market in North India.jpg](https://commons.wikimedia.org/wiki/File:Trichosanthes_cucumerina_var._anguina_-_Snake_Gourd_in_a_market_in_North_India.jpg) |
+| snake-gourd/5-mature.jpg | Indi Samarajiva | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Trichosanthes cucumerina var. anguina (Snake gourd) Growing Gourd.jpg](https://commons.wikimedia.org/wiki/File:Trichosanthes_cucumerina_var._anguina_(Snake_gourd)_Growing_Gourd.jpg) |
+
+## colocasia (Colocasia esculenta)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| colocasia/1-field.jpg | Antonializa | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Field view of Taro cultivation.jpg](https://commons.wikimedia.org/wiki/File:Field_view_of_Taro_cultivation.jpg) |
+| colocasia/2-close-up.jpg | Adriana Nelly Correa Sandoval | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Malanga (observation 24301407)](https://www.inaturalist.org/observations/24301407) |
+| colocasia/3-pods.jpg | Obsidian Soul | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Colocasia esculenta (Taro or Gabi) corms germinating - Mindanao, Philippines.JPG](https://commons.wikimedia.org/wiki/File:Colocasia_esculenta_(Taro_or_Gabi)_corms_germinating_-_Mindanao,_Philippines.JPG) |
+| colocasia/4-seeds.jpg | Paxsimius | [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5) | [Taro corms.JPG](https://commons.wikimedia.org/wiki/File:Taro_corms.JPG) |
+| colocasia/5-mature.jpg | Forest and Kim Starr | [CC BY 3.0 us](https://creativecommons.org/licenses/by/3.0/us/deed.en) | [Starr-130322-3762-Colocasia esculenta-harvested-Hanalei NWR-Kauai (24578818654).jpg](https://commons.wikimedia.org/wiki/File:Starr-130322-3762-Colocasia_esculenta-harvested-Hanalei_NWR-Kauai_(24578818654).jpg) |
+
+## capsicum (Capsicum annuum)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| capsicum/1-field.jpg | Forest and Kim Starr | [CC BY 3.0 us](https://creativecommons.org/licenses/by/3.0/us/deed.en) | [Starr-150326-0870-Capsicum annuum-Bell in Hydroponics greenhouse-Town Sand Island-Midway Atoll (25148787802).jpg](https://commons.wikimedia.org/wiki/File:Starr-150326-0870-Capsicum_annuum-Bell_in_Hydroponics_greenhouse-Town_Sand_Island-Midway_Atoll_(25148787802).jpg) |
+| capsicum/2-close-up.jpg | Bekhzod.kh | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Bell pepper flower.jpg](https://commons.wikimedia.org/wiki/File:Bell_pepper_flower.jpg) |
+| capsicum/3-pods.jpg | שקד דאמרי מגמת צילום תיכון רוזמצקין | [CC BY 2.5](https://creativecommons.org/licenses/by/2.5) | [PikiWiki Israel 45898 Green peppers.jpg](https://commons.wikimedia.org/wiki/File:PikiWiki_Israel_45898_Green_peppers.jpg) |
+| capsicum/4-seeds.jpg | Susan Slater | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Green capsicum, sweet bell pepper.jpg](https://commons.wikimedia.org/wiki/File:Green_capsicum,_sweet_bell_pepper.jpg) |
+| capsicum/5-mature.jpg | Juan Carlos Fonseca Mata | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Pimiento morrón (Capsicum annuum).jpg](https://commons.wikimedia.org/wiki/File:Pimiento_morr%C3%B3n_(Capsicum_annuum).jpg) |
+
+## french bean (Phaseolus vulgaris)
+
+| File | Author | Licence | Source |
+|---|---|---|---|
+| french-bean/1-field.jpg | UWIMPUHWE Va | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Green beans farm.jpg](https://commons.wikimedia.org/wiki/File:Green_beans_farm.jpg) |
+| french-bean/2-close-up.jpg | Christoph Moning | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Gewöhnliche Bohne (observation 233700164)](https://www.inaturalist.org/observations/233700164) |
+| french-bean/3-pods.jpg | H. Zell | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Phaseolus vulgaris 003.JPG](https://commons.wikimedia.org/wiki/File:Phaseolus_vulgaris_003.JPG) |
+| french-bean/4-seeds.jpg | Schlaghecken Josef | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Buschbohnen grün, im Karton-Josef Schlaghecken.jpg](https://commons.wikimedia.org/wiki/File:Buschbohnen_gr%C3%BCn,_im_Karton-Josef_Schlaghecken.jpg) |
+| french-bean/5-mature.jpg | Forest and Kim Starr | [CC BY 3.0 us](https://creativecommons.org/licenses/by/3.0/us/deed.en) | [Starr-081031-0359-Phaseolus vulgaris-fruit-Makawao-Maui (24558975089).jpg](https://commons.wikimedia.org/wiki/File:Starr-081031-0359-Phaseolus_vulgaris-fruit-Makawao-Maui_(24558975089).jpg) |

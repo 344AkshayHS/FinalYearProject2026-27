@@ -120,7 +120,7 @@
         "file": "maize/1-field.jpg",
         "site": "Wikimedia Commons",
         "title": "File:-2022-08-09 Sweet corn (Zea mays), Trimingham, Norfolk (4).JPG",
-        "author": "Kolforn (Kolforn) I'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope. This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license. You are free: to share – to copy, distribute and transmit the work to remix – to adapt the work Under the following conditions: attribution – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. share alike – If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original.https://creativecommons.org/licenses/by-sa/4.0CC BY-SA 4.0 Creative Commons Attribution-Share Alike 4.0 truetrue",
+        "author": "Kolforn",
         "license": "CC BY-SA 4.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
         "source": "https://commons.wikimedia.org/wiki/File:-2022-08-09_Sweet_corn_(Zea_mays),_Trimingham,_Norfolk_(4).JPG"
@@ -130,7 +130,7 @@
         "file": "maize/2-close-up.jpg",
         "site": "Wikimedia Commons",
         "title": "File:-2020-08-04 Sweet corn (Zea mays), Trimingham, Norfolk.JPG",
-        "author": "Kolforn (Kolforn) I'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope. This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license. You are free: to share – to copy, distribute and transmit the work to remix – to adapt the work Under the following conditions: attribution – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. share alike – If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original.https://creativecommons.org/licenses/by-sa/4.0CC BY-SA 4.0 Creative Commons Attribution-Share Alike 4.0 truetrue",
+        "author": "Kolforn",
         "license": "CC BY-SA 4.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
         "source": "https://commons.wikimedia.org/wiki/File:-2020-08-04_Sweet_corn_(Zea_mays),_Trimingham,_Norfolk.JPG"
@@ -5164,6 +5164,1574 @@
         "license": "CC BY-SA 4.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
         "source": "https://commons.wikimedia.org/w/index.php?curid=95675565"
+      }
+    ]
+  },
+  "custard apple": {
+    "folder": "custard-apple",
+    "scientific_name": "Annona squamosa",
+    "images": [
+      {
+        "slot": "field",
+        "file": "custard-apple/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Annona squamosa - Sugar Apple Tree 02.jpg",
+        "author": "Shanmugamp7",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Annona_squamosa_-_Sugar_Apple_Tree_02.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "custard-apple/2-close-up.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Annona squamosa ( Annonaceae ).jpg",
+        "author": "Filo gèn'",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Annona_squamosa_(_Annonaceae_).jpg"
+      },
+      {
+        "slot": "pods",
+        "file": "custard-apple/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Custard apple fruit in a garden.jpg",
+        "author": "Sankuba Damasus Erasong",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Custard_apple_fruit_in_a_garden.jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "custard-apple/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Custard apple 20220722 174717.jpg",
+        "author": "Dr. Satish Upalkar",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Custard_apple_20220722_174717.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "custard-apple/5-mature.jpg",
+        "site": "iNaturalist",
+        "title": "Sweetsop (observation 60405094)",
+        "author": "Vinay K L",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source": "https://www.inaturalist.org/observations/60405094"
+      }
+    ]
+  },
+  "guava": {
+    "folder": "guava",
+    "scientific_name": "Psidium guajava",
+    "images": [
+      {
+        "slot": "field",
+        "file": "guava/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Huertos de guayaba en Calvillo 01.jpg",
+        "author": "ProtoplasmaKid",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Huertos_de_guayaba_en_Calvillo_01.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "guava/2-close-up.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Psidium guajava flower 26032014 01.jpg",
+        "author": "Joydeep",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Psidium_guajava_flower_26032014_01.jpg"
+      },
+      {
+        "slot": "pods",
+        "file": "guava/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Starr-130201-1657-Psidium guajava-fruit and leaves-Hawea Pl Olinda-Maui (25087039462).jpg",
+        "author": "Forest and Kim Starr",
+        "license": "CC BY 3.0 us",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Starr-130201-1657-Psidium_guajava-fruit_and_leaves-Hawea_Pl_Olinda-Maui_(25087039462).jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "guava/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Psidium guajava (fruit).jpg",
+        "author": "Hans Hillewaert",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Psidium_guajava_(fruit).jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "guava/5-mature.jpg",
+        "site": "iNaturalist",
+        "title": "Goiabeira (observation 150662253)",
+        "author": "Daniel Dias",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source": "https://www.inaturalist.org/observations/150662253"
+      }
+    ]
+  },
+  "jackfruit": {
+    "folder": "jackfruit",
+    "scientific_name": "Artocarpus heterophyllus",
+    "images": [
+      {
+        "slot": "field",
+        "file": "jackfruit/1-field.jpg",
+        "site": "iNaturalist",
+        "title": "Jaca (observation 26183702)",
+        "author": "Carolina Leal",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/26183702"
+      },
+      {
+        "slot": "close_up",
+        "file": "jackfruit/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Jackfruit (observation 228232928)",
+        "author": "Diana Studer",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/228232928"
+      },
+      {
+        "slot": "pods",
+        "file": "jackfruit/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Jackfruit tree with fruit.jpg",
+        "author": "Suyash Dwivedi",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jackfruit_tree_with_fruit.jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "jackfruit/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Jackfruit in a Tijuana market 5474.jpg",
+        "author": "Avery Jensen",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jackfruit_in_a_Tijuana_market_5474.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "jackfruit/5-mature.jpg",
+        "site": "iNaturalist",
+        "title": "Jackfruit (observation 156487931)",
+        "author": "Mirela",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source": "https://www.inaturalist.org/observations/156487931"
+      }
+    ]
+  },
+  "lemon": {
+    "folder": "lemon",
+    "scientific_name": "Citrus limon",
+    "images": [
+      {
+        "slot": "field",
+        "file": "lemon/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:103786 moshav tlamim - lemon orchard PikiWiki Israel.jpg",
+        "author": "ליזי שאנן",
+        "license": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5",
+        "source": "https://commons.wikimedia.org/wiki/File:103786_moshav_tlamim_-_lemon_orchard_PikiWiki_Israel.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "lemon/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Lemon (observation 349184660)",
+        "author": "unmotivated_frog",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/349184660"
+      },
+      {
+        "slot": "pods",
+        "file": "lemon/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:103784 moshav tlamim - lemon orchard PikiWiki Israel.jpg",
+        "author": "ליזי שאנן",
+        "license": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5",
+        "source": "https://commons.wikimedia.org/wiki/File:103784_moshav_tlamim_-_lemon_orchard_PikiWiki_Israel.jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "lemon/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Liat Portal for Foodie Disorder - Lemons from San Francisco Farmers Market.jpg",
+        "author": "HaJunkiyada",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Lemons_from_San_Francisco_Farmers_Market.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "lemon/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:103790 moshav tlamim - lemon orchard PikiWiki Israel.jpg",
+        "author": "ליזי שאנן",
+        "license": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5",
+        "source": "https://commons.wikimedia.org/wiki/File:103790_moshav_tlamim_-_lemon_orchard_PikiWiki_Israel.jpg"
+      }
+    ]
+  },
+  "ber": {
+    "folder": "ber",
+    "scientific_name": "Ziziphus mauritiana",
+    "images": [
+      {
+        "slot": "field",
+        "file": "ber/1-field.jpg",
+        "site": "iNaturalist",
+        "title": "Chinese Apple (observation 58578306)",
+        "author": "elawrey",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/58578306"
+      },
+      {
+        "slot": "close_up",
+        "file": "ber/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Chinese Apple (observation 190821592)",
+        "author": "Milan Chytrý",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/190821592"
+      },
+      {
+        "slot": "pods",
+        "file": "ber/3-pods.jpg",
+        "site": "iNaturalist",
+        "title": "Chinese Apple (observation 38292222)",
+        "author": "Siddarth Machado",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/38292222"
+      },
+      {
+        "slot": "seeds",
+        "file": "ber/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:बोर, रामपूर, शहादा, नंदुरबार Bor, Rampur,Shahada, Nandurbar (Indian jujube) fruit.jpg",
+        "author": "MGB CEE",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:%E0%A4%AC%E0%A5%8B%E0%A4%B0,_%E0%A4%B0%E0%A4%BE%E0%A4%AE%E0%A4%AA%E0%A5%82%E0%A4%B0,_%E0%A4%B6%E0%A4%B9%E0%A4%BE%E0%A4%A6%E0%A4%BE,_%E0%A4%A8%E0%A4%82%E0%A4%A6%E0%A5%81%E0%A4%B0%E0%A4%AC%E0%A4%BE%E0%A4%B0_Bor,_Rampur,Shahada,_Nandurbar_(Indian_jujube)_fruit.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "ber/5-mature.jpg",
+        "site": "iNaturalist",
+        "title": "Chinese Apple (observation 38292222)",
+        "author": "Siddarth Machado",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/38292222"
+      }
+    ]
+  },
+  "jamun": {
+    "folder": "jamun",
+    "scientific_name": "Syzygium cumini",
+    "images": [
+      {
+        "slot": "field",
+        "file": "jamun/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Jamun Tree in India.jpg",
+        "author": "Dev Jadiya",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jamun_Tree_in_India.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "jamun/2-close-up.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Syzygium cumini - fruits.jpg",
+        "author": "Ton Rulkens",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Syzygium_cumini_-_fruits.jpg"
+      },
+      {
+        "slot": "pods",
+        "file": "jamun/3-pods.jpg",
+        "site": "iNaturalist",
+        "title": "Java plum (observation 96953326)",
+        "author": "Ben Machado",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/96953326"
+      },
+      {
+        "slot": "seeds",
+        "file": "jamun/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Ripe jamun fruits.jpg",
+        "author": "Rajesh dangi at English Wikipedia",
+        "license": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5",
+        "source": "https://commons.wikimedia.org/wiki/File:Ripe_jamun_fruits.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "jamun/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Ripe Jamun Fruits.JPG",
+        "author": "Danish Sualeh",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ripe_Jamun_Fruits.JPG"
+      }
+    ]
+  },
+  "amla": {
+    "folder": "amla",
+    "scientific_name": "Emblica officinalis",
+    "images": [
+      {
+        "slot": "field",
+        "file": "amla/1-field.jpg",
+        "site": "iNaturalist",
+        "title": "Myrobalan (observation 336188324)",
+        "author": "Raja Sekhar Chimirala",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/336188324"
+      },
+      {
+        "slot": "close_up",
+        "file": "amla/2-close-up.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Fruits of Phyllanthus emblica L. - Flickr - lalithamba.jpg",
+        "author": "Lalithamba from India",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Fruits_of_Phyllanthus_emblica_L._-_Flickr_-_lalithamba.jpg"
+      },
+      {
+        "slot": "pods",
+        "file": "amla/3-pods.jpg",
+        "site": "iNaturalist",
+        "title": "Myrobalan (observation 248245735)",
+        "author": "Afsar Nayakkan",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/248245735"
+      },
+      {
+        "slot": "seeds",
+        "file": "amla/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Phyllanthus emblica fruit 02.jpg",
+        "author": "Krish Dulal",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Phyllanthus_emblica_fruit_02.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "amla/5-mature.jpg",
+        "site": "iNaturalist",
+        "title": "Myrobalan (observation 257094698)",
+        "author": "Raja Sekhar Chimirala",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/257094698"
+      }
+    ]
+  },
+  "fig": {
+    "folder": "fig",
+    "scientific_name": "Ficus carica",
+    "images": [
+      {
+        "slot": "field",
+        "file": "fig/1-field.jpg",
+        "site": "iNaturalist",
+        "title": "common fig (observation 138617881)",
+        "author": "Claude Kolwelter",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/138617881"
+      },
+      {
+        "slot": "close_up",
+        "file": "fig/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "common fig (observation 57493297)",
+        "author": "Daniel Cahen",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/57493297"
+      },
+      {
+        "slot": "pods",
+        "file": "fig/3-pods.jpg",
+        "site": "iNaturalist",
+        "title": "figuera (observation 204560754)",
+        "author": "Gerard Gaya Gas",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source": "https://www.inaturalist.org/observations/204560754"
+      },
+      {
+        "slot": "seeds",
+        "file": "fig/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Fresh figs.jpg",
+        "author": "Fumikas Sagisavas",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Fresh_figs.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "fig/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Ripe fig fruit on tree (Ficus Carica) in Southern France.JPG",
+        "author": "Stefan Thiesen",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ripe_fig_fruit_on_tree_(Ficus_Carica)_in_Southern_France.JPG"
+      }
+    ]
+  },
+  "dragon fruit": {
+    "folder": "dragon-fruit",
+    "scientific_name": "Hylocereus undatus",
+    "images": [
+      {
+        "slot": "field",
+        "file": "dragon-fruit/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:FARMERS GOV- Dragon Fruit Farmer Leonardo Aguila (20181113-FPAC-LSC-0971).jpg",
+        "author": "USDAgov",
+        "license": "Public domain",
+        "license_url": "",
+        "source": "https://commons.wikimedia.org/wiki/File:FARMERS_GOV-_Dragon_Fruit_Farmer_Leonardo_Aguila_(20181113-FPAC-LSC-0971).jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "dragon-fruit/2-close-up.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Dragon fruit flowers (49950874261).jpg",
+        "author": "Jean and Fred from Perth, Australia",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Dragon_fruit_flowers_(49950874261).jpg"
+      },
+      {
+        "slot": "pods",
+        "file": "dragon-fruit/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Hylocereus undatus-fruit20180201 118(07,24,36).jpg",
+        "author": "Bff",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Hylocereus_undatus-fruit20180201_118(07,24,36).jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "dragon-fruit/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Pitaya P1190424.jpg",
+        "author": "David Monniaux",
+        "license": "CC BY-SA 3.0",
+        "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "source": "https://commons.wikimedia.org/wiki/File:Pitaya_P1190424.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "dragon-fruit/5-mature.jpg",
+        "site": "iNaturalist",
+        "title": "Pitahaya (observation 53363802)",
+        "author": "Yolanda M. Leon",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source": "https://www.inaturalist.org/observations/53363802"
+      }
+    ]
+  },
+  "passion fruit": {
+    "folder": "passion-fruit",
+    "scientific_name": "Passiflora edulis",
+    "images": [
+      {
+        "slot": "field",
+        "file": "passion-fruit/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Passion fruit farm, April season.jpg",
+        "author": "Nana Pearls",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Passion_fruit_farm,_April_season.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "passion-fruit/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Maracujá-azedo-amarelo (observation 343963293)",
+        "author": "Jhonatan Matheus",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/343963293"
+      },
+      {
+        "slot": "pods",
+        "file": "passion-fruit/3-pods.jpg",
+        "site": "iNaturalist",
+        "title": "Passiflora edulis edulis (observation 124762620)",
+        "author": "Nicolás Baresch Uribe",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/124762620"
+      },
+      {
+        "slot": "seeds",
+        "file": "passion-fruit/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Passion fruits - whole and halved.jpg",
+        "author": "Ivar Leidus",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Passion_fruits_-_whole_and_halved.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "passion-fruit/5-mature.jpg",
+        "site": "iNaturalist",
+        "title": "Common passionfruit (observation 96457043)",
+        "author": "Thomas Mesaglio",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/96457043"
+      }
+    ]
+  },
+  "avocado": {
+    "folder": "avocado",
+    "scientific_name": "Persea americana",
+    "images": [
+      {
+        "slot": "field",
+        "file": "avocado/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Avocado orchard 02.JPG",
+        "author": "B.navez",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Avocado_orchard_02.JPG"
+      },
+      {
+        "slot": "close_up",
+        "file": "avocado/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Avocado (observation 39967533)",
+        "author": "Brian Oakes Haiti Hunter",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/39967533"
+      },
+      {
+        "slot": "pods",
+        "file": "avocado/3-pods.jpg",
+        "site": "iNaturalist",
+        "title": "Avocado (observation 149772667)",
+        "author": "vinicius_s_domingues",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/149772667"
+      },
+      {
+        "slot": "seeds",
+        "file": "avocado/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Avocado Hass - single and halved.jpg",
+        "author": "Ivar Leidus",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Avocado_Hass_-_single_and_halved.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "avocado/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Persea americana fruit 2.JPG",
+        "author": "B.navez",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Persea_americana_fruit_2.JPG"
+      }
+    ]
+  },
+  "watermelon": {
+    "folder": "watermelon",
+    "scientific_name": "Citrullus lanatus",
+    "images": [
+      {
+        "slot": "field",
+        "file": "watermelon/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Watermelons field in punjab.jpg",
+        "author": "Tulspal",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Watermelons_field_in_punjab.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "watermelon/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Watermelon (observation 189590268)",
+        "author": "Desiree L. Narango",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/189590268"
+      },
+      {
+        "slot": "pods",
+        "file": "watermelon/3-pods.jpg",
+        "site": "iNaturalist",
+        "title": "Watermelon (observation 401545221)",
+        "author": "Codrin Bucur",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/401545221"
+      },
+      {
+        "slot": "seeds",
+        "file": "watermelon/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:India - Koyambedu Market - Watermelons 07 (3987063506).jpg",
+        "author": "McKay Savage from London, UK",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:India_-_Koyambedu_Market_-_Watermelons_07_(3987063506).jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "watermelon/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:2023-09-17 16 16 25 Watermelons growing on a vine growing out of the crack in a concrete patio along Mercer County Route 526 (Robbinsville-Edinburg Road) in Robbinsville Township, Mercer County, New Jersey.jpg",
+        "author": "Famartin",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:2023-09-17_16_16_25_Watermelons_growing_on_a_vine_growing_out_of_the_crack_in_a_concrete_patio_along_Mercer_County_Route_526_(Robbinsville-Edinburg_Road)_in_Robbinsville_Township,_Mercer_County,_New_Jersey.jpg"
+      }
+    ]
+  },
+  "muskmelon": {
+    "folder": "muskmelon",
+    "scientific_name": "Cucumis melo",
+    "images": [
+      {
+        "slot": "field",
+        "file": "muskmelon/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:05127jfMagumbali Fields Chen Wen-Yu Melon Paralaya Candaba Pampanga San Miguel roadsfvf 13.jpg",
+        "author": "Judgefloro",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:05127jfMagumbali_Fields_Chen_Wen-Yu_Melon_Paralaya_Candaba_Pampanga_San_Miguel_roadsfvf_13.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "muskmelon/2-close-up.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Starr 080914-9943 Cucumis melo.jpg",
+        "author": "Forest & Kim Starr",
+        "license": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Starr_080914-9943_Cucumis_melo.jpg"
+      },
+      {
+        "slot": "pods",
+        "file": "muskmelon/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:05057jfMagumbali Fields Chen Wen-Yu Melon Paralaya Candaba Pampanga San Miguel roadsfvf 08.jpg",
+        "author": "Judgefloro",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:05057jfMagumbali_Fields_Chen_Wen-Yu_Melon_Paralaya_Candaba_Pampanga_San_Miguel_roadsfvf_08.jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "muskmelon/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Cucumis melo var. reticulatus (photo by Scott Bauer).jpg",
+        "author": "USDA photo by Scott Bauer. Image Number K7355-11.",
+        "license": "Public domain",
+        "license_url": "",
+        "source": "https://commons.wikimedia.org/wiki/File:Cucumis_melo_var._reticulatus_(photo_by_Scott_Bauer).jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "muskmelon/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:05157jfMagumbali Fields Chen Wen-Yu Melon Paralaya Candaba Pampanga San Miguel roadsfvf 22.jpg",
+        "author": "Judgefloro",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:05157jfMagumbali_Fields_Chen_Wen-Yu_Melon_Paralaya_Candaba_Pampanga_San_Miguel_roadsfvf_22.jpg"
+      }
+    ]
+  },
+  "oil palm": {
+    "folder": "oil-palm",
+    "scientific_name": "Elaeis guineensis",
+    "images": [
+      {
+        "slot": "field",
+        "file": "oil-palm/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Oil Palm Plantations in Melaka.jpg",
+        "author": "Chongkian",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Oil_Palm_Plantations_in_Melaka.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "oil-palm/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Dendezeiro (observation 300814161)",
+        "author": "filipeprates",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source": "https://www.inaturalist.org/observations/300814161"
+      },
+      {
+        "slot": "pods",
+        "file": "oil-palm/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Oil Palm Fruit Bunch.jpg",
+        "author": "Officialbernard1",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Oil_Palm_Fruit_Bunch.jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "oil-palm/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:A bunch of Oil palm after harvest.jpg",
+        "author": "Geossegawa",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:A_bunch_of_Oil_palm_after_harvest.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "oil-palm/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Mature Oil Palm Bearing Fresh Fruit Bunch (Elaeis guineensis).jpg",
+        "author": "Johnnybam",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mature_Oil_Palm_Bearing_Fresh_Fruit_Bunch_(Elaeis_guineensis).jpg"
+      }
+    ]
+  },
+  "mulberry": {
+    "folder": "mulberry",
+    "scientific_name": "Morus alba",
+    "images": [
+      {
+        "slot": "field",
+        "file": "mulberry/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Mulberry Cultivation In KosuvariPalli.jpg",
+        "author": "Gerigisanthoshreddy",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mulberry_Cultivation_In_KosuvariPalli.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "mulberry/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "white mulberry (observation 165625608)",
+        "author": "M. Whitson",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/165625608"
+      },
+      {
+        "slot": "pods",
+        "file": "mulberry/3-pods.jpg",
+        "site": "iNaturalist",
+        "title": "white mulberry (observation 166251133)",
+        "author": "SteveM4560",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/166251133"
+      },
+      {
+        "slot": "seeds",
+        "file": "mulberry/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Morus alba fruits and leaves.jpg",
+        "author": "Andre Abrahami",
+        "license": "CC BY-SA 2.5",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+        "source": "https://commons.wikimedia.org/wiki/File:Morus_alba_fruits_and_leaves.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "mulberry/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:MulberryCultivation.JPG",
+        "author": "Aruna at Malayalam Wikipedia",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:MulberryCultivation.JPG"
+      }
+    ]
+  },
+  "bamboo": {
+    "folder": "bamboo",
+    "scientific_name": "Bambusa vulgaris",
+    "images": [
+      {
+        "slot": "field",
+        "file": "bamboo/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Bambusa vulgaris (Dominica).jpg",
+        "author": "Hans Hillewaert",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bambusa_vulgaris_(Dominica).jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "bamboo/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "golden bamboo (observation 225583393)",
+        "author": "Quentin Groom",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source": "https://www.inaturalist.org/observations/225583393"
+      },
+      {
+        "slot": "pods",
+        "file": "bamboo/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Bambus vulga 160426-0195 tdp.JPG",
+        "author": "Wibowo Djatmiko (Wie146)",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bambus_vulga_160426-0195_tdp.JPG"
+      },
+      {
+        "slot": "seeds",
+        "file": "bamboo/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:堆疊起的竹筒.jpg",
+        "author": "氏子",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:%E5%A0%86%E7%96%8A%E8%B5%B7%E7%9A%84%E7%AB%B9%E7%AD%92.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "bamboo/5-mature.jpg",
+        "site": "iNaturalist",
+        "title": "Bambú asiático (observation 52963496)",
+        "author": "Carlos Domínguez-Rodríguez",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/52963496"
+      }
+    ]
+  },
+  "tamarind": {
+    "folder": "tamarind",
+    "scientific_name": "Tamarindus indica",
+    "images": [
+      {
+        "slot": "field",
+        "file": "tamarind/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Tamarind plantation 1.jpg",
+        "author": "FroyAgta",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Tamarind_plantation_1.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "tamarind/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Tamarindo africano (observation 83780546)",
+        "author": "ritirene",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/83780546"
+      },
+      {
+        "slot": "pods",
+        "file": "tamarind/3-pods.jpg",
+        "site": "iNaturalist",
+        "title": "Tamarind (observation 321030761)",
+        "author": "Lynn Harper",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source": "https://www.inaturalist.org/observations/321030761"
+      },
+      {
+        "slot": "seeds",
+        "file": "tamarind/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Tamarind pods.JPG",
+        "author": "Wicki",
+        "license": "Public domain",
+        "license_url": "",
+        "source": "https://commons.wikimedia.org/wiki/File:Tamarind_pods.JPG"
+      },
+      {
+        "slot": "mature",
+        "file": "tamarind/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Tamarindus indica pods.JPG",
+        "author": "B.navez",
+        "license": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5",
+        "source": "https://commons.wikimedia.org/wiki/File:Tamarindus_indica_pods.JPG"
+      }
+    ]
+  },
+  "sarpagandha": {
+    "folder": "sarpagandha",
+    "scientific_name": "Rauvolfia serpentina",
+    "images": [
+      {
+        "slot": "field",
+        "file": "sarpagandha/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Rauwolfia serpentina (1) - സര്‍പ്പഗന്ധി.jpg",
+        "author": "Vinayaraj",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Rauwolfia_serpentina_(1)_-_%E0%B4%B8%E0%B4%B0%E0%B5%8D%E2%80%8D%E0%B4%AA%E0%B5%8D%E0%B4%AA%E0%B4%97%E0%B4%A8%E0%B5%8D%E0%B4%A7%E0%B4%BF.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "sarpagandha/2-close-up.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Indian Snakeroot (505583655).jpg",
+        "author": "Dinesh Valke from Thane, India",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Indian_Snakeroot_(505583655).jpg"
+      },
+      {
+        "slot": "pods",
+        "file": "sarpagandha/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Rauvolfia serpentina 01.JPG",
+        "author": "Vinayaraj",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Rauvolfia_serpentina_01.JPG"
+      },
+      {
+        "slot": "seeds",
+        "file": "sarpagandha/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Rauvolfia serpentina 003.JPG",
+        "author": "H. Zell",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Rauvolfia_serpentina_003.JPG"
+      },
+      {
+        "slot": "mature",
+        "file": "sarpagandha/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Ichneumon Plant (6782553398).jpg",
+        "author": "Dinesh Valke from Thane, India",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ichneumon_Plant_(6782553398).jpg"
+      }
+    ]
+  },
+  "henna": {
+    "folder": "henna",
+    "scientific_name": "Lawsonia inermis",
+    "images": [
+      {
+        "slot": "field",
+        "file": "henna/1-field.jpg",
+        "site": "iNaturalist",
+        "title": "Henna (observation 406640936)",
+        "author": "Chuck Wilson",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source": "https://www.inaturalist.org/observations/406640936"
+      },
+      {
+        "slot": "close_up",
+        "file": "henna/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Alheña (observation 7144825)",
+        "author": "Jose Luis Leon de la Luz",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/7144825"
+      },
+      {
+        "slot": "pods",
+        "file": "henna/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Lawsonia inermis henna Egyptian privet Vijayanrajapuram 07.jpg",
+        "author": "Vijayanrajapuram",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lawsonia_inermis_henna_Egyptian_privet_Vijayanrajapuram_07.jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "henna/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Feuilles de hénné Gabès Tunisie souk Jara 01.jpg",
+        "author": "DrRachT",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Feuilles_de_h%C3%A9nn%C3%A9_Gab%C3%A8s_Tunisie_souk_Jara_01.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "henna/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Lawsonia inermis with fruits and flowers at Viswanagar 03.jpg",
+        "author": "Rajasekhar1961",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lawsonia_inermis_with_fruits_and_flowers_at_Viswanagar_03.jpg"
+      }
+    ]
+  },
+  "periwinkle": {
+    "folder": "periwinkle",
+    "scientific_name": "Catharanthus roseus",
+    "images": [
+      {
+        "slot": "field",
+        "file": "periwinkle/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Catharanthus roseus white and red 18042014 (1).jpg",
+        "author": "Joydeep",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Catharanthus_roseus_white_and_red_18042014_(1).jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "periwinkle/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Madagascar Periwinkle (observation 14782279)",
+        "author": "Pedro Henrique Maloso Ramos",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/14782279"
+      },
+      {
+        "slot": "pods",
+        "file": "periwinkle/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Catharanthus roseus 1DS-II 1-1497.jpg",
+        "author": "SAplants",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Catharanthus_roseus_1DS-II_1-1497.jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "periwinkle/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Catharanthus roseus MHNT.BOT.2005.0962.jpg",
+        "author": "Didier Descouens",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Catharanthus_roseus_MHNT.BOT.2005.0962.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "periwinkle/5-mature.jpg",
+        "site": "iNaturalist",
+        "title": "Madagascar Periwinkle (observation 130414995)",
+        "author": "Ethan",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/130414995"
+      }
+    ]
+  },
+  "sweet basil": {
+    "folder": "sweet-basil",
+    "scientific_name": "Ocimum basilicum",
+    "images": [
+      {
+        "slot": "field",
+        "file": "sweet-basil/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:L Basil.jpg",
+        "author": "Luwenn",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:L_Basil.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "sweet-basil/2-close-up.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Basil (Ocimum basilicum).jpg",
+        "author": "Cliff Hutson",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Basil_(Ocimum_basilicum).jpg"
+      },
+      {
+        "slot": "pods",
+        "file": "sweet-basil/3-pods.jpg",
+        "site": "iNaturalist",
+        "title": "Albahaca blanca (observation 28348298)",
+        "author": "Alan Rockefeller",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/28348298"
+      },
+      {
+        "slot": "seeds",
+        "file": "sweet-basil/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Basilseeds.jpg",
+        "author": "Badagnani",
+        "license": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Basilseeds.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "sweet-basil/5-mature.jpg",
+        "site": "iNaturalist",
+        "title": "Sweet basil (observation 15613799)",
+        "author": "Andre Hosper",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/15613799"
+      }
+    ]
+  },
+  "peas": {
+    "folder": "peas",
+    "scientific_name": "Pisum sativum",
+    "images": [
+      {
+        "slot": "field",
+        "file": "peas/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:-2022-06-13 Forming garden pea pods (Pisum sativum), Trimingham, Norfolk.JPG",
+        "author": "Kolforn",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:-2022-06-13_Forming_garden_pea_pods_(Pisum_sativum),_Trimingham,_Norfolk.JPG"
+      },
+      {
+        "slot": "close_up",
+        "file": "peas/2-close-up.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:White pea flower.jpg",
+        "author": "net_efekt",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:White_pea_flower.jpg"
+      },
+      {
+        "slot": "pods",
+        "file": "peas/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:-2020-06-24 Forming garden pea pods (Pisum sativum), Trimingham.JPG",
+        "author": "Kolforn",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:-2020-06-24_Forming_garden_pea_pods_(Pisum_sativum),_Trimingham.JPG"
+      },
+      {
+        "slot": "seeds",
+        "file": "peas/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Peas in pods 2016 G1.jpg",
+        "author": "George Chernilevsky",
+        "license": "Public domain",
+        "license_url": "",
+        "source": "https://commons.wikimedia.org/wiki/File:Peas_in_pods_2016_G1.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "peas/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:-2019-07-29 Forming garden pea pods (Pisum sativum), Trimingham.JPG",
+        "author": "Kolforn",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:-2019-07-29_Forming_garden_pea_pods_(Pisum_sativum),_Trimingham.JPG"
+      }
+    ]
+  },
+  "beetroot": {
+    "folder": "beetroot",
+    "scientific_name": "Beta vulgaris",
+    "images": [
+      {
+        "slot": "field",
+        "file": "beetroot/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Beetroot Plants Hullathy Nov24 A7CR 05174.jpg",
+        "author": "Timothy A. Gonsalves",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Beetroot_Plants_Hullathy_Nov24_A7CR_05174.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "beetroot/2-close-up.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:-2019-09-15 Beetroot plants, Trimingham.JPG",
+        "author": "Kolforn",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:-2019-09-15_Beetroot_plants,_Trimingham.JPG"
+      },
+      {
+        "slot": "pods",
+        "file": "beetroot/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Beta vulgaris var conditiva Буряк столовий сорт Воєвода - розріз коренеплоду.jpg",
+        "author": "Zenon Sych",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Beta_vulgaris_var_conditiva_%D0%91%D1%83%D1%80%D1%8F%D0%BA_%D1%81%D1%82%D0%BE%D0%BB%D0%BE%D0%B2%D0%B8%D0%B9_%D1%81%D0%BE%D1%80%D1%82_%D0%92%D0%BE%D1%94%D0%B2%D0%BE%D0%B4%D0%B0_-_%D1%80%D0%BE%D0%B7%D1%80%D1%96%D0%B7_%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%B5%D0%BF%D0%BB%D0%BE%D0%B4%D1%83.jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "beetroot/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Beets-Bundle.jpg",
+        "author": "Evan-Amos",
+        "license": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Beets-Bundle.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "beetroot/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Beta vulgaris var conditiva Буряк столовий сорт Воєвода.jpg",
+        "author": "Zenon Sych",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Beta_vulgaris_var_conditiva_%D0%91%D1%83%D1%80%D1%8F%D0%BA_%D1%81%D1%82%D0%BE%D0%BB%D0%BE%D0%B2%D0%B8%D0%B9_%D1%81%D0%BE%D1%80%D1%82_%D0%92%D0%BE%D1%94%D0%B2%D0%BE%D0%B4%D0%B0.jpg"
+      }
+    ]
+  },
+  "ash gourd": {
+    "folder": "ash-gourd",
+    "scientific_name": "Benincasa hispida",
+    "images": [
+      {
+        "slot": "field",
+        "file": "ash-gourd/1-field.jpg",
+        "site": "iNaturalist",
+        "title": "Winter Melon (observation 194263231)",
+        "author": "Joseph Aubert",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/194263231"
+      },
+      {
+        "slot": "close_up",
+        "file": "ash-gourd/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Winter Melon (observation 29758793)",
+        "author": "Richard Stovall",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/29758793"
+      },
+      {
+        "slot": "pods",
+        "file": "ash-gourd/3-pods.jpg",
+        "site": "iNaturalist",
+        "title": "Winter Melon (observation 361606403)",
+        "author": "Satyaji Wibowo",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/361606403"
+      },
+      {
+        "slot": "seeds",
+        "file": "ash-gourd/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Benincasa hispida-1-selvapuram-coimbatore-India.jpg",
+        "author": "Yercaud-elango",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Benincasa_hispida-1-selvapuram-coimbatore-India.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "ash-gourd/5-mature.jpg",
+        "site": "iNaturalist",
+        "title": "Winter Melon (observation 283154362)",
+        "author": "Katharine Khamhaengwong",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/283154362"
+      }
+    ]
+  },
+  "snake gourd": {
+    "folder": "snake-gourd",
+    "scientific_name": "Trichosanthes cucumerina",
+    "images": [
+      {
+        "slot": "field",
+        "file": "snake-gourd/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Trichosanthes cucumerina (snake gourd).jpg",
+        "author": "Augustus Binu : flickr : Instagram",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Trichosanthes_cucumerina_(snake_gourd).jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "snake-gourd/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Trichosanthes cucumerina (observation 84713645)",
+        "author": "Paulmathi Vinod",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/84713645"
+      },
+      {
+        "slot": "pods",
+        "file": "snake-gourd/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Trichosanthes cucumerina cultivation.jpg",
+        "author": "Vinayaraj",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Trichosanthes_cucumerina_cultivation.jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "snake-gourd/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Trichosanthes cucumerina var. anguina - Snake Gourd in a market in North India.jpg",
+        "author": "Leslie Seaton",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Trichosanthes_cucumerina_var._anguina_-_Snake_Gourd_in_a_market_in_North_India.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "snake-gourd/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Trichosanthes cucumerina var. anguina (Snake gourd) Growing Gourd.jpg",
+        "author": "Indi Samarajiva",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Trichosanthes_cucumerina_var._anguina_(Snake_gourd)_Growing_Gourd.jpg"
+      }
+    ]
+  },
+  "colocasia": {
+    "folder": "colocasia",
+    "scientific_name": "Colocasia esculenta",
+    "images": [
+      {
+        "slot": "field",
+        "file": "colocasia/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Field view of Taro cultivation.jpg",
+        "author": "Antonializa",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Field_view_of_Taro_cultivation.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "colocasia/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Malanga (observation 24301407)",
+        "author": "Adriana Nelly Correa Sandoval",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/24301407"
+      },
+      {
+        "slot": "pods",
+        "file": "colocasia/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Colocasia esculenta (Taro or Gabi) corms germinating - Mindanao, Philippines.JPG",
+        "author": "Obsidian Soul",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Colocasia_esculenta_(Taro_or_Gabi)_corms_germinating_-_Mindanao,_Philippines.JPG"
+      },
+      {
+        "slot": "seeds",
+        "file": "colocasia/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Taro corms.JPG",
+        "author": "Paxsimius",
+        "license": "CC BY-SA 2.5",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+        "source": "https://commons.wikimedia.org/wiki/File:Taro_corms.JPG"
+      },
+      {
+        "slot": "mature",
+        "file": "colocasia/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Starr-130322-3762-Colocasia esculenta-harvested-Hanalei NWR-Kauai (24578818654).jpg",
+        "author": "Forest and Kim Starr",
+        "license": "CC BY 3.0 us",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Starr-130322-3762-Colocasia_esculenta-harvested-Hanalei_NWR-Kauai_(24578818654).jpg"
+      }
+    ]
+  },
+  "capsicum": {
+    "folder": "capsicum",
+    "scientific_name": "Capsicum annuum",
+    "images": [
+      {
+        "slot": "field",
+        "file": "capsicum/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Starr-150326-0870-Capsicum annuum-Bell in Hydroponics greenhouse-Town Sand Island-Midway Atoll (25148787802).jpg",
+        "author": "Forest and Kim Starr",
+        "license": "CC BY 3.0 us",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Starr-150326-0870-Capsicum_annuum-Bell_in_Hydroponics_greenhouse-Town_Sand_Island-Midway_Atoll_(25148787802).jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "capsicum/2-close-up.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Bell pepper flower.jpg",
+        "author": "Bekhzod.kh",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bell_pepper_flower.jpg"
+      },
+      {
+        "slot": "pods",
+        "file": "capsicum/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:PikiWiki Israel 45898 Green peppers.jpg",
+        "author": "שקד דאמרי מגמת צילום תיכון רוזמצקין",
+        "license": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5",
+        "source": "https://commons.wikimedia.org/wiki/File:PikiWiki_Israel_45898_Green_peppers.jpg"
+      },
+      {
+        "slot": "seeds",
+        "file": "capsicum/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Green capsicum, sweet bell pepper.jpg",
+        "author": "Susan Slater",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Green_capsicum,_sweet_bell_pepper.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "capsicum/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Pimiento morrón (Capsicum annuum).jpg",
+        "author": "Juan Carlos Fonseca Mata",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pimiento_morr%C3%B3n_(Capsicum_annuum).jpg"
+      }
+    ]
+  },
+  "french bean": {
+    "folder": "french-bean",
+    "scientific_name": "Phaseolus vulgaris",
+    "images": [
+      {
+        "slot": "field",
+        "file": "french-bean/1-field.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Green beans farm.jpg",
+        "author": "UWIMPUHWE Va",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Green_beans_farm.jpg"
+      },
+      {
+        "slot": "close_up",
+        "file": "french-bean/2-close-up.jpg",
+        "site": "iNaturalist",
+        "title": "Gewöhnliche Bohne (observation 233700164)",
+        "author": "Christoph Moning",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "https://www.inaturalist.org/observations/233700164"
+      },
+      {
+        "slot": "pods",
+        "file": "french-bean/3-pods.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Phaseolus vulgaris 003.JPG",
+        "author": "H. Zell",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Phaseolus_vulgaris_003.JPG"
+      },
+      {
+        "slot": "seeds",
+        "file": "french-bean/4-seeds.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Buschbohnen grün, im Karton-Josef Schlaghecken.jpg",
+        "author": "Schlaghecken Josef",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Buschbohnen_gr%C3%BCn,_im_Karton-Josef_Schlaghecken.jpg"
+      },
+      {
+        "slot": "mature",
+        "file": "french-bean/5-mature.jpg",
+        "site": "Wikimedia Commons",
+        "title": "File:Starr-081031-0359-Phaseolus vulgaris-fruit-Makawao-Maui (24558975089).jpg",
+        "author": "Forest and Kim Starr",
+        "license": "CC BY 3.0 us",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Starr-081031-0359-Phaseolus_vulgaris-fruit-Makawao-Maui_(24558975089).jpg"
       }
     ]
   }
