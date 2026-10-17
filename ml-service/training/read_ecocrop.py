@@ -6,7 +6,7 @@
 # Two kinds of crops:
 #   - every crop the model recommends, so the app can check the model's crops against a farmer's soil test
 #     and the local climate;
-#   - vegetables, herbs, spices and plantation crops the government statistics do not count, so the model cannot learn
+#   - fruits, vegetables, herbs, spices and plantation crops the government statistics do not count, so the model cannot learn
 #     them; the app lists those that suit the land by these requirements alone, and says so.
 #
 # EcoCrop gives an optimal range and an absolute range for each value: inside the optimal range the crop
@@ -45,7 +45,7 @@ MODEL_CROPS = {
     "chilli": "Capsicum annuum", "turmeric": "Curcuma longa", "ginger": "Zingiber officinale", "coriander": "Coriandrum sativum",
     "orange": "Citrus sinensis", "pineapple": "Ananas comosus",
 }
-# Vegetables, herbs, spices and plantation crops grown in Karnataka that the crop statistics do not count:
+# Fruits, vegetables, herbs, spices and plantation crops grown in Karnataka that the crop statistics do not count:
 # our name -> (EcoCrop scientific name, the group the app shows it in)
 OTHER_CROPS = {
     "tulsi": ("Ocimum tenuiflorum", "herb"), "ashwagandha": ("Withania somnifera", "herb"),
@@ -69,6 +69,23 @@ OTHER_CROPS = {
     "radish": ("Raphanus sativus", "vegetable"), "amaranthus": ("Amaranthus tricolor", "vegetable"),
     "spinach": ("Spinacia oleracea", "vegetable"),
     "vegetable cowpea": ("Vigna unguiculata ssp. sesquipedalis", "vegetable"),
+    # Added 2026-10-14: fruits, plantation crops, herbs and vegetables farmers here know, that the crop statistics do
+    # not count on their own (custard apple is only in "Other Fresh Fruits"). Only crops whose EcoCrop row has the
+    # pH, temperature and rain ranges; acid lime, kokum, brahmi, shatavari, coleus and flowers are not in EcoCrop.
+    "custard apple": ("Annona squamosa", "fruit"), "guava": ("Psidium guajava", "fruit"),
+    "jackfruit": ("Artocarpus heterophyllus", "fruit"), "lemon": ("Citrus limon", "fruit"),
+    "ber": ("Ziziphus mauritiana", "fruit"), "jamun": ("Syzygium cumini", "fruit"), "amla": ("Emblica officinalis", "fruit"),
+    "fig": ("Ficus carica", "fruit"), "dragon fruit": ("Hylocereus undatus", "fruit"),
+    "passion fruit": ("Passiflora edulis", "fruit"), "avocado": ("Persea americana", "fruit"),
+    "watermelon": ("Citrullus lanatus", "fruit"), "muskmelon": ("Cucumis melo", "fruit"),
+    "oil palm": ("Elaeis guineensis", "plantation"), "mulberry": ("Morus alba", "plantation"),
+    "bamboo": ("Bambusa vulgaris", "plantation"), "tamarind": ("Tamarindus indica", "spice"),
+    "sarpagandha": ("Rauvolfia serpentina", "herb"), "henna": ("Lawsonia inermis", "herb"),
+    "periwinkle": ("Catharanthus roseus", "herb"), "sweet basil": ("Ocimum basilicum", "herb"),
+    "peas": ("Pisum sativum", "vegetable"), "beetroot": ("Beta vulgaris", "vegetable"),
+    "ash gourd": ("Benincasa hispida", "vegetable"), "snake gourd": ("Trichosanthes cucumerina", "vegetable"),
+    "colocasia": ("Colocasia esculenta", "vegetable"), "capsicum": ("Capsicum annuum", "vegetable"),
+    "french bean": ("Phaseolus vulgaris", "vegetable"),
 }
 COLUMNS = {   # EcoCrop column -> ours
     "PHOPMN": "pH_opt_min", "PHOPMX": "pH_opt_max", "PHMIN": "pH_min", "PHMAX": "pH_max",
@@ -94,6 +111,6 @@ table = pd.DataFrame(rows).rename(columns=COLUMNS)
 model_crops = set(json.load(open("artifacts/crop_model_info.json"))["crops"])
 missing = model_crops - set(MODEL_CROPS)
 table.to_csv(OUT_FILE, index=False)
-print(f"Saved {OUT_FILE}: {table['In_model'].sum()} model crops and {(~table['In_model']).sum()} vegetables, herbs, spices "
+print(f"Saved {OUT_FILE}: {table['In_model'].sum()} model crops and {(~table['In_model']).sum()} fruits, vegetables, herbs, spices "
       f"and plantation crops | model crops without requirements: {sorted(missing) or 'none'}")
 print("Values missing in EcoCrop:", table[["pH_min", "Temp_min", "Rain_min"]].isna().sum().to_dict())

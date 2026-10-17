@@ -41,7 +41,7 @@ class PredictTest(unittest.TestCase):
         self.assertEqual(error.exception.status_code, 404)
 
     def test_crop_needs_for_the_app(self):
-        self.assertEqual(len(self.main.crop_needs()), 93)
+        self.assertEqual(len(self.main.crop_needs()), 121)  # 93 crops, and 28 more added 2026-10-14
 
 
 if __name__ == "__main__":

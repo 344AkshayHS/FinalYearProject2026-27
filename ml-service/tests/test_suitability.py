@@ -52,7 +52,7 @@ class SeasonalTest(unittest.TestCase):
 class NeedsTest(unittest.TestCase):
     def test_every_crop_has_its_needs_and_low_is_not_above_high(self):
         needs = all_needs()
-        self.assertEqual(len(needs), 93)
+        self.assertEqual(len(needs), 121)  # 93 crops, and 28 more added 2026-10-14
         for crop, item in needs.items():
             self.assertIn(item["fertility"], ("low", "moderate", "high", None), crop)
             for key in ("ph", "rain_mm", "temperature_c"):

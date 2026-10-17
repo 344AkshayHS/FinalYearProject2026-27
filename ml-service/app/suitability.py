@@ -48,13 +48,13 @@ def rate_texture(texture, optimal, allowed):
 
 
 def seasonal(crop):
-    """A crop sown and harvested within a season (rice, pulses, vegetables): its EcoCrop rainfall need is for
-    its own growing months, so it is checked against the season's rain; plantation crops, fruit trees and
+    """A crop sown and harvested within a season (rice, pulses, vegetables, melons): its EcoCrop rainfall need is
+    for its own growing months, so it is checked against the season's rain; plantation crops, fruit trees and
     perennial herbs against the year's."""
     r = requirements.loc[crop]
     if r.In_model:
         return crop not in YEAR_ROUND
-    return r.Group == "vegetable" or (r.Group == "herb" and "perennial" not in str(r.Life_span))
+    return r.Group == "vegetable" or (r.Group in ("herb", "fruit") and "perennial" not in str(r.Life_span))
 
 
 def check(crop, land, season):
@@ -88,7 +88,7 @@ def moved_down(suits, own_ph):
 
 
 def other_crops(land, season):
-    """Vegetables, herbs, spices and plantation crops the model does not know, that suit the land by their
+    """Fruits, vegetables, herbs, spices and plantation crops the model does not know, that suit the land by their
     requirements: pH and the season's temperature inside their absolute range, and rain too - except that a
     seasonal crop (vegetables, annual herbs) with too little rain stays, since it can be irrigated; the app hides
     those on rain-fed land. Too much rain, or too little for a plantation crop or tree, cannot be watered away.

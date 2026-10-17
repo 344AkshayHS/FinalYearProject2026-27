@@ -298,7 +298,7 @@ def explain(row, index):
 def answer(probabilities, row, season, own_ph=False, rain=None):
     """Top 5 crops for these probabilities, with SHAP and LIME for the top crop at this row of features, how
     the land suits each crop (FAO EcoCrop requirements, app/suitability.py), every crop in order, and the
-    herbs, spices and plantation crops the model does not know that suit the land."""
+    fruits, vegetables, herbs, spices and plantation crops the model does not know that suit the land."""
     land = row.iloc[0].copy()
     if rain is not None:   # the district's IMD normal rainfall for the requirement checks (the model keeps NASA's)
         land["Rainfall"] = rain["Rain_mm"]
